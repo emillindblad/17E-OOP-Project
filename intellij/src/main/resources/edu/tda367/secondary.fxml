@@ -7,7 +7,7 @@
 
 <VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.tda367.SecondaryController">
     <children>
-        <Label text="Yeet" />
+        <Label text="Föremålet är hyrt!" />
         <Button fx:id="secondaryButton" onAction="#switchToPrimary" text="Avsluta" />
     </children>
     <padding>

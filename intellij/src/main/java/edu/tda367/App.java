@@ -17,7 +17,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         sceneHandler = new SceneHandler(stage);
-        sceneHandler.addScene(hyroFactory)
+        sceneHandler.addScene(HyroFactory)
     }
 
     static void setRoot(String fxml) throws IOException {

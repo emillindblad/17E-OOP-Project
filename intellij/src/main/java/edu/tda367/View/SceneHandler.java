@@ -1,6 +1,9 @@
+package edu.tda367.View;
+
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 
+import java.io.IOException;
 import java.util.*;
 
 public class SceneHandler {
@@ -10,17 +13,13 @@ public class SceneHandler {
     public SceneHandler(Stage root)
     {
         this.root = root;
-        scene = new Scene(loadFXML("primary"));
-        root.setScene(scene);
-        stage.SetTitle("Home Page");
-        stage.show();
     }
 
     public void switchTo(String name) {
-        App.setRoot(name);
+
     }
 
-    public void addScene(hyroScene scene, string name) {
+    public void addScene(hyroScene scene, String name) {
         this.scenes.put(name.toLowerCase(), scene);
     }
 

@@ -5,7 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 /**
@@ -13,14 +12,12 @@ import java.io.IOException;
  */
 public class App extends Application {
 
-    private static Scene scene;
+    private static SceneHandler sceneHandler;
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"));
-        stage.setScene(scene);
-        stage.setTitle("Hyro");
-        stage.show();
+        sceneHandler = new SceneHandler(stage);
+        sceneHandler.addScene(hyroFactory)
     }
 
     static void setRoot(String fxml) throws IOException {

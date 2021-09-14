@@ -8,4 +8,12 @@ public class Booking {
     public Booking(String customerName) {
         this.customerName = customerName;
     }
+
+    public String getCustomerName() {
+        return customerName; //Strings are immutable?
+    }
+
+    public BookingState getBookingState() {
+        return bookingState;
+    }
 }

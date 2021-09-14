@@ -1,6 +1,6 @@
 package edu.tda367;
 
-public enum Orderstate {
+public enum ListingState {
     AVALIBLE,
     UNAVALIBLE,
 }

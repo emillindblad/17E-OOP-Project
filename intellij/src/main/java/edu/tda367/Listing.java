@@ -33,4 +33,36 @@ public class Listing {
                 ", orderSate=" + orderSate +
                 '}';
     }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public ListingState getOrderSate() {
+        return orderSate;
+    }
+
+    public void setOrderSate(ListingState orderSate) {
+        this.orderSate = orderSate;
+    }
 }

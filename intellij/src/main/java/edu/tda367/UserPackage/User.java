@@ -1,10 +1,10 @@
-package edu.tda367;
+package edu.tda367.UserPackage;
 
-public class User {
+ class User {
 
     private String firstName;
     private String lastName;
-    private int phoneNumber;
+    private String phoneNumber;
     private UserAdress userAdress;
 
     //for login
@@ -12,11 +12,10 @@ public class User {
     private String password;
 
     // proof of concept, needs more information irl
-    private int bankAccount;
+    private String bankAccount;
 
-    //TODO: Owner and customer classes and implementation
 
-    public User(String firstName, String lastName, int phoneNumber, UserAdress userAdress, String userName, String password, int bankAccount) {
+     public User(String firstName, String lastName, String phoneNumber, UserAdress userAdress, String userName, String password, String bankAccount) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
@@ -26,6 +25,17 @@ public class User {
         this.bankAccount = bankAccount;
     }
 
+     public User(String firstName, String lastName, String phoneNumber, String userName, String password, String bankAccount) {
+         this.firstName = firstName;
+         this.lastName = lastName;
+         this.phoneNumber = phoneNumber;
+         this.userName = userName;
+         this.password = password;
+         this.bankAccount = bankAccount;
+     }
+
+
+
     public String getFirstName() {
         return firstName;
     }
@@ -34,7 +44,7 @@ public class User {
         return lastName;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
@@ -42,7 +52,7 @@ public class User {
         return userAdress;
     }
 
-     String getUserName() {
+      String getUserName() {
         return userName;
     }
 
@@ -50,7 +60,7 @@ public class User {
         return password;
     }
 
-    int getBankAccount() {
+    String getBankAccount() {
         return bankAccount;
     }
 

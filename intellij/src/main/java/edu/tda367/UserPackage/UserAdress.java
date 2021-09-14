@@ -1,4 +1,4 @@
-package edu.tda367;
+package edu.tda367.UserPackage;
 
 public class UserAdress {
     private String streetName;
@@ -36,19 +36,7 @@ public class UserAdress {
         return streetName;
     }
 
-    public void setStreetName(String streetName) {
-        this.streetName = streetName;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public void setZipCode(int zipCode) {
-        this.zipCode = zipCode;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
+    public String printableAdress (){
+        return streetName + "/n" + zipCode + " " + city + "/n" + country;
     }
 }

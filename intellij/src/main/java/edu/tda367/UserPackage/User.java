@@ -6,6 +6,7 @@ package edu.tda367.UserPackage;
     private String lastName;
     private String phoneNumber;
     private UserAdress userAdress;
+    private int userID;  //TODO implement in constructor
 
     //for login
     private String userName;
@@ -15,7 +16,7 @@ package edu.tda367.UserPackage;
     private String bankAccount;
 
 
-     public User(String firstName, String lastName, String phoneNumber, UserAdress userAdress, String userName, String password, String bankAccount) {
+      User(String firstName, String lastName, String phoneNumber, UserAdress userAdress, String userName, String password, String bankAccount) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
@@ -25,7 +26,7 @@ package edu.tda367.UserPackage;
         this.bankAccount = bankAccount;
     }
 
-     public User(String firstName, String lastName, String phoneNumber, String userName, String password, String bankAccount) {
+      User(String firstName, String lastName, String phoneNumber, String userName, String password, String bankAccount) {
          this.firstName = firstName;
          this.lastName = lastName;
          this.phoneNumber = phoneNumber;

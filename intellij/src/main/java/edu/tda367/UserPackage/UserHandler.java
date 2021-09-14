@@ -2,13 +2,13 @@ package edu.tda367.UserPackage;
 
 import java.util.List;
 
-public class UserLogIn {
+public class UserHandler {
     //TODO implement how/when users-list gets saved to database
     private List<User> users;
     private boolean isAuthenticated;
     private User loggedInUser;
 
-    public UserLogIn (){
+    public UserHandler (){
         //TODO implement how list of users gets populated.
         isAuthenticated = false;
     }
@@ -38,4 +38,6 @@ public class UserLogIn {
         User user = new User (firstName, lastName, phoneNumber, userName, password, bankAccount);
         users.add(user);
     }
+
+    //TODO method to access/notify users when their listings are updated
 }

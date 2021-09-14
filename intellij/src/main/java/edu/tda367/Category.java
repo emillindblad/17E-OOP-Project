@@ -10,4 +10,11 @@ public class Category {
     public String getCategoryName() {
         return categoryName;
     }
+
+    @Override
+    public String toString() {
+        return "Category{" +
+                "categoryName='" + categoryName + '\'' +
+                '}';
+    }
 }

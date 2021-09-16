@@ -3,6 +3,7 @@ package edu.tda367.View;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 
+import java.io.Console;
 import java.util.*;
 
 public class SceneHandler {
@@ -17,6 +18,7 @@ public class SceneHandler {
     public void switchTo(String newSceneName) {
         hyroScene newScene = scenes.get(newSceneName.toLowerCase());
         switchTo(newScene);
+        System.out.println(newSceneName);
     }
 
     public boolean switchTo(hyroScene newScene) {

@@ -6,7 +6,7 @@ import edu.tda367.View.SceneHandler;
 import javafx.fxml.FXML;
 
 public class PrimaryController {
-    private final SceneHandler handler;
+    private SceneHandler handler;
 
     PrimaryController(SceneHandler handler)
     {

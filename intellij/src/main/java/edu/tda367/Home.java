@@ -14,15 +14,25 @@ import java.io.IOException;
 public class Home extends AnchorPane implements hyroScene {
     private final Scene scene;
     private final SceneHandler handler;
-
+    private final PrimaryController primaryController;
+    private final SecondaryController secondaryController;
     @FXML
     private Label testingLabel;
 
     public Home(SceneHandler handler) throws IOException {
-        FXMLLoader loadfxml = new FXMLLoader(getClass().getResource("../../resources/edu.tda367/primary.fxml"));
-        loadfxml.setController(this);
-        Parent root = loadfxml.load();
+        FXMLLoader loader = App.loadFXML("secondary");
+        System.out.println("here");
+        loader.setController(this);
+        Parent root = loader.load();
         this.scene = new Scene(root);
         this.handler = handler;
+        this.secondaryController = new SecondaryController();
+        this.primaryController = new PrimaryController(handler);
+
+    }
+
+    @FXML
+    public void switchToPrimary() {
+        handler.switchTo("primary");
     }
 }

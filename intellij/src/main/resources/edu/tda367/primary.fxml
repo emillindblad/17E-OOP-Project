@@ -25,7 +25,7 @@
                   <Font size="28.0" />
                </font>
             </Text>
-            <Button fx:id="primaryButton" layoutX="783.0" layoutY="461.0" mnemonicParsing="false" onAction="#switchToPrimary" prefHeight="58.0" prefWidth="146.0" style="-fx-background-color: #00BABE; -fx-border-color: #000000; -fx-border-width: 2;" text="Hyr" textAlignment="CENTER" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="780.0" AnchorPane.rightAnchor="31.0" AnchorPane.topAnchor="458.0">
+            <Button fx:id="primaryButton" layoutX="783.0" layoutY="461.0" mnemonicParsing="false" onAction="#switchToSecondary" prefHeight="58.0" prefWidth="146.0" style="-fx-background-color: #00BABE; -fx-border-color: #000000; -fx-border-width: 2;" text="Hyr" textAlignment="CENTER" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="780.0" AnchorPane.rightAnchor="31.0" AnchorPane.topAnchor="458.0">
                <font>
                   <Font size="24.0" />
                </font>

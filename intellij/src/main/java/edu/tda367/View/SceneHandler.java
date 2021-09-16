@@ -8,7 +8,7 @@ import java.util.*;
 
 public class SceneHandler {
     private final Stage root;
-    private static Scene scene;
+    private Scene scene;
     private final Map<String, hyroScene> scenes = new HashMap<>();
     public SceneHandler(Stage root)
     {
@@ -30,7 +30,7 @@ public class SceneHandler {
     }
 
     public void switchScenes(hyroScene newScene) {
-        root.setScene(newScene.getScene());
+        root.setScene(newScene.getHyroScene());
         root.show();
     }
 
@@ -42,6 +42,6 @@ public class SceneHandler {
 
     private Scene getScene()
     {
-        return scene;
+        return this.scene;
     }
 }

@@ -24,7 +24,7 @@ public class Booking {
             bookingState = BookingState.ACCEPTED;
         }
     }
-
+    /*
     private boolean getBookingAccepted() {
         if (listing.bookingIsAccepted(this)) {
             advanceBookingState();
@@ -32,6 +32,6 @@ public class Booking {
         }
 
         return false;
-    }
+    }*/
 
 }

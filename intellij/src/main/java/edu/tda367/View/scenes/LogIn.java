@@ -1,6 +1,7 @@
 package edu.tda367.View.scenes;
 
 import edu.tda367.App;
+import edu.tda367.UserPackage.UserHandler;
 import edu.tda367.View.SceneHandler;
 import edu.tda367.View.hyroScene;
 import javafx.fxml.FXML;
@@ -29,6 +30,9 @@ public class LogIn extends AnchorPane implements hyroScene {
         Parent root = loader.load();
         this.scene = new Scene(root);
         this.handler = handler;
+        //dummy users for login test
+        UserHandler.getInstance().createUser("a","b","1","a","b","1");
+        UserHandler.getInstance().createUser("q","w","2","q","w","2");
     }
 
     public Scene getHyroScene() {
@@ -42,10 +46,10 @@ public class LogIn extends AnchorPane implements hyroScene {
 
     @FXML
     public void logInAttempt() {
-        if (userNameField.getText().equals("a") && passwordField.getText().equals("b")) {
+        if (UserHandler.getInstance().logIn(userNameField.getText(), passwordField.getText())) {
             switchToHome();
         } else {
-            infoLabel.setText("fel mannen");
+            infoLabel.setText("Fel namn eller lösen");
         }
     }
 }

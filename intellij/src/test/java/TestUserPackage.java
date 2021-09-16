@@ -27,7 +27,10 @@ public class TestUserPackage {
 
     @Test
     public void SecondUserLogInTest () {
-        assertFalse(uHandler.logIn("kvalle", "kvalle"));
+        assertTrue(uHandler.logIn("kvalle", "kvalle123"));
+        assertFalse(uHandler.logIn("eblad", "eblad123"));
+        uHandler.logOut();
+        assertTrue(uHandler.logIn("eblad", "eblad123"));
     }
 
 

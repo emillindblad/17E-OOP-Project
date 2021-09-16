@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="edu.tda367.Login"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="101.0" layoutY="130.0" text="Användarnamn" />
+      <Label layoutX="101.0" layoutY="215.0" text="Lösenord" />
+      <Label fx:id="infoLabel" layoutX="214.0" layoutY="269.0" text="info" />
+      <Button fx:id="logInButton" layoutX="323.0" layoutY="265.0" mnemonicParsing="false" onAction="#logInAttempt" text="login" />
+      <TextField fx:id="userNameField" layoutX="226.0" layoutY="126.0" />
+      <TextField fx:id="passwordField" layoutX="226.0" layoutY="211.0" />
+   </children>
 </AnchorPane>

@@ -20,7 +20,8 @@ public class App extends Application {
         sceneHandler = new SceneHandler(stage);
         sceneHandler.addScene(HyroFactory.homeScene(sceneHandler), "home");
         sceneHandler.addScene(HyroFactory.secondaryScene(sceneHandler), "secondary");
-        sceneHandler.switchTo("home");
+        sceneHandler.addScene(HyroFactory.loginScene(sceneHandler), "login");
+        sceneHandler.switchTo("login");
     }
 
     public static FXMLLoader loadFXML(String fxml) throws IOException {

@@ -41,9 +41,11 @@ public class LogIn extends AnchorPane implements hyroScene {
     }
 
     @FXML
-    public boolean logInAttempt() {
-
-
-        return false;
+    public void logInAttempt() {
+        if (userNameField.getText().equals("a") && passwordField.getText().equals("b")) {
+            switchToHome();
+        } else {
+            infoLabel.setText("fel mannen");
+        }
     }
 }

@@ -1,6 +1,6 @@
 package edu.tda367.UserPackage;
 
- class User {
+ public class User {
 
     private String firstName;
     private String lastName;

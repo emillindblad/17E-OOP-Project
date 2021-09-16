@@ -1,6 +1,4 @@
-package edu.tda367;
-
-import javafx.scene.image.Image;
+package edu.tda367.Listing;
 
 public class Product {
     private final String prodName;

@@ -1,4 +1,6 @@
-package edu.tda367;
+package edu.tda367.Booking;
+
+import edu.tda367.Listing.Listing;
 
 public class Booking {
 

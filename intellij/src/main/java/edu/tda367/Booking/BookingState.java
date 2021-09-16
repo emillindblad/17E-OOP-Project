@@ -1,4 +1,4 @@
-package edu.tda367;
+package edu.tda367.Booking;
 
 public enum BookingState {
     PENDING,

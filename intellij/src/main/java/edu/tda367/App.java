@@ -21,6 +21,7 @@ public class App extends Application {
         sceneHandler.addScene(HyroFactory.homeScene(sceneHandler), "home");
         sceneHandler.addScene(HyroFactory.secondaryScene(sceneHandler), "secondary");
         sceneHandler.switchTo("home");
+
     }
 
     public static FXMLLoader loadFXML(String fxml) throws IOException {

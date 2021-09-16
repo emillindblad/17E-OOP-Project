@@ -1,6 +1,7 @@
 package edu.tda367.Booking;
 
 import edu.tda367.Listing.Listing;
+import edu.tda367.UserPackage.User;
 
 public class Booking {
 

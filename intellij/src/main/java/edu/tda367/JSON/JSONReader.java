@@ -11,7 +11,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JSONReader {
+public class JSONReader { //TODO: Implement writer first
 
     public <clazz> ArrayList read(String className, String classSimpleName) {
 

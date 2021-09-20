@@ -1,5 +1,6 @@
 package edu.tda367;
 
+import edu.tda367.JSON.JSONWriter;
 import edu.tda367.UserPackage.UserHandler;
 import edu.tda367.View.SceneHandler;
 import javafx.application.Application;
@@ -18,7 +19,10 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        UserHandler userHandler = new UserHandler();
+        UserHandler uHandler = new UserHandler();
+        //uHandler.createUser("Erik", "Larsson", "0734111337","eblad", "eblad123", "123456789" );
+        //uHandler.createUser("Sebastian", "Kvaldén", "0734111337","kvalle", "kvalle123", "987654321" );
+        uHandler.writeUsers();
         sceneHandler = new SceneHandler(stage);
         sceneHandler.addScene(HyroFactory.homeScene(sceneHandler), "home");
         sceneHandler.addScene(HyroFactory.secondaryScene(sceneHandler), "secondary");

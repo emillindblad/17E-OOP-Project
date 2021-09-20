@@ -1,6 +1,7 @@
 package edu.tda367.UserPackage;
 
 import edu.tda367.JSON.JSONReader;
+import edu.tda367.JSON.JSONWriter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,13 +11,11 @@ public class UserHandler {
     private ArrayList<User> users;
     private boolean isAuthenticated;
     private User loggedInUser;
-    private JSONReader parser = new JSONReader();
 
     public UserHandler (){
         //TODO implement how list of users gets populated.
         isAuthenticated = false;
-        users = new ArrayList<>();
-        users = parser.fromJSonList("src/main/resources/edu/tda367/JSONFiles/users.json", User.class);
+        users = getSavedUsers();
     }
 
     public boolean logIn (String userName, String password) { //can only logg in if no other user is logged in
@@ -53,13 +52,17 @@ public class UserHandler {
         users.add(user);
     }
 
-    public void getSavedUsers() {
+    public ArrayList<User> getSavedUsers() {
+        ArrayList<User> userstmp = new ArrayList<>();
         JSONReader reader = new JSONReader();
-        ArrayList<Object> savedUsers = reader.read("edu.tda367.UserPackage.User", "user");
-        System.out.println(savedUsers.get(0));
-        users.add((User) savedUsers.get(0));
-        System.out.println(users.get(0).getFirstName());
+        List<User> savedUsers = reader.read(User[].class, "users");
+        savedUsers.forEach(u -> userstmp.add(u));
+        return userstmp;
     }
 
-    //TODO method to access/notify users when their listings are updated
+    public void writeUsers() {
+        JSONWriter writer = new JSONWriter();
+        writer.write(users, "users");
+    }
+//TODO method to access/notify users when their listings are updated
 }

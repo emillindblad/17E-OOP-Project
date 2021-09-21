@@ -48,7 +48,7 @@ public class ListingHandler {
         return listing;
     }
 
-    public ArrayList<Listing> getSavedListings() {
+    private ArrayList<Listing> getSavedListings() {
         ArrayList<Listing> listingstmp = new ArrayList<>();
         JSONReader reader = new JSONReader();
         List<Listing> savedUsers = reader.read(Listing[].class, "listings");

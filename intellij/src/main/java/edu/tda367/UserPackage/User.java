@@ -56,6 +56,18 @@ public class User {
         return userAdress;
     }
 
+    public void setUserAdress (UserAdress adress) {
+          this.userAdress = adress;
+    }
+
+    public String toString (){
+          return "First Name: " + firstName + "\n" +
+                  "Last Name: " + lastName + "\n" +
+                  "Phone Number: " + phoneNumber + "\n" +
+                  "Adress: " + userAdress.toString() + "\n" +
+                  "User ID: " + userID + "\n";
+    }
+
     String getUserName() {
         return userName;
     }

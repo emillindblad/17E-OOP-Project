@@ -83,6 +83,20 @@ public final class UserHandler {
     }
 
     /**
+     * Set the adress of current user
+     * @param streetName
+     * @param city
+     * @param zipCode
+     * @param country
+     */
+    public void setLoggedInUserAdress (String streetName, String city, int zipCode, String country) {
+        if (isAuthenticated) {
+            UserAdress adress = new UserAdress(streetName,city, zipCode,country);
+            loggedInUser.setUserAdress(adress);
+        }
+    }
+
+    /**
      * Method to create a user.
      * @param firstName Users first name.
      * @param lastName Users last name.

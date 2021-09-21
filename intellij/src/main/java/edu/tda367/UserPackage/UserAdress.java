@@ -7,7 +7,7 @@ package edu.tda367.UserPackage;
  * @version 1.0
  * @since 2021-09-16
  */
-public class UserAdress {
+ public class UserAdress {
     private String streetName;
     private String city;
     private int zipCode;

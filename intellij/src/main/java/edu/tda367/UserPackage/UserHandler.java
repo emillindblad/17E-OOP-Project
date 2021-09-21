@@ -1,5 +1,8 @@
 package edu.tda367.UserPackage;
 
+import edu.tda367.JSON.JSONReader;
+import edu.tda367.JSON.JSONWriter;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,10 +13,10 @@ public final class UserHandler {
     private boolean isAuthenticated;
     private User loggedInUser;
 
-    private UserHandler (){
+    public UserHandler (){
         //TODO implement how list of users gets populated.
         isAuthenticated = false;
-        users = new ArrayList<User>();
+        users = getSavedUsers();
     }
 
     public static UserHandler getInstance () {
@@ -57,5 +60,17 @@ public final class UserHandler {
         users.add(user);
     }
 
+    public ArrayList<User> getSavedUsers() {
+        ArrayList<User> userstmp = new ArrayList<>();
+        JSONReader reader = new JSONReader();
+        List<User> savedUsers = reader.read(User[].class, "users");
+        savedUsers.forEach(u -> userstmp.add(u));
+        return userstmp;
+    }
 
+    public void writeUsers() {
+        JSONWriter writer = new JSONWriter();
+        writer.write(users, "users");
+    }
+//TODO method to access/notify users when their listings are updated
 }

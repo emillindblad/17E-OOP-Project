@@ -1,0 +1,15 @@
+[
+  {
+    "product": {
+      "prodName": "PRIT Timmo",
+      "prodCategory": {
+        "categoryName": "Test category"
+      },
+      "prodDesc": "Big boi"
+    },
+    "userId": 2,
+    "price": 200,
+    "availability": 1,
+    "orderSate": "UNAVALIBLE"
+  }
+]

@@ -1,7 +1,5 @@
 package edu.tda367;
 
-import edu.tda367.JSON.JSONWriter;
-import edu.tda367.Listing.Category;
 import edu.tda367.Listing.ListingHandler;
 import edu.tda367.UserPackage.UserHandler;
 import edu.tda367.View.SceneHandler;
@@ -29,7 +27,8 @@ public class App extends Application {
         sceneHandler = new SceneHandler(stage);
         sceneHandler.addScene(HyroFactory.homeScene(sceneHandler), "home");
         sceneHandler.addScene(HyroFactory.secondaryScene(sceneHandler), "secondary");
-        sceneHandler.switchTo("home");
+        sceneHandler.addScene(HyroFactory.loginScene(sceneHandler), "login");
+        sceneHandler.switchTo("login");
     }
 
     public static FXMLLoader loadFXML(String fxml) throws IOException {

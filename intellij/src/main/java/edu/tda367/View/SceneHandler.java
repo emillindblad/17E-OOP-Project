@@ -43,6 +43,10 @@ public class SceneHandler {
         root.setY(y);
     }
 
+    public void centerOnScreen() {
+        root.centerOnScreen();
+    }
+
     private Scene getScene()
     {
         return this.scene;

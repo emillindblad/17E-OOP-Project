@@ -20,7 +20,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        UserHandler uHandler = new UserHandler();
+        UserHandler uHandler = UserHandler.getInstance();
         uHandler.writeUsers();
         ListingHandler lHandler = new ListingHandler();
         lHandler.writeListings();

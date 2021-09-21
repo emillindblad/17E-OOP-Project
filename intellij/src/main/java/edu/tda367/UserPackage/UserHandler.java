@@ -3,6 +3,13 @@ package edu.tda367.UserPackage;
 import java.util.HashMap;
 import java.util.Random;
 
+import edu.tda367.JSON.JSONReader;
+import edu.tda367.JSON.JSONWriter;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
 /**
  *UserHandler is a handler to manage Users and functions connected to them. Such as log in/out and getting user data.
  * UserHandler is constructed as a singleton.
@@ -26,7 +33,7 @@ public final class UserHandler {
         users = new HashMap<Integer, User>();
 
         //TODO implement how HashMap of users gets populated.
-    }
+
 
     /**
      * Used instead of constructor
@@ -123,5 +130,17 @@ public final class UserHandler {
         return id;
     }
 
+    public ArrayList<User> getSavedUsers() {
+        ArrayList<User> userstmp = new ArrayList<>();
+        JSONReader reader = new JSONReader();
+        List<User> savedUsers = reader.read(User[].class, "users");
+        savedUsers.forEach(u -> userstmp.add(u));
+        return userstmp;
+    }
 
+    public void writeUsers() {
+        JSONWriter writer = new JSONWriter();
+        writer.write(users, "users");
+    }
+//TODO method to access/notify users when their listings are updated
 }

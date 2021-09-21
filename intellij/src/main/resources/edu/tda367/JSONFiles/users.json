@@ -1,0 +1,20 @@
+[
+  {
+    "firstName": "Erik",
+    "lastName": "Larsson",
+    "phoneNumber": "0734111337",
+    "userID": 0,
+    "userName": "eblad",
+    "password": "eblad123",
+    "bankAccount": "123456789"
+  },
+  {
+    "firstName": "Sebastian",
+    "lastName": "Kvalden",
+    "phoneNumber": "0734111337",
+    "userID": 0,
+    "userName": "kvalle",
+    "password": "kvalle123",
+    "bankAccount": "987654321"
+  }
+]

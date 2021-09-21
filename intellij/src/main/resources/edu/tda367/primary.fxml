@@ -2,25 +2,22 @@
 
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: C4C4C4;" xmlns="http://javafx.com/javafx/11.0.10-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.tda367.PrimaryController">
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: C4C4C4;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane layoutX="160.0" layoutY="90.0" maxHeight="540.0" maxWidth="960.0" minHeight="540.0" minWidth="960.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 3;">
          <children>
             <ImageView fitHeight="355.0" fitWidth="771.0" layoutX="95.0" layoutY="37.0" pickOnBounds="true" AnchorPane.bottomAnchor="145.0" AnchorPane.leftAnchor="92.0" AnchorPane.rightAnchor="94.0" AnchorPane.topAnchor="37.0">
                <image>
-                  <Image url="@grill.jpg" />
+                  <Image url="@P.R.I.T.Grill.JPG" />
                </image>
             </ImageView>
-            <Text layoutX="43.0" layoutY="507.0" strokeType="OUTSIDE" strokeWidth="0.0" text="P.R.I.T. Grill" wrappingWidth="254.7294921875" AnchorPane.bottomAnchor="24.509765625" AnchorPane.leftAnchor="43.0" AnchorPane.rightAnchor="659.2705078125" AnchorPane.topAnchor="470.490234375">
-               <font>
-                  <Font size="36.0" />
-               </font>
-            </Text>
-            <Text layoutX="559.0" layoutY="504.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1337kr/dag" wrappingWidth="164.7294921875" AnchorPane.bottomAnchor="26.396484375" AnchorPane.leftAnchor="555.7294921875" AnchorPane.rightAnchor="236.2705078125" AnchorPane.topAnchor="478.009765625">
+            <Label fx:id="productName" layoutX="108.0" layoutY="465.0" text="product here" />
+            <Text fx:id="price" layoutX="559.0" layoutY="504.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1337kr/dag" wrappingWidth="164.7294921875" AnchorPane.bottomAnchor="26.396484375" AnchorPane.leftAnchor="555.7294921875" AnchorPane.rightAnchor="236.2705078125" AnchorPane.topAnchor="478.009765625">
                <font>
                   <Font size="28.0" />
                </font>

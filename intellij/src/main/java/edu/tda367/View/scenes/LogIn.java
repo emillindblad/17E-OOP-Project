@@ -17,7 +17,7 @@ import java.io.IOException;
 
 public class LogIn extends AnchorPane implements hyroScene {
     private final Scene scene;
-    private final SceneHandler handler;
+    private final SceneHandler handler; //handler used to switch scenes
 
     @FXML private TextField userNameField;
     @FXML private TextField passwordField;
@@ -30,7 +30,7 @@ public class LogIn extends AnchorPane implements hyroScene {
         Parent root = loader.load();
         this.scene = new Scene(root);
         this.handler = handler;
-        createDummyUsers();
+        createDummyUsers(); //can be removed, no real functionality
     }
 
     /**
@@ -42,9 +42,10 @@ public class LogIn extends AnchorPane implements hyroScene {
     }
 
     /**
-     * Getter for scene
+     * Getter for scene. From interface hyroScene
      * @return this.scene
      */
+    @Override
     public Scene getHyroScene() {
         return this.scene;
     }

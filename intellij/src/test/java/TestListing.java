@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class TestListing {
@@ -16,7 +17,7 @@ public class TestListing {
 
     @Before
     public void setup() {
-        this.handler = new ListingHandler();
+        this.handler = new ListingHandler("test");
         this.testCat = new Category("Test category");
         this.startDate = LocalDateTime.of(2021,9,10,9,0);
         this.endDate = LocalDateTime.of(2021,9,11,10,30);
@@ -39,5 +40,11 @@ public class TestListing {
     public void testDuration() {
         long duration = ChronoUnit.HOURS.between(startDate,endDate);
         assertTrue(duration==25);
+    }
+
+    @Test
+    public void testDatabaseGet() {
+        ListingHandler testhandler = new ListingHandler();
+        assertFalse(testhandler.getSavedListings().size() == 0);
     }
 }

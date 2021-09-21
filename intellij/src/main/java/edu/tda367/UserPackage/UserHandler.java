@@ -75,7 +75,7 @@ public final class UserHandler {
      *
      * @return Reference to the logged in user
      */
-    public User getLoggedInUser() { //could be changed so all user-calls are chained thorugh this class instead of giving away the user.
+    public User getLoggedInUser() { //could be changed so all user-calls are chained through this class instead of giving away the user.
         if(isAuthenticated) {
             return loggedInUser;
         }

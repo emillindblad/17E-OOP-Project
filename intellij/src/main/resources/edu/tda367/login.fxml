@@ -5,11 +5,11 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="101.0" layoutY="130.0" text="Användarnamn" />
-      <Label layoutX="101.0" layoutY="215.0" text="Lösenord" />
-      <Label fx:id="infoLabel" layoutX="214.0" layoutY="269.0" text="info" />
-      <Button fx:id="logInButton" layoutX="323.0" layoutY="265.0" mnemonicParsing="false" onAction="#logInAttempt" text="login" />
-      <TextField fx:id="userNameField" layoutX="226.0" layoutY="126.0" />
-      <TextField fx:id="passwordField" layoutX="226.0" layoutY="211.0" />
+      <Label layoutX="171.0" layoutY="130.0" text="Användarnamn:" />
+      <Label layoutX="202.0" layoutY="206.0" text="Lösenord:" />
+      <Label fx:id="infoLabel" layoutX="289.0" layoutY="337.0" />
+      <Button fx:id="logInButton" layoutX="262.0" layoutY="260.0" mnemonicParsing="false" onAction="#logInAttempt" prefHeight="44.0" prefWidth="76.0" style="-fx-background-color: #09CD09;" text="Logga in" underline="true" />
+      <TextField fx:id="userNameField" layoutX="280.0" layoutY="126.0" />
+      <TextField fx:id="passwordField" layoutX="280.0" layoutY="202.0" />
    </children>
 </AnchorPane>

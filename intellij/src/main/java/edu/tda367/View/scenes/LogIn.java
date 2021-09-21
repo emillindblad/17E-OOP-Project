@@ -30,22 +30,40 @@ public class LogIn extends AnchorPane implements hyroScene {
         Parent root = loader.load();
         this.scene = new Scene(root);
         this.handler = handler;
-        //dummy users for login test
+        createDummyUsers();
+    }
+
+    /**
+     * Dummy method for testing before users are added to database
+     */
+    private void createDummyUsers() {
         UserHandler.getInstance().createUser("a","b","1","a","b","1");
         UserHandler.getInstance().createUser("q","w","2","q","w","2");
     }
 
+    /**
+     * Getter for scene
+     * @return this.scene
+     */
     public Scene getHyroScene() {
         return this.scene;
     }
 
+    /**
+     * Switches current scene to store home.
+     */
     @FXML
-    public void switchToHome() {
+    private void switchToHome() {
         handler.switchTo("home");
     }
 
+    /**
+     * Attempts to log in using the credentials entered in the textfields.
+     * If successful, UserHandler will now contain the logged in user, and scene will be switched to store home.
+     * If unsuccessful, a label will appear displaying so.
+     */
     @FXML
-    public void logInAttempt() {
+    private void logInAttempt() {
         if (UserHandler.getInstance().logIn(userNameField.getText(), passwordField.getText())) {
             switchToHome();
         } else {

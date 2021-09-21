@@ -28,12 +28,11 @@ public final class UserHandler {
     /**
      * Private constructor due to singleton pattern which cannot be accessed from client code.
      */
-    private UserHandler(){
+    private UserHandler() {
         isAuthenticated = false;
-        users = new HashMap<Integer, User>();
+        users = getSavedUsers();
 
-        //TODO implement how HashMap of users gets populated.
-
+    }
 
     /**
      * Used instead of constructor
@@ -130,11 +129,11 @@ public final class UserHandler {
         return id;
     }
 
-    public ArrayList<User> getSavedUsers() {
-        ArrayList<User> userstmp = new ArrayList<>();
+    private HashMap<Integer, User> getSavedUsers() {
+        HashMap<Integer, User> userstmp = new HashMap<>();
         JSONReader reader = new JSONReader();
         List<User> savedUsers = reader.read(User[].class, "users");
-        savedUsers.forEach(u -> userstmp.add(u));
+        savedUsers.forEach(u -> userstmp.put(u.getUserID(),u));
         return userstmp;
     }
 

@@ -5,7 +5,7 @@ import java.util.Random;
 
 /**
  *UserHandler is a handler to manage Users and functions connected to them. Such as log in/out and getting user data.
- * UserHandler is contstructed as a singleton.
+ * UserHandler is constructed as a singleton.
  *
  * @author Sebastian Kvaldén
  * @version 1.0
@@ -14,7 +14,7 @@ import java.util.Random;
 public final class UserHandler {
 
     private static UserHandler handler;
-    private final HashMap<int, User> users;
+    private final HashMap <Integer, User> users;
     private boolean isAuthenticated;
     private User loggedInUser;
 
@@ -23,7 +23,8 @@ public final class UserHandler {
      */
     private UserHandler(){
         isAuthenticated = false;
-        users = new HashMap<int, User>();
+        users = new HashMap<Integer, User>();
+
         //TODO implement how HashMap of users gets populated.
     }
 

@@ -1,21 +1,38 @@
 package edu.tda367.UserPackage;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Random;
 
+/**
+ *UserHandler is a handler to manage Users and functions connected to them. Such as log in/out and getting user data.
+ * UserHandler is contstructed as a singleton.
+ *
+ * @author Sebastian Kvaldén
+ * @version 1.0
+ * @since 2021-09-16
+ */
 public final class UserHandler {
 
     private static UserHandler handler;
-    private ArrayList<User> users;
+    private HashMap<int, User> users;
     private boolean isAuthenticated;
     private User loggedInUser;
 
-    private UserHandler (){
-        //TODO implement how list of users gets populated.
+    /**
+     * Private constructor due to singleton pattern which cannot be accessed from client code.
+     */
+    private UserHandler(){
         isAuthenticated = false;
-        users = new ArrayList<User>();
+        users = new HashMap<int, User>();
+        //TODO implement how HashMap of users gets populated.
     }
 
+    /**
+     * Used instead of constructor
+     * @return The singleton instance of the UserHandler
+     */
     public static UserHandler getInstance () {
         if (handler == null) {
             handler = new UserHandler();
@@ -23,9 +40,16 @@ public final class UserHandler {
         return handler;
     }
 
+    /**
+     * Method to log in as a user.
+     * @param userName Current users username.
+     * @param password Current users password
+     * @return  "True" if username and password is correct, aswell as no other user is signed in at the moment.
+     * Returns False otherwise.
+     */
     public boolean logIn (String userName, String password) { //can only logg in if no other user is logged in
         if(!isAuthenticated){
-        for (User user : users) {
+        for (User user : users.values()) {
             String uName = user.getUserName();
             String uPassword = user.getPassword();
             if (uName.equals(userName) && uPassword.equals(password)) {
@@ -38,6 +62,9 @@ public final class UserHandler {
         return false; //login unsuccessful
     }
 
+    /**
+     * Current user is logged out.
+     */
     public void logOut () {
         if(isAuthenticated) {
             loggedInUser = null;
@@ -45,16 +72,42 @@ public final class UserHandler {
         }
     }
 
-    public User getLoggedInUser() {
+    /**
+     *
+     * @return Reference to the logged in user
+     */
+    public User getLoggedInUser() { //could be changed so all user-calls are chained thorugh this class instead of giving away the user.
         if(isAuthenticated) {
             return loggedInUser;
         }
         return null; //very dangerous, check for other implementations in the future
     }
 
+    /**
+     * Method to create a user.
+     * @param firstName Users first name.
+     * @param lastName Users last name.
+     * @param phoneNumber Users phonenumber.
+     * @param userName Users username, to be used at log-in
+     * @param password Users password
+     * @param bankAccount Users bank details
+     */
     public void createUser( String firstName, String lastName, String phoneNumber, String userName, String password, String bankAccount) {
-        User user = new User (firstName, lastName, phoneNumber, userName, password, bankAccount);
-        users.add(user);
+        int userID = CreateUserID();
+        User user = new User (firstName, lastName, phoneNumber, userName, password, bankAccount, userID);
+        users.put(user.getUserID(), user);
+    }
+
+    private int CreateUserID () {
+        int id;
+        while (true) {
+            Random generator = new Random();
+            id = generator.nextInt(99999); //number between 0-99999
+            id = +100000; //makes ID six figures (100000 to 199999)
+            if (users.get(id) == null) //checks if ID is in use already
+                break;
+        }
+        return id;
     }
 
 

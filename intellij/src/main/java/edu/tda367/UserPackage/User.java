@@ -1,12 +1,14 @@
 package edu.tda367.UserPackage;
 
- public class User {
+import java.util.Random;
+
+public class User {
 
     private String firstName;
     private String lastName;
     private String phoneNumber;
     private UserAdress userAdress;
-    private int userID;  //TODO implement in constructor
+    private int userID;
 
     //for login
     private String userName;
@@ -16,7 +18,7 @@ package edu.tda367.UserPackage;
     private String bankAccount;
 
 
-      User(String firstName, String lastName, String phoneNumber, UserAdress userAdress, String userName, String password, String bankAccount) {
+      User(String firstName, String lastName, String phoneNumber, UserAdress userAdress, String userName, String password, String bankAccount, int userID) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
@@ -24,18 +26,19 @@ package edu.tda367.UserPackage;
         this.userName = userName;
         this.password = password;
         this.bankAccount = bankAccount;
+        this.userID = userID;
+
     }
 
-      User(String firstName, String lastName, String phoneNumber, String userName, String password, String bankAccount) {
+      User(String firstName, String lastName, String phoneNumber, String userName, String password, String bankAccount, int userID) {
          this.firstName = firstName;
          this.lastName = lastName;
          this.phoneNumber = phoneNumber;
          this.userName = userName;
          this.password = password;
          this.bankAccount = bankAccount;
+         this.userID = userID;
      }
-
-
 
     public String getFirstName() {
         return firstName;
@@ -53,13 +56,16 @@ package edu.tda367.UserPackage;
         return userAdress;
     }
 
-      String getUserName() {
+    String getUserName() {
         return userName;
     }
 
-     String getPassword() {
+    String getPassword() {
         return password;
     }
+
+    int getUserID() { return userID;}
+
 
     String getBankAccount() {
         return bankAccount;

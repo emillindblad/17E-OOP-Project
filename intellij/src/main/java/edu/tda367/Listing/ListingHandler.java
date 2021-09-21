@@ -2,16 +2,22 @@ package edu.tda367.Listing;
 
 import edu.tda367.JSON.JSONReader;
 import edu.tda367.JSON.JSONWriter;
-import edu.tda367.UserPackage.User;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * ListingHandler is an interface for interacting with Listings and their associated products and categories.
+ * @author Emil Lindblad
+ */
 public class ListingHandler {
     private ArrayList<Listing> listings;
     private ArrayList<Category> categories;
 
+    /**
+     * Constructor, creates lists of categories and listings
+     */
     public ListingHandler() {
         //TODO Implement database
         categories = new ArrayList<Category>();
@@ -23,10 +29,18 @@ public class ListingHandler {
         listings =  new ArrayList<Listing>();
     }
 
+    /**
+     * Getter for Categories
+     * @return An ArrayList af all available categories
+     */
     public ArrayList<Category> getCategories() {
         return categories;
     }
 
+    /**
+     * Getter for Listings
+     * @return An ArrayList af all current listings
+     */
     public ArrayList<Listing> getListings() {
         return listings;
     }
@@ -37,6 +51,11 @@ public class ListingHandler {
         //Why no listing.get(listing)?
     }
 
+    /**
+     * Removes the specified listing form the ArrayList and returns it
+     * @param listing
+     * @return The removed listing
+     */
     public Listing removeListing(Listing listing) {
         listings.remove(listing);
         return listing;

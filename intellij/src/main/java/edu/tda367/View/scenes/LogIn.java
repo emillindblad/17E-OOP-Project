@@ -68,7 +68,7 @@ public class LogIn extends AnchorPane implements hyroScene {
         if (UserHandler.getInstance().logIn(userNameField.getText(), passwordField.getText())) {
             switchToHome();
         } else {
-            infoLabel.setText("Fel namn eller lösen");
+            infoLabel.setText("Fel användarnamn eller lösenord");
         }
     }
 }

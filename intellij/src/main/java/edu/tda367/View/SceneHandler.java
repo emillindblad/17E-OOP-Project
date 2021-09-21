@@ -38,7 +38,10 @@ public class SceneHandler {
         this.scenes.put(name.toLowerCase(), scene);
     }
 
-
+    public void setLocationOnScreen(double x, double y) {
+        root.setX(x);
+        root.setY(y);
+    }
 
     private Scene getScene()
     {

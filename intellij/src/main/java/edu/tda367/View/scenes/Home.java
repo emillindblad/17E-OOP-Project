@@ -14,7 +14,7 @@ import javafx.scene.text.Text;
 
 import java.io.IOException;
 
-public class Home extends AnchorPane implements hyroScene {
+public class Home extends AbstractHyroScene {
     private final Scene scene;
     private final SceneHandler handler;
     private final ListingController controller;
@@ -26,6 +26,7 @@ public class Home extends AnchorPane implements hyroScene {
     Text price;
 
     public Home(SceneHandler handler) throws IOException {
+        super("primary", );
         FXMLLoader loader = App.loadFXML("primary");
         System.out.println("here");
         loader.setController(this);

@@ -15,15 +15,13 @@ import java.io.IOException;
 public abstract class AbstractHyroScene extends AnchorPane implements hyroScene {
 
     private final Scene scene;
-    private final SceneHandler handler;
-    private final Controller controller;
+    protected final SceneHandler handler;
 
-    protected AbstractHyroScene(String fxmlName, SceneHandler handler, Controller controller) throws IOException {
+    protected AbstractHyroScene(String fxmlName, SceneHandler handler) throws IOException {
         FXMLLoader loader = App.loadFXML(fxmlName);
         loader.setController(this);
         Parent root = loader.load();
         this.handler = handler;
-        this.controller = controller;
         this.scene = new Scene(root);
     }
 

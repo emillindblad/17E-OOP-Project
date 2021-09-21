@@ -7,7 +7,7 @@ import edu.tda367.View.scenes.Home;
 
 import java.time.LocalDateTime;
 
-public class ListingController {
+public class ListingController implements Controller {
     private final ListingHandler listingHandler;
 
     public ListingController() {

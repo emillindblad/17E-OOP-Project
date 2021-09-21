@@ -1,6 +1,7 @@
 package edu.tda367.View.scenes;
 
 import edu.tda367.App;
+import edu.tda367.Controllers.Controller;
 import edu.tda367.Controllers.ListingController;
 import edu.tda367.View.SceneHandler;
 import edu.tda367.View.hyroScene;
@@ -15,39 +16,26 @@ import javafx.scene.text.Text;
 import java.io.IOException;
 
 public class Home extends AbstractHyroScene {
-    private final Scene scene;
-    private final SceneHandler handler;
-    private final ListingController controller;
 
+    private final ListingController listingController;
     @FXML
     Label productName;
 
     @FXML
     Text price;
 
-    public Home(SceneHandler handler) throws IOException {
-        super("primary", );
-        FXMLLoader loader = App.loadFXML("primary");
-        System.out.println("here");
-        loader.setController(this);
-        Parent root = loader.load();
-        this.scene = new Scene(root);
-        this.handler = handler;
-        this.controller = new ListingController();
-        setPrice();
-    }
-
-    public Scene getHyroScene() {
-        return this.scene;
+    public Home(SceneHandler handler, ListingController controller) throws IOException {
+        super("primary", handler);
+        this.listingController = controller;
     }
 
     @FXML
     public void setPrice()
     {
-        price.setText(String.valueOf(controller.getPrice()));
+        price.setText(String.valueOf(listingController.getPrice()));
     }
     @FXML
     public void switchToSecondary() {
-        handler.switchTo("secondary");
+        super.handler.switchTo("secondary");
     }
 }

@@ -1,5 +1,6 @@
 package edu.tda367;
 
+import edu.tda367.Controllers.ListingController;
 import edu.tda367.View.SceneHandler;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -18,7 +19,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         sceneHandler = new SceneHandler(stage);
-        sceneHandler.addScene(HyroFactory.homeScene(sceneHandler), "home");
+        sceneHandler.addScene(HyroFactory.homeScene(sceneHandler, new ListingController()), "home");
         sceneHandler.addScene(HyroFactory.secondaryScene(sceneHandler), "secondary");
         sceneHandler.switchTo("home");
 

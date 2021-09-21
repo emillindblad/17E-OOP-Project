@@ -24,9 +24,9 @@ public class Home extends AbstractHyroScene {
     @FXML
     Text price;
 
-    public Home(SceneHandler handler, ListingController controller) throws IOException {
+    public Home(SceneHandler handler) throws IOException {
         super("primary", handler);
-        this.listingController = controller;
+        this.listingController = new ListingController();
     }
 
     @FXML

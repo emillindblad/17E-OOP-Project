@@ -9,11 +9,11 @@ import edu.tda367.View.scenes.Secondary;
 import java.io.IOException;
 
 public final class HyroFactory {
-    public static final hyroScene homeScene(SceneHandler director, ListingController controller) throws IOException {
-        return new Home(director, controller);
+    public static final hyroScene homeScene(SceneHandler handler) throws IOException {
+        return new Home(handler);
     }
 
-    public static final hyroScene secondaryScene(SceneHandler director) throws IOException {
-        return new Secondary(director);
+    public static final hyroScene secondaryScene(SceneHandler handler) throws IOException {
+        return new Secondary(handler);
     }
 }

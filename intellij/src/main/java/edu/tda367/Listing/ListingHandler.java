@@ -1,7 +1,12 @@
 package edu.tda367.Listing;
 
+import edu.tda367.JSON.JSONReader;
+import edu.tda367.JSON.JSONWriter;
+import edu.tda367.UserPackage.User;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ListingHandler {
     private ArrayList<Listing> listings;
@@ -9,9 +14,13 @@ public class ListingHandler {
 
     public ListingHandler() {
         //TODO Implement database
-        //this.listings = db.getListings;
         categories = new ArrayList<Category>();
-        listings = new ArrayList<Listing>();
+        listings =  getSavedListings();
+    }
+
+    public ListingHandler(String test) {
+        categories = new ArrayList<Category>();
+        listings =  new ArrayList<Listing>();
     }
 
     public ArrayList<Category> getCategories() {
@@ -37,6 +46,19 @@ public class ListingHandler {
         Listing listing = new Listing(prodName, prodCat,prodDesc,userId,price,startDate,endDate);
         listings.add(listing);
         return listing;
+    }
+
+    public ArrayList<Listing> getSavedListings() {
+        ArrayList<Listing> listingstmp = new ArrayList<>();
+        JSONReader reader = new JSONReader();
+        List<Listing> savedUsers = reader.read(Listing[].class, "listings");
+        savedUsers.forEach(l -> listingstmp.add(l));
+        return listingstmp;
+    }
+
+    public void writeListings() {
+        JSONWriter writer = new JSONWriter();
+        writer.write(listings, "listings");
     }
 
 }

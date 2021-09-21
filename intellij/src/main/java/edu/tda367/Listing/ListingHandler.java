@@ -22,8 +22,15 @@ public class ListingHandler {
         return listings;
     }
 
+    //TODO Is this the best way to do this?
     public Listing getListing(Listing listing) {
         return listings.get(listings.indexOf(listing));
+        //Why no listing.get(listing)?
+    }
+
+    public Listing removeListing(Listing listing) {
+        listings.remove(listing);
+        return listing;
     }
 
     public Listing createListing(String prodName, Category prodCat, String prodDesc, int userId, int price, LocalDateTime startDate, LocalDateTime endDate) {

@@ -31,7 +31,6 @@ public final class UserHandler {
     private UserHandler() {
         isAuthenticated = false;
         users = getSavedUsers();
-
     }
 
     /**
@@ -129,7 +128,7 @@ public final class UserHandler {
         return id;
     }
 
-    private HashMap<Integer, User> getSavedUsers() {
+    public HashMap<Integer, User> getSavedUsers() {
         HashMap<Integer, User> userstmp = new HashMap<>();
         JSONReader reader = new JSONReader();
         List<User> savedUsers = reader.read(User[].class, "users");

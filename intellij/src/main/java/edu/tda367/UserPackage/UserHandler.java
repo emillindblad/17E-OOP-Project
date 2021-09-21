@@ -1,8 +1,6 @@
 package edu.tda367.UserPackage;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Random;
 
 /**
@@ -16,7 +14,7 @@ import java.util.Random;
 public final class UserHandler {
 
     private static UserHandler handler;
-    private HashMap<int, User> users;
+    private final HashMap<int, User> users;
     private boolean isAuthenticated;
     private User loggedInUser;
 
@@ -103,7 +101,7 @@ public final class UserHandler {
         while (true) {
             Random generator = new Random();
             id = generator.nextInt(99999); //number between 0-99999
-            id = +100000; //makes ID six figures (100000 to 199999)
+            id = id+100000; //makes ID six figures (100000 to 199999)
             if (users.get(id) == null) //checks if ID is in use already
                 break;
         }

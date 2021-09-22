@@ -41,13 +41,6 @@ public class TestListing {
         assertTrue(handler.getListings().size()==initSize-1);
     }
 
-    @After
-    public void printList() {
-        System.out.println(handler.getListings());
-    }
-
-
-
     @Test
     public void testDuration() {
         long duration = ChronoUnit.HOURS.between(startDate,endDate);

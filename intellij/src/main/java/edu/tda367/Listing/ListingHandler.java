@@ -9,18 +9,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ListingHandler {
-    private ArrayList<Listing> listings;
-    private ArrayList<Category> categories;
+    private final ArrayList<Listing> listings;
+    private final ArrayList<Category> categories;
 
     public ListingHandler() {
         //TODO Implement database
         categories = new ArrayList<Category>();
-        listings =  getSavedListings();
-    }
-
-    public ListingHandler(String test) {
-        categories = new ArrayList<Category>();
-        listings =  new ArrayList<Listing>();
+        listings = getSavedListings();
     }
 
     public ArrayList<Category> getCategories() {
@@ -37,7 +32,7 @@ public class ListingHandler {
         //Why no listing.get(listing)?
     }
 
-    public Listing removeListing(Listing listing) {
+    public Listing removeListing(Listing listing) {//TODO Maybe not necessary to return removed listing, breaks CQS.
         listings.remove(listing);
         return listing;
     }

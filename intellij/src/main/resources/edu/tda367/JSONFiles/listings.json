@@ -11,5 +11,18 @@
     "price": 200,
     "availability": 1,
     "orderSate": "UNAVALIBLE"
+  },
+  {
+    "product": {
+      "prodName": "TestPRIT Grill",
+      "prodCategory": {
+        "categoryName": "Test category"
+      },
+      "prodDesc": "Big grill"
+    },
+    "userId": 69,
+    "price": 1337,
+    "availability": 25,
+    "orderSate": "AVALIBLE"
   }
 ]

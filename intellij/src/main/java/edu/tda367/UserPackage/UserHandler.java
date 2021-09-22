@@ -138,8 +138,11 @@ public final class UserHandler {
 
     public void writeUsers() {
         JSONWriter writer = new JSONWriter();
-        //TODO make users in to list before saving to JSON file. File structure is messed upp otherwise
-        writer.write(users, "users");
+        List<User> usersList = new ArrayList<User>();
+        for(User u : users.values()) {
+            usersList.add(u);
+        }
+        writer.write(usersList, "users");
     }
 //TODO method to access/notify users when their listings are updated
 }

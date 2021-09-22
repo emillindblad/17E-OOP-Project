@@ -11,7 +11,7 @@ public class Listing {
     private long availability;
     private ListingState orderSate;
 
-    public Listing(String prodName, Category prodCat, String prodDesc, int userId, int price, LocalDateTime startDate, LocalDateTime endDate) {
+     Listing(String prodName, Category prodCat, String prodDesc, int userId, int price, LocalDateTime startDate, LocalDateTime endDate) {
         this.product = new Product(prodName, prodCat, prodDesc);
         this.userId = userId;
         this.price = price;

@@ -33,6 +33,9 @@ public final class UserHandler {
         users = getSavedUsers();
     }
 
+    public int userListLenght () {
+       return users.size();
+    }
     /**
      * Used instead of constructor
      * @return The singleton instance of the UserHandler

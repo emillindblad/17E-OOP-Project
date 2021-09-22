@@ -16,12 +16,6 @@ public class TestUserPackage {
         uHandler.createUser("Sebastian", "Kvalden", "0734111337","def", "def123", "987654321" );
     }
 
-
-    @Test
-    public void saveUsersTest () {
-        assertTrue(uHandler.userListLenght() == 4);
-    }
-
     @Test
     public void UserLogInTest (){
         assertFalse(uHandler.logIn("kvalle", "kvalle"));

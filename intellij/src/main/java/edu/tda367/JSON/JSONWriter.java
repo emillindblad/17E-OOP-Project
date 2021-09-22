@@ -10,25 +10,6 @@ import java.util.List;
 
 public class JSONWriter {
 
-    public void write(HashMap map, String name) {
-        try {
-
-            // create Gson instance with pretty-print
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
-            // create a writer
-            Writer writer = Files.newBufferedWriter(Paths.get("src/main/resources/edu/tda367/JSONFiles/" + name + ".json"));
-
-            // convert user object to JSON file
-            gson.toJson(map, writer);
-
-            // close writer
-            writer.close();
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
 
     public void write(List list, String name) {
         try {

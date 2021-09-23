@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
@@ -21,9 +22,10 @@ public class LogIn extends AnchorPane implements hyroScene {
     private final LogInController liController;
 
     @FXML private TextField userNameField;
-    @FXML private TextField passwordField;
+    @FXML private PasswordField passwordField;
     @FXML private Button logInButton;
     @FXML private Label infoLabel;
+    @FXML private Button createAccountButton;
 
     public LogIn(SceneHandler handler) throws IOException {
         FXMLLoader loader = App.loadFXML("login");
@@ -55,5 +57,10 @@ public class LogIn extends AnchorPane implements hyroScene {
         } else {
             infoLabel.setText("Fel användarnamn eller lösenord");
         }
+    }
+
+    @FXML
+    private void createNewAccount() {
+
     }
 }

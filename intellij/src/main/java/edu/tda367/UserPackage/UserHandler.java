@@ -25,10 +25,10 @@ public final class UserHandler {
     private boolean isAuthenticated;
     private User loggedInUser;
 
+    private UserHandler (){
     /**
      * Private constructor due to singleton pattern which cannot be accessed from client code.
      */
-    private UserHandler() {
         isAuthenticated = false;
         users = getSavedUsers();
     }

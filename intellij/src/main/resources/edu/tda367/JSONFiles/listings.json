@@ -14,15 +14,27 @@
   },
   {
     "product": {
-      "prodName": "TestPRIT Grill",
+      "prodName": "PRIT ELDIS",
       "prodCategory": {
         "categoryName": "Test category"
       },
-      "prodDesc": "Big grill"
+      "prodDesc": "Big boi"
     },
-    "userId": 69,
-    "price": 1337,
-    "availability": 25,
-    "orderSate": "AVALIBLE"
+    "userId": 2,
+    "price": 200,
+    "availability": 1,
+    "orderSate": "UNAVALIBLE"
+  },
+  {
+    "product": {
+      "prodName": "PRIT Tango",
+      "prodCategory": {
+        "categoryName": "Test category"
+      },
+      "prodDesc": "Big boi"
+    },
+    "userId": 2,
+    "price": 200,
+    "availability": 1
   }
 ]

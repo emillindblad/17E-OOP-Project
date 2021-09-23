@@ -47,4 +47,18 @@ public class TestListing {
         assertTrue(duration==25);
     }
 
+    /*@Test
+    public void testDatabaseGet() {
+        ListingHandler testhandler = new ListingHandler();
+        assertFalse(testhandler.getSavedListings().size() == 0);
+    }
+    */
+
+    @Test
+    public void testDatabaseWrite() {
+        ListingHandler testhandler = new ListingHandler();
+        int before = testhandler.getListings().size();
+        testhandler.createListing("PRIT Grill",testCat,"Big grill",69,1337,startDate,endDate);
+        assertFalse(testhandler.getListings().size() == before);
+    }
 }

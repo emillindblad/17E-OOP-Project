@@ -16,12 +16,13 @@ public class TestUserPackage {
         uHandler.createUser("Sebastian", "Kvalden", "0734111337","def", "def123", "987654321" );
     }
 
+    // TODO: Change tests to allow empty database
     @Test
     public void UserLogInTest (){
         assertFalse(uHandler.logIn("kvalle", "kvalle"));
         assertTrue(uHandler.getLoggedInUser() == (null));
-        assertTrue(uHandler.logIn("kvalle", "kvalle123"));
-        assertTrue(uHandler.getLoggedInUser().getFirstName().equals("Sebastian"));
+        assertTrue(uHandler.logIn("abc", "abc123"));
+        assertTrue(uHandler.getLoggedInUser().getFirstName().equals("Emil"));
 
     }
 
@@ -31,7 +32,7 @@ public class TestUserPackage {
         assertFalse(uHandler.logIn("eblad", "eblad123"));
         uHandler.logOut();
         assertTrue(uHandler.getLoggedInUser() == null);
-        assertTrue(uHandler.logIn("eblad", "eblad123"));
+        assertTrue(uHandler.logIn("def", "def123"));
     }
 
     @Test
@@ -47,6 +48,5 @@ public class TestUserPackage {
         uHandler.writeUsers();
         assertTrue(uHandler.getLoggedInUser().getUserAdress().getStreetName().equals("Kemivagen 7B"));
     }
-
 
 }

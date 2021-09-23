@@ -15,6 +15,15 @@
     "bankAccount": "123456789"
   },
   {
+    "firstName": "Emil",
+    "lastName": "Lindblad",
+    "phoneNumber": "0734111337",
+    "userID": 129729,
+    "userName": "abc",
+    "password": "abc123",
+    "bankAccount": "123456789"
+  },
+  {
     "firstName": "Sebastian",
     "lastName": "Kvalden",
     "phoneNumber": "0734111337",
@@ -33,10 +42,43 @@
     "bankAccount": "123456789"
   },
   {
+    "firstName": "Emil",
+    "lastName": "Lindblad",
+    "phoneNumber": "0734111337",
+    "userID": 194935,
+    "userName": "abc",
+    "password": "abc123",
+    "bankAccount": "123456789"
+  },
+  {
+    "firstName": "Sebastian",
+    "lastName": "Kvalden",
+    "phoneNumber": "0734111337",
+    "userAdress": {
+      "streetName": "Kemivagen 7B",
+      "city": "Goteborg",
+      "zipCode": 41258,
+      "country": "Sverige"
+    },
+    "userID": 139301,
+    "userName": "def",
+    "password": "def123",
+    "bankAccount": "987654321"
+  },
+  {
     "firstName": "Sebastian",
     "lastName": "Kvalden",
     "phoneNumber": "0734111337",
     "userID": 198991,
+    "userName": "def",
+    "password": "def123",
+    "bankAccount": "987654321"
+  },
+  {
+    "firstName": "Sebastian",
+    "lastName": "Kvalden",
+    "phoneNumber": "0734111337",
+    "userID": 154941,
     "userName": "def",
     "password": "def123",
     "bankAccount": "987654321"

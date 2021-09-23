@@ -20,8 +20,8 @@ public class TestUserPackage {
     public void UserLogInTest (){
         assertFalse(uHandler.logIn("kvalle", "kvalle"));
         assertTrue(uHandler.getLoggedInUser() == (null));
-        assertTrue(uHandler.logIn("kvalle", "kvalle123"));
-        assertTrue(uHandler.getLoggedInUser().getFirstName().equals("Sebastian"));
+        assertTrue(uHandler.logIn("abc", "abc123"));
+        assertTrue(uHandler.getLoggedInUser().getFirstName().equals("Emil"));
 
     }
 
@@ -31,7 +31,7 @@ public class TestUserPackage {
         assertFalse(uHandler.logIn("eblad", "eblad123"));
         uHandler.logOut();
         assertTrue(uHandler.getLoggedInUser() == null);
-        assertTrue(uHandler.logIn("eblad", "eblad123"));
+        assertTrue(uHandler.logIn("def", "def123"));
     }
 
     @Test

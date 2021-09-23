@@ -13,7 +13,7 @@ public final class UserHandler {
     private boolean isAuthenticated;
     private User loggedInUser;
 
-    public UserHandler (){
+    private UserHandler (){
         //TODO implement how list of users gets populated.
         isAuthenticated = false;
         users = getSavedUsers();

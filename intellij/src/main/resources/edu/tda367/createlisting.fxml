@@ -27,9 +27,9 @@
             <TextField fx:id="prodPrice" layoutX="190.0" layoutY="245.0" prefHeight="26.0" prefWidth="300.0" />
             <Label layoutX="116.0" layoutY="250.0" text="Pris:" />
 
-            <TextField fx:id="prodAvail" layoutX="190.0" layoutY="285.0" prefHeight="26.0" prefWidth="300.0" />
+            <TextField layoutX="190.0" layoutY="285.0" prefHeight="26.0" prefWidth="300.0" />
             <Label layoutX="116.0" layoutY="290.0" text="Availability" />
-            <DatePicker layoutX="192.0" layoutY="320.0" />
+            <DatePicker fx:id="prodAvail" layoutX="192.0" layoutY="320.0" />
             <ComboBox fx:id="categoriesDropdown" layoutX="192.0" layoutY="205.0" />
             </children>
         </AnchorPane>

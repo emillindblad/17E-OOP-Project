@@ -35,6 +35,7 @@
     },
     "userId": 2,
     "price": 200,
-    "availability": 1
+    "availability": 1,
+    "orderSate": "UNAVALIBLE"
   }
 ]

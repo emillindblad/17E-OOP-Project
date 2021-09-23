@@ -3,7 +3,6 @@ package edu.tda367.Listing;
 import edu.tda367.JSON.JSONReader;
 import edu.tda367.JSON.JSONWriter;
 
-import java.lang.reflect.Array;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -45,7 +44,7 @@ public class ListingHandler {
         ArrayList<Listing> availableListings = new ArrayList<Listing>();
         for(Listing listing : listings)
         {
-            if(listing.getOrderSate().equals(ListingState.AVALIBLE))
+            if(listing.getOrderState().equals(ListingState.AVALIBLE))
             {
                 availableListings.add(listing);
             }

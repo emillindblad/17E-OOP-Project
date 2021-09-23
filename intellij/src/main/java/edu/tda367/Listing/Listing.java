@@ -9,14 +9,14 @@ public class Listing {
     private int price;
     //private Booking booking;
     private long availability;
-    private ListingState orderSate;
+    private ListingState orderState;
 
      Listing(String prodName, Category prodCat, String prodDesc, int userId, int price, LocalDateTime startDate, LocalDateTime endDate) {
         this.product = new Product(prodName, prodCat, prodDesc);
         this.userId = userId;
         this.price = price;
         this.availability = setAvailability(startDate, endDate);
-        this.orderSate = ListingState.AVALIBLE;
+        this.orderState = ListingState.AVALIBLE;
     }
 
     public long setAvailability(LocalDateTime startDate, LocalDateTime endDate) {
@@ -30,7 +30,7 @@ public class Listing {
                 "product=" + product +
                 ", price=" + price +
                 ", availability=" + availability +
-                ", orderSate=" + orderSate +
+                ", orderSate=" + orderState +
                 '}';
     }
 
@@ -58,11 +58,11 @@ public class Listing {
         this.price = price;
     }
 
-    public ListingState getOrderSate() {
-        return orderSate;
+    public ListingState getOrderState() {
+        return orderState;
     }
 
-    public void setOrderSate(ListingState orderSate) {
-        this.orderSate = orderSate;
+    public void setOrderState(ListingState orderState) {
+        this.orderState = orderState;
     }
 }

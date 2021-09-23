@@ -3,6 +3,12 @@
     "firstName": "Erik",
     "lastName": "Larsson",
     "phoneNumber": "0734111337",
+    "userAdress": {
+      "streetName": "Kemivagen 7B",
+      "city": "Goteborg",
+      "zipCode": 41258,
+      "country": "Sverige"
+    },
     "userID": 0,
     "userName": "eblad",
     "password": "eblad123",
@@ -12,9 +18,27 @@
     "firstName": "Sebastian",
     "lastName": "Kvalden",
     "phoneNumber": "0734111337",
-    "userID": 0,
+    "userID": 1,
     "userName": "kvalle",
     "password": "kvalle123",
+    "bankAccount": "987654321"
+  },
+  {
+    "firstName": "Emil",
+    "lastName": "Lindblad",
+    "phoneNumber": "0734111337",
+    "userID": 105218,
+    "userName": "abc",
+    "password": "abc123",
+    "bankAccount": "123456789"
+  },
+  {
+    "firstName": "Sebastian",
+    "lastName": "Kvalden",
+    "phoneNumber": "0734111337",
+    "userID": 198991,
+    "userName": "def",
+    "password": "def123",
     "bankAccount": "987654321"
   }
 ]

@@ -30,15 +30,6 @@ public class LogIn extends AnchorPane implements hyroScene {
         Parent root = loader.load();
         this.scene = new Scene(root);
         this.handler = handler;
-        createDummyUsers(); //can be removed, no real functionality
-    }
-
-    /**
-     * Dummy method for testing before users are added to database
-     */
-    private void createDummyUsers() {
-        UserHandler.getInstance().createUser("a","b","1","a","b","1");
-        UserHandler.getInstance().createUser("q","w","2","q","w","2");
     }
 
     /**

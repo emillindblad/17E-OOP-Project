@@ -1,6 +1,7 @@
 package edu.tda367.View.scenes;
 
 import edu.tda367.App;
+import edu.tda367.Controllers.LogInController;
 import edu.tda367.UserPackage.UserHandler;
 import edu.tda367.View.SceneHandler;
 import edu.tda367.View.hyroScene;
@@ -17,7 +18,7 @@ import java.io.IOException;
 
 public class LogIn extends AnchorPane implements hyroScene {
     private final Scene scene;
-    private final SceneHandler handler; //handler used to switch scenes
+    private final LogInController liController;
 
     @FXML private TextField userNameField;
     @FXML private TextField passwordField;
@@ -29,7 +30,7 @@ public class LogIn extends AnchorPane implements hyroScene {
         loader.setController(this);
         Parent root = loader.load();
         this.scene = new Scene(root);
-        this.handler = handler;
+        liController = new LogInController(handler);
     }
 
     /**
@@ -41,15 +42,6 @@ public class LogIn extends AnchorPane implements hyroScene {
         return this.scene;
     }
 
-    /**
-     * Switches current scene to store home.
-     * Makes sure the home screen is centered on monitor.
-     */
-    @FXML
-    private void switchToHome() {
-        handler.switchTo("home");
-        handler.centerOnScreen();
-    }
 
     /**
      * Attempts to log in using the credentials entered in the textfields.
@@ -58,10 +50,6 @@ public class LogIn extends AnchorPane implements hyroScene {
      */
     @FXML
     private void logInAttempt() {
-        if (UserHandler.getInstance().logIn(userNameField.getText(), passwordField.getText())) {
-            switchToHome();
-        } else {
-            infoLabel.setText("Fel användarnamn eller lösenord");
-        }
+        liController.logInAttempt(userNameField.getText(), passwordField.getText());
     }
 }

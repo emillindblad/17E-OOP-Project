@@ -3,6 +3,7 @@ package edu.tda367;
 import edu.tda367.Controllers.ListingController;
 import edu.tda367.View.SceneHandler;
 import edu.tda367.View.hyroScene;
+import edu.tda367.View.scenes.BrowseListings;
 import edu.tda367.View.scenes.Home;
 import edu.tda367.View.scenes.LogIn;
 import edu.tda367.View.scenes.Secondary;
@@ -20,5 +21,9 @@ public final class HyroFactory {
 
     public static final hyroScene loginScene(SceneHandler director) throws IOException {
         return new LogIn(director);
+    }
+
+    public static final hyroScene browseScene(SceneHandler director) throws IOException {
+        return new BrowseListings(director);
     }
 }

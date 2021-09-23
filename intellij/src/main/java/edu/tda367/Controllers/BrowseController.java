@@ -4,11 +4,17 @@ import edu.tda367.Listing.Listing;
 import edu.tda367.Listing.ListingHandler;
 
 import java.util.ArrayList;
+import java.util.List;
 
-class BrowseController implements Controller {
+public class BrowseController implements Controller {
     ListingHandler listingHandler;
 
-    protected ArrayList<Listing>  getListings() {
-        return listingHandler.getListings();
+    public BrowseController() {
+        this.listingHandler = new ListingHandler();
     }
+
+    public ArrayList<Listing>  getAvailableListings() {
+        return listingHandler.getAvailableListings();
+    }
+
 }

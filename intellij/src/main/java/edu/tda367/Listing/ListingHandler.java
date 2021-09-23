@@ -4,6 +4,7 @@ import edu.tda367.JSON.JSONReader;
 import edu.tda367.JSON.JSONWriter;
 import edu.tda367.UserPackage.User;
 
+import java.lang.reflect.Array;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +30,19 @@ public class ListingHandler {
 
     public ArrayList<Listing> getListings() {
         return listings;
+    }
+
+    public ArrayList<Listing> getAvailableListings() {
+        ArrayList<Listing> availableListings = new ArrayList<Listing>();
+        for(Listing listing : listings)
+        {
+            if(listing.getOrderSate().equals(ListingState.AVALIBLE))
+            {
+                availableListings.add(listing);
+            }
+
+        }
+        return availableListings;
     }
 
     //TODO Is this the best way to do this?

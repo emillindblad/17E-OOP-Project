@@ -61,6 +61,6 @@ public class LogIn extends AnchorPane implements hyroScene {
 
     @FXML
     private void createNewAccount() {
-
+        liController.switchToCreateAccount();
     }
 }

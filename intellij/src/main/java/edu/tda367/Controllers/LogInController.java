@@ -22,4 +22,9 @@ public class LogInController implements Controller {
             return false;
         }
     }
+
+    public void switchToCreateAccount() {
+        handler.switchTo("createAccount");
+        handler.centerOnScreen();
+    }
 }

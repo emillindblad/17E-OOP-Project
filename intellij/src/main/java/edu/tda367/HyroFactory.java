@@ -3,6 +3,7 @@ package edu.tda367;
 import edu.tda367.Controllers.ListingController;
 import edu.tda367.View.SceneHandler;
 import edu.tda367.View.hyroScene;
+import edu.tda367.View.scenes.CreateAccount;
 import edu.tda367.View.scenes.Home;
 import edu.tda367.View.scenes.LogIn;
 import edu.tda367.View.scenes.Secondary;
@@ -18,7 +19,11 @@ public final class HyroFactory {
         return new Secondary(handler);
     }
 
-    public static final hyroScene loginScene(SceneHandler director) throws IOException {
-        return new LogIn(director);
+    public static final hyroScene loginScene(SceneHandler handler) throws IOException {
+        return new LogIn(handler);
+    }
+
+    public static final hyroScene createAccountScene(SceneHandler handler) throws IOException {
+        return new CreateAccount("CreateAccount", handler);
     }
 }

@@ -14,9 +14,13 @@ public class JSONReader {
     public <T> List<T> read(Class<T[]> clazz, String name) {
         try (FileReader reader = new FileReader("src/main/resources/edu/tda367/JSONFiles/" + name + ".json")) {
             T[] arr = new Gson().fromJson(reader, clazz);
+            if (arr == null || arr.length == 0) {
+                System.out.println("Empty file for " + name + ", returning empty list");
+                return new ArrayList<>();
+            }
             return Arrays.asList(arr);
         } catch (FileNotFoundException e) {
-            System.out.println("File not found, returning empty list");
+            System.out.println("File not found " + name + ", returning empty list");
             return new ArrayList<>();
         } catch (IOException e) {
             e.printStackTrace();

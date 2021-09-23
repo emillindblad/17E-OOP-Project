@@ -10,7 +10,7 @@
     "userId": 2,
     "price": 200,
     "availability": 1,
-    "orderState": "UNAVALIBLE"
+    "orderState": "AVALIBLE"
   },
   {
     "product": {
@@ -23,7 +23,7 @@
     "userId": 2,
     "price": 200,
     "availability": 1,
-    "orderState": "UNAVALIBLE"
+    "orderState": "AVALIBLE"
   },
   {
     "product": {

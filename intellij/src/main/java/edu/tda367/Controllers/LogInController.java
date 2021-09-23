@@ -10,16 +10,16 @@ public class LogInController implements Controller {
         this.handler = handler;
     }
 
-    private void switchToHome() {
+    public void switchToHome() {
         handler.switchTo("home");
         handler.centerOnScreen();
     }
-    
-    public void logInAttempt(String uName, String pWord) {
+
+    public boolean logInAttemptIsValid(String uName, String pWord) {
         if (UserHandler.getInstance().logIn(uName, pWord)) {
-            switchToHome();
+            return true;
         } else {
-            //infoLabel.setText("Fel användarnamn eller lösenord");
+            return false;
         }
     }
 }

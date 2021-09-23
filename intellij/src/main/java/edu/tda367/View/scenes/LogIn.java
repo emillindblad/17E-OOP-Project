@@ -50,6 +50,10 @@ public class LogIn extends AnchorPane implements hyroScene {
      */
     @FXML
     private void logInAttempt() {
-        liController.logInAttempt(userNameField.getText(), passwordField.getText());
+        if (liController.logInAttemptIsValid(userNameField.getText(), passwordField.getText())) {
+            liController.switchToHome();
+        } else {
+            infoLabel.setText("Fel användarnamn eller lösenord");
+        }
     }
 }

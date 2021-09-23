@@ -135,7 +135,16 @@ public final class UserHandler {
         HashMap<Integer, User> userstmp = new HashMap<>();
         JSONReader reader = new JSONReader();
         List<User> savedUsers = reader.read(User[].class, "users");
-        savedUsers.forEach(u -> userstmp.put(u.getUserID(),u));
+        //TODO: Fix for null value
+
+        savedUsers.forEach(u ->
+        {
+            if (u == null) {
+                System.out.println("null object in json file");
+            } else {
+                userstmp.put(u.getUserID(),u);
+            }
+        });
         return userstmp;
     }
 

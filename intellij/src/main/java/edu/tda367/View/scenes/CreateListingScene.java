@@ -18,8 +18,9 @@ public class CreateListingScene extends AbstractHyroScene {
     @FXML private ComboBox categoriesDropdown;
 
     public CreateListingScene(SceneHandler handler) throws IOException {
-        super("createListing",handler);
+        super("createlisting",handler);
         this.listingController = new ListingController();
+        System.out.println("Create Listing now");
     }
 
     @FXML

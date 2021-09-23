@@ -21,6 +21,12 @@ public class BrowseListings extends AbstractHyroScene {
         updateList();
     }
 
+    @FXML
+    private void switchToCreate() {
+        handler.switchTo("createlisting");
+        handler.centerOnScreen();
+    }
+
     void updateList()
     {
         var listings = browseController.getAvailableListings();

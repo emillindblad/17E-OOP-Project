@@ -30,6 +30,7 @@ public class App extends Application {
         sceneHandler.addScene(HyroFactory.secondaryScene(sceneHandler), "secondary");
         sceneHandler.addScene(HyroFactory.browseScene(sceneHandler), "browse");
         sceneHandler.addScene(HyroFactory.loginScene(sceneHandler), "login");
+        sceneHandler.addScene(HyroFactory.createListingScene(sceneHandler),"createlisting");
         sceneHandler.switchTo("login");
     }
 

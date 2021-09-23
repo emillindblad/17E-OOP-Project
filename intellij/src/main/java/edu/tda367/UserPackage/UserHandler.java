@@ -33,9 +33,7 @@ public final class UserHandler {
         users = getSavedUsers();
     }
 
-    public int userListLenght () {
-       return users.size();
-    }
+
     /**
      * Used instead of constructor
      * @return The singleton instance of the UserHandler
@@ -147,5 +145,5 @@ public final class UserHandler {
         }
         writer.write(usersList, "users");
     }
-//TODO method to access/notify users when their listings are updated
+//TODO method to access/notify users when their listings are updated, methods to get user info (adress, etc)
 }

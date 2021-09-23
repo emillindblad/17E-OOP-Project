@@ -31,7 +31,7 @@ public class TestUserPackage {
         assertFalse(uHandler.logIn("eblad", "eblad123"));
         uHandler.logOut();
         assertTrue(uHandler.getLoggedInUser() == null);
-        assertTrue(uHandler.logIn("eblad", "eblad123"));
+        assertTrue(uHandler.logIn("def", "def123"));
     }
 
     @Test

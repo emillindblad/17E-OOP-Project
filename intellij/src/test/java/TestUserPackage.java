@@ -16,6 +16,7 @@ public class TestUserPackage {
         uHandler.createUser("Sebastian", "Kvalden", "0734111337","def", "def123", "987654321" );
     }
 
+    // TODO: Change tests to allow empty database
     @Test
     public void UserLogInTest (){
         assertFalse(uHandler.logIn("kvalle", "kvalle"));
@@ -47,6 +48,5 @@ public class TestUserPackage {
         uHandler.writeUsers();
         assertTrue(uHandler.getLoggedInUser().getUserAdress().getStreetName().equals("Kemivagen 7B"));
     }
-
 
 }

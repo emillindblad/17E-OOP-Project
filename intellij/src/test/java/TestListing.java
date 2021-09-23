@@ -42,11 +42,12 @@ public class TestListing {
         assertTrue(duration==25);
     }
 
-    @Test
+    /*@Test
     public void testDatabaseGet() {
         ListingHandler testhandler = new ListingHandler();
         assertFalse(testhandler.getSavedListings().size() == 0);
     }
+    */
 
     @Test
     public void testDatabaseWrite() {

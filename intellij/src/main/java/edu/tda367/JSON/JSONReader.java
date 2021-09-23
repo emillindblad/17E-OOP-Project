@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -15,7 +16,8 @@ public class JSONReader {
             T[] arr = new Gson().fromJson(reader, clazz);
             return Arrays.asList(arr);
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("File not found, returning empty list");
+            return new ArrayList<>();
         } catch (IOException e) {
             e.printStackTrace();
         }

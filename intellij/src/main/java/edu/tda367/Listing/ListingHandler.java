@@ -79,7 +79,14 @@ public class ListingHandler {
         ArrayList<Listing> listingstmp = new ArrayList<>();
         JSONReader reader = new JSONReader();
         List<Listing> savedUsers = reader.read(Listing[].class, "listings");
-        savedUsers.forEach(l -> listingstmp.add(l));
+        savedUsers.forEach(l ->
+        {
+            if (l == null) {
+
+            } else {
+                listingstmp.add(l);
+            }
+        });
         return listingstmp;
     }
 

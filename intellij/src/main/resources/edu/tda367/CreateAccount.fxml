@@ -1,11 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button layoutX="334.0" layoutY="270.0" mnemonicParsing="false" text="crea" />
+      <Button layoutX="35.0" layoutY="36.0" mnemonicParsing="false" text="Tillbaka" />
+      <Label layoutX="171.0" layoutY="143.0" styleClass="createAccLbl" text="Förnamn:" />
+      <Label layoutX="151.0" layoutY="191.0" styleClass="createAccLbl" text="Efternamn:" />
+      <Label layoutX="81.0" layoutY="264.0" styleClass="createAccLbl" text="Användarnamn:" />
+      <Label layoutX="165.0" layoutY="336.0" styleClass="createAccLbl" text="Lösenord:" />
+      <Label layoutX="34.0" layoutY="383.0" styleClass="createAccLbl" text="Upprepa Lösenord:" />
+      <Label layoutX="76.0" layoutY="481.0" styleClass="createAccLbl" text="Telefonnummer:" />
+      <Label layoutX="148.0" layoutY="528.0" styleClass="createAccLbl" text="Bankkonto:" />
+      <Label layoutX="646.0" layoutY="143.0" styleClass="createAccLbl" text="Gatuadress:" />
+      <Label layoutX="689.0" layoutY="191.0" styleClass="createAccLbl" text="Postkod:" />
+      <Label layoutX="740.0" layoutY="240.0" styleClass="createAccLbl" text="Stad:" />
+      <Label layoutX="737.0" layoutY="287.0" styleClass="createAccLbl" text="Land:" />
+      <TextField layoutX="336.0" layoutY="151.0" prefHeight="32.0" prefWidth="258.0" />
+      <TextField layoutX="336.0" layoutY="199.0" prefHeight="32.0" prefWidth="258.0" />
+      <TextField layoutX="336.0" layoutY="272.0" prefHeight="32.0" prefWidth="258.0" />
+      <PasswordField layoutX="336.0" layoutY="344.0" prefHeight="32.0" prefWidth="258.0" />
+      <PasswordField layoutX="336.0" layoutY="391.0" prefHeight="32.0" prefWidth="258.0" />
+      <TextField layoutX="336.0" layoutY="489.0" prefHeight="32.0" prefWidth="258.0" />
+      <TextField layoutX="336.0" layoutY="536.0" prefHeight="32.0" prefWidth="258.0" />
+      <TextField layoutX="854.0" layoutY="151.0" prefHeight="32.0" prefWidth="258.0" />
+      <TextField layoutX="854.0" layoutY="199.0" prefHeight="32.0" prefWidth="258.0" />
+      <TextField layoutX="854.0" layoutY="248.0" prefHeight="32.0" prefWidth="258.0" />
+      <TextField layoutX="854.0" layoutY="295.0" prefHeight="32.0" prefWidth="258.0" />
+      <Button layoutX="916.0" layoutY="530.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="133.0" text="Skapa Konto">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
@@ -33,6 +34,12 @@ public class LogIn extends AnchorPane implements hyroScene {
         Parent root = loader.load();
         this.scene = new Scene(root);
         liController = new LogInController(handler);
+
+        scene.setOnKeyPressed(e -> {
+            if (e.getCode() == KeyCode.ENTER) {
+                logInAttempt();
+            }
+        });
     }
 
     /**

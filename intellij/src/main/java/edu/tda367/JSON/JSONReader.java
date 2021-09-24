@@ -2,6 +2,7 @@
 package edu.tda367.JSON;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -23,6 +24,10 @@ public class JSONReader {
             System.out.println("File not found " + name + ", returning empty list");
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (JsonSyntaxException e) {
+            System.out.println("Malformed Json syntax in " + name + ", returning empty list");
+            System.out.println("Database most likely got deleted now :(");
+            return new ArrayList<>();
         }
         System.out.println("No list returned");
         return new ArrayList<>();

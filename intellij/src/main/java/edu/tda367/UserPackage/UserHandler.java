@@ -135,7 +135,15 @@ public final class UserHandler {
         HashMap<Integer, User> userstmp = new HashMap<>();
         JSONReader reader = new JSONReader();
         List<User> savedUsers = reader.read(User[].class, "users");
-        savedUsers.forEach(u -> userstmp.put(u.getUserID(),u));
+
+        savedUsers.forEach(u ->
+        {
+            if (u == null) {
+                System.out.println("null object in json file");
+            } else {
+                userstmp.put(u.getUserID(),u);
+            }
+        });
         return userstmp;
     }
 
@@ -146,6 +154,21 @@ public final class UserHandler {
             usersList.add(u);
         }
         writer.write(usersList, "users");
+    }
+
+    public void removeUser(String key, String value) {
+
+        switch (key) {
+            case "password":
+                users.entrySet().removeIf(
+                        entry -> (value.equals(entry.getValue().getPassword()))
+                );
+                break;
+
+            default:
+                System.out.println("Key not defined");
+        }
+
     }
 //TODO method to access/notify users when their listings are updated
 }

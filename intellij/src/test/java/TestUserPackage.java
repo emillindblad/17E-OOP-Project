@@ -14,6 +14,12 @@ public class TestUserPackage {
         uHandler.createUser("Sebastian", "Kvalden", "0734111337","def", "test", "987654321" );
     }
 
+    @AfterClass
+    public static void removeUsers() {
+        uHandler.removeUser("password", "test");
+        uHandler.writeUsers();
+    }
+
     @Test
     public void UserLogInTest (){
         assertFalse(uHandler.logIn("kvalle", "kvalle"));

@@ -2,7 +2,6 @@
 package edu.tda367.JSON;
 
 import com.google.gson.Gson;
-import com.google.gson.stream.MalformedJsonException;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;

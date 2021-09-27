@@ -11,7 +11,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * JSONReader is used to fetch data from a json file and converting it to a list of the specified object
+ * @author Erik Larsson
+ */
 public class JSONReader {
+    /**
+     * Parses a specified json file, maps objects to specified class and returns a list of objects
+     * @param clazz The class of the objects
+     * @param name The name of the json file
+     * @return An ArrayList containing objects of specified class
+     */
     public <T> List<T> read(Class<T[]> clazz, String name) {
         try (FileReader reader = new FileReader("src/main/resources/edu/tda367/JSONFiles/" + name + ".json")) {
             T[] arr = new Gson().fromJson(reader, clazz);

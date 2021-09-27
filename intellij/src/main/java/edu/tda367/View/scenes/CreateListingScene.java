@@ -15,8 +15,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class CreateListingScene extends AbstractHyroScene {
-    private final ListingController listingController;
-    //private final ListingHandler handler;
+    //private final ListingController listingController;
+    private final ListingHandler handler;
 
     @FXML private TextField productName;
     @FXML private TextField productDesc;
@@ -26,15 +26,14 @@ public class CreateListingScene extends AbstractHyroScene {
 
     public CreateListingScene(SceneHandler handler) throws IOException {
         super("createlisting",handler);
-        this.listingController = new ListingController();
+        this.handler = new ListingHandler();
 
         this.categoriesDropdown.getItems().setAll(loadCategories());
         System.out.println("Create Listing now");
     }
 
     public ArrayList<String> loadCategories() {
-        ArrayList<String> categories = new ArrayList<>(Arrays.asList("Övrigt","Något annat"));
-        return categories;
+        return handler.getCategoryNames();
     }
 
     public void getFormInput() {

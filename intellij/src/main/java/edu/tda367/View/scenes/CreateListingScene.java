@@ -42,9 +42,6 @@ public class CreateListingScene extends AbstractHyroScene {
 
     @FXML
     public boolean validateData(String[] formData) {
-        if (formData.length!=4) {
-            return false;
-        }
         if (!InputChecker.checkForNumber(formData[2])) {
             errorMsg.setText("WRONG");
             return false;

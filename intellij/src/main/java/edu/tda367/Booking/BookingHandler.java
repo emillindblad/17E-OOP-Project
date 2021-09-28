@@ -20,4 +20,6 @@ public class BookingHandler {
             bookings.add(booking);
         }
     }
+
+    public ArrayList<Booking> getBookings() { return bookings; }
 }

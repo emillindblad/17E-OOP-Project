@@ -18,7 +18,7 @@ public class Booking {
         return bookingState;
     }
 
-    private void advanceBookingState() {
+    public void advanceBookingState() {
         if (bookingState == BookingState.ACCEPTED) {
             bookingState = BookingState.PAYED;
         }

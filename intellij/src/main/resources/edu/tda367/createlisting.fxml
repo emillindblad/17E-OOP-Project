@@ -31,6 +31,7 @@
             <Label layoutX="116.0" layoutY="290.0" text="Availability" />
             <DatePicker fx:id="prodAvail" layoutX="192.0" layoutY="320.0" />
             <ComboBox fx:id="categoriesDropdown" layoutX="192.0" layoutY="205.0" promptText="Välj kategori" />
+                <Label fx:id="errorMsg" layoutX="107.0" layoutY="387.0" text="foo"/>
             </children>
         </AnchorPane>
     </children>

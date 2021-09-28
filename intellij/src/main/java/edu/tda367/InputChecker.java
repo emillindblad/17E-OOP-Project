@@ -3,19 +3,21 @@ package edu.tda367;
 public class InputChecker {
 
     public static boolean checkForNumber (String toCheck) {
+        boolean check = true;
+        check = !missingInput(toCheck);
         for(char ch : toCheck.toCharArray()) {
-            if(Character.isLetter(ch));
-            return false;
+            check = !Character.isLetter(ch);
         }
-        return true;
+        return check;
     }
 
     public static boolean checkForLetter (String toCheck) {
+        boolean check = true;
+        check = !missingInput(toCheck);
         for(char ch : toCheck.toCharArray()) {
-            if(Character.isDigit(ch));
-            return false;
+            check = !Character.isDigit(ch);
         }
-        return true;
+        return check;
     }
 
     public static boolean checkForLength (String toCheck, int length) {
@@ -24,5 +26,9 @@ public class InputChecker {
             return true;
         }
         return false;
+    }
+
+    private static boolean missingInput(String toCheck) {
+        return toCheck.isBlank();
     }
 }

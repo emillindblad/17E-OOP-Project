@@ -56,8 +56,29 @@ public class User {
         return userAdress;
     }
 
+
     void setUserAdress (UserAdress adress) {
           this.userAdress = adress;
+    }
+
+     void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+     void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+     void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+     void setPassword(String password) {
+        this.password = password;
+    }
+
+     void setBankAccount(String bankAccount) {
+        this.bankAccount = bankAccount;
     }
 
     public String toString (){
@@ -68,9 +89,10 @@ public class User {
                   "User ID: " + userID + "\n";
     }
 
-    String getUserName() {
+    public String getUserName() {
         return userName;
     }
+
 
     String getPassword() {
         return password;
@@ -79,7 +101,7 @@ public class User {
     int getUserID() { return userID;}
 
 
-    String getBankAccount() {
+    public String getBankAccount() {
         return bankAccount;
     }
 

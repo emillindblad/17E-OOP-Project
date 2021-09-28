@@ -2,6 +2,7 @@ package edu.tda367.View.scenes;
 
 import edu.tda367.App;
 import edu.tda367.InputChecker;
+import edu.tda367.UserPackage.User;
 import edu.tda367.UserPackage.UserHandler;
 import edu.tda367.View.SceneHandler;
 import edu.tda367.View.hyroScene;
@@ -13,18 +14,20 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 
 public class MyAccount extends AnchorPane implements hyroScene {
 
     private final Scene scene;
     private final SceneHandler handler;
+    private static List<Consumer<boolean>> fieldTests;
     private final List<TextField> editableFields;
     private final UserHandler userHandler;
-    private boolean correctInput;
 
     @FXML private TextField firstName;
     @FXML private TextField lastName;
@@ -36,6 +39,7 @@ public class MyAccount extends AnchorPane implements hyroScene {
     @FXML private TextField bankAccount;
     @FXML private PasswordField password;
     @FXML private PasswordField confirmPassword;
+    @FXML private TextField phoneNumber;
     @FXML private Button change;
 
 
@@ -47,48 +51,88 @@ public class MyAccount extends AnchorPane implements hyroScene {
         this.scene = new Scene(root);
         this.handler = handler;
         this.userHandler = UserHandler.getInstance();
-        editableFields = new ArrayList<TextField>();
-        populateFieldLists();
-        correctInput = true;
+        editableFields = new ArrayList<>();
+        populateFieldList();
+        setTextFields();
     }
 
-    private void populateFieldLists() {
+    //put all methods that test input in a list to run when changes are saved, as well as list of all fields
+    private void populateFieldList() {
         editableFields.add(firstName);
         editableFields.add(lastName);
         editableFields.add(streetName);
         editableFields.add(zipCode);
         editableFields.add(city);
         editableFields.add(country);
+        editableFields.add(bankAccount);
         editableFields.add(password);
         editableFields.add(confirmPassword);
-        editableFields.add(bankAccount);
-
+        editableFields.add(phoneNumber);
     }
 
+    private void setTextFields () {
+        User user = userHandler.getLoggedInUser();
+        firstName.setText(user.getFirstName());
+        lastName.setText(user.getLastName());
+        streetName.setText(user.getUserAdress().getStreetName());
+        zipCode.setText(Integer.toString(user.getUserAdress().getZipCode()));
+        city.setText(user.getUserAdress().getCity());
+        country.setText(user.getUserAdress().getCountry());
+        userName.setText(user.getUserName());
+        phoneNumber.setText(user.getPhoneNumber());
+        bankAccount.setText(user.getBankAccount());
+    }
     @Override
     public Scene getHyroScene() {
         return this.scene;
     }
 
-    public void enableChanges () {
+    @FXML
+    public void changeButton () {
+        if(change.getText().equals("Ändra")){
+            enableChanges();
+        }
+        else{
+            saveChanges();
+        }
+    }
+
+    private void enableChanges () {
         for(TextField field : editableFields){
             field.setEditable(true);
+            change.setText("Spara");
         }
     }
 
-    public void saveChanges () {
-        for(TextField field : editableFields){
-            field.setEditable(false);
+    private void saveChanges () {
+        if(testInput()) {
+            for (TextField field : editableFields) {
+                field.setEditable(false);
+            }
+            change.setText("Ändra");
+            saveUserInfo();
         }
     }
 
-    @FXML
-    public boolean zipCodeInput() {
+    private void saveUserInfo() {
+        userHandler.setLoggedInUserFirstName(firstName.toString());
+        userHandler.setLoggedInUserLastName(lastName.toString());
+        userHandler.setLoggedInUserAdress(streetName.toString(),city.toString(),Integer.parseInt(zipCode.toString()), country.toString());
+        userHandler.setLoggedInUserPasswword(password.toString());
+        userHandler.setLoggedInUserPhoneNumber(phoneNumber.toString());
+        userHandler.setLoggedInUserBankAccount(bankAccount.toString());
+    }
+    private boolean testInput() {
+        if( !zipCodeInput() || !bankAccountInput() || !firstNameInput() || !lastNameInput() || !countryInput() || !cityInput() || !passwordInput())
+            return false;
+        return true;
+    }
+
+    private boolean zipCodeInput() {
     return numberFieldChecker(zipCode, 5);
     }
 
-    @FXML
-    public boolean bankAccountInput() {
+    private boolean bankAccountInput() {
         if (InputChecker.checkForNumber(bankAccount.toString())){
             bankAccount.setStyle("-fx-border-color: black ; -fx-border-width: 2px ;");
             return true;
@@ -99,7 +143,33 @@ public class MyAccount extends AnchorPane implements hyroScene {
         }
     }
 
-    @FXML
+    private boolean firstNameInput () {
+        return textFieldChecker(firstName);
+    }
+
+    private boolean lastNameInput () {
+        return textFieldChecker(lastName);
+    }
+
+    private boolean countryInput () {
+        return textFieldChecker(country);
+    }
+
+    private boolean cityInput () {
+        return textFieldChecker(lastName);
+    }
+
+    private boolean passwordInput () {
+        if (password == confirmPassword) {
+            password.setStyle("-fx-border-color: black ; -fx-border-width: 2px ;");
+            confirmPassword.setStyle("-fx-border-color: black ; -fx-border-width: 2px ;");
+            return true;
+        }
+        password.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+        confirmPassword.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+        return false;
+    }
+
 
     private boolean numberFieldChecker (TextField field, int lenght) {
 

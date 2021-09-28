@@ -94,7 +94,8 @@ public class User {
     }
 
 
-    String getPassword() {
+
+    public String getPassword() {
         return password;
     }
 

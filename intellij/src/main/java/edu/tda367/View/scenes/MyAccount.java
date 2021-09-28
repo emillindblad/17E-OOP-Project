@@ -52,7 +52,8 @@ public class MyAccount extends AnchorPane implements hyroScene {
         this.userHandler = UserHandler.getInstance();
         editableFields = new ArrayList<>();
         populateFieldList();
-        setTextFields();
+        change.setText("Ändra");
+        //setTextFields();
     }
 
     //put all methods that test input in a list to run when changes are saved, as well as list of all fields
@@ -69,7 +70,7 @@ public class MyAccount extends AnchorPane implements hyroScene {
         editableFields.add(phoneNumber);
     }
 
-    private void setTextFields () {
+    public void setTextFields () {
         User user = userHandler.getLoggedInUser();
         firstName.setText(user.getFirstName());
         lastName.setText(user.getLastName());
@@ -80,6 +81,8 @@ public class MyAccount extends AnchorPane implements hyroScene {
         userName.setText(user.getUserName());
         phoneNumber.setText(user.getPhoneNumber());
         bankAccount.setText(user.getBankAccount());
+        password.setText(user.getPassword());
+        confirmPassword.setText(user.getPassword());
     }
     @Override
     public Scene getHyroScene() {
@@ -90,6 +93,7 @@ public class MyAccount extends AnchorPane implements hyroScene {
     public void changeButton () {
         if(change.getText().equals("Ändra")){
             enableChanges();
+            setTextFields(); //behövs bara då sidan laddas in när programemt startar
         }
         else{
             saveChanges();
@@ -114,12 +118,12 @@ public class MyAccount extends AnchorPane implements hyroScene {
     }
 
     private void saveUserInfo() {
-        userHandler.setLoggedInUserFirstName(firstName.toString());
-        userHandler.setLoggedInUserLastName(lastName.toString());
-        userHandler.setLoggedInUserAdress(streetName.toString(),city.toString(),Integer.parseInt(zipCode.toString()), country.toString());
-        userHandler.setLoggedInUserPasswword(password.toString());
-        userHandler.setLoggedInUserPhoneNumber(phoneNumber.toString());
-        userHandler.setLoggedInUserBankAccount(bankAccount.toString());
+        userHandler.setLoggedInUserFirstName(firstName.getText());
+        userHandler.setLoggedInUserLastName(lastName.getText());
+        userHandler.setLoggedInUserAdress(streetName.getText(),city.getText(),Integer.parseInt(zipCode.getText()), country.getText());
+        userHandler.setLoggedInUserPasswword(password.getText());
+        userHandler.setLoggedInUserPhoneNumber(phoneNumber.getText());
+        userHandler.setLoggedInUserBankAccount(bankAccount.getText());
     }
     private boolean testInput() {
         if( !zipCodeInput() || !bankAccountInput() || !firstNameInput() || !lastNameInput() || !countryInput() || !cityInput() || !passwordInput())
@@ -132,7 +136,7 @@ public class MyAccount extends AnchorPane implements hyroScene {
     }
 
     private boolean bankAccountInput() {
-        if (InputChecker.checkForNumber(bankAccount.toString())){
+        if (InputChecker.checkForNumber(bankAccount.getText())){
             bankAccount.setStyle("-fx-border-color: black ; -fx-border-width: 2px ;");
             return true;
         }
@@ -155,24 +159,25 @@ public class MyAccount extends AnchorPane implements hyroScene {
     }
 
     private boolean cityInput () {
-        return textFieldChecker(lastName);
+        return textFieldChecker(city);
     }
 
     private boolean passwordInput () {
-        if (password == confirmPassword) {
+        //System.out.println(password.getText());
+        //System.out.println(confirmPassword.getText());
+        if (password.getText().equals(confirmPassword.getText())) {
             password.setStyle("-fx-border-color: black ; -fx-border-width: 2px ;");
             confirmPassword.setStyle("-fx-border-color: black ; -fx-border-width: 2px ;");
             return true;
-        }
+        } else
         password.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
         confirmPassword.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
         return false;
     }
 
 
-    private boolean numberFieldChecker (TextField field, int lenght) {
-
-        if (InputChecker.checkForLength(field.toString(), lenght) && InputChecker.checkForNumber(field.toString())) {
+    private boolean numberFieldChecker (TextField field, int lenght) { //something wrong with the lenght check
+        if (InputChecker.checkForLength(field.getText(), lenght) && InputChecker.checkForNumber(field.getText())) {
             field.setStyle("-fx-border-color: black ; -fx-border-width: 2px ;");
             return true;
         } else {
@@ -182,7 +187,7 @@ public class MyAccount extends AnchorPane implements hyroScene {
     }
 
     private boolean textFieldChecker (TextField field) {
-        if (InputChecker.checkForLetter(field.toString())) {
+        if (InputChecker.checkForLetter(field.getText())) {
             field.setStyle("-fx-border-color: black ; -fx-border-width: 2px ;");
             return true;
         } else {

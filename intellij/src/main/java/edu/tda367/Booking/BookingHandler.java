@@ -12,9 +12,12 @@ public class BookingHandler {
         this.bookings = new ArrayList();
     }
 
-    public void createBooking(User customer, Listing listing) {
-        //TODO: Check if trying to book own Listing
-        Booking booking = new Booking(customer, listing);
-        bookings.add(booking);
+    public void createBooking(User customer, int userID, Listing listing) {
+        if (userID == listing.getUserId()) {
+            System.out.println("Can't book your own listing!");
+        } else {
+            Booking booking = new Booking(customer, listing);
+            bookings.add(booking);
+        }
     }
 }

@@ -54,8 +54,13 @@ public class CreateAccount extends AbstractHyroScene {
                 break;
             case EMPTY_FIELD:
                 infoLabel.setText("Fyll i alla fält först!");
+                break;
+            case ZIPCODE_ERROR:
+                infoLabel.setText("Postkoden ska bara vara siffror, inga mellanslag");
+                break;
             case SUCCESS:
                 infoLabel.setText("Konto skapat!");
+                break;
         }
     }
 

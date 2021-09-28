@@ -40,12 +40,27 @@ public class CreateAccountController {
             return AccountCreationStatus.EMPTY_FIELD;
         }
 
+        if (!isValidZip(zipCode)) {
+            return AccountCreationStatus.ZIPCODE_ERROR;
+        }
+
+        UserHandler.getInstance().createUser(firstName, lastName, phoneNumber, userName, passWord, bankAccount, zipCode, address, city, country);
+
         return AccountCreationStatus.SUCCESS;
-
-
     }
 
     public void backToLogIn() {
         handler.switchTo("login");
+        handler.centerOnScreen();
+    }
+
+    private boolean isValidZip(String zip) {
+        try {
+            int i = Integer.parseInt(zip);
+        } catch (NumberFormatException e) {
+            return false;
+        }
+
+        return true;
     }
 }

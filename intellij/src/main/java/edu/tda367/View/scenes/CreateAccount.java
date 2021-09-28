@@ -11,6 +11,9 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
+/**
+ * FXML control class for account creation view
+ */
 public class CreateAccount extends AbstractHyroScene {
 
     @FXML private TextField firstNameField;
@@ -29,11 +32,21 @@ public class CreateAccount extends AbstractHyroScene {
     @FXML private Label infoLabel;
     private final CreateAccountController caController;
 
+    /**
+     * Constructor for CreateAccount
+     * @param fxmlName String, name of FXML-file the class controls
+     * @param handler SceneHandler, used in controller instance
+     * @throws IOException
+     */
     public CreateAccount(String fxmlName, SceneHandler handler) throws IOException {
         super(fxmlName, handler);
         caController = new CreateAccountController(handler);
     }
 
+    /**
+     * Attempts to create account based on data entered in fields.
+     * Will update a label with info on how creation went.
+     */
     @FXML
     private void createAccount() {
         switch (caController.createAccountAttempt(
@@ -64,6 +77,9 @@ public class CreateAccount extends AbstractHyroScene {
         }
     }
 
+    /**
+     * Goes back to LogIn view
+     */
     @FXML
     private void backToLogIn() {
         caController.backToLogIn();

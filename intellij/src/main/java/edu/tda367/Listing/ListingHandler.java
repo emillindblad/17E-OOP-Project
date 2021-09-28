@@ -35,10 +35,10 @@ public class ListingHandler {
 
     private Category getCategory(String categoryName) {
         Category category = null;
-        for (int i = 0; i < categories.size(); i++) {
-           if (categories.get(i).getCategoryName().equals(categoryName)) {
-               category = categories.get(i);
-           }
+        for (Category value : categories) {
+            if (value.getCategoryName().equals(categoryName)) {
+                category = value;
+            }
         }
         return category;
     }

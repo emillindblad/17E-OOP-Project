@@ -21,4 +21,8 @@ public final class HyroFactory {
     public static final hyroScene loginScene(SceneHandler director) throws IOException {
         return new LogIn(director);
     }
+
+    public static final hyroScene myAccountScene(SceneHandler handler) throws IOException {
+        return new LogIn(handler);
+    }
 }

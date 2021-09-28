@@ -25,7 +25,6 @@ public class MyAccount extends AnchorPane implements hyroScene {
 
     private final Scene scene;
     private final SceneHandler handler;
-    private static List<Consumer<boolean>> fieldTests;
     private final List<TextField> editableFields;
     private final UserHandler userHandler;
 

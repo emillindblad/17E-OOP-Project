@@ -25,7 +25,7 @@
       <PasswordField fx:id="repeatPasswordField" layoutX="336.0" layoutY="391.0" prefHeight="32.0" prefWidth="258.0" />
       <TextField fx:id="phoneField" layoutX="336.0" layoutY="489.0" prefHeight="32.0" prefWidth="258.0" />
       <TextField fx:id="bankField" layoutX="336.0" layoutY="536.0" prefHeight="32.0" prefWidth="258.0" />
-      <TextField fx:id="adressField" layoutX="854.0" layoutY="151.0" prefHeight="32.0" prefWidth="258.0" />
+      <TextField fx:id="addressField" layoutX="854.0" layoutY="151.0" prefHeight="32.0" prefWidth="258.0" />
       <TextField fx:id="zipField" layoutX="854.0" layoutY="199.0" prefHeight="32.0" prefWidth="258.0" />
       <TextField fx:id="cityField" layoutX="854.0" layoutY="248.0" prefHeight="32.0" prefWidth="258.0" />
       <TextField fx:id="countryField" layoutX="854.0" layoutY="295.0" prefHeight="32.0" prefWidth="258.0" />

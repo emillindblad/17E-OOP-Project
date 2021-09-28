@@ -3,10 +3,7 @@ package edu.tda367;
 import edu.tda367.Controllers.ListingController;
 import edu.tda367.View.SceneHandler;
 import edu.tda367.View.hyroScene;
-import edu.tda367.View.scenes.CreateAccount;
-import edu.tda367.View.scenes.Home;
-import edu.tda367.View.scenes.LogIn;
-import edu.tda367.View.scenes.Secondary;
+import edu.tda367.View.scenes.*;
 
 import java.io.IOException;
 
@@ -25,5 +22,13 @@ public final class HyroFactory {
 
     public static final hyroScene createAccountScene(SceneHandler handler) throws IOException {
         return new CreateAccount("CreateAccount", handler);
+    }
+
+    public static final hyroScene browseScene(SceneHandler director) throws IOException {
+        return new BrowseListings(director);
+    }
+
+    public static final hyroScene createListingScene(SceneHandler director) throws IOException {
+        return new CreateListingScene(director);
     }
 }

@@ -22,38 +22,6 @@
     "userName": "kvalle",
     "password": "kvalle123",
     "bankAccount": "987654321"
-  },
-  {
-    "firstName": "Emil",
-    "lastName": "Lindblad",
-    "phoneNumber": "0734111337",
-    "userID": 105218,
-    "userName": "abc",
-    "password": "abc123",
-    "bankAccount": "123456789"
-  },
-  {
-    "firstName": "Sebastian",
-    "lastName": "Kvalden",
-    "phoneNumber": "0734111337",
-    "userID": 198991,
-    "userName": "def",
-    "password": "def123",
-    "bankAccount": "987654321"
-  },
-  {
-    "firstName": "Eimer",
-    "lastName": "Ahlstedt",
-    "phoneNumber": "0734111337",
-    "userAdress": {
-      "streetName": "Gibraltarkroken 4",
-      "city": "GÃ¶teborg",
-      "zipCode": 41279,
-      "country": "Sverige"
-    },
-    "userID": 134782,
-    "userName": "Florett",
-    "password": "Apa",
-    "bankAccount": "stort"
+
   }
 ]

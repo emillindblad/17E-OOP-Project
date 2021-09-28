@@ -1,7 +1,5 @@
 import edu.tda367.UserPackage.*;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 
 import static org.junit.Assert.*;
 
@@ -12,16 +10,22 @@ public class TestUserPackage {
     @BeforeClass
     public static void UserInit () {
         uHandler = UserHandler.getInstance();
-        uHandler.createUser("Emil", "Lindblad", "0734111337","abc", "abc123", "123456789" );
-        uHandler.createUser("Sebastian", "Kvalden", "0734111337","def", "def123", "987654321" );
+        uHandler.createUser("Emil", "Lindblad", "0734111337","abc", "test", "123456789" );
+        uHandler.createUser("Sebastian", "Kvalden", "0734111337","def", "test", "987654321" );
+    }
+
+    @AfterClass
+    public static void removeUsers() {
+        uHandler.removeUser("password", "test");
+        uHandler.writeUsers();
     }
 
     @Test
     public void UserLogInTest (){
         assertFalse(uHandler.logIn("kvalle", "kvalle"));
         assertTrue(uHandler.getLoggedInUser() == (null));
-        assertTrue(uHandler.logIn("kvalle", "kvalle123"));
-        assertTrue(uHandler.getLoggedInUser().getFirstName().equals("Sebastian"));
+        assertTrue(uHandler.logIn("abc", "test"));
+        assertTrue(uHandler.getLoggedInUser().getFirstName().equals("Emil"));
 
     }
 
@@ -31,7 +35,7 @@ public class TestUserPackage {
         assertFalse(uHandler.logIn("eblad", "eblad123"));
         uHandler.logOut();
         assertTrue(uHandler.getLoggedInUser() == null);
-        assertTrue(uHandler.logIn("eblad", "eblad123"));
+        assertTrue(uHandler.logIn("def", "test"));
     }
 
     @Test
@@ -47,6 +51,5 @@ public class TestUserPackage {
         uHandler.writeUsers();
         assertTrue(uHandler.getLoggedInUser().getUserAdress().getStreetName().equals("Kemivagen 7B"));
     }
-
 
 }

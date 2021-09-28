@@ -138,14 +138,33 @@ public final class UserHandler {
         return id;
     }
 
+    /**
+     * Gets saved Users from database
+     * @author Erik Larsson
+     * @author Sebastian Kvaldén
+     * @return A HashMap containing userID and User
+     */
     public HashMap<Integer, User> getSavedUsers() {
         HashMap<Integer, User> userstmp = new HashMap<>();
         JSONReader reader = new JSONReader();
         List<User> savedUsers = reader.read(User[].class, "users");
-        savedUsers.forEach(u -> userstmp.put(u.getUserID(),u));
+
+        savedUsers.forEach(u ->
+        {
+            if (u == null) {
+                System.out.println("null object in json file");
+            } else {
+                userstmp.put(u.getUserID(),u);
+            }
+        });
         return userstmp;
     }
 
+    /**
+     * Writes Users to database
+     * @author Erik Larsson
+     * @author Sebastian Kvaldén
+     */
     public void writeUsers() {
         JSONWriter writer = new JSONWriter();
         List<User> usersList = new ArrayList<User>();
@@ -153,6 +172,27 @@ public final class UserHandler {
             usersList.add(u);
         }
         writer.write(usersList, "users");
+    }
+
+    /**
+     * Removes User(s) with specified key-value pair
+     * @author Erik Larsson
+     * @param key The key
+     * @param value The value
+     */
+    public void removeUser(String key, String value) {
+        switch (key) {
+            // currently only used to clean up after testing...
+            case "password":
+                users.entrySet().removeIf(
+                        entry -> (value.equals(entry.getValue().getPassword()))
+                );
+                break;
+
+            default:
+                System.out.println("Key not defined");
+        }
+
     }
 //TODO method to access/notify users when their listings are updated
 }

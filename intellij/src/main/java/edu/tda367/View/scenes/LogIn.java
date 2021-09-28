@@ -52,6 +52,12 @@ public class LogIn extends AnchorPane implements hyroScene {
     }
 
 
+    @FXML
+    private void switchToBrowse() {
+        handler.switchTo("browse");
+        handler.centerOnScreen();
+    }
+
     /**
      * Attempts to log in using the credentials entered in the textfields.
      * If successful, UserHandler will now contain the logged in user, and scene will be switched to store home.
@@ -59,8 +65,8 @@ public class LogIn extends AnchorPane implements hyroScene {
      */
     @FXML
     private void logInAttempt() {
-        if (liController.logInAttemptIsValid(userNameField.getText(), passwordField.getText())) {
-            liController.switchToHome();
+        if (UserHandler.getInstance().logIn(userNameField.getText(), passwordField.getText())) {
+            switchToBrowse();
         } else {
             infoLabel.setText("Fel användarnamn eller lösenord");
         }

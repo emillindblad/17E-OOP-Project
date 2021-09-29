@@ -17,7 +17,14 @@ public class BrowseListings extends AbstractHyroScene {
     public BrowseListings(SceneHandler handler) throws IOException {
         super("browse", handler);
         browseController = new BrowseController();
+        System.out.println("nice");
         updateList();
+    }
+
+    @FXML
+    private void switchToCreate() {
+        handler.switchTo("createlisting");
+        handler.centerOnScreen();
     }
 
     void updateList()

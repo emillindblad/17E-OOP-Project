@@ -13,7 +13,6 @@ public class ListingController implements Controller {
     public ListingController() {
         listingHandler = new ListingHandler();
         listingHandler.createListing("P.R.I.T. Grill", new Category("test"), "testing stuff", 4, 160, LocalDateTime.of(2021,9,10,9,0), LocalDateTime.of(2021,9,10,9,1));
-
     }
 
 

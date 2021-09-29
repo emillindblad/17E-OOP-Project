@@ -2,32 +2,40 @@ package edu.tda367.Listing;
 
 import edu.tda367.JSON.JSONReader;
 import edu.tda367.JSON.JSONWriter;
-import edu.tda367.UserPackage.User;
 
-import java.lang.reflect.Array;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * ListingHandler is an interface for interacting with Listings and their associated products and categories.
+ * @author Emil Lindblad
+ */
 public class ListingHandler {
-    private ArrayList<Listing> listings;
-    private ArrayList<Category> categories;
+    private final ArrayList<Listing> listings;
+    private final ArrayList<Category> categories;
 
+    /**
+     * Constructor, creates lists of categories and listings
+     */
     public ListingHandler() {
         //TODO Implement database
         categories = new ArrayList<Category>();
-        listings =  getSavedListings();
+        listings = getSavedListings();
     }
 
-    public ListingHandler(String test) {
-        categories = new ArrayList<Category>();
-        listings =  new ArrayList<Listing>();
-    }
-
+    /**
+     * Getter for Categories
+     * @return An ArrayList af all available categories
+     */
     public ArrayList<Category> getCategories() {
         return categories;
     }
 
+    /**
+     * Getter for Listings
+     * @return An ArrayList af all current listings
+     */
     public ArrayList<Listing> getListings() {
         return listings;
     }
@@ -36,7 +44,7 @@ public class ListingHandler {
         ArrayList<Listing> availableListings = new ArrayList<Listing>();
         for(Listing listing : listings)
         {
-            if(listing.getOrderSate().equals(ListingState.AVALIBLE))
+            if(listing.getOrderState().equals(ListingState.AVALIBLE))
             {
                 availableListings.add(listing);
             }
@@ -51,7 +59,12 @@ public class ListingHandler {
         //Why no listing.get(listing)?
     }
 
-    public Listing removeListing(Listing listing) {
+    /**
+     * Removes the specified listing form the ArrayList and returns it
+     * @param listing
+     * @return The removed listing
+     */
+    public Listing removeListing(Listing listing) {//TODO Maybe not necessary to return removed listing, breaks CQS.
         listings.remove(listing);
         return listing;
     }
@@ -62,14 +75,31 @@ public class ListingHandler {
         return listing;
     }
 
-    public ArrayList<Listing> getSavedListings() {
+    /**
+     * Gets saved Listings from database
+     * @author Erik Larsson
+     * @return An ArrayList containing Listing objects
+     *
+     */
+    private ArrayList<Listing> getSavedListings() {
         ArrayList<Listing> listingstmp = new ArrayList<>();
         JSONReader reader = new JSONReader();
         List<Listing> savedUsers = reader.read(Listing[].class, "listings");
-        savedUsers.forEach(l -> listingstmp.add(l));
+        savedUsers.forEach(l ->
+        {
+            if (l == null) {
+
+            } else {
+                listingstmp.add(l);
+            }
+        });
         return listingstmp;
     }
 
+    /**
+     * Writes Listings to database
+     * @author Erik Larsson
+     */
     public void writeListings() {
         JSONWriter writer = new JSONWriter();
         writer.write(listings, "listings");

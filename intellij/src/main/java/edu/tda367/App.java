@@ -1,6 +1,7 @@
 package edu.tda367;
 
 import edu.tda367.Listing.ListingHandler;
+import edu.tda367.UserPackage.User;
 import edu.tda367.UserPackage.UserHandler;
 import edu.tda367.View.SceneHandler;
 import javafx.application.Application;
@@ -17,18 +18,19 @@ import java.time.LocalDateTime;
 public class App extends Application {
 
     private SceneHandler sceneHandler;
+    private static ListingHandler lHandler;
 
     @Override
     public void start(Stage stage) throws IOException {
-        UserHandler uHandler = new UserHandler();
-        uHandler.writeUsers();
-        ListingHandler lHandler = new ListingHandler();
+        UserHandler.getInstance().writeUsers();
+        lHandler = new ListingHandler();
         lHandler.writeListings();
         sceneHandler = new SceneHandler(stage);
         sceneHandler.addScene(HyroFactory.homeScene(sceneHandler), "home");
         sceneHandler.addScene(HyroFactory.secondaryScene(sceneHandler), "secondary");
         sceneHandler.addScene(HyroFactory.browseScene(sceneHandler), "browse");
         sceneHandler.addScene(HyroFactory.loginScene(sceneHandler), "login");
+        sceneHandler.addScene(HyroFactory.createListingScene(sceneHandler),"createlisting");
         sceneHandler.switchTo("login");
     }
 
@@ -39,6 +41,8 @@ public class App extends Application {
 
     public static void main(String[] args) {
         launch();
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> UserHandler.getInstance().writeUsers()));
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> lHandler.writeListings()));
     }
 
 }

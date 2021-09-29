@@ -5,10 +5,20 @@ import com.google.gson.GsonBuilder;
 import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.HashMap;
 import java.util.List;
 
+/**
+ * JSONWriter is used to write data to a json file
+ * @author Erik Larsson
+ */
 public class JSONWriter {
 
+    /**
+     *
+     * @param list The list of objects to be written
+     * @param name The name of the json file
+     */
     public void write(List list, String name) {
         try {
 
@@ -18,7 +28,7 @@ public class JSONWriter {
             // create a writer
             Writer writer = Files.newBufferedWriter(Paths.get("src/main/resources/edu/tda367/JSONFiles/" + name + ".json"));
 
-            // convert user object to JSON file
+            // convert list of objects to JSON file
             gson.toJson(list, writer);
 
             // close writer

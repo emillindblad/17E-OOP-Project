@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * ListingHandler is an interface for interacting with Listings and their associated products and categories.
+ * ListingHandler is a class designed for interacting with Listings and their associated products and categories.
  * @author Emil Lindblad
  */
 public class ListingHandler {
@@ -65,15 +65,8 @@ public class ListingHandler {
             {
                 availableListings.add(listing);
             }
-
         }
         return availableListings;
-    }
-
-    //TODO Is this the best way to do this?
-    public Listing getListing(Listing listing) {
-        return listings.get(listings.indexOf(listing));
-        //Why no listing.get(listing)?
     }
 
     /**

@@ -10,13 +10,14 @@ public class LogInController implements Controller {
         this.handler = handler;
     }
 
-    public void switchToHome() {
-        handler.switchTo("home");
+    public void switchToBrowse() {
+        handler.switchTo("browse");
         handler.centerOnScreen();
     }
 
     public boolean logInAttemptIsValid(String uName, String pWord) {
         if (UserHandler.getInstance().logIn(uName, pWord)) {
+            switchToBrowse();
             return true;
         } else {
             return false;

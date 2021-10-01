@@ -41,6 +41,11 @@ public class LogIn extends AnchorPane implements hyroScene {
         return this.scene;
     }
 
+    @Override
+    public void update() {
+
+    }
+
     /**
      * Switches current scene to store home.
      * Makes sure the home screen is centered on monitor.

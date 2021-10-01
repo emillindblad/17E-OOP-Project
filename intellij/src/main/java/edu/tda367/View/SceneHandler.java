@@ -18,7 +18,6 @@ public class SceneHandler {
     public void switchTo(String newSceneName) {
         hyroScene newScene = scenes.get(newSceneName.toLowerCase());
         switchTo(newScene);
-        System.out.println(newSceneName);
     }
 
     public boolean switchTo(hyroScene newScene) {
@@ -31,6 +30,7 @@ public class SceneHandler {
 
     public void switchScenes(hyroScene newScene) {
         root.setScene(newScene.getHyroScene());
+        newScene.update();
         root.show();
     }
 

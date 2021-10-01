@@ -28,4 +28,9 @@ public class CreateListingScene extends AbstractHyroScene {
     public void createListing() {
 
     }
+
+    @Override
+    public void update() {
+        System.out.println("We made it");
+    }
 }

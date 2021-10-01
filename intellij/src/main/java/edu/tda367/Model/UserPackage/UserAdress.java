@@ -1,4 +1,4 @@
-package edu.tda367.UserPackage;
+package edu.tda367.Model.UserPackage;
 
 /**
  * Class to hold information about an adress.

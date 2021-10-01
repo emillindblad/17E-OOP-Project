@@ -1,6 +1,4 @@
-package edu.tda367.UserPackage;
-
-import java.util.Random;
+package edu.tda367.Model.UserPackage;
 
 public class User {
 

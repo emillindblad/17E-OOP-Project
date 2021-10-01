@@ -1,4 +1,4 @@
-import edu.tda367.Listing.*;
+import edu.tda367.Model.Listing.*;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;

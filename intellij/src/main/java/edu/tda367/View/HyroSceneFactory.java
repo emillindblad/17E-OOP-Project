@@ -1,4 +1,4 @@
-package edu.tda367;
+package edu.tda367.View;
 
 import edu.tda367.Controllers.ListingController;
 import edu.tda367.View.SceneHandler;

@@ -1,4 +1,4 @@
-import edu.tda367.InputChecker;
+import edu.tda367.Model.InputChecker;
 import org.junit.BeforeClass;
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package edu.tda367.Listing;
+package edu.tda367.Model.Listing;
 
 public class Category {
     private String categoryName;

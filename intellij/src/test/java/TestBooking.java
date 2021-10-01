@@ -1,10 +1,10 @@
-import edu.tda367.Booking.BookingHandler;
-import edu.tda367.Booking.BookingState;
-import edu.tda367.Listing.Category;
-import edu.tda367.Listing.Listing;
-import edu.tda367.Listing.ListingHandler;
-import edu.tda367.UserPackage.User;
-import edu.tda367.UserPackage.UserHandler;
+import edu.tda367.Model.Booking.BookingHandler;
+import edu.tda367.Model.Booking.BookingState;
+import edu.tda367.Model.Listing.Category;
+import edu.tda367.Model.Listing.Listing;
+import edu.tda367.Model.Listing.ListingHandler;
+import edu.tda367.Model.UserPackage.User;
+import edu.tda367.Model.UserPackage.UserHandler;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;

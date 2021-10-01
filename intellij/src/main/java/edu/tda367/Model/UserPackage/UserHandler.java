@@ -1,10 +1,10 @@
-package edu.tda367.UserPackage;
+package edu.tda367.Model.UserPackage;
 
 import java.util.HashMap;
 import java.util.Random;
 
-import edu.tda367.JSON.JSONReader;
-import edu.tda367.JSON.JSONWriter;
+import edu.tda367.Model.JSON.JSONReader;
+import edu.tda367.Model.JSON.JSONWriter;
 
 import java.util.ArrayList;
 import java.util.List;

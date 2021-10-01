@@ -8,8 +8,11 @@ public class InputChecker {
             //System.out.println(ch);
             if(Character.isLetter(ch))
             return false;
+        check = !missingInput(toCheck);
+        for(char ch : toCheck.toCharArray()) {
+            check = !Character.isLetter(ch);
         }
-        return true;
+        return check;
     }
 
     public static boolean checkForLetter (String toCheck) {
@@ -18,8 +21,12 @@ public class InputChecker {
             //System.out.println(ch);
             if(Character.isDigit(ch))
             return false;
+        boolean check = true;
+        check = !missingInput(toCheck);
+        for(char ch : toCheck.toCharArray()) {
+            check = !Character.isDigit(ch);
         }
-        return true;
+        return check;
     }
 
     public static boolean checkForLength (String toCheck, int length) {
@@ -29,5 +36,9 @@ public class InputChecker {
             return true;
         }
         return false;
+    }
+
+    private static boolean missingInput(String toCheck) {
+        return toCheck.isBlank();
     }
 }

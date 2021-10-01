@@ -32,7 +32,7 @@ public class BrowseListings extends AbstractHyroScene {
         System.out.println("hello");
         var listings = browseController.getAvailableListings();
         System.out.println(listings.size());
-
+        listProducts.getChildren().clear();
         for(int i = 0; i < listings.size(); i++)
         {
             System.out.println((listings.get(i).getPrice()));

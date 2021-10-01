@@ -39,6 +39,21 @@
     "userAdress": {
       "streetName": "Kemivagen 7B",
       "city": "Goteborg",
+      "zipCode": 41258,
+      "country": "Sverige"
+    },
+    "userID": 171735,
+    "userName": "def",
+    "password": "def123",
+    "bankAccount": "987654321"
+  },
+  {
+    "firstName": "Sebastian",
+    "lastName": "Kvalden",
+    "phoneNumber": "0734111337",
+    "userAdress": {
+      "streetName": "Kemivagen 7B",
+      "city": "Goteborg",
       "zipCode": 41259,
       "country": "Sverige"
     },
@@ -85,6 +100,15 @@
     "lastName": "Lindblad",
     "phoneNumber": "0734111337",
     "userID": 154543,
+    "userName": "abc",
+    "password": "abc123",
+    "bankAccount": "123456789"
+  },
+  {
+    "firstName": "Emil",
+    "lastName": "Lindblad",
+    "phoneNumber": "0734111337",
+    "userID": 147709,
     "userName": "abc",
     "password": "abc123",
     "bankAccount": "123456789"

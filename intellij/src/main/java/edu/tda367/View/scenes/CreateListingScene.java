@@ -25,8 +25,7 @@ public class CreateListingScene extends AbstractHyroScene {
 
     public CreateListingScene(SceneHandler handler) throws IOException {
         super("createlisting",handler);
-        this.listingController = new ListingController();
-
+        this.listingController = new ListingController(handler);
         this.categoriesDropdown.getItems().setAll(loadCategories());
         System.out.println("Create Listing now");
     }
@@ -44,11 +43,6 @@ public class CreateListingScene extends AbstractHyroScene {
         String[] formData = getFormInput();
         System.out.println(Arrays.asList(formData));
         errorMsg.setText(listingController.createListing(formData));
-    }
-
-    private void switchToBrowse() {
-        handler.switchTo("browse");
-        handler.centerOnScreen();
     }
 
     @Override

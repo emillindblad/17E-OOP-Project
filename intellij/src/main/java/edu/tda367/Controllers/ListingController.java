@@ -4,27 +4,35 @@ import edu.tda367.InputChecker;
 import edu.tda367.Listing.Category;
 import edu.tda367.Listing.Listing;
 import edu.tda367.Listing.ListingHandler;
+import edu.tda367.View.SceneHandler;
 import edu.tda367.View.scenes.Home;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class ListingController implements Controller {
     private final ListingHandler listingHandler;
+    private final SceneHandler sceneHandler;
 
-    public ListingController() {
-        listingHandler = new ListingHandler();
+    public ListingController(SceneHandler sceneHandler) {
+        this.sceneHandler = sceneHandler;
+        this.listingHandler = new ListingHandler();
         //listingHandler.createListing("P.R.I.T. Grill", new Category("test"), "testing stuff", 4, 160, LocalDateTime.of(2021,9,10,9,0), LocalDateTime.of(2021,9,10,9,1));
     }
 
+    private void switchToBrowse() {
+        sceneHandler.switchTo("browse");
+        sceneHandler.centerOnScreen();
+    }
 
     public String createListing(String[] formData) {
         boolean foo = validateData(formData);
         System.out.println(foo);
          if (foo) { //Return true if valid input.
              listingHandler.createListingFromString(formData);
-             //switch scene
+             switchToBrowse();
              return "Success";
          }
          else {

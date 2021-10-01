@@ -38,4 +38,9 @@ public class Home extends AbstractHyroScene {
     public void switchToSecondary() {
         super.handler.switchTo("secondary");
     }
+
+    @Override
+    public void update() {
+
+    }
 }

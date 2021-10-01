@@ -50,4 +50,9 @@ public class CreateListingScene extends AbstractHyroScene {
         handler.switchTo("browse");
         handler.centerOnScreen();
     }
+
+    @Override
+    public void update() {
+        System.out.println("We made it");
+    }
 }

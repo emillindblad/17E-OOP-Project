@@ -27,13 +27,22 @@ public class BrowseListings extends AbstractHyroScene {
         handler.centerOnScreen();
     }
 
-    void updateList()
-    {
+
+    void updateList() {
+        System.out.println("hello");
         var listings = browseController.getAvailableListings();
+        System.out.println(listings.size());
+
         for(int i = 0; i < listings.size(); i++)
         {
-            listProducts.getChildren().add(new Label(listings.get(i).getProduct().toString()));
+            System.out.println((listings.get(i).getPrice()));
+            listProducts.getChildren().add(new ListingItem(listings.get(i).getPrice(), listings.get(i).getProduct().getProdName(), listings.get(i).getProduct().getCategoryName()));
+            System.out.println(listProducts.getChildren().get(0));
         }
     }
 
+    @Override
+    public void update() {
+        updateList();
+    }
 }

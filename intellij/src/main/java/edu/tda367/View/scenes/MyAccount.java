@@ -70,6 +70,11 @@ public class MyAccount extends AnchorPane implements hyroScene {
         return this.scene;
     }
 
+    @Override
+    public void update() {
+
+    }
+
     public void enableChanges () {
         for(TextField field : editableFields){
             field.setEditable(true);

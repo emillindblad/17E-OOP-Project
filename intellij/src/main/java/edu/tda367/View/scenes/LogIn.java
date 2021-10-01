@@ -51,6 +51,11 @@ public class LogIn extends AnchorPane implements hyroScene {
         return this.scene;
     }
 
+    @Override
+    public void update() {
+
+    }
+
 
     /**
      * Attempts to log in using the credentials entered in the textfields.

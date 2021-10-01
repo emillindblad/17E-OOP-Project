@@ -7,7 +7,7 @@ import edu.tda367.View.scenes.*;
 
 import java.io.IOException;
 
-public final class HyroFactory {
+public final class HyroSceneFactory {
     public static final hyroScene homeScene(SceneHandler handler) throws IOException {
         return new Home(handler);
     }

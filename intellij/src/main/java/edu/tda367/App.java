@@ -24,16 +24,15 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         lHandler = new ListingHandler();
         sceneHandler = new SceneHandler(stage);
-        sceneHandler.addScene(HyroFactory.homeScene(sceneHandler), "home");
-        sceneHandler.addScene(HyroFactory.secondaryScene(sceneHandler), "secondary");
-        sceneHandler.addScene(HyroFactory.browseScene(sceneHandler), "browse");
-        sceneHandler.addScene(HyroFactory.loginScene(sceneHandler), "login");
-        sceneHandler.addScene(HyroFactory.createAccountScene(sceneHandler), "createAccount");
-        sceneHandler.addScene(HyroFactory.createListingScene(sceneHandler),"createlisting");
+        sceneHandler.addScene(HyroSceneFactory.homeScene(sceneHandler), "home");
+        sceneHandler.addScene(HyroSceneFactory.secondaryScene(sceneHandler), "secondary");
+        sceneHandler.addScene(HyroSceneFactory.browseScene(sceneHandler), "browse");
+        sceneHandler.addScene(HyroSceneFactory.loginScene(sceneHandler), "login");
+        sceneHandler.addScene(HyroSceneFactory.createListingScene(sceneHandler),"createlisting");
         sceneHandler.switchTo("login");
     }
 
-    public static FXMLLoader loadFXML(String fxml) throws IOException {
+    public static FXMLLoader loadFXML(String fxml) {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader;
     }

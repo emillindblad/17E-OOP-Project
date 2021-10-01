@@ -84,4 +84,9 @@ public class CreateAccount extends AbstractHyroScene {
     private void backToLogIn() {
         caController.backToLogIn();
     }
+
+    @Override
+    public void update() {
+
+    }
 }

@@ -16,8 +16,12 @@ public final class HyroSceneFactory {
         return new Secondary(handler);
     }
 
-    public static final hyroScene loginScene(SceneHandler director) throws IOException {
-        return new LogIn(director);
+    public static final hyroScene loginScene(SceneHandler handler) throws IOException {
+        return new LogIn(handler);
+    }
+
+    public static final hyroScene createAccountScene(SceneHandler handler) throws IOException {
+        return new CreateAccount("CreateAccount", handler);
     }
 
     public static final hyroScene browseScene(SceneHandler director) throws IOException {

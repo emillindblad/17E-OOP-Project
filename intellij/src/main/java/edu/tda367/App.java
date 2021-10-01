@@ -22,16 +22,14 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        UserHandler.getInstance().writeUsers();
         lHandler = new ListingHandler();
-        lHandler.writeListings();
         sceneHandler = new SceneHandler(stage);
         sceneHandler.addScene(HyroSceneFactory.homeScene(sceneHandler), "home");
         sceneHandler.addScene(HyroSceneFactory.secondaryScene(sceneHandler), "secondary");
         sceneHandler.addScene(HyroSceneFactory.browseScene(sceneHandler), "browse");
         sceneHandler.addScene(HyroSceneFactory.loginScene(sceneHandler), "login");
         sceneHandler.addScene(HyroSceneFactory.createListingScene(sceneHandler),"createlisting");
-        sceneHandler.switchTo("browse");
+        sceneHandler.switchTo("login");
     }
 
     public static FXMLLoader loadFXML(String fxml) {

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField fx:id="firstName" editable="false" layoutX="112.0" layoutY="141.0" prefHeight="26.0" prefWidth="150.0" promptText="Förnamn" AnchorPane.bottomAnchor="233.0" AnchorPane.leftAnchor="112.0" AnchorPane.topAnchor="141.0" />
+      <TextField fx:id="lastName" editable="false" layoutX="112.0" layoutY="181.0" promptText="Efternamn" AnchorPane.leftAnchor="112.0" AnchorPane.topAnchor="181.0" />
+      <TextField fx:id="streetName" editable="false" layoutX="112.0" layoutY="260.0" promptText="Gatunamn" AnchorPane.leftAnchor="112.0" AnchorPane.topAnchor="260.0" />
+      <TextField fx:id="zipCode" editable="false" layoutX="112.0" layoutY="293.0" prefHeight="26.0" prefWidth="57.0" promptText="111 22" AnchorPane.leftAnchor="112.0" AnchorPane.topAnchor="293.0" />
+      <TextField fx:id="city" editable="false" layoutX="178.0" layoutY="293.0" prefHeight="26.0" prefWidth="82.0" promptText="Stad" AnchorPane.leftAnchor="178.0" AnchorPane.topAnchor="293.0" />
+      <TextField fx:id="country" editable="false" layoutX="112.0" layoutY="329.0" prefHeight="26.0" prefWidth="149.0" promptText="Land" AnchorPane.leftAnchor="112.0" AnchorPane.topAnchor="329.0" />
+      <Text layoutX="51.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Användarinställningar">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Text>
+      <TextField fx:id="userName" editable="false" layoutX="414.0" layoutY="141.0" prefHeight="26.0" prefWidth="149.0" promptText="Användarnamn" AnchorPane.leftAnchor="414.0" AnchorPane.topAnchor="141.0" />
+      <TextField fx:id="bankAccount" editable="false" layoutX="414.0" layoutY="306.0" prefHeight="26.0" prefWidth="149.0" promptText="Kontonummer" AnchorPane.leftAnchor="414.0" />
+      <PasswordField fx:id="password" editable="false" layoutX="414.0" layoutY="181.0" promptText="Lösenord" AnchorPane.leftAnchor="414.0" AnchorPane.topAnchor="183.0" />
+      <Button fx:id="change" layoutX="516.0" layoutY="342.0" mnemonicParsing="false" onAction="#changeButton" text="Ändra" />
+      <Text layoutX="62.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Förnamn:" underline="true" AnchorPane.rightAnchor="490.3125" AnchorPane.topAnchor="145.0" />
+      <Text layoutX="51.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Efternamn:" underline="true" AnchorPane.rightAnchor="492.03515625" AnchorPane.topAnchor="183.0" />
+      <Text layoutX="50.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gatunamn:" underline="true" AnchorPane.rightAnchor="493.37421874999995" AnchorPane.topAnchor="264.05078125" />
+      <Text layoutX="13.0" layoutY="311.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Postadress / Stad:" underline="true" AnchorPane.rightAnchor="493.37421874999995" />
+      <Text layoutX="79.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Land:" underline="true" AnchorPane.rightAnchor="492.787109375" />
+      <Text layoutX="329.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Användarnamn:" underline="true" AnchorPane.rightAnchor="188.58203125" />
+      <Text layoutX="360.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lösenord:" underline="true" AnchorPane.rightAnchor="188.291015625" />
+      <Text layoutX="330.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kontonummer:" underline="true" AnchorPane.rightAnchor="190.81640625" AnchorPane.topAnchor="311.05078125" />
+      <PasswordField fx:id="confirmPassword" editable="false" layoutX="414.0" layoutY="220.0" promptText="Lösenord" AnchorPane.leftAnchor="414.0" AnchorPane.topAnchor="220.0" />
+      <Text layoutX="360.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bekräfta Lösenord:" underline="true" AnchorPane.rightAnchor="188.291015625" />
+      <TextField fx:id="phoneNumber" editable="false" layoutX="414.0" layoutY="272.0" prefHeight="26.0" prefWidth="149.0" promptText="Telefonnummer" />
+      <Text layoutX="326.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefonnummer:" underline="true" />
+   </children>
+</AnchorPane>

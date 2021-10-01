@@ -1,11 +1,10 @@
-package edu.tda367.JSON;
+package edu.tda367.Model.JSON;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.HashMap;
 import java.util.List;
 
 /**

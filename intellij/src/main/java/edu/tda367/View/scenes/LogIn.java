@@ -2,7 +2,6 @@ package edu.tda367.View.scenes;
 
 import edu.tda367.App;
 import edu.tda367.Controllers.LogInController;
-import edu.tda367.UserPackage.UserHandler;
 import edu.tda367.View.SceneHandler;
 import edu.tda367.View.hyroScene;
 import javafx.fxml.FXML;

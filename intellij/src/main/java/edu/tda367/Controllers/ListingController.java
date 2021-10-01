@@ -1,15 +1,9 @@
 package edu.tda367.Controllers;
 
-import edu.tda367.InputChecker;
-import edu.tda367.Listing.Category;
-import edu.tda367.Listing.Listing;
-import edu.tda367.Listing.ListingHandler;
+import edu.tda367.Model.InputChecker;
+import edu.tda367.Model.Listing.ListingHandler;
 import edu.tda367.View.SceneHandler;
-import edu.tda367.View.scenes.Home;
-import javafx.fxml.FXML;
-import javafx.scene.Scene;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class ListingController implements Controller {

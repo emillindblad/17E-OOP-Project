@@ -1,7 +1,7 @@
-package edu.tda367.Booking;
+package edu.tda367.Model.Booking;
 
-import edu.tda367.Listing.Listing;
-import edu.tda367.UserPackage.User;
+import edu.tda367.Model.Listing.Listing;
+import edu.tda367.Model.UserPackage.User;
 
 import java.util.ArrayList;
 

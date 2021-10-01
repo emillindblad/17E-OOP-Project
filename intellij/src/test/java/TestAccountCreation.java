@@ -1,13 +1,25 @@
+
 import edu.tda367.Controllers.AccountCreationStatus;
 import edu.tda367.Controllers.CreateAccountController;
 import edu.tda367.View.SceneHandler;
+import javafx.application.Application;
 import javafx.stage.Stage;
+import org.junit.BeforeClass;
 import org.junit.Test;
+
+import java.io.IOException;
 
 import static org.junit.Assert.assertEquals;
 
-public class TestAccountCreation {
-    private static CreateAccountController caController = new CreateAccountController(new SceneHandler(new Stage()));
+public class TestAccountCreation extends Application {
+
+    private CreateAccountController caController;
+
+    @BeforeClass
+    @Override
+    public void start(Stage stage) throws IOException {
+        caController = new CreateAccountController(new SceneHandler(stage));
+    }
 
     @Test
     public void testCreateAccountSuccess() {

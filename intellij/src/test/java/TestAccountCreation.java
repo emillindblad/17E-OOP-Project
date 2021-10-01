@@ -7,7 +7,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class TestAccountCreation {
-    private CreateAccountController caController = new CreateAccountController(new SceneHandler(new Stage()));
+    private static CreateAccountController caController = new CreateAccountController(new SceneHandler(new Stage()));
 
     @Test
     public void testCreateAccountSuccess() {

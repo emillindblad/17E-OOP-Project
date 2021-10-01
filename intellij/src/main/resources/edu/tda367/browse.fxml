@@ -7,5 +7,6 @@
    <children>
       <FlowPane fx:id="listProducts" layoutX="59.0" layoutY="20.0" prefHeight="277.0" prefWidth="420.0" />
       <Button fx:id="logInButton" layoutX="216.0" layoutY="316.0" mnemonicParsing="false" onAction="#switchToCreate" style="-fx-background-color: #09CD09;" text="Skapa ny annons" underline="true" />
+      <Button fx:id="settingsButton" layoutX="300.0" layoutY="350.0" mnemonicParsing="false" onAction="#switchToUserSettings" style="-fx-background-color: #09CDDA;" text="Hej Kvalle" underline="true" />
    </children>
 </AnchorPane>

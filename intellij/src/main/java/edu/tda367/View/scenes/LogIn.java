@@ -56,21 +56,6 @@ public class LogIn extends AnchorPane implements hyroScene {
 
     }
 
-    /**
-     * Switches current scene to store home.
-     * Makes sure the home screen is centered on monitor.
-     */
-    @FXML
-    private void switchToHome() {
-        handler.switchTo("home");
-        handler.centerOnScreen();
-    }
-
-    @FXML
-    private void switchToBrowse() {
-        handler.switchTo("browse");
-        handler.centerOnScreen();
-    }
 
     /**
      * Attempts to log in using the credentials entered in the textfields.

@@ -3,28 +3,38 @@ package edu.tda367.Booking;
 import edu.tda367.Listing.Listing;
 import edu.tda367.UserPackage.User;
 
-public class Booking {
+class Booking {
 
     private BookingState bookingState = BookingState.PENDING;
     private final User customer;
     private final Listing listing;
 
-    public Booking(User customer, Listing listing) {
+    Booking(User customer, Listing listing) {
         this.customer = customer;
         this.listing = listing;
     }
 
-    public BookingState getBookingState() {
+    BookingState getBookingState() {
         return bookingState;
     }
 
-    public void advanceBookingState() {
-        if (bookingState == BookingState.ACCEPTED) {
-            bookingState = BookingState.PAYED;
-        }
+    void advanceBookingState() {
 
-        if (bookingState == BookingState.PENDING) {
-            bookingState = BookingState.ACCEPTED;
+        BookingState currentState = bookingState;
+
+        switch (currentState) {
+
+            case PENDING:
+                bookingState = BookingState.ACCEPTED;
+                break;
+
+            case ACCEPTED:
+                bookingState = BookingState.PAYED;
+                break;
+
+            case PAYED:
+                System.out.println("This booking is already payed!");
+                break;
         }
     }
     /*

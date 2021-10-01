@@ -93,6 +93,14 @@ public class MyAccount extends AnchorPane implements hyroScene {
     public void update() {
 
     }
+    @FXML
+    public void changeButton () {
+        if (change.getText().equals("Ändra")) {
+            enableChanges();
+        }
+        else
+            saveChanges();
+    }
 
     public void enableChanges () {
         for(TextField field : editableFields){

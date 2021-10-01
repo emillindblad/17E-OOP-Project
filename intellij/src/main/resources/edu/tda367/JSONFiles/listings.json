@@ -10,6 +10,32 @@
     "userId": 2,
     "price": 200,
     "availability": 1,
-    "orderSate": "UNAVALIBLE"
+    "orderState": "AVALIBLE"
+  },
+  {
+    "product": {
+      "prodName": "PRIT ELDIS",
+      "prodCategory": {
+        "categoryName": "Test category"
+      },
+      "prodDesc": "Big boi"
+    },
+    "userId": 2,
+    "price": 200,
+    "availability": 1,
+    "orderState": "AVALIBLE"
+  },
+  {
+    "product": {
+      "prodName": "PRIT Tango",
+      "prodCategory": {
+        "categoryName": "Test category"
+      },
+      "prodDesc": "Big boi"
+    },
+    "userId": 2,
+    "price": 200,
+    "availability": 1,
+    "orderState": "UNAVALIBLE"
   }
 ]

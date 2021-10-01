@@ -7,6 +7,7 @@ import edu.tda367.View.scenes.Home;
 import edu.tda367.View.scenes.LogIn;
 import edu.tda367.View.scenes.MyAccount;
 import edu.tda367.View.scenes.Secondary;
+import edu.tda367.View.scenes.*;
 
 import java.io.IOException;
 
@@ -25,5 +26,12 @@ public final class HyroFactory {
 
     public static final hyroScene myAccountScene(SceneHandler handler) throws IOException {
         return new MyAccount(handler);
+
+    public static final hyroScene browseScene(SceneHandler director) throws IOException {
+        return new BrowseListings(director);
+    }
+
+    public static final hyroScene createListingScene(SceneHandler director) throws IOException {
+        return new CreateListingScene(director);
     }
 }

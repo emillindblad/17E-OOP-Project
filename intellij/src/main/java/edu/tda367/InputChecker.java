@@ -2,12 +2,15 @@ package edu.tda367;
 
 public class InputChecker {
 
+    static boolean check = true;
+
     public static boolean checkForNumber (String toCheck) {
         //System.out.println(toCheck);
         for(char ch : toCheck.toCharArray()) {
             //System.out.println(ch);
-            if(Character.isLetter(ch))
-            return false;
+            if (Character.isLetter(ch))
+                return false;
+        }
         check = !missingInput(toCheck);
         for(char ch : toCheck.toCharArray()) {
             check = !Character.isLetter(ch);
@@ -19,9 +22,9 @@ public class InputChecker {
         //System.out.println(toCheck);
         for(char ch : toCheck.toCharArray()) {
             //System.out.println(ch);
-            if(Character.isDigit(ch))
-            return false;
-        boolean check = true;
+            if (Character.isDigit(ch))
+                return false;
+        }
         check = !missingInput(toCheck);
         for(char ch : toCheck.toCharArray()) {
             check = !Character.isDigit(ch);

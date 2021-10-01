@@ -47,13 +47,13 @@ public class LogIn extends AnchorPane implements hyroScene {
      */
     @FXML
     private void switchToHome() {
-        handler.switchTo("home");
+       handler.switchTo("home");
         handler.centerOnScreen();
     }
 
     @FXML
     private void switchToBrowse() {
-        handler.switchTo("browse");
+       handler.switchTo("browse");
         handler.centerOnScreen();
     }
 

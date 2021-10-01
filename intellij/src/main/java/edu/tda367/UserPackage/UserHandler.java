@@ -136,6 +136,11 @@ public final class UserHandler {
         return id;
     }
 
+    public int getUserID() {
+
+       return this.getLoggedInUser().getUserID();
+    }
+
     /**
      * Gets saved Users from database
      * @author Erik Larsson

@@ -1,4 +1,5 @@
 import edu.tda367.Booking.BookingHandler;
+import edu.tda367.Booking.BookingState;
 import edu.tda367.Listing.Category;
 import edu.tda367.Listing.Listing;
 import edu.tda367.Listing.ListingHandler;
@@ -65,22 +66,29 @@ public class TestBooking {
 
     @Test
     public void testBooking() {
-        // Create booking - "Sebastian" tries books his own Listing
         int size = bookingHandler.getBookings().size();
-        assertTrue(size == initSize + 1); // One new booking should have been created at this point
+        assertEquals(size, initSize + 1); // One new booking should have been created at this point
+
+        // Create booking - "Sebastian" tries books his own Listing
         bookingHandler.createBooking(user, userID, secondListing);
-        assertTrue(bookingHandler.getBookings().size() == size); // No new booking, size remains same
+        assertEquals(bookingHandler.getBookings().size(), size); // No new booking, size remains same
     }
 
     @Test
     public void testAdvanceBookingState(){
 
-
-        /* TODO: Rewrite test using bookingHandler
-        BookingState before = booking.getBookingState();
-        booking.advanceBookingState();
-        assertFalse(booking.getBookingState() == before);
-        */
+        // Get BookingState from last booking in list (test booking)
+        // Should be Pending
+        assertEquals(bookingHandler.getBookingState(initSize), BookingState.PENDING);
+        // Advance booking state
+        bookingHandler.advanceBookingState(initSize);
+        assertEquals(bookingHandler.getBookingState(initSize), BookingState.ACCEPTED);
+        // Advance booking state again
+        bookingHandler.advanceBookingState(initSize);
+        assertEquals(bookingHandler.getBookingState(initSize), BookingState.PAYED);
+        // Advance booking state last time, should be unchanged
+        bookingHandler.advanceBookingState(initSize);
+        assertEquals(bookingHandler.getBookingState(initSize), BookingState.PAYED);
 
     }
 

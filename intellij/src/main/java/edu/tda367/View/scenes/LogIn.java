@@ -53,7 +53,6 @@ public class LogIn extends AnchorPane implements hyroScene {
 
     @Override
     public void update() {
-
     }
 
 

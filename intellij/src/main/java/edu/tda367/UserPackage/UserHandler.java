@@ -102,6 +102,35 @@ public final class UserHandler {
         }
     }
 
+    public void setLoggedInUserFirstName (String name) {
+        if (isAuthenticated) {
+            loggedInUser.setFirstName(name);
+        }
+    }
+
+    public void setLoggedInUserLastName (String name) {
+        if (isAuthenticated) {
+            loggedInUser.setLastName(name);
+        }
+    }
+
+    public void setLoggedInUserPasswword (String password) {
+        if (isAuthenticated) {
+            loggedInUser.setPassword(password);
+        }
+    }
+
+    public void setLoggedInUserPhoneNumber (String number) {
+        if (isAuthenticated) {
+            loggedInUser.setPhoneNumber(number);
+        }
+    }
+    public void setLoggedInUserBankAccount (String account) {
+        if (isAuthenticated) {
+            loggedInUser.setBankAccount(account);
+        }
+    }
+
     /**
      * Method to create a user.
      * @param firstName Users first name.

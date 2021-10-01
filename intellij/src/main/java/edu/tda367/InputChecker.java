@@ -2,8 +2,15 @@ package edu.tda367;
 
 public class InputChecker {
 
+    static boolean check = true;
+
     public static boolean checkForNumber (String toCheck) {
-        boolean check = true;
+        //System.out.println(toCheck);
+        for(char ch : toCheck.toCharArray()) {
+            //System.out.println(ch);
+            if (Character.isLetter(ch))
+                return false;
+        }
         check = !missingInput(toCheck);
         for(char ch : toCheck.toCharArray()) {
             check = !Character.isLetter(ch);
@@ -12,7 +19,12 @@ public class InputChecker {
     }
 
     public static boolean checkForLetter (String toCheck) {
-        boolean check = true;
+        //System.out.println(toCheck);
+        for(char ch : toCheck.toCharArray()) {
+            //System.out.println(ch);
+            if (Character.isDigit(ch))
+                return false;
+        }
         check = !missingInput(toCheck);
         for(char ch : toCheck.toCharArray()) {
             check = !Character.isDigit(ch);
@@ -22,6 +34,7 @@ public class InputChecker {
 
     public static boolean checkForLength (String toCheck, int length) {
         toCheck.replaceAll("\\s+",""); //removes nonVisible characters
+        //System.out.println(toCheck.length());
         if (toCheck.length() == length) {
             return true;
         }

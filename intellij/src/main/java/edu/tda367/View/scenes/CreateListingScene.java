@@ -1,7 +1,7 @@
 package edu.tda367.View.scenes;
 
+import edu.tda367.Controllers.ListingController;
 import edu.tda367.InputChecker;
-import edu.tda367.Listing.ListingHandler;
 import edu.tda367.View.SceneHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
@@ -14,8 +14,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class CreateListingScene extends AbstractHyroScene {
-    //private final ListingController listingController;
-    private final ListingHandler listingHandler;
+    private final ListingController listingController;
 
     @FXML private TextField productName;
     @FXML private TextField productDesc;
@@ -26,17 +25,17 @@ public class CreateListingScene extends AbstractHyroScene {
 
     public CreateListingScene(SceneHandler handler) throws IOException {
         super("createlisting",handler);
-        this.listingHandler = new ListingHandler();
+        this.listingController = new ListingController();
 
         this.categoriesDropdown.getItems().setAll(loadCategories());
         System.out.println("Create Listing now");
     }
 
     public ArrayList<String> loadCategories() {
-        return listingHandler.getCategoryNames();
+        return listingController.getCategoryNames();
     }
 
-    public String[] getFormInput() {
+    private String[] getFormInput() {
         return new String[]{productName.getText(),productDesc.getText(),prodPrice.getText(),categoriesDropdown.getSelectionModel().getSelectedItem()};
     }
 
@@ -52,7 +51,10 @@ public class CreateListingScene extends AbstractHyroScene {
     @FXML
     public void createListing() {
         String[] formData = getFormInput();
+        listingController.createListing(formData);
+
         System.out.println(Arrays.asList(formData));
+
         if (validateData(formData)) {
             listingHandler.createListingFromString(formData);
             System.out.println("Created listing");

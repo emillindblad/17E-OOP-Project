@@ -5,6 +5,7 @@ import edu.tda367.Listing.Category;
 import edu.tda367.Listing.Listing;
 import edu.tda367.Listing.ListingHandler;
 import edu.tda367.View.scenes.Home;
+import javafx.fxml.FXML;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -19,10 +20,12 @@ public class ListingController implements Controller {
 
 
     public String createListing(String[] formData) {
-         if (validateData(formData)) { //Return true if valid input.
+        boolean foo = validateData(formData);
+        System.out.println(foo);
+         if (foo) { //Return true if valid input.
              listingHandler.createListingFromString(formData);
              //switch scene
-             return "nice";
+             return "Success";
          }
          else {
              return "Error";
@@ -34,7 +37,7 @@ public class ListingController implements Controller {
     }
 
     public boolean validateData(String[] formData) {
-        return (!InputChecker.checkForNumber(formData[2])); // Should return true if valid input
+        return (InputChecker.checkForNumber(formData[2])); // Should return true if valid input
     }
 
     public int getPrice() {

@@ -35,31 +35,15 @@ public class CreateListingScene extends AbstractHyroScene {
         return listingController.getCategoryNames();
     }
 
-    private String[] getFormInput() {
+    private String[] getFormInput() { //TODO Get Availability
         return new String[]{productName.getText(),productDesc.getText(),prodPrice.getText(),categoriesDropdown.getSelectionModel().getSelectedItem()};
-    }
-
-    @FXML
-    public boolean validateData(String[] formData) {
-        if (!InputChecker.checkForNumber(formData[2])) {
-            errorMsg.setText("WRONG");
-            return false;
-        }
-        return true;
     }
 
     @FXML
     public void createListing() {
         String[] formData = getFormInput();
-        listingController.createListing(formData);
-
         System.out.println(Arrays.asList(formData));
-
-        if (validateData(formData)) {
-            listingHandler.createListingFromString(formData);
-            System.out.println("Created listing");
-            switchToBrowse();
-        }
+        errorMsg.setText(listingController.createListing(formData));
     }
 
     private void switchToBrowse() {

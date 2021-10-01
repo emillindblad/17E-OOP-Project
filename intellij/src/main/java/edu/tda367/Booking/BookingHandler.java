@@ -22,4 +22,10 @@ public class BookingHandler {
     }
 
     public ArrayList<Booking> getBookings() { return bookings; }
+
+    public BookingState getBookingState(int bookingIndex) {
+        return bookings.get(bookingIndex).getBookingState();
+    }
+
+    public void advanceBookingState(int bookingIndex) { bookings.get(bookingIndex).advanceBookingState();}
 }

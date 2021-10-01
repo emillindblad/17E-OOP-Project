@@ -137,11 +137,11 @@ public class MyAccount extends AnchorPane implements hyroScene {
 
     private boolean bankAccountInput() {
         if (InputChecker.checkForNumber(bankAccount.getText())){
-            bankAccount.setStyle("-fx-border-color: black ; -fx-border-width: 2px ;");
+            bankAccount.setStyle("-fx-border-color: green ; -fx-border-width: 1px ;");
             return true;
         }
         else {
-            bankAccount.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+            bankAccount.setStyle("-fx-border-color: red ; -fx-border-width: 1px ;");
             return false;
         }
     }
@@ -166,32 +166,32 @@ public class MyAccount extends AnchorPane implements hyroScene {
         //System.out.println(password.getText());
         //System.out.println(confirmPassword.getText());
         if (password.getText().equals(confirmPassword.getText())) {
-            password.setStyle("-fx-border-color: black ; -fx-border-width: 2px ;");
-            confirmPassword.setStyle("-fx-border-color: black ; -fx-border-width: 2px ;");
+            password.setStyle("-fx-border-color: green ; -fx-border-width: 1px ;");
+            confirmPassword.setStyle("-fx-border-color: green ; -fx-border-width: 1px ;");
             return true;
         } else
-        password.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
-        confirmPassword.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+        password.setStyle("-fx-border-color: red ; -fx-border-width: 1px ;");
+        confirmPassword.setStyle("-fx-border-color: red ; -fx-border-width: 1px ;");
         return false;
     }
 
 
     private boolean numberFieldChecker (TextField field, int lenght) { //something wrong with the lenght check
         if (InputChecker.checkForLength(field.getText(), lenght) && InputChecker.checkForNumber(field.getText())) {
-            field.setStyle("-fx-border-color: black ; -fx-border-width: 2px ;");
+            field.setStyle("-fx-border-color: green ; -fx-border-width: 1px ;");
             return true;
         } else {
-            field.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+            field.setStyle("-fx-border-color: red ; -fx-border-width: 1px ;");
             return false;
         }
     }
 
     private boolean textFieldChecker (TextField field) {
         if (InputChecker.checkForLetter(field.getText())) {
-            field.setStyle("-fx-border-color: black ; -fx-border-width: 2px ;");
+            field.setStyle("-fx-border-color: green ; -fx-border-width: 2px ;");
             return true;
         } else {
-            field.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+            field.setStyle("-fx-border-color: red ; -fx-border-width: 1px ;");
             return false;
         }
     }

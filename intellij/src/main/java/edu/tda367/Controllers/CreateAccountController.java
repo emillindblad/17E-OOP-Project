@@ -99,6 +99,6 @@ public class CreateAccountController {
             return false;
         }
 
-        return true;
+        return zip.length() == 5;
     }
 }

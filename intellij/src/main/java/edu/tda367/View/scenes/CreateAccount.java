@@ -69,7 +69,7 @@ public class CreateAccount extends AbstractHyroScene {
                 infoLabel.setText("Fyll i alla fält först!");
                 break;
             case ZIPCODE_ERROR:
-                infoLabel.setText("Postkoden ska bara vara siffror, inga mellanslag");
+                infoLabel.setText("Inkorrekt postkod. Inga mellanslag.");
                 break;
             case SUCCESS:
                 infoLabel.setText("Konto skapat!");

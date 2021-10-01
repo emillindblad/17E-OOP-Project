@@ -22,14 +22,13 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        UserHandler.getInstance().writeUsers();
         lHandler = new ListingHandler();
-        lHandler.writeListings();
         sceneHandler = new SceneHandler(stage);
         sceneHandler.addScene(HyroFactory.homeScene(sceneHandler), "home");
         sceneHandler.addScene(HyroFactory.secondaryScene(sceneHandler), "secondary");
         sceneHandler.addScene(HyroFactory.browseScene(sceneHandler), "browse");
         sceneHandler.addScene(HyroFactory.loginScene(sceneHandler), "login");
+        sceneHandler.addScene(HyroFactory.createAccountScene(sceneHandler), "createAccount");
         sceneHandler.addScene(HyroFactory.createListingScene(sceneHandler),"createlisting");
         sceneHandler.switchTo("login");
     }

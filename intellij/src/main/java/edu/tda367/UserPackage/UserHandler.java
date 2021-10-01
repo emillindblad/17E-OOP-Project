@@ -117,6 +117,13 @@ public final class UserHandler {
         users.put(user.getUserID(), user);
     }
 
+    public void createUser(String firstName, String lastName, String phoneNumber, String userName, String password, String bankAccount, String zipCode, String address, String city, String country) {
+        int userID = CreateUserID();
+        UserAdress uAddress = new UserAdress(address, city, Integer.parseInt(zipCode), country);
+        User user = new User(firstName, lastName, phoneNumber, uAddress, userName, password, bankAccount, userID);
+        users.put(user.getUserID(), user);
+    }
+
     private int CreateUserID () {
         int id;
         while (true) {

@@ -1,6 +1,7 @@
 package edu.tda367.View.scenes;
 
 import edu.tda367.App;
+import edu.tda367.Controllers.LogInController;
 import edu.tda367.UserPackage.UserHandler;
 import edu.tda367.View.SceneHandler;
 import edu.tda367.View.hyroScene;
@@ -10,26 +11,35 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
 public class LogIn extends AnchorPane implements hyroScene {
     private final Scene scene;
-    private final SceneHandler handler; //handler used to switch scenes
+    private final LogInController liController;
 
     @FXML private TextField userNameField;
-    @FXML private TextField passwordField;
+    @FXML private PasswordField passwordField;
     @FXML private Button logInButton;
     @FXML private Label infoLabel;
+    @FXML private Button createAccountButton;
 
     public LogIn(SceneHandler handler) throws IOException {
         FXMLLoader loader = App.loadFXML("login");
         loader.setController(this);
         Parent root = loader.load();
         this.scene = new Scene(root);
-        this.handler = handler;
+        liController = new LogInController(handler);
+
+        scene.setOnKeyPressed(e -> {
+            if (e.getCode() == KeyCode.ENTER) {
+                logInAttempt();
+            }
+        });
     }
 
     /**
@@ -41,21 +51,6 @@ public class LogIn extends AnchorPane implements hyroScene {
         return this.scene;
     }
 
-    /**
-     * Switches current scene to store home.
-     * Makes sure the home screen is centered on monitor.
-     */
-    @FXML
-    private void switchToHome() {
-        handler.switchTo("home");
-        handler.centerOnScreen();
-    }
-
-    @FXML
-    private void switchToBrowse() {
-        handler.switchTo("browse");
-        handler.centerOnScreen();
-    }
 
     /**
      * Attempts to log in using the credentials entered in the textfields.
@@ -64,10 +59,13 @@ public class LogIn extends AnchorPane implements hyroScene {
      */
     @FXML
     private void logInAttempt() {
-        if (UserHandler.getInstance().logIn(userNameField.getText(), passwordField.getText())) {
-            switchToBrowse();
-        } else {
+        if (!liController.logInAttemptIsValid(userNameField.getText(), passwordField.getText())) {
             infoLabel.setText("Fel användarnamn eller lösenord");
         }
+    }
+
+    @FXML
+    private void createNewAccount() {
+        liController.switchToCreateAccount();
     }
 }

@@ -18,9 +18,15 @@
     "firstName": "Sebastian",
     "lastName": "Kvalden",
     "phoneNumber": "0734111337",
-    "userID": 1,
-    "userName": "kvalle",
-    "password": "kvalle123",
+    "userAdress": {
+      "streetName": "Kemivagen 7B",
+      "city": "Goteborg",
+      "zipCode": 41258,
+      "country": "Sverige"
+    },
+    "userID": 154585,
+    "userName": "def",
+    "password": "def123",
     "bankAccount": "987654321"
   }
 ]

@@ -56,7 +56,7 @@ public class User {
         return userAdress;
     }
 
-    public void setUserAdress (UserAdress adress) {
+    void setUserAdress (UserAdress adress) {
           this.userAdress = adress;
     }
 

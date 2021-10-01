@@ -33,9 +33,7 @@ public final class UserHandler {
         users = getSavedUsers();
     }
 
-    public int userListLenght () {
-       return users.size();
-    }
+
     /**
      * Used instead of constructor
      * @return The singleton instance of the UserHandler
@@ -116,6 +114,13 @@ public final class UserHandler {
     public void createUser( String firstName, String lastName, String phoneNumber, String userName, String password, String bankAccount) {
         int userID = CreateUserID();
         User user = new User (firstName, lastName, phoneNumber, userName, password, bankAccount, userID);
+        users.put(user.getUserID(), user);
+    }
+
+    public void createUser(String firstName, String lastName, String phoneNumber, String userName, String password, String bankAccount, String zipCode, String address, String city, String country) {
+        int userID = CreateUserID();
+        UserAdress uAddress = new UserAdress(address, city, Integer.parseInt(zipCode), country);
+        User user = new User(firstName, lastName, phoneNumber, uAddress, userName, password, bankAccount, userID);
         users.put(user.getUserID(), user);
     }
 

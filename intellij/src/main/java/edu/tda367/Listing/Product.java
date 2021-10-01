@@ -22,4 +22,12 @@ public class Product {
                 ", prodDesc='" + prodDesc + '\'' +
                 '}';
     }
+
+    public String getProdName() {
+        return this.prodName;
+    }
+
+    public String getCategoryName() {
+        return this.prodCategory.getCategoryName();
+    }
 }

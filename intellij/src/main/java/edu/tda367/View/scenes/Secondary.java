@@ -30,6 +30,11 @@ public class Secondary extends AnchorPane implements hyroScene {
         return this.scene;
     }
 
+    @Override
+    public void update() {
+
+    }
+
     @FXML
     public void switchToPrimary() {
         handler.switchTo("primary");

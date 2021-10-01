@@ -89,18 +89,12 @@ public class MyAccount extends AnchorPane implements hyroScene {
         return this.scene;
     }
 
-    @FXML
-    public void changeButton () {
-        if(change.getText().equals("Ändra")){
-            enableChanges();
-            setTextFields(); //behövs bara då sidan laddas in när programemt startar
-        }
-        else{
-            saveChanges();
-        }
+    @Override
+    public void update() {
+
     }
 
-    private void enableChanges () {
+    public void enableChanges () {
         for(TextField field : editableFields){
             field.setEditable(true);
             change.setText("Spara");

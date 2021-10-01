@@ -26,7 +26,7 @@ public class Home extends AbstractHyroScene {
 
     public Home(SceneHandler handler) throws IOException {
         super("primary", handler);
-        this.listingController = new ListingController();
+        this.listingController = new ListingController(handler);
     }
 
     @FXML
@@ -37,5 +37,10 @@ public class Home extends AbstractHyroScene {
     @FXML
     public void switchToSecondary() {
         super.handler.switchTo("secondary");
+    }
+
+    @Override
+    public void update() {
+
     }
 }

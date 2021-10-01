@@ -129,6 +129,12 @@ public final class UserHandler {
         return id;
     }
 
+    /**
+     * Gets saved Users from database
+     * @author Erik Larsson
+     * @author Sebastian Kvaldén
+     * @return A HashMap containing userID and User
+     */
     public HashMap<Integer, User> getSavedUsers() {
         HashMap<Integer, User> userstmp = new HashMap<>();
         JSONReader reader = new JSONReader();
@@ -145,6 +151,11 @@ public final class UserHandler {
         return userstmp;
     }
 
+    /**
+     * Writes Users to database
+     * @author Erik Larsson
+     * @author Sebastian Kvaldén
+     */
     public void writeUsers() {
         JSONWriter writer = new JSONWriter();
         List<User> usersList = new ArrayList<User>();
@@ -154,9 +165,15 @@ public final class UserHandler {
         writer.write(usersList, "users");
     }
 
+    /**
+     * Removes User(s) with specified key-value pair
+     * @author Erik Larsson
+     * @param key The key
+     * @param value The value
+     */
     public void removeUser(String key, String value) {
-
         switch (key) {
+            // currently only used to clean up after testing...
             case "password":
                 users.entrySet().removeIf(
                         entry -> (value.equals(entry.getValue().getPassword()))

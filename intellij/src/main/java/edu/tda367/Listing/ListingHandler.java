@@ -102,14 +102,31 @@ public class ListingHandler {
         return listing;
     }
 
+    /**
+     * Gets saved Listings from database
+     * @author Erik Larsson
+     * @return An ArrayList containing Listing objects
+     *
+     */
     private ArrayList<Listing> getSavedListings() {
         ArrayList<Listing> listingstmp = new ArrayList<>();
         JSONReader reader = new JSONReader();
         List<Listing> savedUsers = reader.read(Listing[].class, "listings");
-        savedUsers.forEach(l -> listingstmp.add(l));
+        savedUsers.forEach(l ->
+        {
+            if (l == null) {
+
+            } else {
+                listingstmp.add(l);
+            }
+        });
         return listingstmp;
     }
 
+    /**
+     * Writes Listings to database
+     * @author Erik Larsson
+     */
     public void writeListings() {
         JSONWriter writer = new JSONWriter();
         writer.write(listings, "listings");

@@ -1,4 +1,4 @@
-
+/*
 import edu.tda367.Controllers.AccountCreationStatus;
 import edu.tda367.Controllers.CreateAccountController;
 import edu.tda367.View.SceneHandler;
@@ -45,3 +45,4 @@ public class TestAccountCreation extends Application {
         assertEquals(AccountCreationStatus.ZIPCODE_ERROR, status);
     }
 }
+*/

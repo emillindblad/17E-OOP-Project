@@ -21,10 +21,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class MyAccount extends AnchorPane implements hyroScene {
+public class MyAccount extends AbstractHyroScene {
 
-    private final Scene scene;
-    private final SceneHandler handler;
+    //TODO add controller and refractor to it!
+
     private final List<TextField> editableFields;
     private final UserHandler userHandler;
 
@@ -44,11 +44,11 @@ public class MyAccount extends AnchorPane implements hyroScene {
 
 
     public MyAccount(SceneHandler handler) throws IOException {
-        FXMLLoader loader = App.loadFXML("myAccount");
-        loader.setController(this);
-        Parent root = loader.load();
-        this.scene = new Scene(root);
-        this.handler = handler;
+        super("myAccount", handler);
+        //FXMLLoader loader = App.loadFXML("myAccount");
+        //loader.setController(this);
+        //Parent root = loader.load();
+        //this.scene = new Scene(root);
         this.userHandler = UserHandler.getInstance();
         editableFields = new ArrayList<>();
         populateFieldList();
@@ -86,8 +86,10 @@ public class MyAccount extends AnchorPane implements hyroScene {
     }
     @Override
     public Scene getHyroScene() {
+        setTextFields();
         return this.scene;
     }
+
 
     @Override
     public void update() {

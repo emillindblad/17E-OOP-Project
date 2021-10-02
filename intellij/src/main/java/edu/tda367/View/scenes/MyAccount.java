@@ -93,8 +93,9 @@ public class MyAccount extends AbstractHyroScene {
 
     @Override
     public void update() {
-
+        setTextFields();
     }
+
     @FXML
     public void changeButton () {
         if (change.getText().equals("Ändra")) {
@@ -120,6 +121,13 @@ public class MyAccount extends AbstractHyroScene {
             saveUserInfo();
         }
     }
+    /*TODO make method in controller (saveUserInfo) that takes in the info checks it and saves it,
+        or return what information that needs to be corrected. Could probably be done by having controller call all
+        test  methods (in test input, and return the fields numbers of the areas that are wrong so view can change border color
+        might even be possible to send the list of buttons to controller (pass by ref) and change immediately in the list*/
+
+    /*TODO saveChanges -> controller.saveChanges (List Buttons) -> loop of buttons, button.get text, call handler to set value.
+    *  -> uHandler.setFirstName(String name) -> returns boolean, success/fail, set color accordingly. */
 
     private void saveUserInfo() {
         userHandler.setLoggedInUserFirstName(firstName.getText());

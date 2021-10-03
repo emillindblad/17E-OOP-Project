@@ -3,6 +3,7 @@ package edu.tda367.UserPackage;
 import java.util.HashMap;
 import java.util.Random;
 
+import edu.tda367.InputChecker;
 import edu.tda367.JSON.JSONReader;
 import edu.tda367.JSON.JSONWriter;
 
@@ -95,7 +96,7 @@ public final class UserHandler {
      * @param zipCode
      * @param country
      */
-    public void setLoggedInUserAdress (String streetName, String city, int zipCode, String country) {
+    public void setLoggedInUserAdress (String streetName, String city, String zipCode, String country) {
         if (isAuthenticated) {
             UserAdress adress = new UserAdress(streetName,city, zipCode,country);
             loggedInUser.setUserAdress(adress);
@@ -103,15 +104,16 @@ public final class UserHandler {
     }
 
     public void setLoggedInUserFirstName (String name) {
-        if (isAuthenticated) {
+        if (isAuthenticated && !InputChecker.checkForNumber(name)) {
             loggedInUser.setFirstName(name);
         }
     }
 
     public void setLoggedInUserLastName (String name) {
-        if (isAuthenticated) {
+        if (isAuthenticated&& !InputChecker.checkForNumber(name)) {
             loggedInUser.setLastName(name);
         }
+
     }
 
     public void setLoggedInUserPasswword (String password) {
@@ -148,7 +150,7 @@ public final class UserHandler {
 
     public void createUser(String firstName, String lastName, String phoneNumber, String userName, String password, String bankAccount, String zipCode, String address, String city, String country) {
         int userID = CreateUserID();
-        UserAdress uAddress = new UserAdress(address, city, Integer.parseInt(zipCode), country);
+        UserAdress uAddress = new UserAdress(address, city, zipCode, country);
         User user = new User(firstName, lastName, phoneNumber, uAddress, userName, password, bankAccount, userID);
         users.put(user.getUserID(), user);
     }

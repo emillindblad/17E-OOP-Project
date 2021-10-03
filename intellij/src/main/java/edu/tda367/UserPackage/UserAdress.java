@@ -10,7 +10,7 @@ package edu.tda367.UserPackage;
  public class UserAdress {
     private String streetName;
     private String city;
-    private int zipCode;
+    private String zipCode;
     private String country;
 
     /**
@@ -20,7 +20,7 @@ package edu.tda367.UserPackage;
      * @param zipCode
      * @param country
      */
-    public UserAdress(String streetName, String city, int zipCode, String country) {
+    public UserAdress(String streetName, String city, String zipCode, String country) {
         this.streetName = streetName;
         this.city = city;
         this.zipCode = zipCode;
@@ -33,7 +33,7 @@ package edu.tda367.UserPackage;
      * @param city
      * @param zipCode
      */
-    public UserAdress(String streetName, String city, int zipCode) {
+    public UserAdress(String streetName, String city, String zipCode) {
         this.streetName = streetName;
         this.city = city;
         this.zipCode = zipCode;
@@ -52,7 +52,7 @@ package edu.tda367.UserPackage;
      *
      * @return Zip-code in current adress.
      */
-    public int getZipCode() {
+    public String getZipCode() {
         return zipCode;
     }
 

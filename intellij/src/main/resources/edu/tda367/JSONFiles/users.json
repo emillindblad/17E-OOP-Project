@@ -6,7 +6,7 @@
     "userAdress": {
       "streetName": "Kemivagen 7B",
       "city": "Goteborg",
-      "zipCode": 41258,
+      "zipCode": "41258",
       "country": "Sverige"
     },
     "userID": 0,
@@ -17,17 +17,17 @@
   {
     "firstName": "Sebastian",
     "lastName": "Kvalden",
-    "phoneNumber": "0734111337",
+    "phoneNumber": "def123",
     "userAdress": {
       "streetName": "Kemivagen 7B",
-      "city": "Goteborg",
-      "zipCode": 41258,
+      "city": "41258",
+      "zipCode": "Goteborg",
       "country": "Sverige"
     },
     "userID": 171735,
     "userName": "def",
     "password": "def123",
-    "bankAccount": "987654321"
+    "bankAccount": "0734111337"
   },
   {
     "firstName": "Sebastian",
@@ -36,7 +36,7 @@
     "userAdress": {
       "streetName": "Kemivagen 7B",
       "city": "Goteborg",
-      "zipCode": 41259,
+      "zipCode": "41259",
       "country": "Sverige"
     },
     "userID": 161140,
@@ -51,7 +51,7 @@
     "userAdress": {
       "streetName": "Kemivagen 7B",
       "city": "Goteborg",
-      "zipCode": 41258,
+      "zipCode": "41258",
       "country": "Sverige"
     },
     "userID": 154585,

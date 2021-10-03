@@ -27,7 +27,7 @@ public class MyAccount extends AbstractHyroScene {
     //TODO add controller and refractor to it!
     private MyAccountController controller;
     private final ArrayList<TextField> editableFields;
-    private final UserHandler userHandler;
+   // private final UserHandler userHandler;
 
     @FXML private TextField firstName;
     @FXML private TextField lastName;
@@ -46,16 +46,10 @@ public class MyAccount extends AbstractHyroScene {
 
     public MyAccount(SceneHandler handler) throws IOException {
         super("myAccount", handler);
-        //FXMLLoader loader = App.loadFXML("myAccount");
-        //loader.setController(this);
-        //Parent root = loader.load();
-        //this.scene = new Scene(root);
-        this.userHandler = UserHandler.getInstance();
-        controller = new MyAccountController(handler);
+        controller = new MyAccountController();
         editableFields = new ArrayList<>();
         populateFieldList();
         change.setText("Ändra");
-        //setTextFields();
     }
 
     //put all methods that test input in a list to run when changes are saved, as well as list of all fields
@@ -66,14 +60,14 @@ public class MyAccount extends AbstractHyroScene {
         editableFields.add(zipCode);
         editableFields.add(city);
         editableFields.add(country);
-        editableFields.add(bankAccount);
         editableFields.add(password);
         editableFields.add(confirmPassword);
         editableFields.add(phoneNumber);
+        editableFields.add(bankAccount);
     }
 
-    public void setTextFields () {
-        User user = userHandler.getLoggedInUser();
+    private void setTextFields () {
+        User user = UserHandler.getInstance().getLoggedInUser();
         firstName.setText(user.getFirstName());
         lastName.setText(user.getLastName());
         streetName.setText(user.getUserAdress().getStreetName());

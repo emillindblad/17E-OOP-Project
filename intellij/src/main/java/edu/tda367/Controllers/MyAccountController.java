@@ -10,11 +10,11 @@ import java.util.ArrayList;
 
 public class MyAccountController implements Controller {
 
-    private final SceneHandler handler;
+   // private final SceneHandler handler;
     private final UserHandler uHandler;
 
-    public MyAccountController(SceneHandler handler) {
-        this.handler = handler;
+    public MyAccountController() {
+        //this.handler = handler;
         this.uHandler = UserHandler.getInstance();
     }
 
@@ -44,17 +44,17 @@ public class MyAccountController implements Controller {
         }
     }
 
-    //shitty solution but works for now
+    //TODO fix this shitty solution
     private void saveUserInfo(ArrayList<TextField> fields) {
         uHandler.setLoggedInUserFirstName(fields.get(0).getText());
         uHandler.setLoggedInUserLastName(fields.get(1).getText());
-        uHandler.setLoggedInUserAdress(fields.get(2).getText(),fields.get(3).getText(),fields.get(4).getText(), fields.get(5).getText());
-        uHandler.setLoggedInUserPasswword(fields.get(7).getText());
+        uHandler.setLoggedInUserAdress(fields.get(2).getText(),fields.get(4).getText(),fields.get(3).getText(), fields.get(5).getText());
+        uHandler.setLoggedInUserPasswword(fields.get(6).getText());
         uHandler.setLoggedInUserPhoneNumber(fields.get(8).getText());
         uHandler.setLoggedInUserBankAccount(fields.get(9).getText());
     }
     private boolean testInput(ArrayList<TextField> fields) {
-        if( !zipCodeInput(fields.get(3)) || !bankAccountInput(fields.get(9)) || !firstNameInput(fields.get(0)) || !lastNameInput(fields.get(1)) || !countryInput(fields.get(5)) || !cityInput(fields.get(4)) || !passwordInput(fields.get(7), fields.get(8)) || !phoneInput(fields.get(9)))
+        if( !zipCodeInput(fields.get(3)) || !bankAccountInput(fields.get(9)) || !firstNameInput(fields.get(0)) || !lastNameInput(fields.get(1)) || !countryInput(fields.get(5)) || !cityInput(fields.get(4)) || !passwordInput(fields.get(6), fields.get(7)) || !phoneInput(fields.get(8)))
             return false;
         return true;
     }

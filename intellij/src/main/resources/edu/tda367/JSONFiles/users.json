@@ -17,17 +17,17 @@
   {
     "firstName": "Sebastian",
     "lastName": "Kvalden",
-    "phoneNumber": "def123",
+    "phoneNumber": "0734111337",
     "userAdress": {
       "streetName": "Kemivagen 7B",
-      "city": "41258",
-      "zipCode": "Goteborg",
+      "city": "Goteborg",
+      "zipCode": "41258",
       "country": "Sverige"
     },
     "userID": 171735,
     "userName": "def",
     "password": "def123",
-    "bankAccount": "0734111337"
+    "bankAccount": "1111666"
   },
   {
     "firstName": "Sebastian",

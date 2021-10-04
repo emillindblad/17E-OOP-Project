@@ -27,6 +27,7 @@ public class App extends Application {
         sceneHandler.addScene(HyroSceneFactory.loginScene(sceneHandler), "login");
         sceneHandler.addScene(HyroSceneFactory.createListingScene(sceneHandler),"createlisting");
         sceneHandler.addScene(HyroSceneFactory.myAccountScene(sceneHandler), "myAccount");
+        sceneHandler.addScene(HyroSceneFactory.createAccountScene(sceneHandler), "createAccount");
         sceneHandler.switchTo("login");
     }
 

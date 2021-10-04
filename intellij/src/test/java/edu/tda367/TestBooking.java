@@ -1,3 +1,5 @@
+package edu.tda367;
+
 import edu.tda367.Model.Booking.BookingHandler;
 import edu.tda367.Model.Booking.BookingState;
 import edu.tda367.Model.Listing.Category;

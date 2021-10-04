@@ -1,5 +1,5 @@
 
-package edu.tda367.JSON;
+package edu.tda367.Model.JSON;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;

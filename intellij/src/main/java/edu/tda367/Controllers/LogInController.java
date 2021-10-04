@@ -1,6 +1,6 @@
 package edu.tda367.Controllers;
 
-import edu.tda367.UserPackage.UserHandler;
+import edu.tda367.Model.UserPackage.UserHandler;
 import edu.tda367.View.SceneHandler;
 
 public class LogInController implements Controller {

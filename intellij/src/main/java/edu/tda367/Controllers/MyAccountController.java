@@ -13,12 +13,17 @@ public class MyAccountController implements Controller {
    // private final SceneHandler handler;
     private final UserHandler uHandler;
 
+
     public MyAccountController() {
         //this.handler = handler;
         this.uHandler = UserHandler.getInstance();
     }
 
-
+    /**
+     * Method to call when "change"-button is pressed.
+     * @param editableFields Fields for userinformation, (eg name, adress)
+     * @param changeButton The change-button
+     */
     public void changeButton (ArrayList<TextField> editableFields, Button changeButton) {
         if (changeButton.getText().equals("Ändra")) {
             enableChanges(editableFields,changeButton);
@@ -27,7 +32,7 @@ public class MyAccountController implements Controller {
             saveChanges(editableFields,changeButton);
     }
 
-    public void enableChanges (ArrayList<TextField> editableFields, Button changeButton) {
+    private void enableChanges (ArrayList<TextField> editableFields, Button changeButton) {
         for(TextField field : editableFields){
             field.setEditable(true);
             changeButton.setText("Spara");

@@ -1,9 +1,9 @@
 package edu.tda367.View.scenes;
 
 import edu.tda367.App;
-import edu.tda367.InputChecker;
-import edu.tda367.UserPackage.User;
-import edu.tda367.UserPackage.UserHandler;
+import edu.tda367.Model.InputChecker;
+import edu.tda367.Model.UserPackage.User;
+import edu.tda367.Model.UserPackage.UserHandler;
 import edu.tda367.View.SceneHandler;
 import edu.tda367.View.hyroScene;
 import javafx.fxml.FXML;
@@ -14,12 +14,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Consumer;
 
 public class MyAccount extends AnchorPane implements hyroScene {
 

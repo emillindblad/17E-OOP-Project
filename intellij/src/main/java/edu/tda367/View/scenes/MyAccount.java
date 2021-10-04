@@ -2,20 +2,15 @@ package edu.tda367.View.scenes;
 
 import edu.tda367.App;
 import edu.tda367.Controllers.MyAccountController;
-import edu.tda367.InputChecker;
-import edu.tda367.UserPackage.User;
-import edu.tda367.UserPackage.UserHandler;
+import edu.tda367.Model.InputChecker;
+import edu.tda367.Model.UserPackage.User;
+import edu.tda367.Model.UserPackage.UserHandler;
 import edu.tda367.View.SceneHandler;
-import edu.tda367.View.hyroScene;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
-import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.util.ArrayList;

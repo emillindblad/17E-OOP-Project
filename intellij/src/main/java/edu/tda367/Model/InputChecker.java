@@ -1,4 +1,4 @@
-package edu.tda367;
+package edu.tda367.Model;
 
 public class InputChecker {
 

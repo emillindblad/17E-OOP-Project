@@ -1,4 +1,4 @@
-import edu.tda367.UserPackage.*;
+import edu.tda367.Model.UserPackage.*;
 import org.junit.*;
 
 import static org.junit.Assert.*;

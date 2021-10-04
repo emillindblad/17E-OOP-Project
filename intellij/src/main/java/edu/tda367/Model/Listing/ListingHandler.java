@@ -1,9 +1,8 @@
-package edu.tda367.Listing;
+package edu.tda367.Model.Listing;
 
-import edu.tda367.JSON.JSONReader;
-import edu.tda367.JSON.JSONWriter;
+import edu.tda367.Model.JSON.JSONReader;
+import edu.tda367.Model.JSON.JSONWriter;
 
-import java.lang.reflect.Array;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;

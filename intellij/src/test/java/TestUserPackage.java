@@ -47,7 +47,7 @@ public class TestUserPackage {
 
     @Test
     public void addAdressAndSaveTest() {
-        uHandler.setLoggedInUserAdress("Kemivagen 7B", "Goteborg", 41258, "Sverige");
+        uHandler.setLoggedInUserAdress("Kemivagen 7B", "Goteborg", "41258", "Sverige");
         uHandler.writeUsers();
         assertTrue(uHandler.getLoggedInUser().getUserAdress().getStreetName().equals("Kemivagen 7B"));
     }

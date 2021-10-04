@@ -27,6 +27,12 @@ public class BrowseListings extends AbstractHyroScene {
         handler.centerOnScreen();
     }
 
+    @FXML
+    private void switchToUserSettings() {
+        handler.switchTo("myAccount");
+        handler.centerOnScreen();
+    }
+
 
     void updateList() {
         System.out.println("hello");

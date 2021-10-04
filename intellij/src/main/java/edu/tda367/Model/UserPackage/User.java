@@ -15,7 +15,17 @@ public class User {
     // proof of concept, needs more information irl
     private String bankAccount;
 
-
+    /**
+     * Contstructor to create user
+     * @param firstName
+     * @param lastName
+     * @param phoneNumber
+     * @param userAdress
+     * @param userName
+     * @param password
+     * @param bankAccount
+     * @param userID
+     */
       User(String firstName, String lastName, String phoneNumber, UserAdress userAdress, String userName, String password, String bankAccount, int userID) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -25,9 +35,18 @@ public class User {
         this.password = password;
         this.bankAccount = bankAccount;
         this.userID = userID;
-
     }
 
+    /**
+     * Constructor to create user without adress
+     * @param firstName
+     * @param lastName
+     * @param phoneNumber
+     * @param userName
+     * @param password
+     * @param bankAccount
+     * @param userID
+     */
       User(String firstName, String lastName, String phoneNumber, String userName, String password, String bankAccount, int userID) {
          this.firstName = firstName;
          this.lastName = lastName;
@@ -54,7 +73,6 @@ public class User {
         return userAdress;
     }
 
-
     void setUserAdress (UserAdress adress) {
           this.userAdress = adress;
     }
@@ -79,6 +97,10 @@ public class User {
         this.bankAccount = bankAccount;
     }
 
+    /**
+     * Method to access formatted user data
+     * @return String of user data
+     */
     public String toString (){
           return "First Name: " + firstName + "\n" +
                   "Last Name: " + lastName + "\n" +
@@ -91,14 +113,11 @@ public class User {
         return userName;
     }
 
-
-
     public String getPassword() {
         return password;
     }
 
     int getUserID() { return userID;}
-
 
     public String getBankAccount() {
         return bankAccount;

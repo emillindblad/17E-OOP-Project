@@ -14,8 +14,6 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.function.Consumer;
 
 public class MyAccount extends AbstractHyroScene {
 
@@ -35,8 +33,6 @@ public class MyAccount extends AbstractHyroScene {
     @FXML private PasswordField confirmPassword;
     @FXML private TextField phoneNumber;
     @FXML private Button change;
-
-
 
     public MyAccount(SceneHandler handler) throws IOException {
         super("myAccount", handler);
@@ -80,7 +76,6 @@ public class MyAccount extends AbstractHyroScene {
         setTextFields();
         return this.scene;
     }
-
 
     /**
      * Updates textfields in view.

@@ -6,14 +6,13 @@ import java.util.Random;
 import edu.tda367.Model.InputChecker;
 import edu.tda367.Model.JSON.JSONReader;
 import edu.tda367.Model.JSON.JSONWriter;
-import edu.tda367.Model.UserPackage.User;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
 /**
  *UserHandler is a handler to manage Users and functions connected to them. Such as log in/out and getting user data.
+ * List of users can only be accessed through the handler and users can only access their data if they are logged-in.
  * UserHandler is constructed as a singleton.
  *
  * @author Sebastian Kvaldén
@@ -34,7 +33,6 @@ public final class UserHandler {
         isAuthenticated = false;
         users = getSavedUsers();
     }
-
 
     /**
      * Used instead of constructor
@@ -113,6 +111,7 @@ public final class UserHandler {
             loggedInUser.setFirstName(name);
         }
     }
+
     /**
      * Setter for users last name
      * @param name Last name

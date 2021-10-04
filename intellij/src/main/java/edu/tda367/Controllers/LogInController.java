@@ -46,7 +46,7 @@ public class LogInController implements Controller {
      * Centers window on screen and switches to account creation view
      */
     public void switchToCreateAccount() {
-        handler.switchTo("createAccount");
+        handler.switchTo("createaccount");
         handler.centerOnScreen();
     }
 }

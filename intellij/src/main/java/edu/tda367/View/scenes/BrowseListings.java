@@ -29,7 +29,7 @@ public class BrowseListings extends AbstractHyroScene {
 
     @FXML
     private void switchToUserSettings() {
-        handler.switchTo("myAccount");
+        handler.switchTo("myaccount");
         handler.centerOnScreen();
     }
 

@@ -114,7 +114,7 @@ public class ListingHandler {
         savedUsers.forEach(l ->
         {
             if (l == null) {
-
+                System.out.println("null object in json file");
             } else {
                 listingstmp.add(l);
             }

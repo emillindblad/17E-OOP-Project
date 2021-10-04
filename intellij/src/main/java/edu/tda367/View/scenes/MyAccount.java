@@ -19,7 +19,6 @@ import java.util.function.Consumer;
 
 public class MyAccount extends AbstractHyroScene {
 
-    //TODO add controller and refractor to it!
     private MyAccountController controller;
     private final ArrayList<TextField> editableFields;
    // private final UserHandler userHandler;

@@ -1,3 +1,5 @@
+package edu.tda367;
+
 import edu.tda367.Model.Listing.*;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;

@@ -1,4 +1,4 @@
-module org.example {
+module edu.tda367 {
     requires javafx.controls;
     requires javafx.fxml;
     requires com.google.gson;

@@ -1,9 +1,18 @@
 package edu.tda367.Model;
 
+/**
+ * Static methods to check input fields for correct syntax
+ */
 public class InputChecker {
 
     static boolean check = true;
 
+    /**
+     * Checks if string consists of only numbers
+     * @param toCheck String to check
+     * @return True: String is only numbers
+     *         False: String contains letters or is empty
+     */
     public static boolean checkForNumber (String toCheck) {
         //System.out.println(toCheck);
         for(char ch : toCheck.toCharArray()) {
@@ -18,6 +27,12 @@ public class InputChecker {
         return check;
     }
 
+    /**
+     * Checks if string consists of only letters
+     * @param toCheck String to check
+     * @return True: String is only letter
+     *         False: String contains numbers or is empty
+     */
     public static boolean checkForLetter (String toCheck) {
         //System.out.println(toCheck);
         for(char ch : toCheck.toCharArray()) {
@@ -32,6 +47,13 @@ public class InputChecker {
         return check;
     }
 
+    /**
+     * Checks length of string
+     * @param toCheck String to check
+     * @param length Wanted lenght of string
+     * @return True: length is correct
+     *         False: length is incorrect
+     */
     public static boolean checkForLength (String toCheck, int length) {
         toCheck.replaceAll("\\s+",""); //removes nonVisible characters
         //System.out.println(toCheck.length());

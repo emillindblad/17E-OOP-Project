@@ -8,6 +8,9 @@ import javafx.scene.control.TextField;
 
 import java.util.ArrayList;
 
+/**
+ * Controller for myAccount view
+ */
 public class MyAccountController implements Controller {
 
    // private final SceneHandler handler;

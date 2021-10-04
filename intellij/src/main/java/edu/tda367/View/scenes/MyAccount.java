@@ -75,6 +75,7 @@ public class MyAccount extends AbstractHyroScene {
         password.setText(user.getPassword());
         confirmPassword.setText(user.getPassword());
     }
+
     @Override
     public Scene getHyroScene() {
         setTextFields();
@@ -82,11 +83,17 @@ public class MyAccount extends AbstractHyroScene {
     }
 
 
+    /**
+     * Updates textfields in view.
+     */
     @Override
     public void update() {
         setTextFields();
     }
 
+    /**
+     * Method called when button is pressed
+     */
     @FXML
     public void changeButton () {
         controller.changeButton(editableFields,change);

@@ -14,12 +14,9 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.function.Consumer;
 
 public class MyAccount extends AbstractHyroScene {
 
-    //TODO add controller and refractor to it!
     private MyAccountController controller;
     private final ArrayList<TextField> editableFields;
    // private final UserHandler userHandler;
@@ -36,8 +33,6 @@ public class MyAccount extends AbstractHyroScene {
     @FXML private PasswordField confirmPassword;
     @FXML private TextField phoneNumber;
     @FXML private Button change;
-
-
 
     public MyAccount(SceneHandler handler) throws IOException {
         super("myAccount", handler);
@@ -75,18 +70,24 @@ public class MyAccount extends AbstractHyroScene {
         password.setText(user.getPassword());
         confirmPassword.setText(user.getPassword());
     }
+
     @Override
     public Scene getHyroScene() {
         setTextFields();
         return this.scene;
     }
 
-
+    /**
+     * Updates textfields in view.
+     */
     @Override
     public void update() {
         setTextFields();
     }
 
+    /**
+     * Method called when button is pressed
+     */
     @FXML
     public void changeButton () {
         controller.changeButton(editableFields,change);

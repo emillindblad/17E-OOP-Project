@@ -6,14 +6,13 @@ import java.util.Random;
 import edu.tda367.Model.InputChecker;
 import edu.tda367.Model.JSON.JSONReader;
 import edu.tda367.Model.JSON.JSONWriter;
-import edu.tda367.Model.UserPackage.User;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
 /**
  *UserHandler is a handler to manage Users and functions connected to them. Such as log in/out and getting user data.
+ * List of users can only be accessed through the handler and users can only access their data if they are logged-in.
  * UserHandler is constructed as a singleton.
  *
  * @author Sebastian Kvaldén
@@ -27,14 +26,13 @@ public final class UserHandler {
     private boolean isAuthenticated;
     private User loggedInUser;
 
-    private UserHandler (){
     /**
      * Private constructor due to singleton pattern which cannot be accessed from client code.
      */
+    private UserHandler (){
         isAuthenticated = false;
         users = getSavedUsers();
     }
-
 
     /**
      * Used instead of constructor
@@ -104,12 +102,20 @@ public final class UserHandler {
         }
     }
 
+    /**
+     * Setter for users first name
+     * @param name First name
+     */
     public void setLoggedInUserFirstName (String name) {
         if (isAuthenticated && !InputChecker.checkForNumber(name)) {
             loggedInUser.setFirstName(name);
         }
     }
 
+    /**
+     * Setter for users last name
+     * @param name Last name
+     */
     public void setLoggedInUserLastName (String name) {
         if (isAuthenticated&& !InputChecker.checkForNumber(name)) {
             loggedInUser.setLastName(name);
@@ -117,17 +123,30 @@ public final class UserHandler {
 
     }
 
+    /**
+     * Setter for users password
+     * @param password Password to set
+     */
     public void setLoggedInUserPasswword (String password) {
         if (isAuthenticated) {
             loggedInUser.setPassword(password);
         }
     }
 
+    /**
+     * Setter for phone number
+     * @param number phone number
+     */
     public void setLoggedInUserPhoneNumber (String number) {
         if (isAuthenticated) {
             loggedInUser.setPhoneNumber(number);
         }
     }
+
+    /**
+     * Setter for bank account
+     * @param account Account number
+     */
     public void setLoggedInUserBankAccount (String account) {
         if (isAuthenticated) {
             loggedInUser.setBankAccount(account);
@@ -149,9 +168,23 @@ public final class UserHandler {
         users.put(user.getUserID(), user);
     }
 
-    public void createUser(String firstName, String lastName, String phoneNumber, String userName, String password, String bankAccount, String zipCode, String address, String city, String country) {
+    /**
+     * Method to create user
+     *
+     * @param firstName
+     * @param lastName
+     * @param phoneNumber
+     * @param userName
+     * @param password
+     * @param bankAccount
+     * @param zipCode
+     * @param streetName
+     * @param city
+     * @param country
+     */
+    public void createUser(String firstName, String lastName, String phoneNumber, String userName, String password, String bankAccount, String zipCode, String streetName, String city, String country) {
         int userID = CreateUserID();
-        UserAdress uAddress = new UserAdress(address, city, zipCode, country);
+        UserAdress uAddress = new UserAdress(streetName, city, zipCode, country);
         User user = new User(firstName, lastName, phoneNumber, uAddress, userName, password, bankAccount, userID);
         users.put(user.getUserID(), user);
     }
@@ -229,5 +262,5 @@ public final class UserHandler {
         }
 
     }
-//TODO method to access/notify users when their listings are updated
+
 }

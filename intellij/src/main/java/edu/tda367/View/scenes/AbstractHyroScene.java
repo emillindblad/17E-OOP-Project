@@ -14,7 +14,7 @@ import java.io.IOException;
 
 public abstract class AbstractHyroScene extends AnchorPane implements hyroScene {
 
-    private final Scene scene;
+     final Scene scene;
     protected final SceneHandler handler;
 
     protected AbstractHyroScene(String fxmlName, SceneHandler handler) throws IOException {

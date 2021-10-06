@@ -16,6 +16,10 @@ import javafx.scene.image.ImageView;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * View for account settings.
+ * @author Sebastian Kvaldén
+ */
 public class MyAccount extends AbstractHyroScene {
 
     private MyAccountController controller;
@@ -72,6 +76,7 @@ public class MyAccount extends AbstractHyroScene {
         password.setText(user.getPassword());
         confirmPassword.setText(user.getPassword());
     }
+
 
     @FXML
     public void goBack() {

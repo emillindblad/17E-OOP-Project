@@ -17,6 +17,11 @@ public abstract class AbstractHyroScene extends AnchorPane implements hyroScene 
     private final Scene scene;
     protected final SceneHandler handler;
 
+    /**
+     * Super constructor for all scenes. Loads the FXML file and creates a scene with the loaded fxml file
+     * @param fxmlName name of the fxml file that you want to load with the scene
+     * @param handler sceneHandler that is in charge of switching between scenes
+     */
     protected AbstractHyroScene(String fxmlName, SceneHandler handler) throws IOException {
         FXMLLoader loader = App.loadFXML(fxmlName);
         loader.setController(this);

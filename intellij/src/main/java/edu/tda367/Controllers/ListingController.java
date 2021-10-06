@@ -38,8 +38,20 @@ public class ListingController implements Controller {
         return listingHandler.getCategoryNames();
     }
 
-    public boolean validateData(String[] formData) {
-        return (InputChecker.checkForNumber(formData[2])); // Should return true if valid input
+    public boolean validateData(String[] formData) { //TODO Better way to do this?
+        if (!InputChecker.missingInput(formData[0])) {
+            return false;
+        }
+        if (!InputChecker.missingInput(formData[1])) {
+            return false;
+        }
+        if (!InputChecker.checkForNumber(formData[2])) {
+            return false;
+        }
+        if (!InputChecker.missingInput(formData[3])) {
+            return false;
+        }
+        return true;// Should return true if valid input
     }
 
     public int getPrice() {

@@ -14,15 +14,22 @@ import java.io.IOException;
 public class ListingItem extends AnchorPane {
 
     @FXML
-    Label itemPrice;
+    private Label itemPrice;
 
     @FXML
-    Label itemProductName;
+    private Label itemProductName;
 
     @FXML
-    Label itemCategory;
+    private Label productCategory;
 
-    protected ListingItem(int price, String productName, String itemCategory) {
+    /**
+     * Constructor for the ListingItem which is a component that gets loaded in the BrowseListings Scenes flowpoane
+     * @param price price for the product that is listed
+     * @param productName name of the product that is listed
+     * @param productCategory category name for the product that is listed
+     * Loads a FXML file and does the necessary setup with loading etc. Also intializes the ListingItem with the parameters
+     */
+    protected ListingItem(int price, String productName, String productCategory) {
         FXMLLoader loader = App.loadFXML("listingitem");
         System.out.println(loader.toString());
         loader.setRoot(this);
@@ -33,13 +40,13 @@ public class ListingItem extends AnchorPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
-        initialize(price, productName, itemCategory);
+        initialize(price, productName, productCategory);
     }
 
     void initialize(int price, String productName, String itemCategory) {
         this.itemProductName.setText(productName);
         this.itemPrice.setText(String.valueOf(price));
-        this.itemCategory.setText(itemCategory);
+        this.productCategory.setText(itemCategory);
     }
 
 }

@@ -42,6 +42,11 @@ public class CreateListingScene extends AbstractHyroScene {
         errorMsg.setText(listingController.createListing(formData));
     }
 
+    @FXML
+    public void goBack() {
+        listingController.switchToBrowse();
+    }
+
     @Override
     public void update() {
     }

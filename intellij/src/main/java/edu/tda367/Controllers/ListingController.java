@@ -16,7 +16,7 @@ public class ListingController implements Controller {
         //listingHandler.createListing("P.R.I.T. Grill", new Category("test"), "testing stuff", 4, 160, LocalDateTime.of(2021,9,10,9,0), LocalDateTime.of(2021,9,10,9,1));
     }
 
-    private void switchToBrowse() {
+    public void switchToBrowse() {
         sceneHandler.switchTo("browse");
         sceneHandler.centerOnScreen();
     }

@@ -22,7 +22,7 @@ public class InputChecker {
             //if (Character.isLetter(ch))
                 //return false;
         //}
-        check = !missingInput(toCheck);
+        check = anyInput(toCheck);
         for(char ch : toCheck.toCharArray()) {
             check = !Character.isLetter(ch);
         }
@@ -42,7 +42,7 @@ public class InputChecker {
             //if (Character.isDigit(ch))
                 //return false;
         //}
-        check = !missingInput(toCheck);
+        check = anyInput(toCheck);
         for(char ch : toCheck.toCharArray()) {
             check = !Character.isDigit(ch);
         }
@@ -65,7 +65,13 @@ public class InputChecker {
         return false;
     }
 
-    public static boolean missingInput(String toCheck) {
+    /**
+     * Checks if input is empty or null
+     * @param toCheck String to check
+     * @return True: input exists
+     *         False: no valid input
+     */
+    public static boolean anyInput(String toCheck) {
         if (toCheck != null && !toCheck.isBlank()) {
             return true;
         }

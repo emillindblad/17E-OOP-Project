@@ -39,16 +39,16 @@ public class ListingController implements Controller {
     }
 
     public boolean validateData(String[] formData) { //TODO Better way to do this?
-        if (!InputChecker.missingInput(formData[0])) {
+        if (!InputChecker.anyInput(formData[0])) {
             return false;
         }
-        if (!InputChecker.missingInput(formData[1])) {
+        if (!InputChecker.anyInput(formData[1])) {
             return false;
         }
         if (!InputChecker.checkForNumber(formData[2])) {
             return false;
         }
-        if (!InputChecker.missingInput(formData[3])) {
+        if (!InputChecker.anyInput(formData[3])) {
             return false;
         }
         return true;// Should return true if valid input

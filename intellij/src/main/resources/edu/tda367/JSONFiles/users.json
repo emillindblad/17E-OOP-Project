@@ -45,6 +45,21 @@
     "bankAccount": "987654321"
   },
   {
+    "firstName": "e",
+    "lastName": "e",
+    "phoneNumber": "1",
+    "userAdress": {
+      "streetName": "e",
+      "city": "e",
+      "zipCode": "11111",
+      "country": "e"
+    },
+    "userID": 197321,
+    "userName": "e",
+    "password": "e",
+    "bankAccount": "1"
+  },
+  {
     "firstName": "Sebastian",
     "lastName": "Kvalden",
     "phoneNumber": "0734111337",

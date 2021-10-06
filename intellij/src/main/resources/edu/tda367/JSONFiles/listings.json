@@ -27,15 +27,41 @@
   },
   {
     "product": {
-      "prodName": "PRIT Tango",
+      "prodName": "Cool product",
       "prodCategory": {
-        "categoryName": "Test category"
+        "categoryName": "Något annat"
       },
-      "prodDesc": "Big boi"
+      "prodDesc": "Very nice"
     },
-    "userId": 2,
-    "price": 200,
-    "availability": 1,
-    "orderState": "UNAVALIBLE"
+    "userId": 69,
+    "price": 1337,
+    "availability": 25,
+    "orderState": "AVALIBLE"
+  },
+  {
+    "product": {
+      "prodName": "Hubben",
+      "prodCategory": {
+        "categoryName": "Övrigt"
+      },
+      "prodDesc": "2.2"
+    },
+    "userId": 69,
+    "price": 1337,
+    "availability": 25,
+    "orderState": "AVALIBLE"
+  },
+  {
+    "product": {
+      "prodName": "sdf",
+      "prodCategory": {
+        "categoryName": "Övrigt"
+      },
+      "prodDesc": "dsf"
+    },
+    "userId": 69,
+    "price": 123,
+    "availability": 25,
+    "orderState": "AVALIBLE"
   }
 ]

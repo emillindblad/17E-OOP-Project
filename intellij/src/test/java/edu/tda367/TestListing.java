@@ -24,7 +24,7 @@ public class TestListing {
 
     @BeforeClass
     public static void setup() {
-        handler = new ListingHandler();
+        handler = ListingHandler.getInstance();
         testCat = new Category("Övrigt");
         startDate = LocalDateTime.of(2021,9,10,9,0);
         endDate = LocalDateTime.of(2021,9,11,10,30);
@@ -67,7 +67,7 @@ public class TestListing {
     @Test
     public void testDatabaseWrite() {
         handler.writeListings();
-        ListingHandler secondHandler = new ListingHandler(); // Second handler to simulate startup. Gets saved Listings from database
+        ListingHandler secondHandler = ListingHandler.getInstance(); // Second handler to simulate startup. Gets saved Listings from database
         ArrayList<Listing> newListings = secondHandler.getListings(); // Needed extra step for some reason...
         assertTrue(secondHandler.getListings().size() == dbSize);
     }

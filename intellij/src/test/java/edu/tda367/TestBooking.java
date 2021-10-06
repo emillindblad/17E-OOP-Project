@@ -37,7 +37,7 @@ public class TestBooking {
         userID = userHandler.getUserID();
 
         //Setup Listing
-        listingHandler = new ListingHandler();
+        listingHandler = ListingHandler.getInstance();
         testCat = new Category("Test category");
         startDate = LocalDateTime.of(2021,9,10,9,0);
         endDate = LocalDateTime.of(2021,9,11,10,30);

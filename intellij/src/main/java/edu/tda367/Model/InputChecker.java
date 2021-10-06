@@ -17,12 +17,12 @@ public class InputChecker {
      */
     public static boolean checkForNumber (String toCheck) {
         //System.out.println(toCheck);
-        for(char ch : toCheck.toCharArray()) {
-            //System.out.println(ch);
-            if (Character.isLetter(ch))
-                return false;
-        }
-        check = !missingInput(toCheck);
+        //for(char ch : toCheck.toCharArray()) {
+            ////System.out.println(ch);
+            //if (Character.isLetter(ch))
+                //return false;
+        //}
+        check = anyInput(toCheck);
         for(char ch : toCheck.toCharArray()) {
             check = !Character.isLetter(ch);
         }
@@ -37,12 +37,12 @@ public class InputChecker {
      */
     public static boolean checkForLetter (String toCheck) {
         //System.out.println(toCheck);
-        for(char ch : toCheck.toCharArray()) {
-            //System.out.println(ch);
-            if (Character.isDigit(ch))
-                return false;
-        }
-        check = !missingInput(toCheck);
+        //for(char ch : toCheck.toCharArray()) {
+            ////System.out.println(ch);
+            //if (Character.isDigit(ch))
+                //return false;
+        //}
+        check = anyInput(toCheck);
         for(char ch : toCheck.toCharArray()) {
             check = !Character.isDigit(ch);
         }
@@ -65,7 +65,16 @@ public class InputChecker {
         return false;
     }
 
-    private static boolean missingInput(String toCheck) {
-        return toCheck.isBlank();
+    /**
+     * Checks if input is empty or null
+     * @param toCheck String to check
+     * @return True: input exists
+     *         False: no valid input
+     */
+    public static boolean anyInput(String toCheck) {
+        if (toCheck != null && !toCheck.isBlank()) {
+            return true;
+        }
+        return false;
     }
 }

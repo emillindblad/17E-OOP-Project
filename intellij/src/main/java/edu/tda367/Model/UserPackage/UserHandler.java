@@ -189,6 +189,9 @@ public final class UserHandler {
         users.put(user.getUserID(), user);
     }
 
+    /*
+    Helper method to create a unique user-ID when a user is created
+     */
     private int CreateUserID () {
         int id;
         while (true) {

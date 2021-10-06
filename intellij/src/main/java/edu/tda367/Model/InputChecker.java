@@ -1,7 +1,9 @@
 package edu.tda367.Model;
 
 /**
- * Static methods to check input fields for correct syntax
+ * Static methods to check input fields for correct syntax.
+ *
+ * @author Sebastian Kvaldén
  */
 public class InputChecker {
 

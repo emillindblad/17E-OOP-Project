@@ -50,5 +50,18 @@
     "price": 1337,
     "availability": 25,
     "orderState": "AVALIBLE"
+  },
+  {
+    "product": {
+      "prodName": "sdf",
+      "prodCategory": {
+        "categoryName": "Övrigt"
+      },
+      "prodDesc": "dsf"
+    },
+    "userId": 69,
+    "price": 123,
+    "availability": 25,
+    "orderState": "AVALIBLE"
   }
 ]

@@ -19,8 +19,10 @@ public class CreateListingScene extends AbstractHyroScene {
     @FXML private TextField productDesc;
     @FXML private TextField prodPrice;
     @FXML private Label errorMsg;
-    @FXML private DatePicker prodAvail;
+    //@FXML private DatePicker prodAvail;
     @FXML private ComboBox<String> categoriesDropdown;
+
+    private String[] formData = new String[4];
 
     public CreateListingScene(SceneHandler handler) throws IOException {
         super("createlisting",handler);
@@ -36,9 +38,17 @@ public class CreateListingScene extends AbstractHyroScene {
         return new String[]{productName.getText(),productDesc.getText(),prodPrice.getText(),categoriesDropdown.getSelectionModel().getSelectedItem()};
     }
 
+    private void reset() {
+        this.productName.clear();
+        this.productDesc.clear();
+        this.prodPrice.clear();
+        this.errorMsg.setText("");
+        this.categoriesDropdown.setValue(null);
+    }
+
     @FXML
     public void createListing() {
-        String[] formData = getFormInput();
+        this.formData = getFormInput();
         errorMsg.setText(listingController.createListing(formData));
     }
 
@@ -49,5 +59,7 @@ public class CreateListingScene extends AbstractHyroScene {
 
     @Override
     public void update() {
+        reset();
+        Arrays.fill(this.formData,"");
     }
 }

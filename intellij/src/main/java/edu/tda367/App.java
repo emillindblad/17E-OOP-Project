@@ -1,13 +1,19 @@
 package edu.tda367;
 
+import edu.tda367.Controllers.AccountViewController;
+import edu.tda367.Controllers.CreateAccController;
+import edu.tda367.Controllers.MyAccController;
 import edu.tda367.Model.Listing.ListingHandler;
 import edu.tda367.Model.UserPackage.UserHandler;
 import edu.tda367.View.HyroSceneFactory;
 import edu.tda367.View.SceneHandler;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * JavaFX App
@@ -26,8 +32,10 @@ public class App extends Application {
         sceneHandler.addScene(HyroSceneFactory.browseScene(sceneHandler), "browse");
         sceneHandler.addScene(HyroSceneFactory.loginScene(sceneHandler), "login");
         sceneHandler.addScene(HyroSceneFactory.createListingScene(sceneHandler),"createlisting");
-        sceneHandler.addScene(HyroSceneFactory.accountViewScene(sceneHandler), "myaccount");
-        sceneHandler.addScene(HyroSceneFactory.createAccountScene(sceneHandler), "createAccount");
+        CreateAccController caCtrl = new CreateAccController(sceneHandler);
+        MyAccController myAccCtrl = new MyAccController(sceneHandler);
+        sceneHandler.addScene(HyroSceneFactory.accountViewScene(sceneHandler, "myaccount", myAccCtrl), "myaccount");
+        sceneHandler.addScene(HyroSceneFactory.accountViewScene(sceneHandler, "createaccount", caCtrl), "createaccount");
         sceneHandler.switchTo("login");
     }
 

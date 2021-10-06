@@ -1,5 +1,6 @@
 package edu.tda367.View;
 
+import edu.tda367.Controllers.AccountViewController;
 import edu.tda367.Controllers.ListingController;
 import edu.tda367.View.SceneHandler;
 import edu.tda367.View.hyroScene;
@@ -28,8 +29,8 @@ public final class HyroSceneFactory {
         return new CreateAccount("createaccount", handler);
     }
 
-    public static final hyroScene accountViewScene(SceneHandler handler) throws IOException {
-        return new AccountView(handler);
+    public static final hyroScene accountViewScene(SceneHandler handler, String fxmlName, AccountViewController controller) throws IOException {
+        return new AccountView(handler, fxmlName, controller);
     }
     public static final hyroScene browseScene(SceneHandler director) throws IOException {
         return new BrowseListings(director);

@@ -1,6 +1,7 @@
 package edu.tda367.View.scenes;
 
 import edu.tda367.App;
+import edu.tda367.Controllers.AccountViewController;
 import edu.tda367.Controllers.MyAccountController;
 import edu.tda367.Model.InputChecker;
 import edu.tda367.Model.UserPackage.User;
@@ -18,7 +19,7 @@ import java.util.ArrayList;
 
 public class AccountView extends AbstractHyroScene {
 
-    private MyAccountController controller;
+    private AccountViewController controller;
     private final ArrayList<TextField> editableFields;
     // private final UserHandler userHandler;
 
@@ -36,9 +37,9 @@ public class AccountView extends AbstractHyroScene {
     @FXML private Button done;
     @FXML private ImageView baackButton;
 
-    public AccountView(SceneHandler handler) throws IOException {
-        super("myaccount", handler);
-        controller = new MyAccountController(handler);
+    public AccountView(SceneHandler handler, String fxmlName, AccountViewController controller) throws IOException {
+        super(fxmlName, handler);
+        this.controller = controller;
         editableFields = new ArrayList<>();
         populateFieldList();
     }
@@ -74,12 +75,12 @@ public class AccountView extends AbstractHyroScene {
 
     @FXML
     public void goBack() {
-        controller.toBrowse();
+        controller.goBack();
     }
 
     @Override
     public Scene getHyroScene() {
-        setTextFields();
+        //setTextFields();
         return this.scene;
     }
 
@@ -88,7 +89,7 @@ public class AccountView extends AbstractHyroScene {
      */
     @Override
     public void update() {
-        setTextFields();
+        controller.update(editableFields, done);
     }
 
     /**
@@ -96,7 +97,7 @@ public class AccountView extends AbstractHyroScene {
      */
     @FXML
     public void changeButton () {
-        controller.changeButton(editableFields,done);
+        controller.doneButtonAction(editableFields, done);
     }
 
 }

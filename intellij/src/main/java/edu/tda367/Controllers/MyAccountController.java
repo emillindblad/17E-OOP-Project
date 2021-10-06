@@ -11,7 +11,7 @@ import java.util.ArrayList;
 /**
  * Controller for myAccount view
  */
-public class MyAccountController implements Controller {
+public abstract class MyAccountController implements Controller {
 
     private final SceneHandler handler;
     private final UserHandler uHandler;

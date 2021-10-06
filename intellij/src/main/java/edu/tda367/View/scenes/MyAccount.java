@@ -37,7 +37,7 @@ public class MyAccount extends AbstractHyroScene {
     @FXML private ImageView baackButton;
 
     public MyAccount(SceneHandler handler) throws IOException {
-        super("myAccount", handler);
+        super("myaccount", handler);
         controller = new MyAccountController(handler);
         editableFields = new ArrayList<>();
         populateFieldList();

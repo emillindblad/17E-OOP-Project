@@ -25,7 +25,7 @@ public final class HyroSceneFactory {
     }
 
     public static final hyroScene createAccountScene(SceneHandler handler) throws IOException {
-        return new CreateAccount("CreateAccount", handler);
+        return new CreateAccount("createaccount", handler);
     }
 
     public static final hyroScene myAccountScene(SceneHandler handler) throws IOException {

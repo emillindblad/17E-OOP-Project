@@ -1,5 +1,9 @@
 package edu.tda367.Model.Listing;
 
+/**
+ * Product
+ * @author Emil Lindblad
+ */
 public class Product {
     private final String prodName;
     private final Category prodCategory;

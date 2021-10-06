@@ -1,11 +1,12 @@
+package edu.tda367;
+
 import edu.tda367.Model.Listing.*;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.List;
 
 
 import static org.junit.Assert.*;
@@ -15,20 +16,24 @@ public class TestListing {
     static LocalDateTime startDate;
     static LocalDateTime endDate;
     static ListingHandler handler;
-    static ListingHandler secondHandler;
     static Listing testListing;
     static Listing secondTestListing;
-    private static int dbSize;
+    static Listing stringListing;
+    static int dbSize;
 
 
     @BeforeClass
     public static void setup() {
         handler = new ListingHandler();
-        dbSize = handler.getListings().size();
-        testCat = new Category("Test category");
+        testCat = new Category("Övrigt");
         startDate = LocalDateTime.of(2021,9,10,9,0);
         endDate = LocalDateTime.of(2021,9,11,10,30);
         testListing = handler.createListing("TestPRIT Grill",testCat,"Big grill",69,1337,startDate,endDate);
+    }
+
+    @Before
+    public void dbsize() {
+        dbSize = handler.getListings().size();
     }
 
     @AfterClass
@@ -36,22 +41,21 @@ public class TestListing {
         //---- Remove test listings from database ------//
         handler.removeListing(secondTestListing);
         handler.removeListing(testListing);
+        handler.removeListing(stringListing);
         handler.writeListings();
     }
 
     @Test
     public void testHandlerCreate() {
-        int initSize = handler.getListings().size(); //Get current size, only test templist
         secondTestListing = handler.createListing("Another one",testCat,"lil grill",123,420,startDate,endDate);
-        assertTrue(handler.getListings().size()==initSize+1);
+        assertTrue(handler.getListings().size()==dbSize+1);
     }
 
     @Test
     public void testHandlerDelete() {
-        int initSize = handler.getListings().size(); //Get current size, only test templist
         Listing removedListing = handler.removeListing(testListing);
         assertEquals(removedListing, testListing);
-        assertTrue(handler.getListings().size()==initSize-1);
+        assertTrue(handler.getListings().size()==dbSize-1);
     }
 
     @Test
@@ -63,8 +67,33 @@ public class TestListing {
     @Test
     public void testDatabaseWrite() {
         handler.writeListings();
-        secondHandler = new ListingHandler(); // Second handler to simulate startup. Gets saved Listings from database
+        ListingHandler secondHandler = new ListingHandler(); // Second handler to simulate startup. Gets saved Listings from database
         ArrayList<Listing> newListings = secondHandler.getListings(); // Needed extra step for some reason...
-        assertTrue(newListings.size() == dbSize + 1);
+        assertTrue(secondHandler.getListings().size() == dbSize);
     }
+
+    //@Test TODO
+    public void testGetCategories() {
+        assertTrue(handler.getCategories().contains(testCat));
+    }
+
+    @Test
+    public void testGetCategoryNames() {
+        ArrayList<String> names = handler.getCategoryNames();
+        assertTrue(names.contains(testCat.getCategoryName()));
+    }
+
+    @Test
+    public void testGetAvaliableListings() {
+        ArrayList<Listing> availableListings = handler.getAvailableListings();
+        availableListings.forEach(n -> n.getOrderState().equals(ListingState.AVALIBLE));
+    }
+
+    @Test
+    public void testCreateListingFromString() {
+        String[] formData = {"Test Name","Test Desc","69","Övrigt"};
+        stringListing = handler.createListingFromString(formData);
+        assertTrue(handler.getListings().contains(stringListing));
+    }
+
 }

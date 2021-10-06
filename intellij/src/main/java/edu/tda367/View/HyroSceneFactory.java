@@ -5,7 +5,7 @@ import edu.tda367.View.SceneHandler;
 import edu.tda367.View.hyroScene;
 import edu.tda367.View.scenes.Home;
 import edu.tda367.View.scenes.LogIn;
-import edu.tda367.View.scenes.MyAccount;
+import edu.tda367.View.scenes.AccountView;
 import edu.tda367.View.scenes.Secondary;
 import edu.tda367.View.scenes.*;
 
@@ -28,8 +28,8 @@ public final class HyroSceneFactory {
         return new CreateAccount("createaccount", handler);
     }
 
-    public static final hyroScene myAccountScene(SceneHandler handler) throws IOException {
-        return new MyAccount(handler);
+    public static final hyroScene accountViewScene(SceneHandler handler) throws IOException {
+        return new AccountView(handler);
     }
     public static final hyroScene browseScene(SceneHandler director) throws IOException {
         return new BrowseListings(director);

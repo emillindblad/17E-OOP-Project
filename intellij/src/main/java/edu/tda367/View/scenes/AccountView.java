@@ -16,11 +16,11 @@ import javafx.scene.image.ImageView;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class MyAccount extends AbstractHyroScene {
+public class AccountView extends AbstractHyroScene {
 
     private MyAccountController controller;
     private final ArrayList<TextField> editableFields;
-   // private final UserHandler userHandler;
+    // private final UserHandler userHandler;
 
     @FXML private TextField firstName;
     @FXML private TextField lastName;
@@ -33,15 +33,14 @@ public class MyAccount extends AbstractHyroScene {
     @FXML private PasswordField password;
     @FXML private PasswordField confirmPassword;
     @FXML private TextField phoneNumber;
-    @FXML private Button change;
+    @FXML private Button done;
     @FXML private ImageView baackButton;
 
-    public MyAccount(SceneHandler handler) throws IOException {
+    public AccountView(SceneHandler handler) throws IOException {
         super("myaccount", handler);
         controller = new MyAccountController(handler);
         editableFields = new ArrayList<>();
         populateFieldList();
-        change.setText("Ändra");
     }
 
     //put all methods that test input in a list to run when changes are saved, as well as list of all fields
@@ -97,7 +96,7 @@ public class MyAccount extends AbstractHyroScene {
      */
     @FXML
     public void changeButton () {
-        controller.changeButton(editableFields,change);
+        controller.changeButton(editableFields,done);
     }
 
 }

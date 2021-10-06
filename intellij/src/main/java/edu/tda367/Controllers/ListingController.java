@@ -12,7 +12,7 @@ public class ListingController implements Controller {
 
     public ListingController(SceneHandler sceneHandler) {
         this.sceneHandler = sceneHandler;
-        this.listingHandler = new ListingHandler();
+        this.listingHandler = ListingHandler.getInstance();
         //listingHandler.createListing("P.R.I.T. Grill", new Category("test"), "testing stuff", 4, 160, LocalDateTime.of(2021,9,10,9,0), LocalDateTime.of(2021,9,10,9,1));
     }
 
@@ -23,14 +23,14 @@ public class ListingController implements Controller {
 
     public String createListing(String[] formData) {
         boolean foo = validateData(formData);
-        System.out.println(foo);
          if (foo) { //Return true if valid input.
              listingHandler.createListingFromString(formData);
              switchToBrowse();
              return "Success";
          }
          else {
-             return "Error";
+             System.out.println("Form input failed validation!");
+             return "Fail";
          }
     }
 

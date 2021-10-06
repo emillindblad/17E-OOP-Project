@@ -26,10 +26,9 @@ public class CreateListingScene extends AbstractHyroScene {
         super("createlisting",handler);
         this.listingController = new ListingController(handler);
         this.categoriesDropdown.getItems().setAll(loadCategories());
-        System.out.println("Create Listing now");
     }
 
-    public ArrayList<String> loadCategories() {
+    private ArrayList<String> loadCategories() {
         return listingController.getCategoryNames();
     }
 
@@ -40,12 +39,10 @@ public class CreateListingScene extends AbstractHyroScene {
     @FXML
     public void createListing() {
         String[] formData = getFormInput();
-        System.out.println(Arrays.asList(formData));
         errorMsg.setText(listingController.createListing(formData));
     }
 
     @Override
     public void update() {
-        System.out.println("We made it");
     }
 }

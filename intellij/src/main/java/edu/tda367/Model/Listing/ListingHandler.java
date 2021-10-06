@@ -13,15 +13,23 @@ import java.util.List;
  * @author Emil Lindblad
  */
 public class ListingHandler {
+    private static ListingHandler instance;
     private final ArrayList<Listing> listings;
     private final ArrayList<Category> categories;
 
     /**
      * Constructor, creates lists of categories and listings
      */
-    public ListingHandler() {
+    private ListingHandler() {
         categories = new ArrayList<Category>(Arrays.asList(new Category("Övrigt"), new Category("Något annat"))); //TODO Implement database?
         listings = getSavedListings();
+    }
+
+    public static ListingHandler getInstance() {
+        if (instance == null) {
+            instance =new ListingHandler();
+        }
+        return instance;
     }
 
     /**
@@ -90,8 +98,9 @@ public class ListingHandler {
         String prodDesc = formData[1];
         int price = Integer.parseInt(formData[2]);
         Category prodCat = getCategory(formData[3]);
-        int userId = 69;
 
+        //Hardcoded values for now
+        int userId = 69;
         LocalDateTime startDate = LocalDateTime.of(2021,9,10,9,0);
         LocalDateTime endDate = LocalDateTime.of(2021,9,11,10,30);
 

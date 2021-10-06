@@ -13,15 +13,21 @@ import java.util.ArrayList;
  */
 public class MyAccountController implements Controller {
 
-   // private final SceneHandler handler;
+    private final SceneHandler handler;
     private final UserHandler uHandler;
 
 
-    public MyAccountController() {
-        //this.handler = handler;
+    public MyAccountController(SceneHandler handler) {
+        this.handler = handler;
         this.uHandler = UserHandler.getInstance();
     }
 
+    /**
+     * Controls button to go back to main view
+     */
+    public void toBrowse() {
+        handler.switchTo("browse");
+    }
     /**
      * Method to call when "change"-button is pressed.
      * @param editableFields Fields for userinformation, (eg name, adress)

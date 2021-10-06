@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -33,10 +34,11 @@ public class MyAccount extends AbstractHyroScene {
     @FXML private PasswordField confirmPassword;
     @FXML private TextField phoneNumber;
     @FXML private Button change;
+    @FXML private ImageView baackButton;
 
     public MyAccount(SceneHandler handler) throws IOException {
         super("myaccount", handler);
-        controller = new MyAccountController();
+        controller = new MyAccountController(handler);
         editableFields = new ArrayList<>();
         populateFieldList();
         change.setText("Ändra");
@@ -69,6 +71,11 @@ public class MyAccount extends AbstractHyroScene {
         bankAccount.setText(user.getBankAccount());
         password.setText(user.getPassword());
         confirmPassword.setText(user.getPassword());
+    }
+
+    @FXML
+    public void goBack() {
+        controller.toBrowse();
     }
 
     @Override

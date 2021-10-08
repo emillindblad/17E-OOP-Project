@@ -9,7 +9,7 @@ public class BrowseController implements Controller {
     ListingHandler listingHandler;
 
     public BrowseController() {
-        this.listingHandler = new ListingHandler();
+        this.listingHandler = ListingHandler.getInstance();
     }
 
     public ArrayList<Listing>  getAvailableListings() {

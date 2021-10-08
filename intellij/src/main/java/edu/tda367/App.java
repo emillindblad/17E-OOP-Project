@@ -25,7 +25,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        lHandler = new ListingHandler();
+        lHandler = ListingHandler.getInstance();
         sceneHandler = new SceneHandler(stage);
         sceneHandler.addScene(HyroSceneFactory.homeScene(sceneHandler), "home");
         sceneHandler.addScene(HyroSceneFactory.secondaryScene(sceneHandler), "secondary");

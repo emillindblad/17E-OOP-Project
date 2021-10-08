@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 
 import java.io.IOException;
@@ -36,6 +37,7 @@ public class AccountView extends AbstractHyroScene {
     @FXML private TextField phoneNumber;
     @FXML private Button done;
     @FXML private ImageView baackButton;
+    @FXML private Label info;
 
     public AccountView(SceneHandler handler, String fxmlName, AccountViewController controller) throws IOException {
         super(fxmlName, handler);
@@ -46,16 +48,17 @@ public class AccountView extends AbstractHyroScene {
 
     //put all methods that test input in a list to run when changes are saved, as well as list of all fields
     private void populateFieldList() {
-        editableFields.add(firstName);
-        editableFields.add(lastName);
-        editableFields.add(streetName);
-        editableFields.add(zipCode);
-        editableFields.add(city);
-        editableFields.add(country);
-        editableFields.add(password);
-        editableFields.add(confirmPassword);
-        editableFields.add(phoneNumber);
-        editableFields.add(bankAccount);
+        editableFields.add(firstName);//0
+        editableFields.add(lastName);//1
+        editableFields.add(streetName);//2
+        editableFields.add(zipCode);//3
+        editableFields.add(city);//4
+        editableFields.add(country);//5
+        editableFields.add(password);//6
+        editableFields.add(confirmPassword);//7
+        editableFields.add(phoneNumber);//8
+        editableFields.add(bankAccount);//9
+        editableFields.add(userName); //10
     }
 
     private void setTextFields () {
@@ -89,7 +92,7 @@ public class AccountView extends AbstractHyroScene {
      */
     @Override
     public void update() {
-        controller.update(editableFields, done);
+        controller.update(editableFields);
     }
 
     /**
@@ -97,7 +100,7 @@ public class AccountView extends AbstractHyroScene {
      */
     @FXML
     public void changeButton () {
-        controller.doneButtonAction(editableFields, done);
+        controller.doneButtonAction(editableFields, info);
     }
 
 }

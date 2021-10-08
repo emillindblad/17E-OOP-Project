@@ -8,7 +8,7 @@ import javafx.scene.control.TextField;
 
 import java.util.ArrayList;
 
-public abstract class AccountViewController {
+public abstract class AccountViewController implements Controller {
 
     protected final SceneHandler handler;
 

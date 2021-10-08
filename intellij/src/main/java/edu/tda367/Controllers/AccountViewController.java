@@ -1,73 +1,35 @@
 package edu.tda367.Controllers;
 
 import edu.tda367.Model.InputChecker;
-import edu.tda367.Model.UserPackage.UserHandler;
 import edu.tda367.View.SceneHandler;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.util.ArrayList;
 
-/**
- * Controller for myAccount view
- */
-public class MyAccountController implements Controller {
+public abstract class AccountViewController implements Controller {
 
-    private final SceneHandler handler;
-    private final UserHandler uHandler;
+    protected final SceneHandler handler;
 
-
-    public MyAccountController(SceneHandler handler) {
+    protected AccountViewController(SceneHandler handler) {
         this.handler = handler;
-        this.uHandler = UserHandler.getInstance();
     }
+
+    public abstract void doneButtonAction(ArrayList<TextField> fields, Label info);
+
+    public abstract void goBack();
+
+    public abstract void update(ArrayList<TextField> fields);
+
+    public abstract String getFXMLname();
 
     /**
-     * Controls button to go back to main view
+     * Checks so that all fields are correctly entered
+     * @param fields fields to be checked
+     * @return true if valid, false if not
      */
-    public void toBrowse() {
-        handler.switchTo("browse");
-    }
-    /**
-     * Method to call when "change"-button is pressed.
-     * @param editableFields Fields for userinformation, (eg name, adress)
-     * @param changeButton The change-button
-     */
-    public void changeButton (ArrayList<TextField> editableFields, Button changeButton) {
-        if (changeButton.getText().equals("Ändra")) {
-            enableChanges(editableFields,changeButton);
-        }
-        else
-            saveChanges(editableFields,changeButton);
-    }
-
-    private void enableChanges (ArrayList<TextField> editableFields, Button changeButton) {
-        for(TextField field : editableFields){
-            field.setEditable(true);
-            changeButton.setText("Spara");
-        }
-    }
-
-    private void saveChanges (ArrayList<TextField> editableFields, Button changeButton) {
-        if(testInput(editableFields)) {
-            for (TextField field : editableFields) {
-                field.setEditable(false);
-            }
-            changeButton.setText("Ändra");
-            saveUserInfo(editableFields);
-        }
-    }
-
-    //TODO fix this shitty solution
-    private void saveUserInfo(ArrayList<TextField> fields) {
-        uHandler.setLoggedInUserFirstName(fields.get(0).getText());
-        uHandler.setLoggedInUserLastName(fields.get(1).getText());
-        uHandler.setLoggedInUserAdress(fields.get(2).getText(),fields.get(4).getText(),fields.get(3).getText(), fields.get(5).getText());
-        uHandler.setLoggedInUserPasswword(fields.get(6).getText());
-        uHandler.setLoggedInUserPhoneNumber(fields.get(8).getText());
-        uHandler.setLoggedInUserBankAccount(fields.get(9).getText());
-    }
-    private boolean testInput(ArrayList<TextField> fields) {
+    protected boolean testInput(ArrayList<TextField> fields) {
         if( !zipCodeInput(fields.get(3)) || !bankAccountInput(fields.get(9)) || !firstNameInput(fields.get(0)) || !lastNameInput(fields.get(1)) || !countryInput(fields.get(5)) || !cityInput(fields.get(4)) || !passwordInput(fields.get(6), fields.get(7)) || !phoneInput(fields.get(8)))
             return false;
         return true;
@@ -146,9 +108,4 @@ public class MyAccountController implements Controller {
             return false;
         }
     }
-
-
-
-
 }
-

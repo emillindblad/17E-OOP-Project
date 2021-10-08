@@ -45,6 +45,21 @@
     "bankAccount": "987654321"
   },
   {
+    "firstName": "namnet",
+    "lastName": "efter",
+    "phoneNumber": "0700",
+    "userAdress": {
+      "streetName": "gata",
+      "city": "stad",
+      "zipCode": "12355",
+      "country": "land"
+    },
+    "userID": 179931,
+    "userName": "anv",
+    "password": "ord",
+    "bankAccount": "5168"
+  },
+  {
     "firstName": "Sebastian",
     "lastName": "Kvalden",
     "phoneNumber": "0734111337",

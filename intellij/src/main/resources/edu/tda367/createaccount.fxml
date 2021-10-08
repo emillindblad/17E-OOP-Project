@@ -8,27 +8,27 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TextField fx:id="firstName" editable="false" layoutX="112.0" layoutY="141.0" prefHeight="26.0" prefWidth="150.0" promptText="Förnamn" AnchorPane.bottomAnchor="233.0" AnchorPane.leftAnchor="112.0" AnchorPane.topAnchor="141.0">
+      <TextField fx:id="firstName" layoutX="112.0" layoutY="141.0" prefHeight="26.0" prefWidth="150.0" promptText="Namn" AnchorPane.bottomAnchor="233.0" AnchorPane.leftAnchor="112.0" AnchorPane.topAnchor="141.0">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></TextField>
-      <TextField fx:id="lastName" editable="false" layoutX="112.0" layoutY="181.0" promptText="Efternamn" AnchorPane.leftAnchor="112.0" AnchorPane.topAnchor="181.0">
+      <TextField fx:id="lastName" layoutX="112.0" layoutY="181.0" promptText="Namnsson" AnchorPane.leftAnchor="112.0" AnchorPane.topAnchor="181.0">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></TextField>
-      <TextField fx:id="streetName" editable="false" layoutX="112.0" layoutY="260.0" promptText="Gatunamn" AnchorPane.leftAnchor="112.0" AnchorPane.topAnchor="260.0">
+      <TextField fx:id="streetName" layoutX="112.0" layoutY="260.0" promptText="Gatan 23" AnchorPane.leftAnchor="112.0" AnchorPane.topAnchor="260.0">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></TextField>
-      <TextField fx:id="zipCode" editable="false" layoutX="112.0" layoutY="293.0" prefHeight="26.0" prefWidth="57.0" promptText="111 22" AnchorPane.leftAnchor="112.0" AnchorPane.topAnchor="293.0">
+      <TextField fx:id="zipCode" layoutX="112.0" layoutY="293.0" prefHeight="26.0" prefWidth="57.0" promptText="111 22" AnchorPane.leftAnchor="112.0" AnchorPane.topAnchor="293.0">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></TextField>
-      <TextField fx:id="city" editable="false" layoutX="178.0" layoutY="293.0" prefHeight="26.0" prefWidth="82.0" promptText="Stad" AnchorPane.leftAnchor="178.0" AnchorPane.topAnchor="293.0">
+      <TextField fx:id="city" layoutX="178.0" layoutY="293.0" prefHeight="26.0" prefWidth="82.0" promptText="Stad" AnchorPane.leftAnchor="178.0" AnchorPane.topAnchor="293.0">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></TextField>
-      <TextField fx:id="country" editable="false" layoutX="112.0" layoutY="329.0" prefHeight="26.0" prefWidth="149.0" promptText="Land" AnchorPane.leftAnchor="112.0" AnchorPane.topAnchor="329.0">
+      <TextField fx:id="country" layoutX="112.0" layoutY="329.0" prefHeight="26.0" prefWidth="149.0" promptText="Land" AnchorPane.leftAnchor="112.0" AnchorPane.topAnchor="329.0">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></TextField>
@@ -37,18 +37,28 @@
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Text>
-      <TextField fx:id="userName" editable="false" layoutX="414.0" layoutY="141.0" prefHeight="26.0" prefWidth="149.0" promptText="Användarnamn" AnchorPane.leftAnchor="414.0" AnchorPane.topAnchor="141.0">
+      <TextField fx:id="userName" layoutX="414.0" layoutY="141.0" prefHeight="26.0" prefWidth="149.0" promptText="Användarnamn" AnchorPane.leftAnchor="414.0" AnchorPane.topAnchor="141.0">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></TextField>
-      <TextField fx:id="bankAccount" editable="false" layoutX="414.0" layoutY="306.0" prefHeight="26.0" prefWidth="149.0" promptText="Kontonummer" AnchorPane.leftAnchor="414.0">
-         <cursor>
-            <Cursor fx:constant="TEXT" />
-         </cursor></TextField>
-      <PasswordField fx:id="password" editable="false" layoutX="414.0" layoutY="181.0" promptText="Lösenord" AnchorPane.leftAnchor="414.0" AnchorPane.topAnchor="183.0">
+      <PasswordField fx:id="password" layoutX="414.0" layoutY="181.0" promptText="Lösenord" AnchorPane.leftAnchor="414.0" AnchorPane.topAnchor="183.0">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></PasswordField>
+      <PasswordField fx:id="confirmPassword" layoutX="414.0" layoutY="220.0" promptText="Lösenord">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </PasswordField>
+      <TextField fx:id="phoneNumber" layoutX="414.0" layoutY="272.0" prefHeight="26.0" prefWidth="149.0" promptText="0700000000">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextField>
+      <TextField fx:id="bankAccount" layoutX="414.0" layoutY="306.0" prefHeight="26.0" prefWidth="149.0" promptText="XXXX">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
       <Button fx:id="change" layoutX="516.0" layoutY="342.0" mnemonicParsing="false" onAction="#changeButton" text="Skapa">
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -60,16 +70,7 @@
       <Text layoutX="79.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Land:" underline="true" AnchorPane.rightAnchor="492.787109375" />
       <Text layoutX="329.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Användarnamn:" underline="true" AnchorPane.rightAnchor="188.58203125" />
       <Text layoutX="360.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lösenord:" underline="true" AnchorPane.rightAnchor="188.291015625" />
-      <Text layoutX="330.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kontonummer:" underline="true" AnchorPane.rightAnchor="190.81640625" AnchorPane.topAnchor="311.05078125" />
-      <PasswordField fx:id="confirmPassword" editable="false" layoutX="414.0" layoutY="220.0" promptText="Lösenord" AnchorPane.leftAnchor="414.0" AnchorPane.topAnchor="220.0">
-         <cursor>
-            <Cursor fx:constant="TEXT" />
-         </cursor></PasswordField>
       <Text layoutX="360.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bekräfta Lösenord:" underline="true" AnchorPane.rightAnchor="188.291015625" />
-      <TextField fx:id="phoneNumber" editable="false" layoutX="414.0" layoutY="272.0" prefHeight="26.0" prefWidth="149.0" promptText="Telefonnummer">
-         <cursor>
-            <Cursor fx:constant="TEXT" />
-         </cursor></TextField>
       <Text layoutX="326.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefonnummer:" underline="true" />
       <ImageView fx:id="backButton" fitHeight="26.0" fitWidth="58.0" layoutX="12.0" layoutY="14.0" onMouseClicked="#goBack" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="12.0" AnchorPane.topAnchor="14.0">
          <image>
@@ -79,5 +80,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
+      <Label fx:id="info" layoutX="346.0" layoutY="347.0" prefHeight="18.0" prefWidth="157.0" />
+      <Text layoutX="308.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bankkontonummer:" underline="true" />
    </children>
 </AnchorPane>

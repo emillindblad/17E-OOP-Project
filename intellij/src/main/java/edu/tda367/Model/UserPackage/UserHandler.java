@@ -6,6 +6,7 @@ import java.util.Random;
 import edu.tda367.Model.InputChecker;
 import edu.tda367.Model.JSON.JSONReader;
 import edu.tda367.Model.JSON.JSONWriter;
+import javafx.scene.control.TextField;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -153,6 +154,12 @@ public final class UserHandler {
         }
     }
 
+    public void setLoggedInUserUserName(String userName) {
+        if (isAuthenticated) {
+            loggedInUser.setUserName(userName);
+        }
+    }
+
     /**
      * Method to create a user.
      * @param firstName Users first name.
@@ -262,5 +269,4 @@ public final class UserHandler {
         }
 
     }
-
 }

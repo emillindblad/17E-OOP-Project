@@ -66,4 +66,6 @@ public class InputChecker {
     private static boolean missingInput(String toCheck) {
         return toCheck.isBlank();
     }
+
+
 }

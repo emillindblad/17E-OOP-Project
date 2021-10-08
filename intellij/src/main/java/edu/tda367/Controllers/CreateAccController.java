@@ -28,6 +28,8 @@ public class CreateAccController extends AccountViewController{
                                                 fields.get(2).getText(),
                                                 fields.get(4).getText(),
                                                 fields.get(5).getText());
+        } else {
+            info.setText("Alla fält är inte korrekt ifyllda");
         }
     }
 

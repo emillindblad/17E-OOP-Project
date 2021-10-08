@@ -1,9 +1,6 @@
 package edu.tda367.View.scenes;
 
-import edu.tda367.App;
 import edu.tda367.Controllers.AccountViewController;
-import edu.tda367.Controllers.MyAccountController;
-import edu.tda367.Model.InputChecker;
 import edu.tda367.Model.UserPackage.User;
 import edu.tda367.Model.UserPackage.UserHandler;
 import edu.tda367.View.SceneHandler;
@@ -61,21 +58,6 @@ public class AccountView extends AbstractHyroScene {
         editableFields.add(userName); //10
     }
 
-    private void setTextFields () {
-        User user = UserHandler.getInstance().getLoggedInUser();
-        firstName.setText(user.getFirstName());
-        lastName.setText(user.getLastName());
-        streetName.setText(user.getUserAdress().getStreetName());
-        zipCode.setText(user.getUserAdress().getZipCode());
-        city.setText(user.getUserAdress().getCity());
-        country.setText(user.getUserAdress().getCountry());
-        userName.setText(user.getUserName());
-        phoneNumber.setText(user.getPhoneNumber());
-        bankAccount.setText(user.getBankAccount());
-        password.setText(user.getPassword());
-        confirmPassword.setText(user.getPassword());
-    }
-
     @FXML
     public void goBack() {
         controller.goBack();
@@ -83,7 +65,7 @@ public class AccountView extends AbstractHyroScene {
 
     @Override
     public Scene getHyroScene() {
-        //setTextFields();
+
         return this.scene;
     }
 
@@ -93,6 +75,9 @@ public class AccountView extends AbstractHyroScene {
     @Override
     public void update() {
         controller.update(editableFields);
+        for (TextField t: editableFields) {
+            t.setStyle("-fx-border-color: transparent ;");
+        }
     }
 
     /**

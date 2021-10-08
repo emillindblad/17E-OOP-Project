@@ -55,7 +55,7 @@
       "country": "land"
     },
     "userID": 179931,
-    "userName": "anv",
+    "userName": "anvnamn",
     "password": "ord",
     "bankAccount": "5168"
   },
@@ -109,5 +109,20 @@
     "userName": "abc",
     "password": "abc123",
     "bankAccount": "123456789"
+  },
+  {
+    "firstName": "bajs",
+    "lastName": "macka",
+    "phoneNumber": "123",
+    "userAdress": {
+      "streetName": "a",
+      "city": "a",
+      "zipCode": "12345",
+      "country": "a"
+    },
+    "userID": 160029,
+    "userName": "apa",
+    "password": "apa",
+    "bankAccount": "123"
   }
 ]

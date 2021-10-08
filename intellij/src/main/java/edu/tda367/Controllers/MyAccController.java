@@ -22,6 +22,8 @@ public class MyAccController extends AccountViewController{
         if (testInput(fields)) {
             info.setText("Uppgifter sparade");
             saveUserInfo(fields);
+        } else {
+            info.setText("Alla fält är inte korrekt ifyllda");
         }
     }
 

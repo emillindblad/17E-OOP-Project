@@ -36,6 +36,12 @@ public class AccountView extends AbstractHyroScene {
     @FXML private ImageView baackButton;
     @FXML private Label info;
 
+    /**
+     * Constructor for account related views.
+     * @param handler SceneHandler used to move between scenes
+     * @param controller The type of AccountViewController determines if view will be for creating accounts or adjusting account settings
+     * @throws IOException
+     */
     public AccountView(SceneHandler handler, AccountViewController controller) throws IOException {
         super(controller.getFXMLname(), handler);
         this.controller = controller;
@@ -58,6 +64,10 @@ public class AccountView extends AbstractHyroScene {
         editableFields.add(userName); //10
     }
 
+    /**
+     * Goes back to previous scene.
+     * Different effect depending on controller.
+     */
     @FXML
     public void goBack() {
         controller.goBack();
@@ -71,6 +81,7 @@ public class AccountView extends AbstractHyroScene {
 
     /**
      * Updates textfields in view.
+     * Called when scene is switched to.
      */
     @Override
     public void update() {
@@ -81,7 +92,9 @@ public class AccountView extends AbstractHyroScene {
     }
 
     /**
-     * Method called when button is pressed
+     * Method called when button is pressed.
+     * Different effect depending on controller.
+     * Either attempts to create account or save changes to account.
      */
     @FXML
     public void changeButton () {

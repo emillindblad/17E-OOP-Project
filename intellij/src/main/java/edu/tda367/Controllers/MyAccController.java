@@ -17,6 +17,13 @@ public class MyAccController extends AccountViewController{
         super(handler);
     }
 
+    /**
+     * called when button on scene is pressed
+     * Attempts to save changes to user settings
+     * Feedback will be shown depending on success or what went wrong
+     * @param fields
+     * @param info
+     */
     @Override
     public void doneButtonAction(ArrayList<TextField> fields, Label info) {
         if (testInput(fields)) {
@@ -38,11 +45,18 @@ public class MyAccController extends AccountViewController{
         uHandler.setLoggedInUserUserName(fields.get(10).getText());
     }
 
+    /**
+     * Goes back to browse page
+     */
     @Override
     public void goBack() {
         handler.switchTo("browse");
     }
 
+    /**
+     * sets fields to show user info
+     * @param fields textfields to be set
+     */
     @Override
     public void update(ArrayList<TextField> fields) {
         fields.get(0).setText(uHandler.getLoggedInUser().getFirstName());
@@ -57,6 +71,10 @@ public class MyAccController extends AccountViewController{
         fields.get(10).setText(uHandler.getLoggedInUser().getUserName());
     }
 
+    /**
+     * Getter for name of FXML file this controller is connected to
+     * @return Name of FXML file
+     */
     @Override
     public String getFXMLname() {
         return "myaccount";

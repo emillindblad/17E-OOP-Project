@@ -14,6 +14,13 @@ public class CreateAccController extends AccountViewController{
         super(handler);
     }
 
+    /**
+     * called when button on scene is pressed
+     * Attempts to create a user
+     * Feedback will be shown depending on success or what went wrong
+     * @param fields
+     * @param info
+     */
     @Override
     public void doneButtonAction(ArrayList<TextField> fields, Label info) {
         if (testInput(fields)) {
@@ -33,12 +40,19 @@ public class CreateAccController extends AccountViewController{
         }
     }
 
+    /**
+     * Goes back to login page
+     */
     @Override
     public void goBack() {
         handler.switchTo("login");
         handler.centerOnScreen();
     }
 
+    /**
+     * Empties all textfields
+     * @param fields
+     */
     @Override
     public void update(ArrayList<TextField> fields) {
         for (TextField t: fields) {
@@ -46,6 +60,10 @@ public class CreateAccController extends AccountViewController{
         }
     }
 
+    /**
+     * Getter for name of FXML file this controller is connected to
+     * @return Name of FXML file
+     */
     @Override
     public String getFXMLname() {
         return "createaccount";

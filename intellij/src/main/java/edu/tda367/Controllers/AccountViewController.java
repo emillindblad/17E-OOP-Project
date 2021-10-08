@@ -30,11 +30,11 @@ public abstract class AccountViewController implements Controller {
         return true;
     }
 
-    protected boolean zipCodeInput(TextField zipCode) {
+    private boolean zipCodeInput(TextField zipCode) {
         return numberFieldChecker(zipCode, 5);
     }
 
-    protected boolean bankAccountInput(TextField bankAccount) {
+    private boolean bankAccountInput(TextField bankAccount) {
         if (InputChecker.checkForNumber(bankAccount.getText())){
             bankAccount.setStyle("-fx-border-color: green ; -fx-border-width: 1px ;");
             return true;
@@ -45,23 +45,23 @@ public abstract class AccountViewController implements Controller {
         }
     }
 
-    protected boolean firstNameInput (TextField firstName) {
+    private boolean firstNameInput (TextField firstName) {
         return textFieldChecker(firstName);
     }
 
-    protected boolean lastNameInput (TextField lastName) {
+    private boolean lastNameInput (TextField lastName) {
         return textFieldChecker(lastName);
     }
 
-    protected boolean countryInput (TextField country) {
+    private boolean countryInput (TextField country) {
         return textFieldChecker(country);
     }
 
-    protected boolean cityInput (TextField city) {
+    private boolean cityInput (TextField city) {
         return textFieldChecker(city);
     }
 
-    protected boolean passwordInput (TextField password, TextField confirmPassword) {
+    private boolean passwordInput (TextField password, TextField confirmPassword) {
         System.out.println(password.getText());
         System.out.println(confirmPassword.getText());
         if (password.getText().equals(confirmPassword.getText())) {
@@ -74,7 +74,7 @@ public abstract class AccountViewController implements Controller {
         return false;
     }
 
-    protected boolean phoneInput (TextField phoneNumber) {
+    private boolean phoneInput (TextField phoneNumber) {
         if (!InputChecker.checkForLetter(phoneNumber.getText())){
             phoneNumber.setStyle("-fx-border-color: green ; -fx-border-width: 1px ;");
             return true;
@@ -84,7 +84,7 @@ public abstract class AccountViewController implements Controller {
     }
 
 
-    protected boolean numberFieldChecker (TextField field, int lenght) {
+    private boolean numberFieldChecker (TextField field, int lenght) {
         if (InputChecker.checkForLength(field.getText(), lenght) && InputChecker.checkForNumber(field.getText())) {
             field.setStyle("-fx-border-color: green ; -fx-border-width: 1px ;");
             return true;
@@ -94,7 +94,7 @@ public abstract class AccountViewController implements Controller {
         }
     }
 
-    protected boolean textFieldChecker (TextField field) {
+    private boolean textFieldChecker (TextField field) {
         if (InputChecker.checkForLetter(field.getText())) {
             field.setStyle("-fx-border-color: green ; -fx-border-width: 2px ;");
             return true;

@@ -22,6 +22,8 @@ public abstract class AccountViewController {
 
     public abstract void update(ArrayList<TextField> fields);
 
+    public abstract String getFXMLname();
+
     protected boolean testInput(ArrayList<TextField> fields) {
         if( !zipCodeInput(fields.get(3)) || !bankAccountInput(fields.get(9)) || !firstNameInput(fields.get(0)) || !lastNameInput(fields.get(1)) || !countryInput(fields.get(5)) || !cityInput(fields.get(4)) || !passwordInput(fields.get(6), fields.get(7)) || !phoneInput(fields.get(8)))
             return false;

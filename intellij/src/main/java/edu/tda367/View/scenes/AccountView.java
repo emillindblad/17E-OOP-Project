@@ -36,8 +36,8 @@ public class AccountView extends AbstractHyroScene {
     @FXML private ImageView baackButton;
     @FXML private Label info;
 
-    public AccountView(SceneHandler handler, String fxmlName, AccountViewController controller) throws IOException {
-        super(fxmlName, handler);
+    public AccountView(SceneHandler handler, AccountViewController controller) throws IOException {
+        super(controller.getFXMLname(), handler);
         this.controller = controller;
         editableFields = new ArrayList<>();
         populateFieldList();

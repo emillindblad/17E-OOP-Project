@@ -32,7 +32,7 @@
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></TextField>
-      <Text layoutX="195.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Användarinställningar">
+      <Text layoutX="246.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Skapa konto">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>

@@ -25,8 +25,8 @@ public final class HyroSceneFactory {
         return new LogIn(handler);
     }
 
-    public static final hyroScene accountViewScene(SceneHandler handler, String fxmlName, AccountViewController controller) throws IOException {
-        return new AccountView(handler, fxmlName, controller);
+    public static final hyroScene accountViewScene(SceneHandler handler, AccountViewController controller) throws IOException {
+        return new AccountView(handler, controller);
     }
     public static final hyroScene browseScene(SceneHandler director) throws IOException {
         return new BrowseListings(director);

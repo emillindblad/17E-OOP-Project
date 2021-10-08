@@ -56,4 +56,9 @@ public class MyAccController extends AccountViewController{
         fields.get(9).setText(uHandler.getLoggedInUser().getBankAccount());
         fields.get(10).setText(uHandler.getLoggedInUser().getUserName());
     }
+
+    @Override
+    public String getFXMLname() {
+        return "myaccount";
+    }
 }

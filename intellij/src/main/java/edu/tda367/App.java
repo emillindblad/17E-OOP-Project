@@ -34,8 +34,8 @@ public class App extends Application {
         sceneHandler.addScene(HyroSceneFactory.createListingScene(sceneHandler),"createlisting");
         CreateAccController caCtrl = new CreateAccController(sceneHandler);
         MyAccController myAccCtrl = new MyAccController(sceneHandler);
-        sceneHandler.addScene(HyroSceneFactory.accountViewScene(sceneHandler, "myaccount", myAccCtrl), "myaccount");
-        sceneHandler.addScene(HyroSceneFactory.accountViewScene(sceneHandler, "createaccount", caCtrl), "createaccount");
+        sceneHandler.addScene(HyroSceneFactory.accountViewScene(sceneHandler, myAccCtrl), "myaccount");
+        sceneHandler.addScene(HyroSceneFactory.accountViewScene(sceneHandler, caCtrl), "createaccount");
         sceneHandler.switchTo("login");
     }
 

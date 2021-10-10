@@ -102,6 +102,8 @@ public class User {
         this.bankAccount = bankAccount;
     }
 
+    void setUserName(String userName) { this.userName = userName; }
+
     /**
      * Method to access formatted user data
      * @return String of user data
@@ -127,7 +129,6 @@ public class User {
     public String getBankAccount() {
         return bankAccount;
     }
-
 
 }
 

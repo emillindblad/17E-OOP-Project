@@ -2,6 +2,8 @@ package edu.tda367.View.scenes;
 
 
 import edu.tda367.App;
+import edu.tda367.Controllers.ListingItemController;
+import edu.tda367.View.SceneHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,6 +15,7 @@ import java.io.IOException;
 
 public class ListingItem extends AnchorPane {
 
+    private ListingItemController controller;
     @FXML
     private Label itemPrice;
 
@@ -29,12 +32,12 @@ public class ListingItem extends AnchorPane {
      * @param productCategory category name for the product that is listed
      * Loads a FXML file and does the necessary setup with loading etc. Also intializes the ListingItem with the parameters
      */
-    protected ListingItem(int price, String productName, String productCategory) {
+    protected ListingItem(int price, String productName, String productCategory, SceneHandler handler) {
         FXMLLoader loader = App.loadFXML("listingitem");
         System.out.println(loader.toString());
         loader.setRoot(this);
         loader.setController(this);
-
+        controller = new ListingItemController(handler);
         try {
             loader.load();
         } catch (IOException exception) {
@@ -47,6 +50,10 @@ public class ListingItem extends AnchorPane {
         this.itemProductName.setText(productName);
         this.itemPrice.setText(String.valueOf(price));
         this.productCategory.setText(itemCategory);
+    }
+
+    private void switchToListing() {
+        ListingItemController.sw
     }
 
 }

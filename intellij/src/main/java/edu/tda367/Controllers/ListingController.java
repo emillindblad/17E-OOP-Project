@@ -22,8 +22,7 @@ public class ListingController implements Controller {
     }
 
     public String createListing(String[] formData) {
-        boolean foo = validateData(formData);
-         if (foo) { //Return true if valid input.
+         if (validateData(formData)) { //Return true if valid input.
              listingHandler.createListingFromString(formData);
              switchToBrowse();
              return "Success";

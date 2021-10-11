@@ -6,7 +6,6 @@ import org.junit.*;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
-import java.util.List;
 
 
 import static org.junit.Assert.*;
@@ -86,7 +85,7 @@ public class TestListing {
     @Test
     public void testGetAvaliableListings() {
         ArrayList<Listing> availableListings = handler.getAvailableListings();
-        availableListings.forEach(n -> n.getOrderState().equals(ListingState.AVALIBLE));
+        availableListings.forEach(n -> n.getListingState().equals(ListingState.AVALIBLE));
     }
 
     @Test

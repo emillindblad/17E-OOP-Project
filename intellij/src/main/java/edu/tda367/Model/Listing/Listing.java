@@ -13,14 +13,14 @@ public class Listing {
     private int price;
     //private Booking booking;
     private long availability;
-    private ListingState orderState;
+    private ListingState listingState;
 
     Listing(String prodName, Category prodCat, String prodDesc, int userId, int price, LocalDateTime startDate, LocalDateTime endDate) {
         this.product = new Product(prodName, prodCat, prodDesc);
         this.userId = userId;
         this.price = price;
         this.availability = setAvailability(startDate, endDate);
-        this.orderState = ListingState.AVALIBLE;
+        this.listingState = ListingState.AVALIBLE;
     }
 
     public long setAvailability(LocalDateTime startDate, LocalDateTime endDate) {
@@ -34,7 +34,7 @@ public class Listing {
                 "product=" + product +
                 ", price=" + price +
                 ", availability=" + availability +
-                ", orderSate=" + orderState +
+                ", orderSate=" + listingState +
                 '}';
     }
 
@@ -62,11 +62,11 @@ public class Listing {
         this.price = price;
     }
 
-    public ListingState getOrderState() {
-        return orderState;
+    public ListingState getListingState() {
+        return listingState;
     }
 
-    public void setOrderState(ListingState orderState) {
-        this.orderState = orderState;
+    public void setListingState(ListingState listingState) {
+        this.listingState = listingState;
     }
 }

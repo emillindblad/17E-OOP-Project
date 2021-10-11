@@ -80,7 +80,7 @@ public class ListingHandler {
         ArrayList<Listing> availableListings = new ArrayList<Listing>();
         for(Listing listing : listings)
         {
-            if(listing.getOrderState().equals(ListingState.AVALIBLE))
+            if(listing.getListingState().equals(ListingState.AVALIBLE))
             {
                 availableListings.add(listing);
             }

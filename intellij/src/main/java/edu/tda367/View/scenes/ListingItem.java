@@ -2,6 +2,9 @@ package edu.tda367.View.scenes;
 
 
 import edu.tda367.App;
+import edu.tda367.Controllers.BrowseController;
+import edu.tda367.View.SceneHandler;
+import edu.tda367.View.hyroScene;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -20,7 +23,11 @@ public class ListingItem extends AnchorPane {
     private Label itemProductName;
 
     @FXML
-    private Label productCategory;
+    private Label itemCategory;
+
+    private BrowseController controller;
+
+    private hyroScene scene;
 
     /**
      * Constructor for the ListingItem which is a component that gets loaded in the BrowseListings Scenes flowpoane
@@ -29,11 +36,14 @@ public class ListingItem extends AnchorPane {
      * @param productCategory category name for the product that is listed
      * Loads a FXML file and does the necessary setup with loading etc. Also intializes the ListingItem with the parameters
      */
-    protected ListingItem(int price, String productName, String productCategory) {
+    protected ListingItem(SceneHandler handler, hyroScene scene, int price, String productName, String productCategory) {
         FXMLLoader loader = App.loadFXML("listingitem");
         System.out.println(loader.toString());
         loader.setRoot(this);
         loader.setController(this);
+        this.scene = scene;
+        controller = new BrowseController(handler);
+
 
         try {
             loader.load();
@@ -43,10 +53,14 @@ public class ListingItem extends AnchorPane {
         initialize(price, productName, productCategory);
     }
 
+    public void switchToListing() throws IOException {
+        controller.switchToListing(this.itemProductName.getText().strip());
+    }
+
     void initialize(int price, String productName, String itemCategory) {
         this.itemProductName.setText(productName);
         this.itemPrice.setText(String.valueOf(price));
-        this.productCategory.setText(itemCategory);
+        this.itemCategory.setText(itemCategory);
     }
 
 }

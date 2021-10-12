@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 public class BrowseController implements Controller {
     ListingHandler listingHandler;
+    
 
     public BrowseController() {
         this.listingHandler = ListingHandler.getInstance();
@@ -14,6 +15,10 @@ public class BrowseController implements Controller {
 
     public ArrayList<Listing>  getAvailableListings() {
         return listingHandler.getAvailableListings();
+    }
+
+    public void logOut() {
+        uHandler.logOut();
     }
 
 }

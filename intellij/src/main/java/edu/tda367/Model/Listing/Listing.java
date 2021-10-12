@@ -2,12 +2,14 @@ package edu.tda367.Model.Listing;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
+import java.util.Random;
 
 /**
 * A class representing a Listing of a product
 * @author Emil Lindblad
 */
 public class Listing {
+    private final int listingId;
     private Product product;
     private int userId;
     private int price;
@@ -16,11 +18,17 @@ public class Listing {
     private ListingState listingState;
 
     Listing(String prodName, Category prodCat, String prodDesc, int userId, int price, LocalDateTime startDate, LocalDateTime endDate) {
+        this.listingId = generateListingId();
         this.product = new Product(prodName, prodCat, prodDesc);
         this.userId = userId;
         this.price = price;
         this.availability = setAvailability(startDate, endDate);
         this.listingState = ListingState.AVALIBLE; //Defaults to AVALIABLE now
+    }
+
+    private int generateListingId() {
+        Random rand = new Random();
+        return rand.nextInt(69420);
     }
 
     public long setAvailability(LocalDateTime startDate, LocalDateTime endDate) {
@@ -36,6 +44,14 @@ public class Listing {
                 ", availability=" + availability +
                 ", listingState=" + listingState +
                 '}';
+    }
+
+    public int getListingId() {
+        return this.listingId;
+    }
+
+    public Category getListingCategory() {
+        return product.getProdCategory();
     }
 
     public Product getProduct() {

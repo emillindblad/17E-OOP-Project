@@ -80,7 +80,7 @@ public class ListingHandler {
         ArrayList<Listing> availableListings = new ArrayList<Listing>();
         for(Listing listing : listings)
         {
-            if(listing.getOrderState().equals(ListingState.AVALIBLE))
+            if(listing.getListingState().equals(ListingState.AVALIBLE))
             {
                 availableListings.add(listing);
             }
@@ -121,7 +121,7 @@ public class ListingHandler {
      * @param formData - An Array of listing data, all in strings.
      * @return listing - The newly created listing
      */
-    public Listing createListingFromString(String[] formData) {
+    public Listing createListingFromString(String[] formData, int userId) {
         //Parse data in different method?
         String prodName = formData[0];
         String prodDesc = formData[1];
@@ -129,7 +129,6 @@ public class ListingHandler {
         Category prodCat = getCategory(formData[3]);
 
         //Hardcoded values for now
-        int userId = 69;
         LocalDateTime startDate = LocalDateTime.of(2021,9,10,9,0);
         LocalDateTime endDate = LocalDateTime.of(2021,9,11,10,30);
 

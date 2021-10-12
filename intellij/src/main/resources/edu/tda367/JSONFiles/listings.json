@@ -1,7 +1,8 @@
 [
   {
+    "listingId": 0,
     "product": {
-      "prodName": "PRIT Timmo",
+      "prodName": "e",
       "prodCategory": {
         "categoryName": "Test category"
       },
@@ -31,37 +32,39 @@
       "prodCategory": {
         "categoryName": "NÃƒÂ¥got annat"
       },
-      "prodDesc": "Very nice"
+      "prodDesc": "e"
     },
-    "userId": 69,
-    "price": 1337,
+    "userId": 197321,
+    "price": 3,
     "availability": 25,
-    "orderState": "AVALIBLE"
+    "listingState": "AVALIBLE"
   },
   {
+    "listingId": 1,
     "product": {
-      "prodName": "Hubben",
+      "prodName": "Vim tutorial",
       "prodCategory": {
         "categoryName": "Ãƒâ€“vrigt"
       },
-      "prodDesc": "2.2"
+      "prodDesc": "Very chad, no soy"
     },
-    "userId": 69,
+    "userId": 0,
     "price": 1337,
     "availability": 25,
-    "orderState": "AVALIBLE"
+    "listingState": "AVALIBLE"
   },
   {
+    "listingId": 11732,
     "product": {
-      "prodName": "sdf",
+      "prodName": "Klipp",
       "prodCategory": {
         "categoryName": "Ãƒâ€“vrigt"
       },
-      "prodDesc": "dsf"
+      "prodDesc": "Klippa tung"
     },
-    "userId": 69,
+    "userId": 197321,
     "price": 123,
     "availability": 25,
-    "orderState": "AVALIBLE"
+    "listingState": "AVALIBLE"
   }
 ]

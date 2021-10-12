@@ -63,6 +63,7 @@ public class TestBooking {
     public static void clean() {
         userHandler.logOut();
         listingHandler.removeListing(listing);
+        listingHandler.removeListing(secondListing);
         userHandler.removeUser("password", "test");
         userHandler.writeUsers();
     }

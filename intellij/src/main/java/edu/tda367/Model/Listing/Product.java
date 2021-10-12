@@ -27,6 +27,10 @@ public class Product {
                 '}';
     }
 
+    public Category getProdCategory() {
+        return prodCategory;
+    }
+
     public String getProdName() {
         return this.prodName;
     }

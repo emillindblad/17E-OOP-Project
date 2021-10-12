@@ -2,17 +2,20 @@ package edu.tda367.Controllers;
 
 import edu.tda367.Model.InputChecker;
 import edu.tda367.Model.Listing.ListingHandler;
+import edu.tda367.Model.UserPackage.UserHandler;
 import edu.tda367.View.SceneHandler;
 
 import java.util.ArrayList;
 
 public class ListingController implements Controller {
     private final ListingHandler listingHandler;
+    private final UserHandler userHandler;
     private final SceneHandler sceneHandler;
 
     public ListingController(SceneHandler sceneHandler) {
         this.sceneHandler = sceneHandler;
         this.listingHandler = ListingHandler.getInstance();
+        this.userHandler = UserHandler.getInstance();
         //listingHandler.createListing("P.R.I.T. Grill", new Category("test"), "testing stuff", 4, 160, LocalDateTime.of(2021,9,10,9,0), LocalDateTime.of(2021,9,10,9,1));
     }
 
@@ -22,8 +25,9 @@ public class ListingController implements Controller {
     }
 
     public String createListing(String[] formData) {
+        int userId = userHandler.getUserID();
          if (validateData(formData)) { //Return true if valid input.
-             listingHandler.createListingFromString(formData);
+             listingHandler.createListingFromString(formData, userId);
              switchToBrowse();
              return "Success";
          }

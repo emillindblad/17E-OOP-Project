@@ -1,67 +1,28 @@
 [
   {
     "product": {
-      "prodName": "PRIT Timmo",
-      "prodCategory": {
-        "categoryName": "Test category"
-      },
-      "prodDesc": "Big boi"
-    },
-    "userId": 2,
-    "price": 200,
-    "availability": 1,
-    "orderState": "AVALIBLE"
-  },
-  {
-    "product": {
-      "prodName": "PRIT ELDIS",
-      "prodCategory": {
-        "categoryName": "Test category"
-      },
-      "prodDesc": "Big boi"
-    },
-    "userId": 2,
-    "price": 200,
-    "availability": 1,
-    "orderState": "AVALIBLE"
-  },
-  {
-    "product": {
-      "prodName": "Cool product",
-      "prodCategory": {
-        "categoryName": "Något annat"
-      },
-      "prodDesc": "Very nice"
-    },
-    "userId": 69,
-    "price": 1337,
-    "availability": 25,
-    "orderState": "AVALIBLE"
-  },
-  {
-    "product": {
-      "prodName": "Hubben",
+      "prodName": "e",
       "prodCategory": {
         "categoryName": "Övrigt"
       },
-      "prodDesc": "2.2"
+      "prodDesc": "e"
     },
-    "userId": 69,
-    "price": 1337,
+    "userId": 197321,
+    "price": 3,
     "availability": 25,
-    "orderState": "AVALIBLE"
+    "listingState": "AVALIBLE"
   },
   {
     "product": {
-      "prodName": "sdf",
+      "prodName": "Vim tutorial",
       "prodCategory": {
         "categoryName": "Övrigt"
       },
-      "prodDesc": "dsf"
+      "prodDesc": "Very chad, no soy"
     },
-    "userId": 69,
-    "price": 123,
+    "userId": 0,
+    "price": 1337,
     "availability": 25,
-    "orderState": "AVALIBLE"
+    "listingState": "AVALIBLE"
   }
 ]

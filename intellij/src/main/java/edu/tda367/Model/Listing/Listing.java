@@ -20,7 +20,7 @@ public class Listing {
         this.userId = userId;
         this.price = price;
         this.availability = setAvailability(startDate, endDate);
-        this.listingState = ListingState.AVALIBLE;
+        this.listingState = ListingState.AVALIBLE; //Defaults to AVALIABLE now
     }
 
     public long setAvailability(LocalDateTime startDate, LocalDateTime endDate) {
@@ -34,7 +34,7 @@ public class Listing {
                 "product=" + product +
                 ", price=" + price +
                 ", availability=" + availability +
-                ", orderSate=" + listingState +
+                ", listingState=" + listingState +
                 '}';
     }
 

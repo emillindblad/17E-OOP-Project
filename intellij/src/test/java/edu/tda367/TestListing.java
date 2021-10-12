@@ -6,6 +6,7 @@ import org.junit.*;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.List;
 
 
 import static org.junit.Assert.*;
@@ -83,15 +84,18 @@ public class TestListing {
     }
 
     @Test
-    public void testGetAvaliableListings() {
+    public void testGetAvailableListings() {
         ArrayList<Listing> availableListings = handler.getAvailableListings();
-        availableListings.forEach(n -> n.getListingState().equals(ListingState.AVALIBLE));
+        System.out.println(availableListings);
+        for (Listing listing : availableListings) {
+            assertTrue(listing.getListingState().equals(ListingState.AVALIBLE));
+        }
     }
 
     @Test
     public void testCreateListingFromString() {
         String[] formData = {"Test Name","Test Desc","69","Övrigt"};
-        stringListing = handler.createListingFromString(formData);
+        stringListing = handler.createListingFromString(formData,69);
         assertTrue(handler.getListings().contains(stringListing));
     }
 

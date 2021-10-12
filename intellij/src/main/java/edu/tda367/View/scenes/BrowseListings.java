@@ -3,7 +3,6 @@ package edu.tda367.View.scenes;
 import edu.tda367.Controllers.BrowseController;
 import edu.tda367.View.SceneHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 
 import java.io.IOException;
@@ -21,7 +20,7 @@ public class BrowseListings extends AbstractHyroScene {
      */
     public BrowseListings(SceneHandler handler) throws IOException {
         super("browse", handler);
-        browseController = new BrowseController();
+        browseController = new BrowseController(handler);
         updateList();
     }
 
@@ -40,7 +39,7 @@ public class BrowseListings extends AbstractHyroScene {
         listProducts.getChildren().clear();
         for(int i = 0; i < listings.size(); i++)
         {
-            listProducts.getChildren().add(new ListingItem(listings.get(i).getPrice(), listings.get(i).getProduct().getProdName(), listings.get(i).getProduct().getCategoryName()));
+            listProducts.getChildren().add(new ListingItem(this.handler, this, listings.get(i).getPrice(), listings.get(i).getProduct().getProdName(), listings.get(i).getProduct().getCategoryName()));
         }
     }
 

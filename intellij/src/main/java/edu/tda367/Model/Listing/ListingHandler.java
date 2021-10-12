@@ -148,8 +148,8 @@ public class ListingHandler {
     private ArrayList<Listing> getSavedListings() {
         ArrayList<Listing> listingstmp = new ArrayList<>();
         JSONReader reader = new JSONReader();
-        List<Listing> savedUsers = reader.read(Listing[].class, "listings");
-        savedUsers.forEach(l ->
+        List<Listing> savedListings = reader.read(Listing[].class, "listings");
+        savedListings.forEach(l ->
         {
             if (l == null) {
                 System.out.println("null object in json file");

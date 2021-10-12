@@ -49,13 +49,13 @@ public class BookingHandler {
     private ArrayList<Booking> getSavedBookings() {
         ArrayList<Booking> bookingstmp = new ArrayList<>();
         JSONReader reader = new JSONReader();
-        List<Booking> savedUsers = reader.read(Booking[].class, "bookings");
-        savedUsers.forEach(l ->
+        List<Booking> savedBookings = reader.read(Booking[].class, "bookings");
+        savedBookings.forEach(b ->
         {
-            if (l == null) {
+            if (b == null) {
                 System.out.println("null object in json file");
             } else {
-                bookingstmp.add(l);
+                bookingstmp.add(b);
             }
         });
         return bookingstmp;

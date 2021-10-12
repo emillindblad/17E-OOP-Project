@@ -35,6 +35,12 @@ public class BrowseListings extends AbstractHyroScene {
         handler.centerOnScreen();
     }
 
+    @FXML
+    private void goToListings() {
+        handler.switchTo("mylistings");
+        handler.centerOnScreen();
+    }
+
 
     void updateList() {
         System.out.println("Loaded products");

@@ -29,7 +29,7 @@
     "product": {
       "prodName": "Cool product",
       "prodCategory": {
-        "categoryName": "Något annat"
+        "categoryName": "NÃƒÂ¥got annat"
       },
       "prodDesc": "Very nice"
     },
@@ -42,7 +42,7 @@
     "product": {
       "prodName": "Hubben",
       "prodCategory": {
-        "categoryName": "Övrigt"
+        "categoryName": "Ãƒâ€“vrigt"
       },
       "prodDesc": "2.2"
     },
@@ -55,7 +55,7 @@
     "product": {
       "prodName": "sdf",
       "prodCategory": {
-        "categoryName": "Övrigt"
+        "categoryName": "Ãƒâ€“vrigt"
       },
       "prodDesc": "dsf"
     },

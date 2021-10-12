@@ -12,6 +12,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 public class TestBooking {
     static BookingHandler bookingHandler;
@@ -53,7 +54,7 @@ public class TestBooking {
         secondListing = listingHandler.createListing("TestPRIT Bimot",testCat,"Big boi",userID,69,startDate,endDate);
 
         // Create booking - "Sebastian" books "Emil's" Listing
-        bookingHandler = new BookingHandler();
+        bookingHandler = BookingHandler.getInstance();
         initSize = bookingHandler.getBookings().size();
         bookingHandler.createBooking(user, userID, listing);
     }
@@ -93,10 +94,5 @@ public class TestBooking {
         assertEquals(bookingHandler.getBookingState(initSize), BookingState.PAYED);
 
     }
-
-
-
-
-
 
 }

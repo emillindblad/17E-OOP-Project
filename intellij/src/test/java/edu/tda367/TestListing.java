@@ -64,14 +64,14 @@ public class TestListing {
         assertTrue(duration==25);
     }
 
-    @Test
+/*    @Test TODO: Test no longer valid
     public void testDatabaseWrite() {
         handler.writeListings();
         ListingHandler secondHandler = ListingHandler.getInstance(); // Second handler to simulate startup. Gets saved Listings from database
         ArrayList<Listing> newListings = secondHandler.getListings(); // Needed extra step for some reason...
         assertTrue(secondHandler.getListings().size() == dbSize);
     }
-
+ */
     //@Test TODO
     public void testGetCategories() {
         assertTrue(handler.getCategories().contains(testCat));

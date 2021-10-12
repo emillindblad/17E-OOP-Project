@@ -11,9 +11,10 @@
     "userId": 2,
     "price": 200,
     "availability": 1,
-    "orderState": "AVALIBLE"
+    "listingState": "AVALIBLE"
   },
   {
+    "listingId": 0,
     "product": {
       "prodName": "PRIT ELDIS",
       "prodCategory": {
@@ -24,13 +25,14 @@
     "userId": 2,
     "price": 200,
     "availability": 1,
-    "orderState": "AVALIBLE"
+    "listingState": "AVALIBLE"
   },
   {
+    "listingId": 0,
     "product": {
       "prodName": "Cool product",
       "prodCategory": {
-        "categoryName": "NÃƒÂ¥got annat"
+        "categoryName": "NÃƒÆ’Ã‚Â¥got annat"
       },
       "prodDesc": "e"
     },
@@ -44,7 +46,7 @@
     "product": {
       "prodName": "Vim tutorial",
       "prodCategory": {
-        "categoryName": "Ãƒâ€“vrigt"
+        "categoryName": "ÃƒÆ’Ã¢â‚¬â€œvrigt"
       },
       "prodDesc": "Very chad, no soy"
     },
@@ -58,7 +60,7 @@
     "product": {
       "prodName": "Klipp",
       "prodCategory": {
-        "categoryName": "Ãƒâ€“vrigt"
+        "categoryName": "ÃƒÆ’Ã¢â‚¬â€œvrigt"
       },
       "prodDesc": "Klippa tung"
     },

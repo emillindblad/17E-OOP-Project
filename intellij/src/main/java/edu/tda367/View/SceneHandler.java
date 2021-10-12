@@ -1,9 +1,12 @@
 package edu.tda367.View;
 
+import edu.tda367.Listing.Listing;
+import edu.tda367.View.scenes.SingleListingView;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 
 import java.io.Console;
+import java.io.IOException;
 import java.util.*;
 
 public class SceneHandler {
@@ -26,6 +29,13 @@ public class SceneHandler {
         }
         switchScenes(newScene);
         return true;
+    }
+
+    public void switchToListingView(Listing listing) throws IOException {
+        SingleListingView view = new SingleListingView(this, listing.getUserId(), listing.getProduct().getProdName(), listing.getPrice(), "Sample text", "Lorem ipsmum dolor asdbsolmannen");
+        root.setScene(view.getHyroScene());
+        root.show();
+
     }
 
     public void switchScenes(hyroScene newScene) {
@@ -51,4 +61,5 @@ public class SceneHandler {
     {
         return this.scene;
     }
+
 }

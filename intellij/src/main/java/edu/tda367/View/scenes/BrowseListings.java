@@ -26,11 +26,14 @@ public class BrowseListings extends AbstractHyroScene {
     @FXML
     FlowPane listProducts;
 
-
+    /**
+     * Constructs the BrowseListings Scene
+     * @param handler sends the sceneHandler to super
+     * lastly it runs updateList to make sure all content is up to date when scene is created.
+     */
     public BrowseListings(SceneHandler handler) throws IOException {
         super("browse", handler);
-        browseController = new BrowseController();
-        System.out.println("nice");
+        browseController = new BrowseController(handler);
         updateList();
     }
 
@@ -72,19 +75,21 @@ public class BrowseListings extends AbstractHyroScene {
     }
 
 
+    /**
+     * Fetches a list of available listings from the controller and adds them all to the FXML flowpane so that it gets displayed in the GUI
+     */
     void updateList() {
-        System.out.println("Loaded products");
-        ArrayList<Listing> listings = browseController.getAvailableListings();
-        System.out.println("Current listings:"+listings.size());
+        var listings = browseController.getAvailableListings();
         listProducts.getChildren().clear();
         for(int i = 0; i < listings.size(); i++)
         {
-            //System.out.println((listings.get(i).getPrice()));
-            listProducts.getChildren().add(new ListingItem(listings.get(i).getPrice(), listings.get(i).getProduct().getProdName(), listings.get(i).getProduct().getCategoryName()));
-            //System.out.println(listProducts.getChildren().get(0));
+            listProducts.getChildren().add(new ListingItem(this.handler, this, listings.get(i).getPrice(), listings.get(i).getProduct().getProdName(), listings.get(i).getProduct().getCategoryName()));
         }
     }
 
+    /**
+     * Method runs everytime scene is switched to so flowpane gets updated on scene switch.
+     */
     @Override
     public void update() {
         updateList();

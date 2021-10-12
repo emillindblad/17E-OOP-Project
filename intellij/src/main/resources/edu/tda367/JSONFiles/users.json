@@ -1,7 +1,7 @@
 [
   {
-    "firstName": "Emil",
-    "lastName": "Lindblad",
+    "firstName": "Erik",
+    "lastName": "Larsson",
     "phoneNumber": "0734111337",
     "userAdress": {
       "streetName": "Kemivagen 7B",
@@ -24,105 +24,9 @@
       "zipCode": "41258",
       "country": "Sverige"
     },
-    "userID": 171735,
-    "userName": "def",
-    "password": "def123",
-    "bankAccount": "1111666"
-  },
-  {
-    "firstName": "Sebastian",
-    "lastName": "Kvalden",
-    "phoneNumber": "0734111337",
-    "userAdress": {
-      "streetName": "Kemivagen 7B",
-      "city": "Goteborg",
-      "zipCode": "41259",
-      "country": "Sverige"
-    },
-    "userID": 161140,
-    "userName": "def",
-    "password": "def123",
-    "bankAccount": "987654321"
-  },
-  {
-    "firstName": "e",
-    "lastName": "e",
-    "phoneNumber": "1",
-    "userAdress": {
-      "streetName": "e",
-      "city": "e",
-      "zipCode": "11111",
-      "country": "e"
-    },
-    "userID": 197321,
-    "userName": "e",
-    "password": "e",
-    "bankAccount": "1"
-  },
-  {
-    "firstName": "Sebastian",
-    "lastName": "Kvalden",
-    "phoneNumber": "0734111337",
-    "userAdress": {
-      "streetName": "Kemivagen 7B",
-      "city": "Goteborg",
-      "zipCode": "41258",
-      "country": "Sverige"
-    },
     "userID": 154585,
     "userName": "def",
     "password": "def123",
     "bankAccount": "987654321"
-  },
-  {
-    "firstName": "Sebastian",
-    "lastName": "Kvalden",
-    "phoneNumber": "0734111337",
-    "userID": 198991,
-    "userName": "def",
-    "password": "def123",
-    "bankAccount": "987654321"
-  },
-  {
-    "firstName": "Emil",
-    "lastName": "Lindblad",
-    "phoneNumber": "0734111337",
-    "userID": 146046,
-    "userName": "abc",
-    "password": "abc123",
-    "bankAccount": "123456789"
-  },
-  {
-    "firstName": "Emil",
-    "lastName": "Lindblad",
-    "phoneNumber": "0734111337",
-    "userID": 154543,
-    "userName": "abc",
-    "password": "abc123",
-    "bankAccount": "123456789"
-  },
-  {
-    "firstName": "Emil",
-    "lastName": "Lindblad",
-    "phoneNumber": "0734111337",
-    "userID": 147709,
-    "userName": "abc",
-    "password": "abc123",
-    "bankAccount": "123456789"
-  },
-  {
-    "firstName": "bajs",
-    "lastName": "macka",
-    "phoneNumber": "123",
-    "userAdress": {
-      "streetName": "a",
-      "city": "a",
-      "zipCode": "12345",
-      "country": "a"
-    },
-    "userID": 160029,
-    "userName": "apa",
-    "password": "apa",
-    "bankAccount": "123"
   }
 ]

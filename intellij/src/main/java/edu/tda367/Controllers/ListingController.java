@@ -1,34 +1,39 @@
 package edu.tda367.Controllers;
 
-import edu.tda367.InputChecker;
-import edu.tda367.Listing.Category;
-import edu.tda367.Listing.Listing;
-import edu.tda367.Listing.ListingHandler;
-import edu.tda367.View.scenes.Home;
-import javafx.fxml.FXML;
+import edu.tda367.Model.InputChecker;
+import edu.tda367.Model.Listing.ListingHandler;
+import edu.tda367.Model.UserPackage.UserHandler;
+import edu.tda367.View.SceneHandler;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class ListingController implements Controller {
     private final ListingHandler listingHandler;
+    private final UserHandler userHandler;
+    private final SceneHandler sceneHandler;
 
-    public ListingController() {
-        listingHandler = new ListingHandler();
+    public ListingController(SceneHandler sceneHandler) {
+        this.sceneHandler = sceneHandler;
+        this.listingHandler = ListingHandler.getInstance();
+        this.userHandler = UserHandler.getInstance();
         //listingHandler.createListing("P.R.I.T. Grill", new Category("test"), "testing stuff", 4, 160, LocalDateTime.of(2021,9,10,9,0), LocalDateTime.of(2021,9,10,9,1));
     }
 
+    public void switchToBrowse() {
+        sceneHandler.switchTo("browse");
+        sceneHandler.centerOnScreen();
+    }
 
     public String createListing(String[] formData) {
-        boolean foo = validateData(formData);
-        System.out.println(foo);
-         if (foo) { //Return true if valid input.
-             listingHandler.createListingFromString(formData);
-             //switch scene
+        int userId = userHandler.getUserID();
+         if (validateData(formData)) { //Return true if valid input.
+             listingHandler.createListingFromString(formData, userId);
+             switchToBrowse();
              return "Success";
          }
          else {
-             return "Error";
+             System.out.println("Form input failed validation!");
+             return "Fail";
          }
     }
 
@@ -36,8 +41,20 @@ public class ListingController implements Controller {
         return listingHandler.getCategoryNames();
     }
 
-    public boolean validateData(String[] formData) {
-        return (InputChecker.checkForNumber(formData[2])); // Should return true if valid input
+    public boolean validateData(String[] formData) { //TODO Better way to do this?
+        if (!InputChecker.anyInput(formData[0])) {
+            return false;
+        }
+        if (!InputChecker.anyInput(formData[1])) {
+            return false;
+        }
+        if (!InputChecker.checkForNumber(formData[2])) {
+            return false;
+        }
+        if (!InputChecker.anyInput(formData[3])) {
+            return false;
+        }
+        return true;// Should return true if valid input
     }
 
     public int getPrice() {

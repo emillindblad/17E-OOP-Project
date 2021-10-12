@@ -1,7 +1,6 @@
 package edu.tda367.View.scenes;
 
 import edu.tda367.Controllers.ListingController;
-import edu.tda367.InputChecker;
 import edu.tda367.View.SceneHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
@@ -20,18 +19,18 @@ public class CreateListingScene extends AbstractHyroScene {
     @FXML private TextField productDesc;
     @FXML private TextField prodPrice;
     @FXML private Label errorMsg;
-    @FXML private DatePicker prodAvail;
+    //@FXML private DatePicker prodAvail;
     @FXML private ComboBox<String> categoriesDropdown;
+
+    private String[] formData = new String[4];
 
     public CreateListingScene(SceneHandler handler) throws IOException {
         super("createlisting",handler);
-        this.listingController = new ListingController();
-
+        this.listingController = new ListingController(handler);
         this.categoriesDropdown.getItems().setAll(loadCategories());
-        System.out.println("Create Listing now");
     }
 
-    public ArrayList<String> loadCategories() {
+    private ArrayList<String> loadCategories() {
         return listingController.getCategoryNames();
     }
 
@@ -39,20 +38,28 @@ public class CreateListingScene extends AbstractHyroScene {
         return new String[]{productName.getText(),productDesc.getText(),prodPrice.getText(),categoriesDropdown.getSelectionModel().getSelectedItem()};
     }
 
+    private void reset() {
+        this.productName.clear();
+        this.productDesc.clear();
+        this.prodPrice.clear();
+        this.errorMsg.setText("");
+        this.categoriesDropdown.setValue(null);
+    }
+
     @FXML
     public void createListing() {
-        String[] formData = getFormInput();
-        System.out.println(Arrays.asList(formData));
+        this.formData = getFormInput();
         errorMsg.setText(listingController.createListing(formData));
     }
 
-    private void switchToBrowse() {
-        handler.switchTo("browse");
-        handler.centerOnScreen();
+    @FXML
+    public void goBack() {
+        listingController.switchToBrowse();
     }
 
     @Override
     public void update() {
-        System.out.println("We made it");
+        reset();
+        Arrays.fill(this.formData,"");
     }
 }

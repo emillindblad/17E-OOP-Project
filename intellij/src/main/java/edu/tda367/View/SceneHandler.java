@@ -1,6 +1,6 @@
 package edu.tda367.View;
 
-import edu.tda367.Listing.Listing;
+import edu.tda367.Model.Listing.Listing;
 import edu.tda367.View.scenes.SingleListingView;
 import javafx.stage.Stage;
 import javafx.scene.Scene;

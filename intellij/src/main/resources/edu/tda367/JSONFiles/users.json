@@ -6,7 +6,7 @@
     "userAdress": {
       "streetName": "Kemivagen 7B",
       "city": "Goteborg",
-      "zipCode": 41258,
+      "zipCode": "41258",
       "country": "Sverige"
     },
     "userID": 0,
@@ -21,7 +21,7 @@
     "userAdress": {
       "streetName": "Kemivagen 7B",
       "city": "Goteborg",
-      "zipCode": 41258,
+      "zipCode": "41258",
       "country": "Sverige"
     },
     "userID": 154585,

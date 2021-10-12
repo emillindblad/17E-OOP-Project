@@ -1,41 +1,16 @@
 [
   {
+    "listingId": 23100,
     "product": {
-      "prodName": "PRIT Timmo",
+      "prodName": "sdflkj",
       "prodCategory": {
-        "categoryName": "Test category"
+        "categoryName": "Övrigt"
       },
-      "prodDesc": "Big boi"
+      "prodDesc": "sdf"
     },
-    "userId": 2,
-    "price": 200,
-    "availability": 1,
-    "orderState": "AVALIBLE"
-  },
-  {
-    "product": {
-      "prodName": "PRIT ELDIS",
-      "prodCategory": {
-        "categoryName": "Test category"
-      },
-      "prodDesc": "Big boi"
-    },
-    "userId": 2,
-    "price": 200,
-    "availability": 1,
-    "orderState": "AVALIBLE"
-  },
-  {
-    "product": {
-      "prodName": "PRIT Tango",
-      "prodCategory": {
-        "categoryName": "Test category"
-      },
-      "prodDesc": "Big boi"
-    },
-    "userId": 2,
-    "price": 200,
-    "availability": 1,
-    "orderState": "UNAVALIBLE"
+    "userId": 0,
+    "price": 123,
+    "availability": 25,
+    "listingState": "AVALIBLE"
   }
 ]

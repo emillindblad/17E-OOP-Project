@@ -1,11 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <FlowPane fx:id="listProducts" layoutX="59.0" layoutY="20.0" prefHeight="277.0" prefWidth="420.0" />
-      <Button fx:id="logInButton" layoutX="216.0" layoutY="316.0" mnemonicParsing="false" onAction="#switchToCreate" style="-fx-background-color: #09CD09;" text="Skapa ny annons" underline="true" />
+      <FlowPane fx:id="listProducts" alignment="TOP_CENTER" columnHalignment="CENTER" layoutX="71.0" layoutY="60.0" prefHeight="266.0" prefWidth="461.0" AnchorPane.bottomAnchor="74.0" />
+      <Button fx:id="logInButton" layoutX="247.0" layoutY="348.0" mnemonicParsing="false" onAction="#switchToCreate" style="-fx-background-color: #09CD09;" text="Skapa ny annons" underline="true" AnchorPane.bottomAnchor="26.4">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <DropShadow />
+         </effect></Button>
+      <ImageView fx:id="settingsButton" fitHeight="34.0" fitWidth="35.0" layoutX="520.0" layoutY="14.0" onMouseClicked="#switchToUserSettings" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="45.0" AnchorPane.topAnchor="14.0">
+         <image>
+            <Image url="@user-icon.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <DropShadow />
+         </effect>
+      </ImageView>
+      <ImageView fx:id="logOutButton" fitHeight="34.0" fitWidth="30.0" layoutX="564.0" layoutY="16.0" onMousePressed="#logOut" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="16.0">
+         <image>
+            <Image url="@logout.png" />
+         </image>
+         <effect>
+            <DropShadow />
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fx:id="myListings" fitHeight="34.0" fitWidth="30.0" layoutX="485.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="86.77358436584473" AnchorPane.topAnchor="14.0">
+         <image>
+            <Image url="@listings.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <DropShadow />
+         </effect>
+      </ImageView>
    </children>
 </AnchorPane>

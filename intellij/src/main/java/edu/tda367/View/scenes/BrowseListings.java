@@ -5,10 +5,13 @@ import edu.tda367.Model.Listing.Listing;
 import edu.tda367.View.SceneHandler;
 import java.util.ArrayList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 
 import java.io.IOException;
+import java.util.Optional;
 
 public class BrowseListings extends AbstractHyroScene {
     BrowseController browseController;
@@ -39,6 +42,20 @@ public class BrowseListings extends AbstractHyroScene {
     private void goToListings() {
         handler.switchTo("mylistings");
         handler.centerOnScreen();
+    }
+
+    public void logOutDialog() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Bekräfta Utloggning");
+        String s = "Vill du logga ut?";
+        alert.setContentText(s);
+
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if ((result.isPresent()) && (result.get() == ButtonType.OK)) {
+            browseController.logOut();
+            handler.switchTo("LogIn");
+        }
     }
 
 

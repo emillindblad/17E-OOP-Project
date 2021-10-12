@@ -35,4 +35,8 @@ public final class HyroSceneFactory {
     public static final hyroScene createListingScene(SceneHandler director) throws IOException {
         return new CreateListingScene(director);
     }
+
+    public static final hyroScene myListingsScene(SceneHandler director) throws IOException {
+        return new MyListings(director);
+    }
 }

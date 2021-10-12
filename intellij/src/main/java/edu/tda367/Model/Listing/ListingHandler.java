@@ -57,6 +57,8 @@ public class ListingHandler {
     public Listing getListingByProductName(String productName) {
         System.out.println(productName);
         for(Listing listing : listings) {
+            System.out.println("listing name " + listing.getProduct().getProdName());
+            System.out.println(listing.getProduct().getProdName().equals(productName));
             if(listing.getProduct().getProdName().equals(productName))
             {
                 return listing;

@@ -12,5 +12,19 @@
     "price": 123,
     "availability": 25,
     "listingState": "AVALIBLE"
+  },
+  {
+    "listingId": 26110,
+    "product": {
+      "prodName": "PRIT ",
+      "prodCategory": {
+        "categoryName": "Något annat"
+      },
+      "prodDesc": "qweqkjweq"
+    },
+    "userId": 0,
+    "price": 2020,
+    "availability": 25,
+    "listingState": "AVALIBLE"
   }
 ]

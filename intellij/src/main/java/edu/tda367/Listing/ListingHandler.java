@@ -43,6 +43,17 @@ public class ListingHandler {
         return category;
     }
 
+    public Listing getListingByProductName(String productName) {
+        System.out.println(productName);
+        for(Listing listing : listings) {
+            if(listing.getProduct().getProdName().equals(productName))
+            {
+                return listing;
+            }
+        }
+        return listings.get(0);
+    }
+
     public ArrayList<String> getCategoryNames() {
         ArrayList<String> categoryNames = new ArrayList<>();
         categories.forEach((e) -> categoryNames.add(e.getCategoryName()));

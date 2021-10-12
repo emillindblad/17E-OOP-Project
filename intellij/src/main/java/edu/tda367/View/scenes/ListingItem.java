@@ -15,7 +15,6 @@ import java.io.IOException;
 
 
 public class ListingItem extends AnchorPane {
-
     @FXML
     private Label itemPrice;
 
@@ -36,6 +35,7 @@ public class ListingItem extends AnchorPane {
      * @param productCategory category name for the product that is listed
      * Loads a FXML file and does the necessary setup with loading etc. Also intializes the ListingItem with the parameters
      */
+
     protected ListingItem(SceneHandler handler, hyroScene scene, int price, String productName, String productCategory) {
         FXMLLoader loader = App.loadFXML("listingitem");
         System.out.println(loader.toString());
@@ -43,8 +43,6 @@ public class ListingItem extends AnchorPane {
         loader.setController(this);
         this.scene = scene;
         controller = new BrowseController(handler);
-
-
         try {
             loader.load();
         } catch (IOException exception) {
@@ -62,5 +60,6 @@ public class ListingItem extends AnchorPane {
         this.itemPrice.setText(String.valueOf(price));
         this.itemCategory.setText(itemCategory);
     }
+
 
 }

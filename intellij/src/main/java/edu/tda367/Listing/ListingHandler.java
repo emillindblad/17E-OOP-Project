@@ -80,6 +80,17 @@ public class ListingHandler {
         return availableListings;
     }
 
+    public Listing getListingByProductName(String productName) {
+        for(Listing listing : listings)
+        {
+            if(listing.getProduct().getProdName() == productName)
+            {
+                return listing;
+            }
+        }
+        return null;
+    }
+
     /**
      * Removes the specified listing form the ArrayList and returns it
      * @param listing

@@ -55,6 +55,13 @@ public class TestListing {
     }
 
     @Test
+    public void testGetListingByProdName() {
+        String prodName = "TestPRIT Grill";
+        Listing listing = handler.getListingByProductName(prodName);
+        assertTrue(handler.getListings().get(0) == listing);
+    }
+
+    @Test
     public void testDuration() {
         long duration = ChronoUnit.HOURS.between(startDate,endDate);
         assertTrue(duration==25);

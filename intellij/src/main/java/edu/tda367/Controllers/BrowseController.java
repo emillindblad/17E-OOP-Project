@@ -3,6 +3,8 @@ package edu.tda367.Controllers;
 import edu.tda367.Model.Listing.Listing;
 import edu.tda367.Model.Listing.ListingHandler;
 import edu.tda367.View.SceneHandler;
+import edu.tda367.Model.UserPackage.UserHandler;
+
 
 import edu.tda367.Model.Listing.Listing;
 import edu.tda367.Model.Listing.ListingHandler;
@@ -33,6 +35,6 @@ public class BrowseController implements Controller {
     }
 
     public void logOut() {
-    uHandler.logOut();
+        uHandler.logOut();
     }
 }

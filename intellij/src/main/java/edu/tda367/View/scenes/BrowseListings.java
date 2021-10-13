@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -71,7 +70,7 @@ public class BrowseListings extends AbstractHyroScene {
 
     @FXML
     private void goToListings() {
-        handler.switchTo("mylistings");
+        handler.switchTo("rentingpage");
         handler.centerOnScreen();
     }
 

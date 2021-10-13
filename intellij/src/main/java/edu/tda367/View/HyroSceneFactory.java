@@ -1,9 +1,6 @@
 package edu.tda367.View;
 
 import edu.tda367.Controllers.AccountViewController;
-import edu.tda367.Controllers.ListingController;
-import edu.tda367.View.SceneHandler;
-import edu.tda367.View.hyroScene;
 import edu.tda367.View.scenes.Home;
 import edu.tda367.View.scenes.LogIn;
 import edu.tda367.View.scenes.AccountView;
@@ -36,7 +33,7 @@ public final class HyroSceneFactory {
         return new CreateListingScene(director);
     }
 
-    public static final hyroScene myListingsScene(SceneHandler director) throws IOException {
-        return new MyListings(director);
+    public static final hyroScene rentingPage(SceneHandler director) throws IOException {
+        return new RentingPage(director);
     }
 }

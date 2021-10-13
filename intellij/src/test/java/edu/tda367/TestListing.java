@@ -1,15 +1,18 @@
 package edu.tda367;
 
 import edu.tda367.Model.Listing.*;
-import org.junit.*;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class TestListing {
     static Category testCat;
@@ -20,6 +23,7 @@ public class TestListing {
     static Listing secondTestListing;
     static Listing stringListing;
     static int dbSize;
+    static Listing thirdTestListing;
 
 
     @BeforeClass
@@ -42,6 +46,7 @@ public class TestListing {
         handler.removeListing(secondTestListing);
         handler.removeListing(testListing);
         handler.removeListing(stringListing);
+        handler.removeListing(thirdTestListing);
         handler.writeListings();
     }
 
@@ -60,7 +65,7 @@ public class TestListing {
 
     @Test
     public void testGetListingByProdName() {
-        String prodName = "TestPRIT Grill";
+        String prodName = "prit Grill";
         Listing listing = handler.getListingByProductName(prodName);
         assertTrue(handler.getListings().get(0) == listing);
     }
@@ -104,6 +109,16 @@ public class TestListing {
         String[] formData = {"Test Name","Test Desc","69","Övrigt"};
         stringListing = handler.createListingFromString(formData,69);
         assertTrue(handler.getListings().contains(stringListing));
+    }
+
+    @Test
+    public void testSortingBySearch() {
+        //List <Listing> listToTest = createProductList();
+        System.out.println(handler.getAvailableListings().toString());
+        thirdTestListing = handler.createListing("SortingTest",testCat,"hitta grill",127,420,startDate,endDate);
+        String search = "hitta grill";
+        List<Listing> sortedBySearch = ListingSorter.sortBySearchWord(search, handler.getAvailableListings());
+        assertTrue(sortedBySearch.get(0).getProduct().getProdName().equals("SortingTest"));
     }
 
 }

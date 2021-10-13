@@ -4,7 +4,13 @@ import edu.tda367.View.SceneHandler;
 
 public class MyListingsController {
 
-    public MyListingsController(SceneHandler handler) {
+    private final SceneHandler handler;
 
+    public MyListingsController(SceneHandler handler) {
+        this.handler = handler;
+    }
+
+    public void goBack() {
+        handler.switchTo("browse");
     }
 }

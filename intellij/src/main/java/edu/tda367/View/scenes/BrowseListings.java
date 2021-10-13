@@ -40,7 +40,7 @@ public class BrowseListings extends AbstractHyroScene {
 
     @FXML
     private void goToListings() {
-        handler.switchTo("mylistings");
+        handler.switchTo("rentingpage");
         handler.centerOnScreen();
     }
 

@@ -37,6 +37,12 @@ public class SingleListingView extends AbstractHyroScene {
         this.description.setText(description);
     }
 
+    @FXML
+    public void rentListing()
+    {
+        System.out.println("renting...");
+        //TODO Controller
+    }
 
     @Override
     public void update() {

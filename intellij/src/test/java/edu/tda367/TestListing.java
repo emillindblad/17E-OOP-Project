@@ -57,13 +57,7 @@ public class TestListing {
         assertEquals(removedListing, testListing);
         assertTrue(handler.getListings().size()==dbSize-1);
     }
-
-    @Test
-    public void testGetListingByProdName() {
-        String prodName = "TestPRIT Grill";
-        Listing listing = handler.getListingByProductName(prodName);
-        assertTrue(handler.getListings().get(0) == listing);
-    }
+    
 
     @Test
     public void testDuration() {

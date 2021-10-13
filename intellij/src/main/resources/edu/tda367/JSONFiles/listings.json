@@ -1,69 +1,15 @@
 [
   {
-    "listingId": 0,
+    "listingId": 4265,
     "product": {
-      "prodName": "e",
+      "prodName": "Bajs",
       "prodCategory": {
-        "categoryName": "Test category"
+        "categoryName": "Något annat"
       },
-      "prodDesc": "Big boi"
-    },
-    "userId": 2,
-    "price": 200,
-    "availability": 1,
-    "orderState": "AVALIBLE"
-  },
-  {
-    "product": {
-      "prodName": "PRIT ELDIS",
-      "prodCategory": {
-        "categoryName": "Test category"
-      },
-      "prodDesc": "Big boi"
-    },
-    "userId": 2,
-    "price": 200,
-    "availability": 1,
-    "orderState": "AVALIBLE"
-  },
-  {
-    "product": {
-      "prodName": "Cool product",
-      "prodCategory": {
-        "categoryName": "NÃƒÂ¥got annat"
-      },
-      "prodDesc": "e"
-    },
-    "userId": 197321,
-    "price": 3,
-    "availability": 25,
-    "listingState": "AVALIBLE"
-  },
-  {
-    "listingId": 1,
-    "product": {
-      "prodName": "Vim tutorial",
-      "prodCategory": {
-        "categoryName": "Ãƒâ€“vrigt"
-      },
-      "prodDesc": "Very chad, no soy"
+      "prodDesc": "En bajskorv"
     },
     "userId": 0,
-    "price": 1337,
-    "availability": 25,
-    "listingState": "AVALIBLE"
-  },
-  {
-    "listingId": 11732,
-    "product": {
-      "prodName": "Klipp",
-      "prodCategory": {
-        "categoryName": "Ãƒâ€“vrigt"
-      },
-      "prodDesc": "Klippa tung"
-    },
-    "userId": 197321,
-    "price": 123,
+    "price": 1111,
     "availability": 25,
     "listingState": "AVALIBLE"
   }

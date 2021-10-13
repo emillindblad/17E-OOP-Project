@@ -2,6 +2,8 @@ module edu.tda367 {
     requires javafx.controls;
     requires javafx.fxml;
     requires com.google.gson;
+    requires java.datatransfer;
+    requires java.desktop;
 
     opens edu.tda367 to javafx.fxml;
     opens edu.tda367.Model.UserPackage to com.google.gson;

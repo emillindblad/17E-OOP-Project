@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="price" layoutX="285.0" layoutY="295.0" text="Price" />
+      <Label fx:id="prodName" alignment="CENTER" layoutX="234.0" layoutY="44.0" text="Product Name">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="category" layoutX="271.0" layoutY="72.0" text="Category" />
+      <Label fx:id="description" layoutX="270.0" layoutY="147.0" text="Description" />
+      <Label fx:id="userId" layoutX="48.0" layoutY="81.0" text="userId" />
+      <Button layoutX="253.0" layoutY="227.0" mnemonicParsing="false" onMouseClicked="#rentListing" prefHeight="25.0" prefWidth="95.0" text="Hyr" />
+   </children>
+</AnchorPane>

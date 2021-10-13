@@ -57,6 +57,7 @@ public class TestListing {
         assertEquals(removedListing, testListing);
         assertTrue(handler.getListings().size()==dbSize-1);
     }
+    
 
     @Test
     public void testDuration() {

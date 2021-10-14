@@ -68,7 +68,7 @@ public class BookingHandler {
      * Advances the BookingState of a Booking specified by index in list
      * @param bookingIndex Index of Booking in bookings list
      */
-    public void advanceBookingState(int bookingIndex) { bookings.get(bookingIndex).advanceBookingState();}
+    public void advanceBookingState(int bookingIndex) { bookings.get(bookingIndex).advanceState();}
 
     /**
      * Gets saved Bookings from database

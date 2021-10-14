@@ -2,8 +2,7 @@ package edu.tda367.View.scenes;
 
 import edu.tda367.App;
 import edu.tda367.Controllers.RentingItemController;
-import edu.tda367.Model.Booking.Booking;
-import edu.tda367.Model.Listing.Listing;
+import edu.tda367.Model.RentingItemEntry;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -23,8 +22,9 @@ public class RentingItem extends AnchorPane {
     @FXML private ImageView image;
 
     private final RentingItemController controller;
+    private final RentingItemEntry entry;
 
-    public RentingItem(RentingItemController controller, Listing listing) {
+    public RentingItem(RentingItemController controller, RentingItemEntry entry) {
         FXMLLoader loader = App.loadFXML("myrentingitem");
         loader.setRoot(this);
         loader.setController(this);
@@ -35,39 +35,25 @@ public class RentingItem extends AnchorPane {
             throw new RuntimeException(exception);
         }
 
-        initialize(listing);
+        this.entry = entry;
+        initialize(entry);
     }
 
-    public RentingItem(RentingItemController controller, Booking booking) {
-        FXMLLoader loader = App.loadFXML("myrentingitem");
-        loader.setRoot(this);
-        loader.setController(this);
-        this.controller = controller;
-        try {
-            loader.load();
-        } catch (IOException exception) {
-            throw new RuntimeException(exception);
-        }
-
-        initialize(booking);
-    }
 
     @FXML
     private void buttonAction() {
-        controller.buttonAction(statusLabel, button);
+        controller.buttonAction(entry);
+        initialize(entry);
     }
 
-    private void initialize(Listing listing) {
-        productLabel.setText(listing.getProduct().getProdName());
-        priceLabel.setText(String.valueOf(listing.getPrice()));
-        categoryLabel.setText(listing.getProduct().getCategoryName());
-        //image.setImage(listing.getImage());
+    private void initialize(RentingItemEntry entry) {
+        productLabel.setText(entry.getProductName());
+        priceLabel.setText(String.valueOf(entry.getPrice()));
+        categoryLabel.setText(entry.getCategoryName());
+        statusLabel.setText(entry.getStatusText());
+        button.setText(entry.getButtonText());
+        //image.setImage(entry.getImage());
     }
-    private void initialize(Booking booking) {
-        productLabel.setText(booking.getListing().getProduct().getProdName());
-        priceLabel.setText(String.valueOf(booking.getListing().getPrice()));
-        categoryLabel.setText(booking.getListing().getProduct().getCategoryName());
-        //image.setImage(booking.getListing().getImage());
-    }
+
 
 }

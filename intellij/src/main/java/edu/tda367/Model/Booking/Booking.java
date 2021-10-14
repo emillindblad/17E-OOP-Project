@@ -1,9 +1,11 @@
 package edu.tda367.Model.Booking;
 
 import edu.tda367.Model.Listing.Listing;
+import edu.tda367.Model.RentingItemEntry;
 import edu.tda367.Model.UserPackage.User;
+import javafx.scene.image.Image;
 
-class Booking {
+class Booking implements RentingItemEntry {
 
     private BookingState bookingState = BookingState.PENDING;
     private final User customer;
@@ -18,7 +20,8 @@ class Booking {
         return bookingState;
     }
 
-    void advanceBookingState() {
+    @Override
+    public void advanceState() {
 
         BookingState currentState = bookingState;
 
@@ -33,8 +36,76 @@ class Booking {
                 break;
 
             case PAYED:
-                System.out.println("This booking is already payed!");
+                bookingState = BookingState.RETURNED;
                 break;
+
+            case RETURNED:
+                bookingState = BookingState.DONE;
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    @Override
+    public String getProductName() {
+        return listing.getProduct().getProdName();
+    }
+
+    @Override
+    public int getPrice() {
+        return listing.getPrice();
+    }
+
+    @Override
+    public String getCategoryName() {
+        return listing.getListingCategory().getCategoryName();
+    }
+
+    // TODO images
+    @Override
+    public Image getImage() {
+        return null;
+    }
+
+    @Override
+    public String getStatusText() {
+        switch (bookingState) {
+            case PENDING:
+                bookingState = BookingState.ACCEPTED;
+                return "Förfrågan skickad";
+
+            case ACCEPTED:
+                bookingState = BookingState.PAYED;
+                return "Förfrågan godkänd";
+
+            case PAYED:
+                bookingState = BookingState.RETURNED;
+                return "Bokning betalad";
+
+            case RETURNED:
+                bookingState = BookingState.DONE;
+                return "Vara tillbakalämnad";
+
+            default:
+                return "Tillbakalämnande godkänt";
+        }
+    }
+
+    @Override
+    public String getButtonText() {
+        switch (bookingState) {
+            case ACCEPTED:
+                bookingState = BookingState.PAYED;
+                return "Betala";
+
+            case PAYED:
+                bookingState = BookingState.RETURNED;
+                return "Återlämna";
+
+            default:
+                return "";
         }
     }
     /*

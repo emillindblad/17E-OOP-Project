@@ -1,9 +1,10 @@
 package edu.tda367.Controllers;
 
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import edu.tda367.Model.RentingItemEntry;
 
-public abstract class RentingItemController {
+public class RentingItemController {
 
-    public abstract void buttonAction(Label statusLabel, Button button);
+    public void buttonAction(RentingItemEntry entry) {
+        entry.advanceState();
+    }
 }

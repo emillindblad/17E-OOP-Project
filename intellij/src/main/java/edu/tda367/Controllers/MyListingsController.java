@@ -1,6 +1,6 @@
 package edu.tda367.Controllers;
 
-import edu.tda367.Model.Booking.Booking;
+//import edu.tda367.Model.Booking.Booking; //can we avoid making Booking a public class?
 import edu.tda367.Model.Booking.BookingHandler;
 import edu.tda367.Model.Listing.Listing;
 import edu.tda367.Model.UserPackage.UserHandler;
@@ -32,7 +32,7 @@ public class MyListingsController {
         /*
         ArrayList<Listing> listings = uHandler.getLoggedInUser().getListings();
         for (Listing l : listings) {
-            listingsPane.getChildren().add(new RentingItem(new RentingItemListingController(), l));
+            listingsPane.getChildren().add(new RentingItem(new RentingItemController(), l));
         }
         */
     }
@@ -41,7 +41,7 @@ public class MyListingsController {
         /*
         ArrayList<Booking> bookings = uHandler.getLoggedInUser().getBookings();
         for (Booking b : bookings) {
-            bookingsPane.getChildren().add(new RentingItem(new RentingItemBookingController(), b));
+            bookingsPane.getChildren().add(new RentingItem(new RentingItemController(), b));
         }
         */
     }

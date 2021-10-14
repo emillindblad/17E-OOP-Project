@@ -5,7 +5,6 @@ import edu.tda367.Model.JSON.JSONWriter;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -21,8 +20,21 @@ public class ListingHandler {
      * Private Constructor, for limiting class to one instance.
      */
     private ListingHandler() {
-        categories = new ArrayList<Category>(Arrays.asList(new Category("Övrigt"), new Category("Något annat"))); //TODO Implement database?
+        categories = new ArrayList<Category>(); //TODO Implement database?
+        populateCategoryList();
         listings = getSavedListings();
+    }
+
+    private void populateCategoryList (){
+        categories.add(new Category("Bilar"));
+        categories.add(new Category("Båtar"));
+        categories.add(new Category("Släpkärror"));
+        categories.add(new Category("Maskiner"));
+        categories.add(new Category("Elektronik"));
+        categories.add(new Category("Möbler"));
+        categories.add(new Category("Fritidsutrustning"));
+        categories.add(new Category("Övrigt"));
+
     }
 
     /**

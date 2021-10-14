@@ -10,7 +10,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.FlowPane;
 
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.util.Optional;
 
@@ -21,6 +20,9 @@ public class BrowseListings extends AbstractHyroScene {
     FlowPane listProducts;
     @FXML
     TextField searchField;
+
+    @FXML
+    public Button catButton1, catButton2, catButton3, catButton4, catButton5, catButton6,catButton7, catButton8;
 
     /**
      * Constructs the BrowseListings Scene
@@ -107,9 +109,43 @@ public class BrowseListings extends AbstractHyroScene {
     //CategoryButtons
 
     @FXML
-    public void CatButtonPressed(ActionEvent event) {
-        Button button = (Button) event.getSource();
-        browseController.search(button.getText());
+    public void CatButton1Pressed() {
+        browseController.search(catButton1.getText());
+        update();
+    }
+    @FXML
+    public void CatButton2Pressed() {
+        browseController.search(catButton2.getText());
+        update();
+    }
+    @FXML
+    public void CatButton3Pressed() {
+        browseController.search(catButton3.getText());
+        update();
+    }
+    @FXML
+    public void CatButton4Pressed() {
+        browseController.search(catButton4.getText());
+        update();
+    }
+    @FXML
+    public void CatButton5Pressed() {
+        browseController.search(catButton5.getText());
+        update();
+    }
+    @FXML
+    public void CatButton6Pressed() {
+        browseController.search(catButton6.getText());
+        update();
+    }
+    @FXML
+    public void CatButton7Pressed() {
+        browseController.search(catButton7.getText());
+        update();
+    }
+    @FXML
+    public void CatButton8Pressed() {
+        browseController.search(catButton8.getText());
         update();
     }
 }

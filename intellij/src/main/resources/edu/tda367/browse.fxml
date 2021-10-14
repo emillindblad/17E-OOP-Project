@@ -67,13 +67,13 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="catButton1" layoutX="-2.0" layoutY="59.0" mnemonicParsing="false" onAction="#CatButtonPressed" prefHeight="34.0" prefWidth="106.0" text="Button" AnchorPane.leftAnchor="-2.0" />
-      <Button fx:id="catButton2" layoutX="-2.0" layoutY="93.0" mnemonicParsing="false" onAction="#CatButtonPressed" prefHeight="34.0" prefWidth="106.0" text="Button" />
-      <Button fx:id="catButton3" layoutX="-2.0" layoutY="127.0" mnemonicParsing="false" onAction="#CatButton2Pressed" prefHeight="34.0" prefWidth="106.0" text="Button" />
-      <Button fx:id="catButton4" layoutX="-2.0" layoutY="161.0" mnemonicParsing="false" onAction="#CatButtonPressed" prefHeight="34.0" prefWidth="106.0" text="Button" />
-      <Button fx:id="catButton5" layoutX="-2.0" layoutY="195.0" mnemonicParsing="false" onAction="#CatButtonPressed" prefHeight="34.0" prefWidth="106.0" text="Button" />
-      <Button fx:id="catButton6" layoutX="-2.0" layoutY="229.0" mnemonicParsing="false" onAction="#CatButtonPressed" prefHeight="34.0" prefWidth="106.0" text="Button" />
-      <Button fx:id="catButton7" layoutX="-2.0" layoutY="263.0" mnemonicParsing="false" onAction="#CatButtonPressed" prefHeight="34.0" prefWidth="106.0" text="Button" />
-      <Button fx:id="catButton8" layoutX="-2.0" layoutY="297.0" mnemonicParsing="false" onAction="#CatButtonPressed" prefHeight="34.0" prefWidth="106.0" text="Button" />
+      <Button fx:id="catButton1" layoutX="-2.0" layoutY="59.0" mnemonicParsing="false" onAction="#CatButton1Pressed" prefHeight="34.0" prefWidth="106.0" text="Bilar" AnchorPane.leftAnchor="-2.0" />
+      <Button fx:id="catButton2" layoutX="-2.0" layoutY="93.0" mnemonicParsing="false" onAction="#CatButton2Pressed" prefHeight="34.0" prefWidth="106.0" text="Båtar" />
+      <Button fx:id="catButton3" layoutX="-2.0" layoutY="127.0" mnemonicParsing="false" onAction="#CatButton3Pressed" prefHeight="34.0" prefWidth="106.0" text="Släpkärror" />
+      <Button fx:id="catButton4" layoutX="-2.0" layoutY="161.0" mnemonicParsing="false" onAction="#CatButton4Pressed" prefHeight="34.0" prefWidth="106.0" text="Maskiner" />
+      <Button fx:id="catButton5" layoutX="-2.0" layoutY="195.0" mnemonicParsing="false" onAction="#CatButton5Pressed" prefHeight="34.0" prefWidth="106.0" text="Elektronik" />
+      <Button fx:id="catButton6" layoutX="-2.0" layoutY="229.0" mnemonicParsing="false" onAction="#CatButton6Pressed" prefHeight="34.0" prefWidth="106.0" text="Möbler" />
+      <Button fx:id="catButton7" layoutX="-2.0" layoutY="263.0" mnemonicParsing="false" onAction="#CatButton7Pressed" prefHeight="34.0" prefWidth="106.0" text="Fritidsutrustning" />
+      <Button fx:id="catButton8" layoutX="-2.0" layoutY="297.0" mnemonicParsing="false" onAction="#CatButton8Pressed" prefHeight="34.0" prefWidth="106.0" text="Övrigt" />
    </children>
 </AnchorPane>

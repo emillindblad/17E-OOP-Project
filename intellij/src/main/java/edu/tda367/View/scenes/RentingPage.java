@@ -24,13 +24,7 @@ public class RentingPage extends AbstractHyroScene {
 
     @Override
     public void update() {
-        listingsPane.getChildren().clear();
-        listingsPane.getChildren().add(new RentingItem(new RentingItemController() {
-            @Override
-            public void buttonAction(Label statusLabel, Button button) {
-                System.out.println("hehe");
-            }
-        }));
+        controller.update(listingsPane, bookingsPane);
     }
 
     @FXML

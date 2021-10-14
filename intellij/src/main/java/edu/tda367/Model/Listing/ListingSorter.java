@@ -7,6 +7,12 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * Static class to sort a List<Listing> based on a searchWord.
+ * Algorithm is based on the LevenshteinDistance algorithm from Apache.commons library.
+ *
+ * @author Sebastian Kvaldén
+ */
 public class ListingSorter {
 
     /**

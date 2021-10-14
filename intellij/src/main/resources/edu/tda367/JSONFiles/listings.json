@@ -1,0 +1,16 @@
+[
+  {
+    "listingId": 64062,
+    "product": {
+      "prodName": "erf",
+      "prodCategory": {
+        "categoryName": "Något annat"
+      },
+      "prodDesc": "äåö"
+    },
+    "userId": 0,
+    "price": 123,
+    "availability": 25,
+    "listingState": "AVALIBLE"
+  }
+]

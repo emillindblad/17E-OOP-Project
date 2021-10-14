@@ -1,0 +1,30 @@
+[
+  {
+    "listingId": 31761,
+    "product": {
+      "prodName": "ff",
+      "prodCategory": {
+        "categoryName": "Övrigt"
+      },
+      "prodDesc": "åöä"
+    },
+    "userId": 0,
+    "price": 65,
+    "availability": 25,
+    "listingState": "AVALIBLE"
+  },
+  {
+    "listingId": 28982,
+    "product": {
+      "prodName": "åöä",
+      "prodCategory": {
+        "categoryName": "Övrigt"
+      },
+      "prodDesc": "äö"
+    },
+    "userId": 0,
+    "price": 123,
+    "availability": 25,
+    "listingState": "AVALIBLE"
+  }
+]

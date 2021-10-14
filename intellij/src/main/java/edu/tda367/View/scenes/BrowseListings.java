@@ -86,7 +86,7 @@ public class BrowseListings extends AbstractHyroScene {
         listProducts.getChildren().clear();
         for(int i = 0; i < listings.size(); i++)
         {
-            listProducts.getChildren().add(new ListingItem(this.handler, this, listings.get(i).getPrice(), listings.get(i).getProduct().getProdName(), listings.get(i).getProduct().getCategoryName()));
+            listProducts.getChildren().add(new ListingItem(this.handler, this, listings.get(i).getPrice(), listings.get(i).getProduct().getProdName(), listings.get(i).getProduct().getCategoryName(), listings.get(i).getListingId()));
         }
     }
 

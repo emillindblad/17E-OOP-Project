@@ -5,7 +5,6 @@ import edu.tda367.View.scenes.SingleListingView;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 
-import java.io.Console;
 import java.io.IOException;
 import java.util.*;
 
@@ -32,7 +31,7 @@ public class SceneHandler {
     }
 
     public void switchToListingView(Listing listing) throws IOException {
-        SingleListingView view = new SingleListingView(this, listing.getUserId(), listing.getProduct().getProdName(), listing.getPrice(), "Sample text", "Lorem ipsmum dolor asdbsolmannen");
+        SingleListingView view = new SingleListingView(this, listing.getUserId(), listing.getProduct().getProdName(), listing.getPrice(), "Sample text", "Lorem ipsmum dolor asdbsolmannen", listing.getListingId());
         root.setScene(view.getHyroScene());
         root.show();
 

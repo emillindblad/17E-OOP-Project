@@ -29,8 +29,10 @@ public class ListingSorter {
         //adds the sorted objects back to the list
         toSort.clear();
         for (double k : sortedKeys) {
+            System.out.println(map1.get(k).getProduct().getProdName());
             toSort.add(map1.get(k));
         }
+        System.out.println("Firts in list:" + toSort.get(0).getProduct().getProdName());
 
     }
 

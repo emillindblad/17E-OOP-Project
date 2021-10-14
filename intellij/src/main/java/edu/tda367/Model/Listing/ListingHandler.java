@@ -111,6 +111,14 @@ public class ListingHandler {
         return listing;
     }
 
+    public void sortListings (String sortBy) {
+        System.out.println("handler started");
+        System.out.println("Befor sorted:" + listings.get(0).getProduct().getProdName());
+        ListingSorter.sortBySearchWord(sortBy, listings);
+        System.out.println("after sorted:" + listings.get(0).getProduct().getProdName());
+        System.out.println("handler done");
+    }
+
 
     /**
      * Creates a listing from supplied parameters, adds it to the ArrayList of listings, and returns the newly created listing.

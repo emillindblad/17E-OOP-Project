@@ -1,6 +1,6 @@
 package edu.tda367.Model.Listing;
 
-import org.apache.commons.text.similarity.CosineDistance;
+import org.apache.commons.text.similarity.LevenshteinDistance;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -9,34 +9,38 @@ import java.util.List;
 
 public class ListingSorter {
 
-    public static List<Listing> sortBySearchWord(String searchWord, List<Listing> toSort) {
-        List<Listing> toReturn = new ArrayList<>();
+    /**
+     * Sort a list of Listings based on the "searchWord", doesnt
+     * @param searchWord Word to sort by
+     * @param toSort List ofListings to sort
+     */
+    public static void sortBySearchWord(String searchWord, List<Listing> toSort) {
 
         HashMap<Double,Listing> map1= matchingToSearch(searchWord, toSort);
         List<Double> sortedKeys = sortKeys(map1);
+        System.out.println(sortedKeys.toString());
 
-        //adds the sorted objects back to a list
+        //adds the sorted objects back to the list
+        toSort.clear();
         for (double k : sortedKeys) {
-            toReturn.add(map1.get(k));
+            toSort.add(map1.get(k));
         }
-        return toReturn;
+
     }
 
     static private HashMap<Double, Listing> matchingToSearch (String searchWord, List<Listing> toSort) {
-        CosineDistance cosDist = new CosineDistance();
+        System.out.println("sorting");
+        LevenshteinDistance levDist = new LevenshteinDistance();
         String sequenceToTest = "";
         HashMap<Double, Listing> map = new HashMap<Double, Listing>();
         double key;
 
         for (int i = 0; i < toSort.size(); i++) {
-            sequenceToTest = getSearchableString(toSort.get(i));//add different string together to compare
-            key = cosDist.apply(searchWord, sequenceToTest);
-            if(key == 1.0) { //object gets lost otherwise
-                map.put(key + i, toSort.get(i));
-            }
-            else {
-                map.put(key, toSort.get(i));
-            }
+            sequenceToTest = getSearchableString(toSort.get(i));//add different strings together to compare
+            key = levDist.apply(searchWord, sequenceToTest);
+            System.out.println(key);
+            key+= ((double) i/10000); //if two objects are of equal similiarities we need some way of separating them
+            map.put(key,toSort.get(i));
         }
         return map;
     }

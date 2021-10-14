@@ -1,22 +1,16 @@
 package edu.tda367.View.scenes;
 
 import edu.tda367.Controllers.BrowseController;
-import edu.tda367.Model.Listing.Listing;
 import edu.tda367.View.SceneHandler;
-
-import java.awt.*;
-import java.util.ArrayList;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
-import javafx.scene.image.ImageView;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 
+import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.util.Optional;
 
@@ -25,6 +19,8 @@ public class BrowseListings extends AbstractHyroScene {
 
     @FXML
     FlowPane listProducts;
+    @FXML
+    TextField searchField;
 
     /**
      * Constructs the BrowseListings Scene
@@ -34,6 +30,11 @@ public class BrowseListings extends AbstractHyroScene {
     public BrowseListings(SceneHandler handler) throws IOException {
         super("browse", handler);
         browseController = new BrowseController(handler);
+        searchField.setOnKeyPressed( event -> {
+            if( event.getCode() == KeyCode.ENTER ) {
+                search();
+            }
+        } );
         updateList();
     }
 
@@ -87,11 +88,28 @@ public class BrowseListings extends AbstractHyroScene {
         }
     }
 
+    @FXML
+    public void search() {
+        browseController.search(searchField.getText());
+        System.out.println("Searched");
+        update();
+        System.out.println("updated list");
+    }
+
     /**
      * Method runs everytime scene is switched to so flowpane gets updated on scene switch.
      */
     @Override
     public void update() {
         updateList();
+    }
+
+    //CategoryButtons
+
+    @FXML
+    public void CatButtonPressed(ActionEvent event) {
+        Button button = (Button) event.getSource();
+        browseController.search(button.getText());
+        update();
     }
 }

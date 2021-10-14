@@ -9,7 +9,6 @@ import org.junit.Test;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -118,8 +117,8 @@ public class TestListing {
         System.out.println(handler.getAvailableListings().toString());
         thirdTestListing = handler.createListing("SortingTest",testCat,"hitta grill",127,420,startDate,endDate);
         String search = "hitta grill";
-        List<Listing> sortedBySearch = ListingSorter.sortBySearchWord(search, handler.getAvailableListings());
-        assertTrue(sortedBySearch.get(0).getProduct().getProdName().equals("SortingTest"));
+        ListingSorter.sortBySearchWord(search, handler.getAvailableListings());
+        assertTrue(handler.getAvailableListings().get(0).getProduct().getProdName().equals("SortingTest"));
     }
 
 }

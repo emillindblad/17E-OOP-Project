@@ -22,7 +22,6 @@ public class JSONReader {
      * @return An ArrayList containing objects of specified class
      */
     public <T> List<T> read(Class<T[]> clazz, String name) {
-        //try (FileReader reader = new FileReader("src/main/resources/edu/tda367/JSONFiles/" + name + ".json")) {
             try (Reader reader = new InputStreamReader(new FileInputStream("src/main/resources/edu/tda367/JSONFiles/" + name + ".json"), StandardCharsets.UTF_8)) {
             T[] arr = new Gson().fromJson(reader, clazz);
             if (arr == null || arr.length == 0) {

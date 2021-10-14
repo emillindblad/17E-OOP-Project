@@ -1,26 +1,12 @@
 [
   {
-    "listingId": 31761,
+    "listingId": 64062,
     "product": {
-      "prodName": "ff",
+      "prodName": "erf",
       "prodCategory": {
-        "categoryName": "Övrigt"
+        "categoryName": "Något annat"
       },
-      "prodDesc": "åöä"
-    },
-    "userId": 0,
-    "price": 65,
-    "availability": 25,
-    "listingState": "AVALIBLE"
-  },
-  {
-    "listingId": 28982,
-    "product": {
-      "prodName": "åöä",
-      "prodCategory": {
-        "categoryName": "Övrigt"
-      },
-      "prodDesc": "äö"
+      "prodDesc": "äåö"
     },
     "userId": 0,
     "price": 123,

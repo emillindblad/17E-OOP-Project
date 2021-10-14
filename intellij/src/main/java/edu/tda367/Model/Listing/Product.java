@@ -38,4 +38,6 @@ public class Product {
     public String getCategoryName() {
         return this.prodCategory.getCategoryName();
     }
+
+    public String getDescription(){ return this.prodDesc;}
 }

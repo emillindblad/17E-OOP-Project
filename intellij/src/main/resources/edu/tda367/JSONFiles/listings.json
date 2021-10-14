@@ -1,15 +1,211 @@
 [
   {
-    "listingId": 64062,
+    "listingId": 4093,
     "product": {
-      "prodName": "erf",
+      "prodName": "TestPRIT Bimot",
+      "prodCategory": {
+        "categoryName": "Test category"
+      },
+      "prodDesc": "Big boi"
+    },
+    "userId": 164715,
+    "price": 69,
+    "availability": 25,
+    "listingState": "AVALIBLE"
+  },
+  {
+    "listingId": 739,
+    "product": {
+      "prodName": "TestPRIT Bimot",
+      "prodCategory": {
+        "categoryName": "Test category"
+      },
+      "prodDesc": "Big boi"
+    },
+    "userId": 157717,
+    "price": 69,
+    "availability": 25,
+    "listingState": "AVALIBLE"
+  },
+  {
+    "listingId": 21641,
+    "product": {
+      "prodName": "TestPRIT Bimot",
+      "prodCategory": {
+        "categoryName": "Test category"
+      },
+      "prodDesc": "Big boi"
+    },
+    "userId": 101981,
+    "price": 69,
+    "availability": 25,
+    "listingState": "AVALIBLE"
+  },
+  {
+    "listingId": 19626,
+    "product": {
+      "prodName": "TestPRIT Bimot",
+      "prodCategory": {
+        "categoryName": "Test category"
+      },
+      "prodDesc": "Big boi"
+    },
+    "userId": 118425,
+    "price": 69,
+    "availability": 25,
+    "listingState": "AVALIBLE"
+  },
+  {
+    "listingId": 27730,
+    "product": {
+      "prodName": "TestPRIT Bimot",
+      "prodCategory": {
+        "categoryName": "Test category"
+      },
+      "prodDesc": "Big boi"
+    },
+    "userId": 123900,
+    "price": 69,
+    "availability": 25,
+    "listingState": "AVALIBLE"
+  },
+  {
+    "listingId": 47345,
+    "product": {
+      "prodName": "TestPRIT Bimot",
+      "prodCategory": {
+        "categoryName": "Test category"
+      },
+      "prodDesc": "Big boi"
+    },
+    "userId": 104661,
+    "price": 69,
+    "availability": 25,
+    "listingState": "AVALIBLE"
+  },
+  {
+    "listingId": 42352,
+    "product": {
+      "prodName": "TestPRIT Bimot",
+      "prodCategory": {
+        "categoryName": "Test category"
+      },
+      "prodDesc": "Big boi"
+    },
+    "userId": 128418,
+    "price": 69,
+    "availability": 25,
+    "listingState": "AVALIBLE"
+  },
+  {
+    "listingId": 5874,
+    "product": {
+      "prodName": "TestPRIT Bimot",
+      "prodCategory": {
+        "categoryName": "Test category"
+      },
+      "prodDesc": "Big boi"
+    },
+    "userId": 193497,
+    "price": 69,
+    "availability": 25,
+    "listingState": "AVALIBLE"
+  },
+  {
+    "listingId": 45735,
+    "product": {
+      "prodName": "TestPRIT Bimot",
+      "prodCategory": {
+        "categoryName": "Test category"
+      },
+      "prodDesc": "Big boi"
+    },
+    "userId": 104041,
+    "price": 69,
+    "availability": 25,
+    "listingState": "AVALIBLE"
+  },
+  {
+    "listingId": 68044,
+    "product": {
+      "prodName": "ipsum",
+      "prodCategory": {
+        "categoryName": "Övrigt"
+      },
+      "prodDesc": "lorem"
+    },
+    "userId": 154585,
+    "price": 1,
+    "availability": 25,
+    "listingState": "AVALIBLE"
+  },
+  {
+    "listingId": 37379,
+    "product": {
+      "prodName": "test 7",
       "prodCategory": {
         "categoryName": "Något annat"
       },
-      "prodDesc": "äåö"
+      "prodDesc": "ipsum"
     },
-    "userId": 0,
-    "price": 123,
+    "userId": 154585,
+    "price": 4,
+    "availability": 25,
+    "listingState": "AVALIBLE"
+  },
+  {
+    "listingId": 63804,
+    "product": {
+      "prodName": "tes 6",
+      "prodCategory": {
+        "categoryName": "Något annat"
+      },
+      "prodDesc": "heeej"
+    },
+    "userId": 154585,
+    "price": 48,
+    "availability": 25,
+    "listingState": "AVALIBLE"
+  },
+  {
+    "listingId": 37707,
+    "product": {
+      "prodName": "min kärra",
+      "prodCategory": {
+        "categoryName": "Släpkärror"
+      },
+      "prodDesc": "en fin kärra"
+    },
+    "userId": 154585,
+    "price": 400,
+    "availability": 25,
+    "listingState": "AVALIBLE"
+  },
+  {
+    "listingId": 5356,
+    "product": {
+      "prodName": "ipsum",
+      "prodCategory": {
+        "categoryName": "Något annat"
+      },
+      "prodDesc": "lorem"
+    },
+    "userId": 154585,
+    "price": 8889,
+    "availability": 25,
+    "listingState": "AVALIBLE"
+  },
+  {
+    "listingId": 69208,
+    "product": {
+      "prodName": "test",
+      "prodCategory": {
+        "categoryName": "Något annat"
+      },
+      "prodDesc": "test"
+    },
+    "userId": 154585,
+    "price": 2,
     "availability": 25,
     "listingState": "AVALIBLE"
   }

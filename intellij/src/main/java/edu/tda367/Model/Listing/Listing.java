@@ -26,6 +26,9 @@ public class Listing {
         this.listingState = ListingState.AVALIBLE; //Defaults to AVALIABLE now
     }
 
+    //TODO Listings, bridge pattern for getting users listings
+    //
+
     private int generateListingId() {
         Random rand = new Random();
         return rand.nextInt(69420);
@@ -84,5 +87,9 @@ public class Listing {
 
     public void setListingState(ListingState listingState) {
         this.listingState = listingState;
+    }
+
+    public int getListingID() {
+        return this.listingId;
     }
 }

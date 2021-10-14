@@ -1,5 +1,7 @@
 package edu.tda367.Model.UserPackage;
 
+import java.util.ArrayList;
+
 /**
  * Class to represent a User, preferably used toghether with "UserHandler" to control input and usage.
  *

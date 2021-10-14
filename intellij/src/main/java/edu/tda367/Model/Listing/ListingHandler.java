@@ -2,10 +2,12 @@ package edu.tda367.Model.Listing;
 
 import edu.tda367.Model.JSON.JSONReader;
 import edu.tda367.Model.JSON.JSONWriter;
+import edu.tda367.Model.UserPackage.User;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -14,7 +16,7 @@ import java.util.List;
  */
 public class ListingHandler {
     private static ListingHandler instance;
-    private final ArrayList<Listing> listings;
+    private final HashMap<Integer,Listing> listings;
     private final ArrayList<Category> categories;
 
     /**
@@ -54,18 +56,7 @@ public class ListingHandler {
         return category;
     }
 
-    public Listing getListingByProductName(String productName) {
-        System.out.println(productName);
-        for(Listing listing : listings) {
-            System.out.println("listing name " + listing.getProduct().getProdName());
-            System.out.println(listing.getProduct().getProdName().equals(productName));
-            if(listing.getProduct().getProdName().equals(productName))
-            {
-                return listing;
-            }
-        }
-        return listings.get(0);
-    }
+
 
     /**
      * Getter for category names.
@@ -81,7 +72,7 @@ public class ListingHandler {
      * Getter for Listings
      * @return An ArrayList af all current listings
      */
-    public ArrayList<Listing> getListings() {
+    public HashMap<Integer, Listing> getListings() {
         return listings;
     }
 
@@ -101,6 +92,26 @@ public class ListingHandler {
         return availableListings;
     }
 
+    public ArrayList<Integer> getMyListingIds(int userId) {
+        ArrayList<Integer> ids = new ArrayList<>();
+        for (Listing listing : listings) {
+
+        }
+        return ids;
+    }
+
+    public Listing getListingByProductName(String productName) {
+        System.out.println(productName);
+        for(Listing listing : listings) {
+            System.out.println("listing name " + listing.getProduct().getProdName());
+            System.out.println(listing.getProduct().getProdName().equals(productName));
+            if(listing.getProduct().getProdName().equals(productName))
+            {
+                return listing;
+            }
+        }
+        return listings.get(0);
+    }
     /**
      * Removes the specified listing form the ArrayList and returns it
      * @param listing
@@ -157,16 +168,17 @@ public class ListingHandler {
      * @return An ArrayList containing Listing objects
      *
      */
-    private ArrayList<Listing> getSavedListings() {
-        ArrayList<Listing> listingstmp = new ArrayList<>();
+    private HashMap<Integer, Listing> getSavedListings() {
+        HashMap<Integer, Listing> listingstmp = new HashMap<>();
         JSONReader reader = new JSONReader();
         List<Listing> savedUsers = reader.read(Listing[].class, "listings");
+
         savedUsers.forEach(l ->
         {
             if (l == null) {
                 System.out.println("null object in json file");
             } else {
-                listingstmp.add(l);
+                listingstmp.put(l.getListingID(),l);
             }
         });
         return listingstmp;

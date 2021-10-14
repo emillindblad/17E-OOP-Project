@@ -1,0 +1,16 @@
+[
+  {
+    "listingId": 62646,
+    "product": {
+      "prodName": "Bajs",
+      "prodCategory": {
+        "categoryName": "Något annat"
+      },
+      "prodDesc": "En bajskorv"
+    },
+    "userId": 0,
+    "price": 1112,
+    "availability": 25,
+    "listingState": "AVALIBLE"
+  }
+]

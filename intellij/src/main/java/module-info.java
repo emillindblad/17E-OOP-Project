@@ -8,6 +8,7 @@ module edu.tda367 {
     opens edu.tda367 to javafx.fxml;
     opens edu.tda367.Model.UserPackage to com.google.gson;
     opens edu.tda367.Model.Listing to com.google.gson;
+    opens edu.tda367.Model.Booking to com.google.gson;
 
     opens edu.tda367.View.scenes to javafx.fxml;
     exports edu.tda367;

@@ -1,21 +1,14 @@
 package edu.tda367.View.scenes;
 
 import edu.tda367.Controllers.BrowseController;
-import edu.tda367.Model.Listing.Listing;
 import edu.tda367.View.SceneHandler;
-
-import java.awt.*;
-import java.util.ArrayList;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
-import javafx.scene.image.ImageView;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Optional;
@@ -25,6 +18,11 @@ public class BrowseListings extends AbstractHyroScene {
 
     @FXML
     FlowPane listProducts;
+    @FXML
+    TextField searchField;
+
+    @FXML
+    public Button catButton1, catButton2, catButton3, catButton4, catButton5, catButton6,catButton7, catButton8;
 
     /**
      * Constructs the BrowseListings Scene
@@ -34,6 +32,11 @@ public class BrowseListings extends AbstractHyroScene {
     public BrowseListings(SceneHandler handler) throws IOException {
         super("browse", handler);
         browseController = new BrowseController(handler);
+        searchField.setOnKeyPressed( event -> {
+            if( event.getCode() == KeyCode.ENTER ) {
+                search();
+            }
+        } );
         updateList();
     }
 
@@ -83,8 +86,16 @@ public class BrowseListings extends AbstractHyroScene {
         listProducts.getChildren().clear();
         for(int i = 0; i < listings.size(); i++)
         {
-            listProducts.getChildren().add(new ListingItem(this.handler, this, listings.get(i).getPrice(), listings.get(i).getProduct().getProdName(), listings.get(i).getProduct().getCategoryName()));
+            listProducts.getChildren().add(new ListingItem(this.handler, this, listings.get(i).getPrice(), listings.get(i).getProduct().getProdName(), listings.get(i).getProduct().getCategoryName(), listings.get(i).getListingId()));
         }
+    }
+
+    @FXML
+    public void search() {
+        browseController.search(searchField.getText());
+        System.out.println("Searched");
+        update();
+        System.out.println("updated list");
     }
 
     /**
@@ -93,5 +104,48 @@ public class BrowseListings extends AbstractHyroScene {
     @Override
     public void update() {
         updateList();
+    }
+
+    //CategoryButtons
+
+    @FXML
+    public void CatButton1Pressed() {
+        browseController.search(catButton1.getText());
+        update();
+    }
+    @FXML
+    public void CatButton2Pressed() {
+        browseController.search(catButton2.getText());
+        update();
+    }
+    @FXML
+    public void CatButton3Pressed() {
+        browseController.search(catButton3.getText());
+        update();
+    }
+    @FXML
+    public void CatButton4Pressed() {
+        browseController.search(catButton4.getText());
+        update();
+    }
+    @FXML
+    public void CatButton5Pressed() {
+        browseController.search(catButton5.getText());
+        update();
+    }
+    @FXML
+    public void CatButton6Pressed() {
+        browseController.search(catButton6.getText());
+        update();
+    }
+    @FXML
+    public void CatButton7Pressed() {
+        browseController.search(catButton7.getText());
+        update();
+    }
+    @FXML
+    public void CatButton8Pressed() {
+        browseController.search(catButton8.getText());
+        update();
     }
 }

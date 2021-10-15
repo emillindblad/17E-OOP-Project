@@ -27,7 +27,7 @@ public class ListingItem extends AnchorPane {
 
     private hyroScene scene;
 
-    private final int listingId;
+    private final String listingId;
 
     /**
      * Constructor for the ListingItem which is a component that gets loaded in the BrowseListings Scenes flowpoane
@@ -37,7 +37,7 @@ public class ListingItem extends AnchorPane {
      * @param listingId1
      */
 
-    protected ListingItem(SceneHandler handler, hyroScene scene, int price, String productName, String productCategory, int listingId) {
+    protected ListingItem(SceneHandler handler, hyroScene scene, int price, String productName, String productCategory, String listingId) {
         this.listingId = listingId;
         FXMLLoader loader = App.loadFXML("listingitem");
         System.out.println(loader.toString());

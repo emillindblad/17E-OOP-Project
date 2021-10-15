@@ -13,7 +13,7 @@ public class BrowseController implements Controller {
     private SceneHandler sceneHandler;
     UserHandler uHandler;
 
-    public void switchToListing(int listingId) throws IOException {
+    public void switchToListing(String listingId) throws IOException {
         Listing listing = listingHandler.getListingByListingId(listingId);
         sceneHandler.switchToListingView(listing);
     }

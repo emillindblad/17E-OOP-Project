@@ -66,9 +66,9 @@ public class ListingHandler {
         return category;
     }
 
-    public Listing getListingByListingId(int listingId) {
+    public Listing getListingByListingId(String listingId) {
         for(Listing listing : listings) {
-            if(listing.getListingId() == listingId)
+            if(listing.getListingId().equals(listingId))
             {
                 return listing;
             }

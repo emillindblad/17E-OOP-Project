@@ -6,8 +6,11 @@ import edu.tda367.Model.UserPackage.User;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+<<<<<<< HEAD
 import java.util.Arrays;
 import java.util.HashMap;
+=======
+>>>>>>> origin/master
 import java.util.List;
 
 /**
@@ -23,8 +26,21 @@ public class ListingHandler {
      * Private Constructor, for limiting class to one instance.
      */
     private ListingHandler() {
-        categories = new ArrayList<Category>(Arrays.asList(new Category("Övrigt"), new Category("Något annat"))); //TODO Implement database?
+        categories = new ArrayList<Category>(); //TODO Implement database?
+        populateCategoryList();
         listings = getSavedListings();
+    }
+
+    private void populateCategoryList (){
+        categories.add(new Category("Bilar"));
+        categories.add(new Category("Båtar"));
+        categories.add(new Category("Släpkärror"));
+        categories.add(new Category("Maskiner"));
+        categories.add(new Category("Elektronik"));
+        categories.add(new Category("Möbler"));
+        categories.add(new Category("Fritidsutrustning"));
+        categories.add(new Category("Övrigt"));
+
     }
 
     /**
@@ -57,6 +73,15 @@ public class ListingHandler {
     }
 
 
+    public Listing getListingByListingId(String listingId) {
+        for(Listing listing : listings) {
+            if(listing.getListingId().equals(listingId))
+            {
+                return listing;
+            }
+        }
+        return listings.get(0);
+    }
 
     /**
      * Getter for category names.
@@ -120,6 +145,14 @@ public class ListingHandler {
     public Listing removeListing(Listing listing) {//TODO Maybe not necessary to return removed listing, breaks CQS.
         listings.remove(listing);
         return listing;
+    }
+
+    public void sortListings (String sortBy) {
+        System.out.println("handler started");
+        System.out.println("Befor sorted:" + listings.get(0).getProduct().getProdName());
+        ListingSorter.sortBySearchWord(sortBy, listings);
+        System.out.println("after sorted:" + listings.get(0).getProduct().getProdName());
+        System.out.println("handler done");
     }
 
 

@@ -9,7 +9,6 @@ import org.junit.Test;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -64,17 +63,24 @@ public class TestListing {
     }
 
 
-    @Test
+    /*@Test
     public void testGetListingByProdName() {
         String prodName = "prit Grill";
         Listing listing = handler.getListingByProductName(prodName);
         assertTrue(handler.getListings().get(0) == listing);
-    }
+    }*/
 
     @Test
     public void testDuration() {
         long duration = ChronoUnit.HOURS.between(startDate,endDate);
         assertTrue(duration==25);
+    }
+
+    @Test
+    public void testGetListingById() {
+        String id = testListing.getListingId();
+        Listing foundListing = handler.getListingByListingId(id);
+        assertTrue(testListing == foundListing);
     }
 
     @Test
@@ -115,11 +121,13 @@ public class TestListing {
     @Test
     public void testSortingBySearch() {
         //List <Listing> listToTest = createProductList();
-        System.out.println(handler.getAvailableListings().toString());
+        System.out.println(handler.getListings().toString());
         thirdTestListing = handler.createListing("SortingTest",testCat,"hitta grill",127,420,startDate,endDate);
         String search = "hitta grill";
-        List<Listing> sortedBySearch = ListingSorter.sortBySearchWord(search, handler.getAvailableListings());
-        assertTrue(sortedBySearch.get(0).getProduct().getProdName().equals("SortingTest"));
+        ListingSorter.sortBySearchWord(search, handler.getListings());
+        System.out.println("AHA");
+        System.out.println(handler.getListings().get(0).getProduct().getProdName());
+        assertTrue(handler.getListings().get(0).getProduct().getProdName().equals("SortingTest"));
     }
 
 }

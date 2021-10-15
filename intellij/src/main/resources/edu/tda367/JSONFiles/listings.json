@@ -1,15 +1,29 @@
 [
   {
-    "listingId": "JYvx6FIoMWgy",
+    "listingId": "iloGqHLKyrgR",
     "product": {
-      "prodName": "asd",
+      "prodName": "snabb bil",
       "prodCategory": {
-        "categoryName": "Övrigt"
+        "categoryName": "Bilar"
       },
-      "prodDesc": "äöå"
+      "prodDesc": "fast"
     },
     "userId": 0,
     "price": 123,
+    "availability": 25,
+    "listingState": "AVALIBLE"
+  },
+  {
+    "listingId": "JYvx6FIoMWgy",
+    "product": {
+      "prodName": "TestPRIT Bimot",
+      "prodCategory": {
+        "categoryName": "Test category"
+      },
+      "prodDesc": "Big boi"
+    },
+    "userId": 157717,
+    "price": 69,
     "availability": 25,
     "listingState": "AVALIBLE"
   }

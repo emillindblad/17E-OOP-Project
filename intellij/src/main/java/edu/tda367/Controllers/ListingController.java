@@ -5,6 +5,10 @@ import edu.tda367.Model.Listing.ListingHandler;
 import edu.tda367.Model.UserPackage.UserHandler;
 import edu.tda367.View.SceneHandler;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 
 public class ListingController implements Controller {
@@ -24,9 +28,17 @@ public class ListingController implements Controller {
         sceneHandler.centerOnScreen();
     }
 
-    public String createListing(String[] formData) {
+    public String createListing(String[] formData, File src, String destPath) {
         int userId = userHandler.getUserID();
          if (validateData(formData)) { //Return true if valid input.
+             if(src != null) {
+                 try {
+                     Files.copy(src.toPath(), new File(destPath + src.getName()).toPath(), StandardCopyOption.REPLACE_EXISTING);
+                     System.out.println("did save");
+                 } catch (IOException ex) {
+                     ex.printStackTrace();
+                 }
+             }
              listingHandler.createListingFromString(formData, userId);
              switchToBrowse();
              return "Success";

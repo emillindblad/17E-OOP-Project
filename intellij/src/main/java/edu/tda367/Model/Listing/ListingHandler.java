@@ -9,6 +9,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
+
+import org.apache.commons.text.CharacterPredicates;
+import org.apache.commons.text.RandomStringGenerator;
 
 /**
  * ListingHandler is a class designed for interacting with Listings and their associated products and categories.
@@ -71,13 +75,7 @@ public class ListingHandler {
 
 
     public Listing getListingByListingId(String listingId) {
-        for(Listing listing : listings) {
-            if(listing.getListingId().equals(listingId))
-            {
-                return listing;
-            }
-        }
-        return listings.get(0);
+        return listings.get(listingId);
     }
 
     /**
@@ -94,7 +92,7 @@ public class ListingHandler {
      * Getter for Listings
      * @return An ArrayList af all current listings
      */
-    public HashMap<Integer, Listing> getListings() {
+    public HashMap<String, Listing> getListings() {
         return listings;
     }
 
@@ -104,13 +102,13 @@ public class ListingHandler {
      */
     public ArrayList<Listing> getAvailableListings() {
         ArrayList<Listing> availableListings = new ArrayList<Listing>();
-        for(Listing listing : listings)
-        {
-            if(listing.getListingState().equals(ListingState.AVALIBLE))
-            {
-                availableListings.add(listing);
+        listings.forEach(
+            (key, listing) -> {
+                if (listing.getListingState().equals(ListingState.AVALIBLE)) {
+                    availableListings.add(listing);
+                }
             }
-        }
+        );
         return availableListings;
     }
 
@@ -165,8 +163,10 @@ public class ListingHandler {
      * @return listing - The newly created listing
      */
     public Listing createListing(String prodName, Category prodCat, String prodDesc, int userId, int price, LocalDateTime startDate, LocalDateTime endDate) {
-        Listing listing = new Listing(prodName,prodCat,prodDesc,userId,price,startDate,endDate);
-        listings.add(listing);
+        String listingId = generateListingId();
+        Listing listing = new Listing(listingId, prodName,prodCat,prodDesc,userId,price,startDate,endDate);
+        String key = createKey(listing.getListingId(),userId);
+        listings.put(key,listing);
         return listing;
     }
 
@@ -185,18 +185,33 @@ public class ListingHandler {
         //Hardcoded values for now
         LocalDateTime startDate = LocalDateTime.of(2021,9,10,9,0);
         LocalDateTime endDate = LocalDateTime.of(2021,9,11,10,30);
+        String listingId = generateListingId();
 
-        Listing listing = new Listing(prodName,prodCat,prodDesc,userId,price,startDate,endDate);
+        Listing listing = new Listing(listingId,prodName,prodCat,prodDesc,userId,price,startDate,endDate);
         String key = createKey(listing.getListingId(),userId);
 
-        //listings.add(listing);
         listings.put(key,listing);
+
         System.out.println(listings);
         return listing;
     }
 
+    private String generateListingId() {
+        String id;
+        Set keys = listings.keySet();
+        while (true) {
+            RandomStringGenerator generator = new RandomStringGenerator.Builder().withinRange('0','z').filteredBy(CharacterPredicates.LETTERS, CharacterPredicates.DIGITS).build();
+            id = generator.generate(12);
+            if (keys.contains(id)) {
+                break;
+            }
+        }
+        System.out.println(id);
+        return id;
+    }
+
     private String createKey(String listingId, int userId) {
-        return  userId+"-"+listingId;
+        return userId+"-"+listingId;
     }
 
     /**
@@ -227,7 +242,12 @@ public class ListingHandler {
      */
     public void writeListings() {
         JSONWriter writer = new JSONWriter();
-        writer.write(listings, "listings");
+        ArrayList<Listing> toJson = new ArrayList<Listing>();
+        for (Listing l : listings.values()) {
+            toJson.add(l);
+
+        }
+        writer.write(toJson, "listings");
     }
 
 }

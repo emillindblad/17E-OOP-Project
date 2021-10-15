@@ -3,8 +3,6 @@ package edu.tda367.Model.Listing;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.Random;
-import org.apache.commons.text.CharacterPredicates;
-import org.apache.commons.text.RandomStringGenerator;
 
 /**
 * A class representing a Listing of a product
@@ -19,8 +17,8 @@ public class Listing {
     private long availability;
     private ListingState listingState;
 
-    Listing(String prodName, Category prodCat, String prodDesc, int userId, int price, LocalDateTime startDate, LocalDateTime endDate) {
-        this.listingId = generateListingId();
+    Listing(String listingId, String prodName, Category prodCat, String prodDesc, int userId, int price, LocalDateTime startDate, LocalDateTime endDate) {
+        this.listingId = listingId;
         this.product = new Product(prodName, prodCat, prodDesc);
         this.userId = userId;
         this.price = price;
@@ -31,12 +29,6 @@ public class Listing {
 
     //TODO Listings, bridge pattern for getting users listings
     //
-    private String generateListingId() {
-        RandomStringGenerator generator = new RandomStringGenerator.Builder().withinRange('0','z').filteredBy(CharacterPredicates.LETTERS, CharacterPredicates.DIGITS).build();
-        String id = generator.generate(12);
-        System.out.println(id);
-        return id;
-    }
 
     public long setAvailability(LocalDateTime startDate, LocalDateTime endDate) {
         availability = ChronoUnit.HOURS.between(startDate,endDate);

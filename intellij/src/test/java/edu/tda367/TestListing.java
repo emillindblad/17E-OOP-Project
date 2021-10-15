@@ -78,7 +78,7 @@ public class TestListing {
 
     @Test
     public void testGetListingById() {
-        int id = testListing.getListingId();
+        String id = testListing.getListingId();
         Listing foundListing = handler.getListingByListingId(id);
         assertTrue(testListing == foundListing);
     }

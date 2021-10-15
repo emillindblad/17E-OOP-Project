@@ -3,13 +3,15 @@ package edu.tda367.Model.Listing;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.Random;
+import org.apache.commons.text.CharacterPredicates;
+import org.apache.commons.text.RandomStringGenerator;
 
 /**
 * A class representing a Listing of a product
 * @author Emil Lindblad
 */
 public class Listing {
-    private final int listingId;
+    private final String listingId;
     private Product product;
     private int userId;
     private int price;
@@ -24,11 +26,16 @@ public class Listing {
         this.price = price;
         this.availability = setAvailability(startDate, endDate);
         this.listingState = ListingState.AVALIBLE; //Defaults to AVALIABLE now
+
     }
 
-    private int generateListingId() {
-        Random rand = new Random();
-        return rand.nextInt(69420);
+    //TODO Listings, bridge pattern for getting users listings
+    //
+    private String generateListingId() {
+        RandomStringGenerator generator = new RandomStringGenerator.Builder().withinRange('0','z').filteredBy(CharacterPredicates.LETTERS, CharacterPredicates.DIGITS).build();
+        String id = generator.generate(12);
+        System.out.println(id);
+        return id;
     }
 
     public long setAvailability(LocalDateTime startDate, LocalDateTime endDate) {
@@ -46,7 +53,7 @@ public class Listing {
                 '}';
     }
 
-    public int getListingId() {
+    public String getListingId() {
         return this.listingId;
     }
 

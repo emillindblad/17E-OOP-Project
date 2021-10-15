@@ -1,12 +1,12 @@
 [
   {
-    "listingId": 64062,
+    "listingId": "JYvx6FIoMWgy",
     "product": {
-      "prodName": "erf",
+      "prodName": "asd",
       "prodCategory": {
-        "categoryName": "Något annat"
+        "categoryName": "Övrigt"
       },
-      "prodDesc": "äåö"
+      "prodDesc": "äöå"
     },
     "userId": 0,
     "price": 123,

@@ -8,16 +8,32 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ScrollPane hbarPolicy="NEVER" layoutX="102.0" layoutY="59.0" prefHeight="282.0" prefWidth="491.0" AnchorPane.bottomAnchor="59.0" AnchorPane.leftAnchor="102.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="59.0">
-         <content>
-            <FlowPane fx:id="listProducts" alignment="CENTER" columnHalignment="CENTER" prefHeight="283.0" prefWidth="496.0" />
-         </content>
-      </ScrollPane>
-      <Button fx:id="logInButton" layoutX="247.0" layoutY="348.0" mnemonicParsing="false" onAction="#switchToCreate" style="-fx-background-color: #09CD09;" text="Skapa ny annons" underline="true" AnchorPane.bottomAnchor="26.4">
+      <AnchorPane layoutX="111.0" layoutY="59.0" prefHeight="334.0" prefWidth="565.0" AnchorPane.bottomAnchor="67.0" AnchorPane.leftAnchor="111.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="59.0">
+         <children>
+            <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="334.0" prefWidth="566.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <content>
+                  <GridPane fx:id="listProducts" hgap="20.0" vgap="10.0">
+                    <columnConstraints>
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints fillWidth="false" halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints fillHeight="false" valignment="CENTER" vgrow="SOMETIMES" />
+                      <RowConstraints fillHeight="false" vgrow="SOMETIMES" />
+                      <RowConstraints fillHeight="false" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                  </GridPane>
+               </content>
+            </ScrollPane>
+         </children>
+      </AnchorPane>
+      <Button fx:id="logInButton" layoutX="-2.0" layoutY="668.0" mnemonicParsing="false" onAction="#switchToCreate" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: #09CD09;" text="Skapa ny annons" underline="true" AnchorPane.bottomAnchor="25.600000000000023">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -57,12 +73,12 @@
             <DropShadow />
          </effect>
       </ImageView>
-      <TextField fx:id="searchField" layoutX="102.0" layoutY="18.0" prefHeight="26.0" prefWidth="288.0" promptText="Sök här..." AnchorPane.leftAnchor="102.0" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="18.0">
+      <TextField fx:id="searchField" layoutX="116.0" layoutY="18.0" prefHeight="26.0" prefWidth="288.0" promptText="Sök här..." AnchorPane.leftAnchor="111.0" AnchorPane.rightAnchor="196.0" AnchorPane.topAnchor="18.0">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
-      <Button fx:id="searchButton" layoutX="404.0" layoutY="19.0" mnemonicParsing="false" onMouseClicked="#search" text="Sök" AnchorPane.rightAnchor="160.0" AnchorPane.topAnchor="19.0">
+      <Button fx:id="searchButton" layoutX="480.0" layoutY="18.0" mnemonicParsing="false" onMouseClicked="#search" text="Sök" AnchorPane.rightAnchor="152.60000000000002" AnchorPane.topAnchor="18.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

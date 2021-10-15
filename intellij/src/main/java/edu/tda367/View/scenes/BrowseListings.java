@@ -1,6 +1,7 @@
 package edu.tda367.View.scenes;
 
 import edu.tda367.Controllers.BrowseController;
+import edu.tda367.Model.Listing.Listing;
 import edu.tda367.View.SceneHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -8,7 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
-import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
 import java.util.Optional;
@@ -17,7 +18,7 @@ public class BrowseListings extends AbstractHyroScene {
     BrowseController browseController;
 
     @FXML
-    FlowPane listProducts;
+    GridPane listProducts;
     @FXML
     TextField searchField;
 
@@ -83,12 +84,21 @@ public class BrowseListings extends AbstractHyroScene {
      */
     void updateList() {
         var listings = browseController.getAvailableListings();
+        int index0 = 0;
+        int index1 =0;
         listProducts.getChildren().clear();
-        for(int i = 0; i < listings.size(); i++)
-        {
-            listProducts.getChildren().add(new ListingItem(this.handler, this, listings.get(i).getPrice(), listings.get(i).getProduct().getProdName(), listings.get(i).getProduct().getCategoryName(), listings.get(i).getListingId()));
+        for(Listing l: listings) {
+                listProducts.add(new ListingItem(this.handler, this, l.getPrice(), l.getProduct().getProdName(), l.getProduct().getCategoryName(), l.getListingId()), index0,index1 );
+
+            index0++;
+            if( index0 == 2){
+                index1++;
+                index0 = 0;
+                }
+            }
+
         }
-    }
+
 
     @FXML
     public void search() {

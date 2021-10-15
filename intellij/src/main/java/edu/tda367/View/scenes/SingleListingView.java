@@ -21,7 +21,7 @@ public class SingleListingView extends AbstractHyroScene {
     @FXML
     private Label description;
 
-    private final int listingId;
+    private final String listingId;
 
     /**
      * Super constructor for all scenes. Loads the FXML file and creates a scene with the loaded fxml file
@@ -30,7 +30,7 @@ public class SingleListingView extends AbstractHyroScene {
      * @param price
      * @param listingId
      */
-    public SingleListingView(SceneHandler handler, int user, String productName, int price, String category, String description, int listingId) throws IOException {
+    public SingleListingView(SceneHandler handler, int user, String productName, int price, String category, String description, String listingId) throws IOException {
         super("SingleListingView", handler);
         this.listingId = listingId;
         userId.setText(String.valueOf(user));

@@ -6,11 +6,8 @@ import edu.tda367.Model.UserPackage.User;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-<<<<<<< HEAD
 import java.util.Arrays;
 import java.util.HashMap;
-=======
->>>>>>> origin/master
 import java.util.List;
 
 /**
@@ -19,7 +16,7 @@ import java.util.List;
  */
 public class ListingHandler {
     private static ListingHandler instance;
-    private final HashMap<Integer,Listing> listings;
+    private final HashMap<String,Listing> listings;
     private final ArrayList<Category> categories;
 
     /**
@@ -190,9 +187,16 @@ public class ListingHandler {
         LocalDateTime endDate = LocalDateTime.of(2021,9,11,10,30);
 
         Listing listing = new Listing(prodName,prodCat,prodDesc,userId,price,startDate,endDate);
-        listings.add(listing);
+        String key = createKey(listing.getListingId(),userId);
+
+        //listings.add(listing);
+        listings.put(key,listing);
         System.out.println(listings);
         return listing;
+    }
+
+    private String createKey(String listingId, int userId) {
+        return  userId+"-"+listingId;
     }
 
     /**
@@ -201,8 +205,8 @@ public class ListingHandler {
      * @return An ArrayList containing Listing objects
      *
      */
-    private HashMap<Integer, Listing> getSavedListings() {
-        HashMap<Integer, Listing> listingstmp = new HashMap<>();
+    private HashMap<String, Listing> getSavedListings() {
+        HashMap<String, Listing> listingstmp = new HashMap<>();
         JSONReader reader = new JSONReader();
         List<Listing> savedUsers = reader.read(Listing[].class, "listings");
 
@@ -211,7 +215,7 @@ public class ListingHandler {
             if (l == null) {
                 System.out.println("null object in json file");
             } else {
-                listingstmp.put(l.getListingID(),l);
+                listingstmp.put(createKey(l.getListingId(),l.getUserId()),l);
             }
         });
         return listingstmp;

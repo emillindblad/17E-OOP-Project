@@ -34,7 +34,7 @@ public class ListingItem extends AnchorPane {
      * @param price price for the product that is listed
      * @param productName name of the product that is listed
      * @param productCategory category name for the product that is listed
-     * @param listingId1
+     * @param listingId
      */
 
     protected ListingItem(SceneHandler handler, hyroScene scene, int price, String productName, String productCategory, int listingId) {
@@ -59,8 +59,9 @@ public class ListingItem extends AnchorPane {
 
     void initialize(int price, String productName, String itemCategory) {
         this.itemProductName.setText(productName);
-        this.itemPrice.setText(String.valueOf(price));
+        this.itemPrice.setText(String.valueOf(price + " Kr"));
         this.itemCategory.setText(itemCategory);
+        this.setStyle("-fx-border-color: black ; -fx-border-width: 1px ;");
     }
 
 

@@ -31,7 +31,6 @@ public class Listing {
 
     //TODO Listings, bridge pattern for getting users listings
     //
-
     private String generateListingId() {
         RandomStringGenerator generator = new RandomStringGenerator.Builder().withinRange('0','z').filteredBy(CharacterPredicates.LETTERS, CharacterPredicates.DIGITS).build();
         String id = generator.generate(12);

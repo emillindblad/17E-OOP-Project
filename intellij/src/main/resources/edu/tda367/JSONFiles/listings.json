@@ -1,0 +1,16 @@
+[
+  {
+    "listingId": "JYvx6FIoMWgy",
+    "product": {
+      "prodName": "asd",
+      "prodCategory": {
+        "categoryName": "Övrigt"
+      },
+      "prodDesc": "äöå"
+    },
+    "userId": 0,
+    "price": 123,
+    "availability": 25,
+    "listingState": "AVALIBLE"
+  }
+]

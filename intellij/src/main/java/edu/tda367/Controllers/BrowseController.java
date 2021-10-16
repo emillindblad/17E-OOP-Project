@@ -4,11 +4,7 @@ import edu.tda367.Model.Listing.Listing;
 import edu.tda367.Model.Listing.ListingHandler;
 import edu.tda367.View.SceneHandler;
 import edu.tda367.Model.UserPackage.UserHandler;
-
-
-import edu.tda367.Model.Listing.Listing;
-import edu.tda367.Model.Listing.ListingHandler;
-import edu.tda367.Model.UserPackage.UserHandler;
+import edu.tda367.View.SceneHandler;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -18,8 +14,8 @@ public class BrowseController implements Controller {
     private SceneHandler sceneHandler;
     UserHandler uHandler;
 
-    public void switchToListing(String productName) throws IOException {
-        Listing listing = listingHandler.getListingByProductName(productName);
+    public void switchToListing(String listingId) throws IOException {
+        Listing listing = listingHandler.getListingByListingId(listingId);
         sceneHandler.switchToListingView(listing);
     }
 
@@ -36,5 +32,9 @@ public class BrowseController implements Controller {
 
     public void logOut() {
         uHandler.logOut();
+    }
+
+    public void search (String searchWord) {
+        listingHandler.sortListings(searchWord);
     }
 }

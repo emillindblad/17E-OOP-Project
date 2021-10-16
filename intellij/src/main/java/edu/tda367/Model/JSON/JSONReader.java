@@ -4,9 +4,8 @@ package edu.tda367.Model.JSON;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -23,7 +22,7 @@ public class JSONReader {
      * @return An ArrayList containing objects of specified class
      */
     public <T> List<T> read(Class<T[]> clazz, String name) {
-        try (FileReader reader = new FileReader("src/main/resources/edu/tda367/JSONFiles/" + name + ".json")) {
+            try (Reader reader = new InputStreamReader(new FileInputStream("src/main/resources/edu/tda367/JSONFiles/" + name + ".json"), StandardCharsets.UTF_8)) {
             T[] arr = new Gson().fromJson(reader, clazz);
             if (arr == null || arr.length == 0) {
                 System.out.println("Empty file for " + name + ", returning empty list");

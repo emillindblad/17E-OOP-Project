@@ -4,6 +4,7 @@ module edu.tda367 {
     requires com.google.gson;
     requires java.datatransfer;
     requires java.desktop;
+    requires org.apache.commons.text;
 
     opens edu.tda367 to javafx.fxml;
     opens edu.tda367.Model.UserPackage to com.google.gson;

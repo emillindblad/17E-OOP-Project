@@ -1,6 +1,7 @@
 package edu.tda367.Model.Booking;
 
 import edu.tda367.Model.Listing.Listing;
+import edu.tda367.Model.Listing.ListingState;
 import edu.tda367.Model.RentingItemEntry;
 import edu.tda367.Model.UserPackage.User;
 import javafx.scene.image.Image;
@@ -14,6 +15,7 @@ class Booking implements RentingItemEntry {
     Booking(User customer, Listing listing) {
         this.customer = customer;
         this.listing = listing;
+        listing.advanceState();
     }
 
     BookingState getBookingState() {
@@ -33,10 +35,12 @@ class Booking implements RentingItemEntry {
 
             case ACCEPTED:
                 bookingState = BookingState.PAYED;
+                listing.advanceState();
                 break;
 
             case PAYED:
                 bookingState = BookingState.RETURNED;
+                listing.advanceState();
                 break;
 
             case RETURNED:
@@ -71,51 +75,35 @@ class Booking implements RentingItemEntry {
 
     @Override
     public String getStatusText() {
-        switch (bookingState) {
-            case PENDING:
-                bookingState = BookingState.ACCEPTED;
-                return "Förfrågan skickad";
-
-            case ACCEPTED:
-                bookingState = BookingState.PAYED;
-                return "Förfrågan godkänd";
-
-            case PAYED:
-                bookingState = BookingState.RETURNED;
-                return "Bokning betalad";
-
-            case RETURNED:
-                bookingState = BookingState.DONE;
-                return "Vara tillbakalämnad";
-
-            default:
-                return "Tillbakalämnande godkänt";
-        }
+        updateStateFromListing();
+        return switch (bookingState) {
+            case PENDING -> "Förfrågan skickad";
+            case ACCEPTED -> "Förfrågan godkänd";
+            case PAYED -> "Bokning betalad";
+            case RETURNED -> "Vara tillbakalämnad";
+            default -> "Tillbakalämnande godkänt";
+        };
     }
 
     @Override
     public String getButtonText() {
-        switch (bookingState) {
-            case ACCEPTED:
-                bookingState = BookingState.PAYED;
-                return "Betala";
+        updateStateFromListing();
+        return switch (bookingState) {
+            case ACCEPTED -> "Betala";
+            case PAYED -> "Återlämna";
+            default -> "";
+        };
+    }
 
-            case PAYED:
-                bookingState = BookingState.RETURNED;
-                return "Återlämna";
+    private void updateStateFromListing() {
+        ListingState lState = listing.getListingState();
 
-            default:
-                return "";
+        if (lState == ListingState.BOOKING_ACCEPTED && bookingState != BookingState.ACCEPTED) {
+            bookingState = BookingState.ACCEPTED;
+        }
+
+        if (lState == ListingState.AVALIBLE && bookingState != BookingState.DONE) {
+            bookingState = BookingState.DONE;
         }
     }
-    /*
-    private boolean getBookingAccepted() {
-        if (listing.bookingIsAccepted(this)) {
-            advanceBookingState();
-            return true;
-        }
-
-        return false;
-    }*/
-
 }

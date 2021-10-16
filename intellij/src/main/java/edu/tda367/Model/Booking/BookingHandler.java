@@ -3,6 +3,7 @@ package edu.tda367.Model.Booking;
 import edu.tda367.Model.JSON.JSONReader;
 import edu.tda367.Model.JSON.JSONWriter;
 import edu.tda367.Model.Listing.Listing;
+import edu.tda367.Model.Listing.ListingState;
 import edu.tda367.Model.UserPackage.User;
 
 import java.util.ArrayList;
@@ -43,6 +44,8 @@ public class BookingHandler {
     public void createBooking(User customer, int userID, Listing listing) {
         if (userID == listing.getUserId()) {
             System.out.println("Can't book your own listing!");
+        } else if (listing.getListingState() != ListingState.AVALIBLE) {
+            System.out.println("Listing not available");
         } else {
             Booking booking = new Booking(customer, listing);
             bookings.add(booking);

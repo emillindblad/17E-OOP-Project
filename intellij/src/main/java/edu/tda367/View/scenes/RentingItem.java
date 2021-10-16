@@ -52,6 +52,8 @@ public class RentingItem extends AnchorPane {
         categoryLabel.setText(entry.getCategoryName());
         statusLabel.setText(entry.getStatusText());
         button.setText(entry.getButtonText());
+        
+        button.setVisible(!button.getText().equals(""));
         //image.setImage(entry.getImage());
     }
 

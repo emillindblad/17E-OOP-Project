@@ -18,10 +18,10 @@ public class RentController implements Controller {
         this.bookingHandler = BookingHandler.getInstance();
     }
 
-    public void rentListing(String productName) {
+    public void rentListing(String listingID) {
         bookingHandler.createBooking(userHandler.getLoggedInUser(),
                                     userHandler.getUserID(),
-                                    listingHandler.getListingByProductName(productName));
+                                    listingHandler.getListingByListingId(listingID));
     }
 
 }

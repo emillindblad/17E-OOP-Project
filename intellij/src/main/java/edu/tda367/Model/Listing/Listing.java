@@ -14,7 +14,7 @@ import org.apache.commons.text.RandomStringGenerator;
 * @author Emil Lindblad
 */
 public class Listing implements RentingItemEntry {
-    private final int listingId;
+    private final String listingId;
     private Product product;
     private int userId;
     private int price;

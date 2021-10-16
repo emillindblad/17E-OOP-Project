@@ -83,7 +83,7 @@ public class TestListing {
         ArrayList<Listing> newListings = secondHandler.getListings(); // Needed extra step for some reason...
         assertTrue(secondHandler.getListings().size() == dbSize);
     }
- 
+
     //@Test TODO
     public void testGetCategories() {
         assertTrue(handler.getCategories().contains(testCat));

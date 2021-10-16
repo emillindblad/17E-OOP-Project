@@ -92,7 +92,11 @@ public class TestBooking {
         assertEquals(bookingHandler.getBookingState(initSize), BookingState.PAYED);
         // Advance booking state last time, should be unchanged
         bookingHandler.advanceBookingState(initSize);
-        assertEquals(bookingHandler.getBookingState(initSize), BookingState.PAYED);
+        assertEquals(bookingHandler.getBookingState(initSize), BookingState.RETURNED);
+        bookingHandler.advanceBookingState(initSize);
+        assertEquals(bookingHandler.getBookingState(initSize), BookingState.DONE);
+        bookingHandler.advanceBookingState(initSize);
+        assertEquals(bookingHandler.getBookingState(initSize), BookingState.DONE);
 
     }
 

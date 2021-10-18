@@ -17,7 +17,7 @@
       "bankAccount": "987654321"
     },
     "listing": {
-      "listingId": 62646,
+      "listingId": "62646",
       "product": {
         "prodName": "Bajs",
         "prodCategory": {

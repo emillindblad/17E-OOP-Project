@@ -6,7 +6,9 @@ import edu.tda367.Model.RentingItemEntry;
 import edu.tda367.Model.UserPackage.User;
 import javafx.scene.image.Image;
 
-class Booking implements RentingItemEntry {
+import java.util.List;
+
+public class Booking implements RentingItemEntry {
 
     private BookingState bookingState = BookingState.PENDING;
     private final User customer;
@@ -105,5 +107,21 @@ class Booking implements RentingItemEntry {
         if (lState == ListingState.AVALIBLE && bookingState != BookingState.DONE) {
             bookingState = BookingState.DONE;
         }
+    }
+
+    /**
+     * Getter for the User who is renting
+     * @return The User who is renting
+     */
+    User getUser() {
+        return customer;
+    }
+
+    /**
+     * Getter for the rented Listing
+     * @return The rented Listing
+     */
+    Listing getListing() {
+        return listing;
     }
 }

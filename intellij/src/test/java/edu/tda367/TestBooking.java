@@ -79,6 +79,17 @@ public class TestBooking {
     }
 
     @Test
+    public void testGetBookedListings(){
+        userHandler.logOut(); // Emil logs in
+        userHandler.logIn("abc", "test");
+
+        assertEquals(bookingHandler.getMyBookedListings().size(), 1);
+        // Cleanup
+        userHandler.logOut();
+        userHandler.logIn("def", "test");
+    }
+
+    @Test
     public void testAdvanceBookingState(){
 
         // Get BookingState from last booking in list (test booking)

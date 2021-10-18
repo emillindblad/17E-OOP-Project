@@ -30,23 +30,24 @@ public class ListingController implements Controller {
 
     public String createListing(String[] formData, File src, String destPath) {
         int userId = userHandler.getUserID();
-         if (validateData(formData)) { //Return true if valid input.
-             if(src != null) {
-                 try {
-                     Files.copy(src.toPath(), new File(destPath + src.getName()).toPath(), StandardCopyOption.REPLACE_EXISTING);
-                     System.out.println("did save");
-                 } catch (IOException ex) {
-                     ex.printStackTrace();
-                 }
-             }
-             listingHandler.createListingFromForm(formData, userId);
-             switchToBrowse();
-             return "Success";
-         }
-         else {
-             System.out.println("Form input failed validation!");
-             return "Fail";
-         }
+        if (validateData(formData)) { //Return true if valid input.
+            if(src != null) {
+                try {
+                    Files.copy(src.toPath(), new File(destPath + src.getName()).toPath(), StandardCopyOption.REPLACE_EXISTING);
+                    System.out.println("did save");
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            }
+            String fileName = src.getName();
+            listingHandler.createListingFromForm(formData, userId);
+            switchToBrowse();
+            return "Success";
+        }
+        else {
+            System.out.println("Form input failed validation!");
+            return "Fail";
+        }
     }
 
     public ArrayList<String> getCategoryNames() {

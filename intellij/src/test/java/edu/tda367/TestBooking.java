@@ -55,7 +55,7 @@ public class TestBooking {
 
         // Create booking - "Sebastian" books "Emil's" Listing
         bookingHandler = BookingHandler.getInstance();
-        initSize = bookingHandler.getBookings().size();
+        initSize = bookingHandler.getMyBookings().size();
         bookingHandler.createBooking(user, userID, listing);
     }
 
@@ -70,12 +70,12 @@ public class TestBooking {
 
     @Test
     public void testBooking() {
-        int size = bookingHandler.getBookings().size();
+        int size = bookingHandler.getMyBookings().size();
         assertEquals(size, initSize + 1); // One new booking should have been created at this point
 
         // Create booking - "Sebastian" tries books his own Listing
         bookingHandler.createBooking(user, userID, secondListing);
-        assertEquals(bookingHandler.getBookings().size(), size); // No new booking, size remains same
+        assertEquals(bookingHandler.getMyBookings().size(), size); // No new booking, size remains same
     }
 
     @Test

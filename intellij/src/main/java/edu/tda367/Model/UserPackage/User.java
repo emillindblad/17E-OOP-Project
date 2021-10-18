@@ -118,6 +118,10 @@ public class User {
         listings.remove(key);
     }
 
+    public ArrayList<String> getMyListingIds() {
+        return this.listings;
+    }
+
     /**
      * Method to access formatted user data
      * @return String of user data
@@ -138,7 +142,7 @@ public class User {
         return password;
     }
 
-    int getUserID() { return userID;}
+    public int getUserID() { return userID;}
 
     public String getBankAccount() {
         return bankAccount;

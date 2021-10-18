@@ -43,7 +43,7 @@ public class CreateListingScene extends AbstractHyroScene {
     }
 
     private String[] getFormInput() { //TODO Get Availability
-        return new String[]{productName.getText(),productDesc.getText(),prodPrice.getText(),categoriesDropdown.getSelectionModel().getSelectedItem()};
+        return new String[]{productName.getText(),productDesc.getText(),prodPrice.getText(),categoriesDropdown.getSelectionModel().getSelectedItem(),selectedFile.getName()};
     }
 
     private void reset() {

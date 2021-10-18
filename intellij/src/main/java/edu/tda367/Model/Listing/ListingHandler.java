@@ -170,8 +170,9 @@ public class ListingHandler {
         LocalDateTime endDate = LocalDateTime.of(2021,9,11,10,30);
 
         String key = createKey(generateListingId(),userId);
+        String fileName = formData[4];
 
-        Listing listing = new Listing(key,prodName,prodCat,prodDesc,userId,price,startDate,endDate);
+        Listing listing = new Listing(key,prodName,prodCat,prodDesc,userId,price,startDate,endDate,fileName);
 
         listings.put(key,listing);
         linker.linkListing(key);
@@ -244,4 +245,15 @@ public class ListingHandler {
         }
         writer.write(toJson, "listings");
     }
+/* //TODO Should be in user already
+    public ArrayList<Listing> getMyListings(int UserID) {
+        ArrayList<Listing> myListings = new ArrayList<>();
+        for (Listing listing : listings) {
+            if (listing.getUserId() == UserID) { myListings.add(listing);}
+        }
+        return myListings;
+    }
+
+ */
+
 }

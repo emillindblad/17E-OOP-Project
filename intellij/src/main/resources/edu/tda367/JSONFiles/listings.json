@@ -1,1 +1,47 @@
-[]
+[
+  {
+    "listingId": "0-JSygbADczRSS",
+    "product": {
+      "prodName": "asd",
+      "prodCategory": {
+        "categoryName": "Bilar"
+      },
+      "prodDesc": "123"
+    },
+    "userId": 0,
+    "price": 123,
+    "availability": 25,
+    "listingState": "AVALIBLE",
+    "fileName": "backArrow.png"
+  },
+  {
+    "listingId": "186158-TmoktgsthJB5",
+    "product": {
+      "prodName": "foobar",
+      "prodCategory": {
+        "categoryName": "Elektronik"
+      },
+      "prodDesc": "234"
+    },
+    "userId": 186158,
+    "price": 4235243,
+    "availability": 25,
+    "listingState": "AVALIBLE",
+    "fileName": "backArrow.png"
+  },
+  {
+    "listingId": "186158-rUWDZHEj4HNO",
+    "product": {
+      "prodName": "asd",
+      "prodCategory": {
+        "categoryName": "Bilar"
+      },
+      "prodDesc": "asd"
+    },
+    "userId": 186158,
+    "price": 123,
+    "availability": 25,
+    "listingState": "AVALIBLE",
+    "fileName": "backArrow.png"
+  }
+]

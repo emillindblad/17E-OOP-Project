@@ -21,6 +21,7 @@ public class Listing implements RentingItemEntry {
     //private Booking booking;
     private long availability;
     private ListingState listingState;
+    private String fileName;
 
     Listing(String prodName, Category prodCat, String prodDesc, int userId, int price, LocalDateTime startDate, LocalDateTime endDate) {
         this.listingId = generateListingId();
@@ -30,6 +31,21 @@ public class Listing implements RentingItemEntry {
         this.availability = setAvailability(startDate, endDate);
         this.listingState = ListingState.AVALIBLE; //Defaults to AVALIABLE now
 
+    }
+
+    Listing(String prodName, Category prodCat, String prodDesc, int userId, int price, LocalDateTime startDate, LocalDateTime endDate, String fileName) {
+        this.listingId = generateListingId();
+        this.product = new Product(prodName, prodCat, prodDesc);
+        this.userId = userId;
+        this.price = price;
+        this.availability = setAvailability(startDate, endDate);
+        this.listingState = ListingState.AVALIBLE; //Defaults to AVALIABLE now
+        this.fileName = fileName;
+
+    }
+
+    public String getFileName() {
+        return this.fileName;
     }
 
     //TODO Listings, bridge pattern for getting users listings

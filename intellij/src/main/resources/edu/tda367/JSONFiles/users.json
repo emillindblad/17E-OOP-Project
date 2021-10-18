@@ -1,53 +1,20 @@
 [
   {
-    "firstName": "Erra",
-    "lastName": "Larsson",
-    "phoneNumber": "0734111337",
-    "userAdress": {
-      "streetName": "Kemivagen 7B",
-      "city": "Goteborg",
-      "zipCode": "41258",
-      "country": "Sverige"
-    },
-    "userID": 0,
-    "userName": "eblad",
-    "password": "eblad123",
-    "bankAccount": "123456789"
-  },
-  {
-    "firstName": "Sebastian",
-    "lastName": "Kvalden",
-    "phoneNumber": "0734111337",
-    "userAdress": {
-      "streetName": "Kemivagen 7B",
-      "city": "Goteborg",
-      "zipCode": "41258",
-      "country": "Sverige"
-    },
-    "userID": 154585,
-    "userName": "def",
-    "password": "def123",
-    "bankAccount": "987654321"
-  },
-  {
     "firstName": "e",
     "lastName": "e",
     "phoneNumber": "1",
     "userAdress": {
       "streetName": "e",
       "city": "e",
-      "zipCode": "43331",
+      "zipCode": "12345",
       "country": "e"
     },
-    "userID": 186158,
+    "userID": 158872,
     "userName": "e",
     "password": "e",
     "bankAccount": "1",
     "listings": [
-      "186158-Qx5xyZsYeh2J",
-      "186158-0PoUXj0OgcMK",
-      "186158-rUWDZHEj4HNO",
-      "186158-TmoktgsthJB5"
+      "158872-7ON8n1EfAXPL"
     ]
   }
 ]

@@ -30,7 +30,7 @@ public class CreateListingScene extends AbstractHyroScene {
 
     private File selectedFile;
 
-    private String[] formData = new String[4];
+    private String[] formData = new String[5];
 
     public CreateListingScene(SceneHandler handler) throws IOException {
         super("createlisting",handler);

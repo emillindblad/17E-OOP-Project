@@ -1,77 +1,17 @@
 [
   {
-    "listingId": "0-JSygbADczRSS",
+    "listingId": "158872-7ON8n1EfAXPL",
     "product": {
-      "prodName": "asd",
+      "prodName": "e",
       "prodCategory": {
         "categoryName": "Bilar"
       },
-      "prodDesc": "123"
+      "prodDesc": "e"
     },
-    "userId": 0,
+    "userId": 158872,
     "price": 123,
     "availability": 25,
     "listingState": "AVALIBLE",
-    "fileName": "backArrow.png"
-  },
-  {
-    "listingId": "186158-TmoktgsthJB5",
-    "product": {
-      "prodName": "foobar",
-      "prodCategory": {
-        "categoryName": "Elektronik"
-      },
-      "prodDesc": "234"
-    },
-    "userId": 186158,
-    "price": 4235243,
-    "availability": 25,
-    "listingState": "AVALIBLE",
-    "fileName": "backArrow.png"
-  },
-  {
-    "listingId": "186158-rUWDZHEj4HNO",
-    "product": {
-      "prodName": "asd",
-      "prodCategory": {
-        "categoryName": "Bilar"
-      },
-      "prodDesc": "asd"
-    },
-    "userId": 186158,
-    "price": 123,
-    "availability": 25,
-    "listingState": "AVALIBLE",
-    "fileName": "backArrow.png"
-  },
-  {
-    "listingId": "122303-EOVpq1kNzf9z",
-    "product": {
-      "prodName": "Test-Name",
-      "prodCategory": {
-        "categoryName": "Övrigt"
-      },
-      "prodDesc": "Test-Desc"
-    },
-    "userId": 122303,
-    "price": 100,
-    "availability": 25,
-    "listingState": "AVALIBLE",
-    "fileName": "DummyPath"
-  },
-  {
-    "listingId": "178479-XelRBQWE6gy9",
-    "product": {
-      "prodName": "Test-Name",
-      "prodCategory": {
-        "categoryName": "Övrigt"
-      },
-      "prodDesc": "Test-Desc"
-    },
-    "userId": 178479,
-    "price": 100,
-    "availability": 25,
-    "listingState": "AVALIBLE",
-    "fileName": "DummyPath"
+    "fileName": "listings.png"
   }
 ]

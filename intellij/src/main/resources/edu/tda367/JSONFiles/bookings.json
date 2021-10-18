@@ -1,6 +1,6 @@
 [
   {
-    "bookingState": "PENDING",
+    "bookingState": "DONE",
     "customer": {
       "firstName": "Sebastian",
       "lastName": "Kvalden",

@@ -118,7 +118,6 @@ public class TestListing {
         thirdTestListing = handler.createListing("SortingTest",testCat,"hitta grill",127,420,startDate,endDate);
         String search = "hitta grill";
         ListingSorter.sortBySearchWord(search, handler.getListings());
-        System.out.println("AHA");
         System.out.println(handler.getListings().get(0).getProduct().getProdName());
         assertTrue(handler.getListings().get(0).getProduct().getProdName().equals("SortingTest"));
     }

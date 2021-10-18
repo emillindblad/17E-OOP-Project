@@ -76,12 +76,6 @@ public class ListingHandler {
         return category;
     }
 
-
-    public Listing getListingFromListingId(String listingId) {
-        Set keys = listings.keySet();
-        return listings.get(keys.contains(listingId));
-    }
-
     public String[] getListingData(String key) {
         return listings.get(key).toArray();
     }

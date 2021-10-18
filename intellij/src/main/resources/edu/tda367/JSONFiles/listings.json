@@ -1,0 +1,47 @@
+[
+  {
+    "listingId": "158872-3KIp0jGAsEaa",
+    "product": {
+      "prodName": "Foo",
+      "prodCategory": {
+        "categoryName": "Bilar"
+      },
+      "prodDesc": "bar"
+    },
+    "userId": 158872,
+    "price": 123,
+    "availability": 25,
+    "listingState": "BOOKING_ACCEPTED",
+    "fileName": "listings.png"
+  },
+  {
+    "listingId": "158872-iW7Clzrg2pxu",
+    "product": {
+      "prodName": "Nice",
+      "prodCategory": {
+        "categoryName": "Släpkärror"
+      },
+      "prodDesc": "ghj"
+    },
+    "userId": 158872,
+    "price": 345,
+    "availability": 25,
+    "listingState": "AVALIBLE",
+    "fileName": "listings.png"
+  },
+  {
+    "listingId": "173440-6phSkuoHRbCi",
+    "product": {
+      "prodName": "a\u0027s grej",
+      "prodCategory": {
+        "categoryName": "Möbler"
+      },
+      "prodDesc": "Väldigt cool"
+    },
+    "userId": 173440,
+    "price": 213,
+    "availability": 25,
+    "listingState": "AVALIBLE",
+    "fileName": "listings.png"
+  }
+]

@@ -10,13 +10,19 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label fx:id="price" layoutX="234.0" layoutY="111.0" text="Price" />
-      <Label fx:id="prodName" alignment="CENTER" layoutX="234.0" layoutY="44.0" text="Product Name">
+      <Label fx:id="price" layoutX="234.0" layoutY="111.0" text="Price">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label fx:id="prodName" alignment="CENTER" layoutX="234.0" layoutY="44.0" text="Product Name" underline="true">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label fx:id="category" layoutX="234.0" layoutY="81.0" text="Category" />
+      <Label fx:id="category" layoutX="234.0" layoutY="81.0" text="Category">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
       <Label fx:id="description" alignment="TOP_LEFT" layoutX="228.0" layoutY="167.0" prefHeight="160.0" prefWidth="361.0" text="Description" wrapText="true" />
       <Label fx:id="userId" layoutX="512.0" layoutY="22.0" text="userId" />
       <Button layoutX="252.0" layoutY="340.0" mnemonicParsing="false" onMouseClicked="#rentListing" prefHeight="25.0" prefWidth="95.0" text="Hyr" />

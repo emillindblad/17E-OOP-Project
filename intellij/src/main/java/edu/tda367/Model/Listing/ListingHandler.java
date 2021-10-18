@@ -168,6 +168,23 @@ public class ListingHandler {
         return listing;
     }
 
+    public Listing createListingFromString(String[] formData, int userId, String fileName) {
+        //Parse data in different method?
+        String prodName = formData[0];
+        String prodDesc = formData[1];
+        int price = Integer.parseInt(formData[2]);
+        Category prodCat = getCategory(formData[3]);
+
+        //Hardcoded values for now
+        LocalDateTime startDate = LocalDateTime.of(2021,9,10,9,0);
+        LocalDateTime endDate = LocalDateTime.of(2021,9,11,10,30);
+
+        Listing listing = new Listing(prodName,prodCat,prodDesc,userId,price,startDate,endDate, fileName);
+        listings.add(listing);
+        System.out.println(listings);
+        return listing;
+    }
+
     /**
      * Gets saved Listings from database
      * @author Erik Larsson
@@ -198,6 +215,13 @@ public class ListingHandler {
         writer.write(listings, "listings");
     }
 
+    public ArrayList<Listing> getMyListings(int UserID) {
+        ArrayList<Listing> myListings = new ArrayList<>();
+        for (Listing listing : listings) {
+            if (listing.getUserId() == UserID) { myListings.add(listing);}
+        }
+        return myListings;
+    }
 }
 
 

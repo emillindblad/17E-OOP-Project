@@ -94,7 +94,14 @@ public class BrowseListings extends AbstractHyroScene {
         int index1 =0;
         listProducts.getChildren().clear();
         for(Listing l: listings) {
-                listProducts.add(new ListingItem(this.handler, this, l.getPrice(), l.getProduct().getProdName(), l.getProduct().getCategoryName(), l.getListingId()), index0,index1 );
+                if(l.getFileName() == null)
+                {
+                    listProducts.add(new ListingItem(this.handler, this, l.getPrice(), l.getProduct().getProdName(), l.getProduct().getCategoryName(), l.getListingId()), index0,index1);
+                }
+                else {
+                    listProducts.add(new ListingItem(this.handler, this, l.getPrice(), l.getProduct().getProdName(), l.getProduct().getCategoryName(), l.getListingId(), l.getFileName()), index0,index1);
+                }
+
 
             index0++;
             if( index0 == 2){

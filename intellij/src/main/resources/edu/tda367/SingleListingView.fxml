@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -19,6 +23,11 @@
             <Font size="22.0" />
          </font>
       </Label>
+      <Label fx:id="category" layoutX="271.0" layoutY="72.0" text="Category" />
+      <Label fx:id="description" layoutX="270.0" layoutY="232.0" text="Description" />
+      <Label fx:id="userId" layoutX="48.0" layoutY="81.0" text="userId" />
+      <Button layoutX="253.0" layoutY="262.0" mnemonicParsing="false" onMouseClicked="#rentListing" prefHeight="25.0" prefWidth="95.0" text="Hyr" />
+      <ImageView fx:id="listingImage" fitHeight="150.0" fitWidth="200.0" layoutX="195.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true" />
       <Label fx:id="category" layoutX="234.0" layoutY="81.0" text="Category">
          <font>
             <Font name="System Bold" size="12.0" />

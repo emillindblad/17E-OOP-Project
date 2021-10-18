@@ -16,7 +16,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class TestListing {
-    static String[] dummyData = {"Test-Name","Test-Desc","100","Övrigt"};
+    static String[] dummyData = {"Test-Name","Test-Desc","100","Övrigt","DummyPath"};
     static Category testCat;
     static LocalDateTime startDate;
     static LocalDateTime endDate;
@@ -112,7 +112,7 @@ public class TestListing {
 
     @Test
     public void testCreateListingFromString() {
-        String[] formData = {"Test Name","Test Desc","69","Övrigt"};
+        String[] formData = {"Test Name","Test Desc","69","Övrigt","DummyImgPath"};
         stringListing = handler.createListingFromForm(formData,69);
         //assertTrue(handler.getListings().contains(stringListing));
     }

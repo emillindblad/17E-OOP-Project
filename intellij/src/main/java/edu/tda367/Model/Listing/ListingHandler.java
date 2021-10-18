@@ -149,7 +149,7 @@ public class ListingHandler {
      * @return listing - The newly created listing
      */
     public Listing createListing(String prodName, Category prodCat, String prodDesc, int userId, int price, LocalDateTime startDate, LocalDateTime endDate) {
-        String[] formData = {prodName,prodDesc,String.valueOf(price),prodCat.getCategoryName()};
+        String[] formData = {prodName,prodDesc,String.valueOf(price),prodCat.getCategoryName(),""};
         return createListingFromForm(formData,userId);
     }
 
@@ -245,15 +245,4 @@ public class ListingHandler {
         }
         writer.write(toJson, "listings");
     }
-/* //TODO Should be in user already
-    public ArrayList<Listing> getMyListings(int UserID) {
-        ArrayList<Listing> myListings = new ArrayList<>();
-        for (Listing listing : listings) {
-            if (listing.getUserId() == UserID) { myListings.add(listing);}
-        }
-        return myListings;
-    }
-
- */
-
 }

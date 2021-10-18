@@ -43,5 +43,35 @@
     "availability": 25,
     "listingState": "AVALIBLE",
     "fileName": "backArrow.png"
+  },
+  {
+    "listingId": "122303-EOVpq1kNzf9z",
+    "product": {
+      "prodName": "Test-Name",
+      "prodCategory": {
+        "categoryName": "Övrigt"
+      },
+      "prodDesc": "Test-Desc"
+    },
+    "userId": 122303,
+    "price": 100,
+    "availability": 25,
+    "listingState": "AVALIBLE",
+    "fileName": "DummyPath"
+  },
+  {
+    "listingId": "178479-XelRBQWE6gy9",
+    "product": {
+      "prodName": "Test-Name",
+      "prodCategory": {
+        "categoryName": "Övrigt"
+      },
+      "prodDesc": "Test-Desc"
+    },
+    "userId": 178479,
+    "price": 100,
+    "availability": 25,
+    "listingState": "AVALIBLE",
+    "fileName": "DummyPath"
   }
 ]

@@ -1,15 +1,43 @@
 [
   {
-    "listingId": "iloGqHLKyrgR",
+    "listingId": "pkJzPQpVxGmQ",
     "product": {
-      "prodName": "snabb bil",
+      "prodName": "asd",
       "prodCategory": {
         "categoryName": "Bilar"
       },
-      "prodDesc": "fast"
+      "prodDesc": "1"
     },
-    "userId": 0,
-    "price": 123,
+    "userId": 186158,
+    "price": 1,
+    "availability": 25,
+    "listingState": "AVALIBLE"
+  },
+  {
+    "listingId": "rhZEboRfuUPB",
+    "product": {
+      "prodName": "You\u0027ve got a fast car",
+      "prodCategory": {
+        "categoryName": "Bilar"
+      },
+      "prodDesc": "123"
+    },
+    "userId": 186158,
+    "price": 1337,
+    "availability": 25,
+    "listingState": "AVALIBLE"
+  },
+  {
+    "listingId": "Zmx82XWpU502",
+    "product": {
+      "prodName": "lmao",
+      "prodCategory": {
+        "categoryName": "Elektronik"
+      },
+      "prodDesc": "dab"
+    },
+    "userId": 186158,
+    "price": 69,
     "availability": 25,
     "listingState": "AVALIBLE"
   },
@@ -24,6 +52,20 @@
     },
     "userId": 157717,
     "price": 69,
+    "availability": 25,
+    "listingState": "AVALIBLE"
+  },
+  {
+    "listingId": "iloGqHLKyrgR",
+    "product": {
+      "prodName": "snabb bil",
+      "prodCategory": {
+        "categoryName": "Bilar"
+      },
+      "prodDesc": "fast"
+    },
+    "userId": 0,
+    "price": 123,
     "availability": 25,
     "listingState": "AVALIBLE"
   }

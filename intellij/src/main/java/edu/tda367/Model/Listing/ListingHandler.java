@@ -2,6 +2,7 @@ package edu.tda367.Model.Listing;
 
 import edu.tda367.Model.JSON.JSONReader;
 import edu.tda367.Model.JSON.JSONWriter;
+import edu.tda367.Model.ListingLinker;
 import edu.tda367.Model.UserPackage.User;
 
 import java.time.LocalDateTime;
@@ -22,6 +23,7 @@ public class ListingHandler {
     private static ListingHandler instance;
     private final HashMap<String,Listing> listings;
     private final ArrayList<Category> categories;
+    private final ListingLinker linker;
 
     /**
      * Private Constructor, for limiting class to one instance.
@@ -30,6 +32,7 @@ public class ListingHandler {
         categories = new ArrayList<Category>(); //TODO Implement database?
         populateCategoryList();
         listings = getSavedListings();
+        linker = new ListingLinker();
     }
 
     private void populateCategoryList (){
@@ -114,30 +117,19 @@ public class ListingHandler {
 
     public ArrayList<Integer> getMyListingIds(int userId) {
         ArrayList<Integer> ids = new ArrayList<>();
-        for (Listing listing : listings) {
+        //for (Listing listing : listings) {
 
-        }
+        //}
         return ids;
     }
 
-    public Listing getListingByProductName(String productName) {
-        System.out.println(productName);
-        for(Listing listing : listings) {
-            System.out.println("listing name " + listing.getProduct().getProdName());
-            System.out.println(listing.getProduct().getProdName().equals(productName));
-            if(listing.getProduct().getProdName().equals(productName))
-            {
-                return listing;
-            }
-        }
-        return listings.get(0);
-    }
     /**
      * Removes the specified listing form the ArrayList and returns it
      * @param listing
      * @return The removed listing
      */
     public Listing removeListing(Listing listing) {//TODO Maybe not necessary to return removed listing, breaks CQS.
+       //TODO Also remove from relevant users list of ids,
         listings.remove(listing);
         return listing;
     }
@@ -145,7 +137,7 @@ public class ListingHandler {
     public void sortListings (String sortBy) {
         System.out.println("handler started");
         System.out.println("Befor sorted:" + listings.get(0).getProduct().getProdName());
-        ListingSorter.sortBySearchWord(sortBy, listings);
+        //ListingSorter.sortBySearchWord(sortBy, listings);
         System.out.println("after sorted:" + listings.get(0).getProduct().getProdName());
         System.out.println("handler done");
     }
@@ -188,9 +180,10 @@ public class ListingHandler {
         String listingId = generateListingId();
 
         Listing listing = new Listing(listingId,prodName,prodCat,prodDesc,userId,price,startDate,endDate);
-        String key = createKey(listing.getListingId(),userId);
+        String key = createKey(listingId,userId);
 
         listings.put(key,listing);
+        linker.linkListing(key);
 
         System.out.println(listings);
         return listing;
@@ -199,13 +192,13 @@ public class ListingHandler {
     private String generateListingId() {
         String id;
         Set keys = listings.keySet();
-        while (true) {
+        System.out.println(keys);
             RandomStringGenerator generator = new RandomStringGenerator.Builder().withinRange('0','z').filteredBy(CharacterPredicates.LETTERS, CharacterPredicates.DIGITS).build();
             id = generator.generate(12);
+            System.out.println(id);
             if (keys.contains(id)) {
-                break;
+                generateListingId();
             }
-        }
         System.out.println(id);
         return id;
     }
@@ -245,11 +238,7 @@ public class ListingHandler {
         ArrayList<Listing> toJson = new ArrayList<Listing>();
         for (Listing l : listings.values()) {
             toJson.add(l);
-
         }
         writer.write(toJson, "listings");
     }
-
 }
-
-

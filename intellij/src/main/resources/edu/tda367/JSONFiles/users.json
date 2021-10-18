@@ -1,6 +1,6 @@
 [
   {
-    "firstName": "Erik",
+    "firstName": "Erra",
     "lastName": "Larsson",
     "phoneNumber": "0734111337",
     "userAdress": {
@@ -28,5 +28,25 @@
     "userName": "def",
     "password": "def123",
     "bankAccount": "987654321"
+  },
+  {
+    "firstName": "e",
+    "lastName": "e",
+    "phoneNumber": "1",
+    "userAdress": {
+      "streetName": "e",
+      "city": "e",
+      "zipCode": "43331",
+      "country": "e"
+    },
+    "userID": 186158,
+    "userName": "e",
+    "password": "e",
+    "bankAccount": "1",
+    "listings": [
+      "186158-pkJzPQpVxGmQ",
+      "186158-rhZEboRfuUPB",
+      "186158-Zmx82XWpU502"
+    ]
   }
 ]

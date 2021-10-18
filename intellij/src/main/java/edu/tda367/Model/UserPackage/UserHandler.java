@@ -78,6 +78,13 @@ public final class UserHandler {
         }
     }
 
+    public void addListingId(String key) {
+        loggedInUser.addListingId(key);
+    }
+
+    public void removeListingId(String key) {
+        loggedInUser.removeListingId(key);
+    }
     /**
      *
      * @return Reference to the logged in user

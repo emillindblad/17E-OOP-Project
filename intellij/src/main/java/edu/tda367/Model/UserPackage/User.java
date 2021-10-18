@@ -124,7 +124,7 @@ public class User {
         return password;
     }
 
-    int getUserID() { return userID;}
+    public int getUserID() { return userID;}
 
     public String getBankAccount() {
         return bankAccount;

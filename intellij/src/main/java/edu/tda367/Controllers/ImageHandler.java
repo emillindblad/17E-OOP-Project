@@ -2,6 +2,7 @@ package edu.tda367.Controllers;
 
 import javafx.scene.image.Image;
 
+import java.io.File;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
@@ -20,7 +21,7 @@ public class ImageHandler {
     {
         System.out.println(imageName);
         String imagesPath = "src/main/resources/edu/tda367/images/" + imageName;
-        return new Image(imagesPath);
+        return new Image(new File(imagesPath).toURI().toString());
     }
 
     public Image getImage(String name) {

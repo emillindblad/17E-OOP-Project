@@ -11,12 +11,12 @@ import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 
-public class ListingController implements Controller {
-    private final ListingHandler listingHandler;
-    private final UserHandler userHandler;
-    private final SceneHandler sceneHandler;
+public abstract class ListingViewController implements Controller {
+    protected final ListingHandler listingHandler;
+    protected final UserHandler userHandler;
+    protected final SceneHandler sceneHandler;
 
-    public ListingController(SceneHandler sceneHandler) {
+    public ListingViewController(SceneHandler sceneHandler) {
         this.sceneHandler = sceneHandler;
         this.listingHandler = ListingHandler.getInstance();
         this.userHandler = UserHandler.getInstance();
@@ -28,32 +28,11 @@ public class ListingController implements Controller {
         sceneHandler.centerOnScreen();
     }
 
-    public String createListing(String[] formData, File src, String destPath) {
-        int userId = userHandler.getUserID();
-         if (validateData(formData)) { //Return true if valid input.
-             if(src != null) {
-                 try {
-                     Files.copy(src.toPath(), new File(destPath + src.getName()).toPath(), StandardCopyOption.REPLACE_EXISTING);
-                     System.out.println("did save");
-                 } catch (IOException ex) {
-                     ex.printStackTrace();
-                 }
-             }
-             listingHandler.createListingFromString(formData, userId);
-             switchToBrowse();
-             return "Success";
-         }
-         else {
-             System.out.println("Form input failed validation!");
-             return "Fail";
-         }
-    }
-
     public ArrayList<String> getCategoryNames() {
         return listingHandler.getCategoryNames();
     }
 
-    public boolean validateData(String[] formData) { //TODO Better way to do this?
+    protected boolean validateData(String[] formData) { //TODO Better way to do this?
         if (!InputChecker.anyInput(formData[0])) {
             return false;
         }
@@ -69,7 +48,5 @@ public class ListingController implements Controller {
         return true;// Should return true if valid input
     }
 
-    public int getPrice() {
-        return listingHandler.getListings().get(0).getPrice();
-    }
+    public abstract String doneButton(String[] formData, File src, String destPath);
 }

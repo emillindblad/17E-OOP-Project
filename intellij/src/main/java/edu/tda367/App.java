@@ -29,8 +29,6 @@ public class App extends Application {
         lHandler = ListingHandler.getInstance();
         bHandler = BookingHandler.getInstance();
         sceneHandler = new SceneHandler(stage);
-        sceneHandler.addScene(HyroSceneFactory.homeScene(sceneHandler), "home");
-        sceneHandler.addScene(HyroSceneFactory.secondaryScene(sceneHandler), "secondary");
         sceneHandler.addScene(HyroSceneFactory.browseScene(sceneHandler), "browse");
         sceneHandler.addScene(HyroSceneFactory.loginScene(sceneHandler), "login");
         sceneHandler.addScene(HyroSceneFactory.createListingScene(sceneHandler),"createlisting");

@@ -1,24 +1,21 @@
 package edu.tda367.View.scenes;
 
-import edu.tda367.Controllers.ListingController;
+import edu.tda367.Controllers.CreateListingController;
+import edu.tda367.Controllers.ListingViewController;
 import edu.tda367.View.SceneHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class CreateListingScene extends AbstractHyroScene {
-    private final ListingController listingController;
+    private final ListingViewController controller;
 
     @FXML private TextField productName;
     @FXML private TextField productDesc;
@@ -34,12 +31,12 @@ public class CreateListingScene extends AbstractHyroScene {
 
     public CreateListingScene(SceneHandler handler) throws IOException {
         super("createlisting",handler);
-        this.listingController = new ListingController(handler);
+        this.controller = new CreateListingController(handler);
         this.categoriesDropdown.getItems().setAll(loadCategories());
     }
 
     private ArrayList<String> loadCategories() {
-        return listingController.getCategoryNames();
+        return controller.getCategoryNames();
     }
 
     private String[] getFormInput() { //TODO Get Availability
@@ -63,16 +60,15 @@ public class CreateListingScene extends AbstractHyroScene {
     }
 
     @FXML
-    public void createListing() {
+    public void doneButtonAction() {
         this.formData = getFormInput();
         String path = "src/main/resources/edu/tda367/images/";
-        errorMsg.setText(listingController.createListing(formData, this.selectedFile, path));
-
+        errorMsg.setText(controller.doneButton(formData, this.selectedFile, path));
     }
 
     @FXML
     public void goBack() {
-        listingController.switchToBrowse();
+        controller.switchToBrowse();
     }
 
     @Override

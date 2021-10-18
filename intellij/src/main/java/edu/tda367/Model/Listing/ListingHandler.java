@@ -123,16 +123,6 @@ public class ListingHandler {
         return ids;
     }
 
-    /**
-     * Removes the specified listing form the ArrayList and returns it
-     * @param listing
-     * @return The removed listing
-     */
-    public Listing removeListing(Listing listing) {//TODO Maybe not necessary to return removed listing, breaks CQS.
-       //TODO Also remove from relevant users list of ids,
-        listings.remove(listing);
-        return listing;
-    }
 
     public void sortListings (String sortBy) {
         System.out.println("handler started");
@@ -205,6 +195,22 @@ public class ListingHandler {
 
     private String createKey(String listingId, int userId) {
         return userId+"-"+listingId;
+    }
+
+    private String extractKey(Listing listing) {
+        return listing.getListingId() + listing.getUserId();
+    }
+
+    /**
+     * Removes the specified listing form the ArrayList and returns it
+     * @param listing
+     * @return The removed listing
+     */
+    public Listing removeListing(Listing listing) {//TODO Maybe not necessary to return removed listing, breaks CQS.
+       //TODO Also remove from relevant users list of ids,
+        linker.removeLink(extractKey(listing));
+        listings.remove(listing);
+        return listing;
     }
 
     /**

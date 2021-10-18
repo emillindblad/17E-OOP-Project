@@ -1,19 +1,5 @@
 [
   {
-    "listingId": "iloGqHLKyrgR",
-    "product": {
-      "prodName": "snabb bil",
-      "prodCategory": {
-        "categoryName": "Bilar"
-      },
-      "prodDesc": "fast"
-    },
-    "userId": 0,
-    "price": 123,
-    "availability": 25,
-    "listingState": "AVALIBLE"
-  },
-  {
     "listingId": "JYvx6FIoMWgy",
     "product": {
       "prodName": "TestPRIT Bimot",
@@ -24,6 +10,20 @@
     },
     "userId": 157717,
     "price": 69,
+    "availability": 25,
+    "listingState": "AVALIBLE"
+  },
+  {
+    "listingId": "iloGqHLKyrgR",
+    "product": {
+      "prodName": "snabb bil",
+      "prodCategory": {
+        "categoryName": "Bilar"
+      },
+      "prodDesc": "fast"
+    },
+    "userId": 0,
+    "price": 123,
     "availability": 25,
     "listingState": "AVALIBLE"
   }

@@ -25,7 +25,6 @@ public class SingleListingView extends AbstractHyroScene {
 
     /**
      * Super constructor for all scenes. Loads the FXML file and creates a scene with the loaded fxml file
-     * @param fxmlName name of the fxml file that you want to load with the scene
      * @param handler  sceneHandler that is in charge of switching between scenes
      * @param price
      * @param listingId
@@ -47,8 +46,11 @@ public class SingleListingView extends AbstractHyroScene {
         //TODO Controller
     }
 
+    @FXML
+    public void goBack(){
+        handler.switchTo("browse");
+    }
     @Override
     public void update() {
-
     }
 }

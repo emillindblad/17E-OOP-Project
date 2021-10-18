@@ -2,7 +2,6 @@ package edu.tda367.Controllers;
 
 import edu.tda367.Model.InputChecker;
 import edu.tda367.View.SceneHandler;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 

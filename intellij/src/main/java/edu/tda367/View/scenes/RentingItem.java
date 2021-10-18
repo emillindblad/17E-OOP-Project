@@ -12,6 +12,9 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
+/**
+ * FXML controller class for individual entry on RentingPage
+ */
 public class RentingItem extends AnchorPane {
 
     @FXML private Label productLabel;
@@ -24,6 +27,12 @@ public class RentingItem extends AnchorPane {
     private final RentingItemController controller;
     private final RentingItemEntry entry;
 
+    /**
+     * Contructor. Sets up necessary JavaFX parameters
+     * Sets labels and button to the right text
+     * @param controller MVC controller
+     * @param entry the Listing/Booking this entry displays
+     */
     public RentingItem(RentingItemController controller, RentingItemEntry entry) {
         FXMLLoader loader = App.loadFXML("myrentingitem");
         loader.setRoot(this);
@@ -39,13 +48,20 @@ public class RentingItem extends AnchorPane {
         initialize(entry);
     }
 
-
+    /**
+     * Chains call to controller class
+     * Updates state of labels
+     */
     @FXML
     private void buttonAction() {
         controller.buttonAction(entry);
         initialize(entry);
     }
 
+    /**
+     * Updates texts on labels and button
+     * @param entry the RentingItemEntry containing information for label/button text
+     */
     private void initialize(RentingItemEntry entry) {
         productLabel.setText(entry.getProductName());
         priceLabel.setText(String.valueOf(entry.getPrice()));

@@ -1,58 +1,47 @@
 [
   {
-    "listingId": "JYvx6FIoMWgy",
+    "listingId": "158872-3KIp0jGAsEaa",
     "product": {
-      "prodName": "TestPRIT Bimot",
-      "prodCategory": {
-        "categoryName": "Test category"
-      },
-      "prodDesc": "Big boi"
-    },
-    "userId": 157717,
-    "price": 69,
-    "availability": 25,
-    "listingState": "AVALIBLE"
-  },
-  {
-    "listingId": "iloGqHLKyrgR",
-    "product": {
-      "prodName": "snabb bil",
+      "prodName": "Foo",
       "prodCategory": {
         "categoryName": "Bilar"
       },
-      "prodDesc": "fast"
+      "prodDesc": "bar"
     },
-    "userId": 0,
+    "userId": 158872,
     "price": 123,
     "availability": 25,
-    "listingState": "AVALIBLE"
+    "listingState": "BOOKING_ACCEPTED",
+    "fileName": "listings.png"
   },
   {
-    "listingId": "kmEEPgO9st1s",
+    "listingId": "158872-iW7Clzrg2pxu",
     "product": {
-      "prodName": "Testprodukt med låååång beskrivning",
+      "prodName": "Nice",
       "prodCategory": {
         "categoryName": "Släpkärror"
       },
-      "prodDesc": "testar om det är möjligt att ha en lång beskrivning i detaljvyn för att se hur det kan fungera så det är därför det finns så många ord här. Och härkommer några ord till. Och några till."
+      "prodDesc": "ghj"
     },
-    "userId": 154585,
-    "price": 800,
+    "userId": 158872,
+    "price": 345,
     "availability": 25,
-    "listingState": "AVALIBLE"
+    "listingState": "AVALIBLE",
+    "fileName": "listings.png"
   },
   {
-    "listingId": "GaCxotN4UeMN",
+    "listingId": "173440-6phSkuoHRbCi",
     "product": {
-      "prodName": "ny",
+      "prodName": "a\u0027s grej",
       "prodCategory": {
-        "categoryName": "Släpkärror"
+        "categoryName": "Möbler"
       },
-      "prodDesc": "prod"
+      "prodDesc": "Väldigt cool"
     },
-    "userId": 154585,
-    "price": 12,
+    "userId": 173440,
+    "price": 213,
     "availability": 25,
-    "listingState": "AVALIBLE"
+    "listingState": "AVALIBLE",
+    "fileName": "listings.png"
   }
 ]

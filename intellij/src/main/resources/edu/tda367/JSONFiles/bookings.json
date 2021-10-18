@@ -2,33 +2,37 @@
   {
     "bookingState": "PENDING",
     "customer": {
-      "firstName": "Sebastian",
-      "lastName": "Kvalden",
-      "phoneNumber": "0734111337",
+      "firstName": "a",
+      "lastName": "a",
+      "phoneNumber": "1",
       "userAdress": {
-        "streetName": "Kemivagen 7B",
-        "city": "Goteborg",
-        "zipCode": "41258",
-        "country": "Sverige"
+        "streetName": "a",
+        "city": "a",
+        "zipCode": "12345",
+        "country": "a"
       },
-      "userID": 154585,
-      "userName": "def",
-      "password": "def123",
-      "bankAccount": "987654321"
+      "userID": 173440,
+      "userName": "a",
+      "password": "a",
+      "bankAccount": "1",
+      "listings": [
+        "173440-6phSkuoHRbCi"
+      ]
     },
     "listing": {
-      "listingId": "62646",
+      "listingId": "158872-3KIp0jGAsEaa",
       "product": {
-        "prodName": "Bajs",
+        "prodName": "Foo",
         "prodCategory": {
-          "categoryName": "NÃƒÂ¥got annat"
+          "categoryName": "Bilar"
         },
-        "prodDesc": "En bajskorv"
+        "prodDesc": "bar"
       },
-      "userId": 0,
-      "price": 1112,
+      "userId": 158872,
+      "price": 123,
       "availability": 25,
-      "listingState": "AVALIBLE"
+      "listingState": "BOOKING_SENT",
+      "fileName": "listings.png"
     }
   }
 ]

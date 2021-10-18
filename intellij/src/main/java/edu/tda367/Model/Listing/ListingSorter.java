@@ -1,5 +1,6 @@
 package edu.tda367.Model.Listing;
 
+import org.apache.commons.text.similarity.CosineDistance;
 import org.apache.commons.text.similarity.LevenshteinDistance;
 
 import java.util.ArrayList;

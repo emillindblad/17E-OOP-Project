@@ -1,5 +1,7 @@
 package edu.tda367.Model.UserPackage;
 
+import java.util.ArrayList;
+
 /**
  * Class to represent a User, preferably used toghether with "UserHandler" to control input and usage.
  *
@@ -19,6 +21,7 @@ public class User {
 
     // proof of concept, needs more information irl
     private String bankAccount;
+    private ArrayList<String> listings;
 
     /**
      * Contstructor to create user
@@ -40,6 +43,7 @@ public class User {
         this.password = password;
         this.bankAccount = bankAccount;
         this.userID = userID;
+        this.listings = new ArrayList<String>();
     }
 
     /**
@@ -52,15 +56,17 @@ public class User {
      * @param bankAccount
      * @param userID
      */
-      User(String firstName, String lastName, String phoneNumber, String userName, String password, String bankAccount, int userID) {
-         this.firstName = firstName;
-         this.lastName = lastName;
-         this.phoneNumber = phoneNumber;
-         this.userName = userName;
-         this.password = password;
-         this.bankAccount = bankAccount;
-         this.userID = userID;
-     }
+    User(String firstName, String lastName, String phoneNumber, String userName, String password, String bankAccount, int userID) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+        this.userAdress = new UserAdress("","","");
+        this.userName = userName;
+        this.password = password;
+        this.bankAccount = bankAccount;
+        this.userID = userID;
+        this.listings = new ArrayList<String>();
+    }
 
     public String getFirstName() {
         return firstName;
@@ -103,6 +109,18 @@ public class User {
     }
 
     void setUserName(String userName) { this.userName = userName; }
+
+    void addListingId(String key) {
+        listings.add(key);
+    }
+
+    void removeListingId(String key) {
+        listings.remove(key);
+    }
+
+    public ArrayList<String> getMyListingIds() {
+        return this.listings;
+    }
 
     /**
      * Method to access formatted user data

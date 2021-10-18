@@ -47,7 +47,13 @@ public class MyListingsController {
     }
 
     private void updateListings(FlowPane listingsPane) {
-        ArrayList<Listing> listings = lHandler.getMyListings(uHandler.getUserID());
+        ArrayList<String> myListingIds = uHandler.getLoggedInUser().getMyListingIds();
+        System.out.println(myListingIds);
+        ArrayList<Listing> listings = new ArrayList<>();
+        for (String id : myListingIds) {
+            listings.add(lHandler.getListingFromKey(id));
+        }
+        System.out.println(listings);
         for (Listing l : listings) {
             listingsPane.getChildren().add(new RentingItem(new RentingItemController(), l));
         }

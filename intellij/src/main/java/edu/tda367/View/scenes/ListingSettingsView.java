@@ -29,7 +29,7 @@ public class ListingSettingsView extends AbstractHyroScene {
 
     private File selectedFile;
 
-    private String[] formData = new String[4];
+    private String[] formData = new String[5];
 
     public ListingSettingsView(SceneHandler handler, ListingViewController controller) throws IOException {
         super(controller.getFXMLName(),handler);
@@ -42,7 +42,7 @@ public class ListingSettingsView extends AbstractHyroScene {
     }
 
     private String[] getFormInput() { //TODO Get Availability
-        return new String[]{productName.getText(),productDesc.getText(),prodPrice.getText(),categoriesDropdown.getSelectionModel().getSelectedItem()};
+        return new String[]{productName.getText(),productDesc.getText(),prodPrice.getText(),categoriesDropdown.getSelectionModel().getSelectedItem(),selectedFile.getName()};
     }
 
     private void reset() {

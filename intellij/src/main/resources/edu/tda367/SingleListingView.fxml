@@ -19,13 +19,14 @@
             <Font size="22.0" />
          </font>
       </Label>
+      <ImageView fx:id="listingImage" fitHeight="150.0" fitWidth="200.0" layoutX="195.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true" />
       <Label fx:id="category" layoutX="234.0" layoutY="81.0" text="Category">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
       <Label fx:id="description" alignment="TOP_LEFT" layoutX="228.0" layoutY="167.0" prefHeight="160.0" prefWidth="361.0" text="Description" wrapText="true" />
       <Label fx:id="userId" layoutX="512.0" layoutY="22.0" text="userId" />
-      <Button layoutX="252.0" layoutY="340.0" mnemonicParsing="false" onMouseClicked="#rentListing" prefHeight="25.0" prefWidth="95.0" text="Hyr" />
+      <Button fx:id="rentButton" layoutX="252.0" layoutY="340.0" mnemonicParsing="false" onAction="#rentListing" onMouseClicked="#rentListing" prefHeight="25.0" prefWidth="95.0" text="Hyr" />
       <ImageView fx:id="backButton" fitHeight="32.0" fitWidth="74.0" layoutX="14.0" layoutY="15.0" onMouseClicked="#goBack" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="14.0">
          <image>
             <Image url="@backArrow.png" />

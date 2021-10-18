@@ -3,14 +3,11 @@ package edu.tda367.Model.Listing;
 import edu.tda367.Model.JSON.JSONReader;
 import edu.tda367.Model.JSON.JSONWriter;
 import edu.tda367.Model.ListingLinker;
-import edu.tda367.Model.UserPackage.User;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Set;
 
 import org.apache.commons.text.CharacterPredicates;
 import org.apache.commons.text.RandomStringGenerator;
@@ -98,6 +95,10 @@ public class ListingHandler {
         return listings;
     }
 
+    public ArrayList<Listing> getListingsAsList() {
+        return new ArrayList<>(listings.values());
+    }
+
     public Listing getListingFromKey(String key) {
         return listings.get(key);
     }
@@ -130,7 +131,7 @@ public class ListingHandler {
     public void sortListings (String sortBy) {
         System.out.println("handler started");
         System.out.println("Befor sorted:" + listings.get(0).getProduct().getProdName());
-        //ListingSorter.sortBySearchWord(sortBy, listings);
+        ListingSorter.sortBySearchWord(sortBy, getListingsAsList());
         System.out.println("after sorted:" + listings.get(0).getProduct().getProdName());
         System.out.println("handler done");
     }
@@ -148,11 +149,8 @@ public class ListingHandler {
      * @return listing - The newly created listing
      */
     public Listing createListing(String prodName, Category prodCat, String prodDesc, int userId, int price, LocalDateTime startDate, LocalDateTime endDate) {
-        String listingId = generateListingId();
-        Listing listing = new Listing(listingId, prodName,prodCat,prodDesc,userId,price,startDate,endDate);
-        String key = createKey(listing.getListingId(),userId);
-        listings.put(key,listing);
-        return listing;
+        String[] formData = {prodName,prodDesc,String.valueOf(price),prodCat.getCategoryName()};
+        return createListingFromForm(formData,userId);
     }
 
     /**
@@ -160,7 +158,7 @@ public class ListingHandler {
      * @param formData - An Array of listing data, all in strings.
      * @return listing - The newly created listing
      */
-    public Listing createListingFromString(String[] formData, int userId) {
+    public Listing createListingFromForm(String[] formData, int userId) {
         //Parse data in different method?
         String prodName = formData[0];
         String prodDesc = formData[1];
@@ -204,10 +202,15 @@ public class ListingHandler {
     public Listing removeListing(Listing listing) {//TODO Maybe not necessary to return removed listing, breaks CQS.
        //TODO Also remove from relevant users list of ids,
         linker.removeLink(extractKey(listing));
-        listings.remove(listing);
+        listings.remove(listing.getListingId());
         return listing;
     }
 
+    public void removeListing(String listingId) {//TODO Maybe not necessary to return removed listing, breaks CQS.
+        //TODO Also remove from relevant users list of ids,
+        linker.removeLink(listingId);
+        listings.remove(listingId);
+    }
     /**
      * Gets saved Listings from database
      * @author Erik Larsson

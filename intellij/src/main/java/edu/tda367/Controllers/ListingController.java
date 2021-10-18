@@ -39,7 +39,7 @@ public class ListingController implements Controller {
                      ex.printStackTrace();
                  }
              }
-             listingHandler.createListingFromString(formData, userId);
+             listingHandler.createListingFromForm(formData, userId);
              switchToBrowse();
              return "Success";
          }

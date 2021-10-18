@@ -60,6 +60,7 @@ public class User {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
+        this.userAdress = new UserAdress("","","");
         this.userName = userName;
         this.password = password;
         this.bankAccount = bankAccount;

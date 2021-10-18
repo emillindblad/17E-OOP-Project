@@ -61,9 +61,9 @@ public class TestBooking {
 
     @AfterClass
     public static void clean() {
-        userHandler.logOut();
         listingHandler.removeListing(listing);
         listingHandler.removeListing(secondListing);
+        userHandler.logOut();
         userHandler.removeUser("password", "test");
         userHandler.writeUsers();
     }

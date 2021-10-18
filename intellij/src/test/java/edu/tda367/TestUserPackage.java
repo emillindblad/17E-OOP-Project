@@ -24,8 +24,9 @@ public class TestUserPackage {
 
     @Test
     public void UserLogInTest (){
-        assertFalse(uHandler.logIn("kvalle", "kvalle"));
-        assertTrue(uHandler.getLoggedInUser() == (null));
+        uHandler.logOut();
+        assertFalse(uHandler.logIn("%¤#&¤#%flögkjsdflökj", "kvalle"));
+        assertNull(uHandler.getLoggedInUser());
         assertTrue(uHandler.logIn("abc", "test"));
         assertTrue(uHandler.getLoggedInUser().getFirstName().equals("Emil"));
 

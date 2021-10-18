@@ -1,5 +1,6 @@
 package edu.tda367.View.scenes;
-
+import edu.tda367.Controllers.ListingController;
+import edu.tda367.Controllers.RentController;
 import edu.tda367.View.SceneHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -8,7 +9,7 @@ import java.io.IOException;
 
 public class SingleListingView extends AbstractHyroScene {
 
-
+    RentController rentController;
 
     @FXML
     private Label userId;
@@ -37,11 +38,13 @@ public class SingleListingView extends AbstractHyroScene {
         this.price.setText(String.valueOf(price));
         this.category.setText(category);
         this.description.setText(description);
+        rentController = new RentController(handler);
     }
 
     @FXML
     public void rentListing()
     {
+        rentController.rentListing(listingId);
         System.out.println("renting...");
         //TODO Controller
     }

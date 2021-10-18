@@ -7,6 +7,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.GridPane;
@@ -60,11 +65,6 @@ public class BrowseListings extends AbstractHyroScene {
         }
     }
 
-    // TODO fill method
-    @FXML
-    private void goToListings() {
-
-    }
 
     @FXML
     private void switchToCreate() {
@@ -75,6 +75,12 @@ public class BrowseListings extends AbstractHyroScene {
     @FXML
     private void switchToUserSettings() {
         handler.switchTo("myaccount");
+        handler.centerOnScreen();
+    }
+
+    @FXML
+    private void goToListings() {
+        handler.switchTo("rentingpage");
         handler.centerOnScreen();
     }
 

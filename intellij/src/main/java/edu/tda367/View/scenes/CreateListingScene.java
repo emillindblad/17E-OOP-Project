@@ -7,8 +7,13 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.FileChooser;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -21,6 +26,9 @@ public class CreateListingScene extends AbstractHyroScene {
     @FXML private Label errorMsg;
     //@FXML private DatePicker prodAvail;
     @FXML private ComboBox<String> categoriesDropdown;
+    @FXML private Label selectedFileName;
+
+    private File selectedFile;
 
     private String[] formData = new String[4];
 
@@ -47,9 +55,19 @@ public class CreateListingScene extends AbstractHyroScene {
     }
 
     @FXML
+    public void uploadFile() {
+       FileChooser fileChooser = new FileChooser();
+       File selectedFile = fileChooser.showOpenDialog(this.getHyroScene().getWindow());
+       this.selectedFile = selectedFile;
+       selectedFileName.setText(selectedFile.getName());
+    }
+
+    @FXML
     public void createListing() {
         this.formData = getFormInput();
-        errorMsg.setText(listingController.createListing(formData));
+        String path = "src/main/resources/edu/tda367/images/";
+        errorMsg.setText(listingController.createListing(formData, this.selectedFile, path));
+
     }
 
     @FXML

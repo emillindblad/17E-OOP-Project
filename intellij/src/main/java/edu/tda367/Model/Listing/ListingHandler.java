@@ -222,9 +222,8 @@ public class ListingHandler {
     private HashMap<String, Listing> getSavedListings() {
         HashMap<String, Listing> listingstmp = new HashMap<>();
         JSONReader reader = new JSONReader();
-        List<Listing> savedUsers = reader.read(Listing[].class, "listings");
-
-        savedUsers.forEach(l ->
+        List<Listing> savedListings = reader.read(Listing[].class, "listings");
+        savedListings.forEach(l ->
         {
             if (l == null) {
                 System.out.println("null object in json file");

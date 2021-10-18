@@ -31,7 +31,7 @@ public class SceneHandler {
     }
 
     public void switchToListingView(Listing listing) throws IOException {
-        SingleListingView view = new SingleListingView(this, listing.getUserId(), listing.getProduct().getProdName(), listing.getPrice(), "Sample text", "Lorem ipsmum dolor asdbsolmannen", listing.getListingId(), listing.getFileName());
+        SingleListingView view = new SingleListingView(this, listing.getUserId(), listing.getProduct().getProdName(), listing.getPrice(), listing.getCategoryName(), listing.getProduct().getDescription(), listing.getListingId(), listing.getFileName());
         root.setScene(view.getHyroScene());
         root.show();
 

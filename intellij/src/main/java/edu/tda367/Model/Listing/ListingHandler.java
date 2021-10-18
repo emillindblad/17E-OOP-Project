@@ -2,10 +2,15 @@ package edu.tda367.Model.Listing;
 
 import edu.tda367.Model.JSON.JSONReader;
 import edu.tda367.Model.JSON.JSONWriter;
+import edu.tda367.Model.ListingLinker;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+
+import org.apache.commons.text.CharacterPredicates;
+import org.apache.commons.text.RandomStringGenerator;
 
 /**
  * ListingHandler is a class designed for interacting with Listings and their associated products and categories.
@@ -13,8 +18,9 @@ import java.util.List;
  */
 public class ListingHandler {
     private static ListingHandler instance;
-    private final ArrayList<Listing> listings;
+    private final HashMap<String,Listing> listings;
     private final ArrayList<Category> categories;
+    private final ListingLinker linker;
 
     /**
      * Private Constructor, for limiting class to one instance.
@@ -23,6 +29,7 @@ public class ListingHandler {
         categories = new ArrayList<Category>(); //TODO Implement database?
         populateCategoryList();
         listings = getSavedListings();
+        linker = new ListingLinker();
     }
 
     private void populateCategoryList (){
@@ -66,14 +73,8 @@ public class ListingHandler {
         return category;
     }
 
-    public Listing getListingByListingId(String listingId) {
-        for(Listing listing : listings) {
-            if(listing.getListingId().equals(listingId))
-            {
-                return listing;
-            }
-        }
-        return listings.get(0);
+    public String[] getListingData(String key) {
+        return listings.get(key).toArray();
     }
 
     /**
@@ -90,40 +91,47 @@ public class ListingHandler {
      * Getter for Listings
      * @return An ArrayList af all current listings
      */
-    public ArrayList<Listing> getListings() {
+    public HashMap<String, Listing> getListings() {
         return listings;
+    }
+
+    public ArrayList<Listing> getListingsAsList() {
+        return new ArrayList<>(listings.values());
+    }
+
+    public Listing getListingFromKey(String key) {
+        return listings.get(key);
     }
 
     /**
      * Getter for Listings where ListingState is Avaliable
      * @return An ArrayList af all current Avaliable listings
      */
-    public ArrayList<Listing> getAvailableListings() {
-        ArrayList<Listing> availableListings = new ArrayList<Listing>();
-        for(Listing listing : listings)
-        {
-            if(listing.getListingState().equals(ListingState.AVALIBLE))
-            {
-                availableListings.add(listing);
+    public ArrayList<String> getAvailableListingKeys() {
+        ArrayList<String> availableListings = new ArrayList<>();
+        listings.forEach(
+            (key, listing) -> {
+                if (listing.getListingState().equals(ListingState.AVALIBLE)) {
+                    availableListings.add(key);
+                }
             }
-        }
+        );
         return availableListings;
     }
 
-    /**
-     * Removes the specified listing form the ArrayList and returns it
-     * @param listing
-     * @return The removed listing
-     */
-    public Listing removeListing(Listing listing) {//TODO Maybe not necessary to return removed listing, breaks CQS.
-        listings.remove(listing);
-        return listing;
+    public ArrayList<Integer> getMyListingIds(int userId) {
+        ArrayList<Integer> ids = new ArrayList<>();
+        //for (Listing listing : listings) {
+
+        //}
+        return ids;
     }
+
 
     public void sortListings (String sortBy) {
         System.out.println("handler started");
         System.out.println("Befor sorted:" + listings.get(0).getProduct().getProdName());
-        ListingSorter.sortBySearchWord(sortBy, listings);
+        ListingSorter.sortBySearchWord(sortBy, getListingsAsList());
         System.out.println("after sorted:" + listings.get(0).getProduct().getProdName());
         System.out.println("handler done");
     }
@@ -141,9 +149,8 @@ public class ListingHandler {
      * @return listing - The newly created listing
      */
     public Listing createListing(String prodName, Category prodCat, String prodDesc, int userId, int price, LocalDateTime startDate, LocalDateTime endDate) {
-        Listing listing = new Listing(prodName,prodCat,prodDesc,userId,price,startDate,endDate);
-        listings.add(listing);
-        return listing;
+        String[] formData = {prodName,prodDesc,String.valueOf(price),prodCat.getCategoryName(),""};
+        return createListingFromForm(formData,userId);
     }
 
     /**
@@ -151,7 +158,7 @@ public class ListingHandler {
      * @param formData - An Array of listing data, all in strings.
      * @return listing - The newly created listing
      */
-    public Listing createListingFromString(String[] formData, int userId) {
+    public Listing createListingFromForm(String[] formData, int userId) {
         //Parse data in different method?
         String prodName = formData[0];
         String prodDesc = formData[1];
@@ -162,37 +169,57 @@ public class ListingHandler {
         LocalDateTime startDate = LocalDateTime.of(2021,9,10,9,0);
         LocalDateTime endDate = LocalDateTime.of(2021,9,11,10,30);
 
-        Listing listing = new Listing(prodName,prodCat,prodDesc,userId,price,startDate,endDate);
-        listings.add(listing);
-        System.out.println(listings);
+        String key = createKey(generateListingId(),userId);
+        String fileName = formData[4];
+
+        Listing listing = new Listing(key,prodName,prodCat,prodDesc,userId,price,startDate,endDate,fileName);
+
+        listings.put(key,listing);
+        linker.linkListing(key);
+
         return listing;
     }
 
-    public Listing createListingFromString(String[] formData, int userId, String fileName) {
-        //Parse data in different method?
-        String prodName = formData[0];
-        String prodDesc = formData[1];
-        int price = Integer.parseInt(formData[2]);
-        Category prodCat = getCategory(formData[3]);
+    private String generateListingId() {
+        String id;
+            RandomStringGenerator generator = new RandomStringGenerator.Builder().withinRange('0','z').filteredBy(CharacterPredicates.LETTERS, CharacterPredicates.DIGITS).build();
+            id = generator.generate(12);
+        return id;
+    }
 
-        //Hardcoded values for now
-        LocalDateTime startDate = LocalDateTime.of(2021,9,10,9,0);
-        LocalDateTime endDate = LocalDateTime.of(2021,9,11,10,30);
+    private String createKey(String listingId, int userId) {
+        return userId+"-"+listingId;
+    }
 
-        Listing listing = new Listing(prodName,prodCat,prodDesc,userId,price,startDate,endDate, fileName);
-        listings.add(listing);
-        System.out.println(listings);
+    private String extractKey(Listing listing) {
+        return listing.getListingId() + listing.getUserId();
+    }
+
+    /**
+     * Removes the specified listing form the ArrayList and returns it
+     * @param listing
+     * @return The removed listing
+     */
+    public Listing removeListing(Listing listing) {//TODO Maybe not necessary to return removed listing, breaks CQS.
+       //TODO Also remove from relevant users list of ids,
+        linker.removeLink(extractKey(listing));
+        listings.remove(listing.getListingId());
         return listing;
     }
 
+    public void removeListing(String listingId) {//TODO Maybe not necessary to return removed listing, breaks CQS.
+        //TODO Also remove from relevant users list of ids,
+        linker.removeLink(listingId);
+        listings.remove(listingId);
+    }
     /**
      * Gets saved Listings from database
      * @author Erik Larsson
      * @return An ArrayList containing Listing objects
      *
      */
-    private ArrayList<Listing> getSavedListings() {
-        ArrayList<Listing> listingstmp = new ArrayList<>();
+    private HashMap<String, Listing> getSavedListings() {
+        HashMap<String, Listing> listingstmp = new HashMap<>();
         JSONReader reader = new JSONReader();
         List<Listing> savedListings = reader.read(Listing[].class, "listings");
         savedListings.forEach(l ->
@@ -200,7 +227,7 @@ public class ListingHandler {
             if (l == null) {
                 System.out.println("null object in json file");
             } else {
-                listingstmp.add(l);
+                listingstmp.put(l.getListingId(),l);
             }
         });
         return listingstmp;
@@ -212,16 +239,10 @@ public class ListingHandler {
      */
     public void writeListings() {
         JSONWriter writer = new JSONWriter();
-        writer.write(listings, "listings");
-    }
-
-    public ArrayList<Listing> getMyListings(int UserID) {
-        ArrayList<Listing> myListings = new ArrayList<>();
-        for (Listing listing : listings) {
-            if (listing.getUserId() == UserID) { myListings.add(listing);}
+        ArrayList<Listing> toJson = new ArrayList<Listing>();
+        for (Listing l : listings.values()) {
+            toJson.add(l);
         }
-        return myListings;
+        writer.write(toJson, "listings");
     }
 }
-
-

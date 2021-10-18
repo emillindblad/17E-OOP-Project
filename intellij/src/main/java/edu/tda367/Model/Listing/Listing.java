@@ -6,8 +6,6 @@ import javafx.scene.image.Image;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.Random;
-import org.apache.commons.text.CharacterPredicates;
-import org.apache.commons.text.RandomStringGenerator;
 
 /**
 * A class representing a Listing of a product
@@ -23,25 +21,14 @@ public class Listing implements RentingItemEntry {
     private ListingState listingState;
     private String fileName;
 
-    Listing(String prodName, Category prodCat, String prodDesc, int userId, int price, LocalDateTime startDate, LocalDateTime endDate) {
-        this.listingId = generateListingId();
-        this.product = new Product(prodName, prodCat, prodDesc);
-        this.userId = userId;
-        this.price = price;
-        this.availability = setAvailability(startDate, endDate);
-        this.listingState = ListingState.AVALIBLE; //Defaults to AVALIABLE now
-
-    }
-
-    Listing(String prodName, Category prodCat, String prodDesc, int userId, int price, LocalDateTime startDate, LocalDateTime endDate, String fileName) {
-        this.listingId = generateListingId();
+    Listing(String listingId, String prodName, Category prodCat, String prodDesc, int userId, int price, LocalDateTime startDate, LocalDateTime endDate, String fileName) {
+        this.listingId = listingId;
         this.product = new Product(prodName, prodCat, prodDesc);
         this.userId = userId;
         this.price = price;
         this.availability = setAvailability(startDate, endDate);
         this.listingState = ListingState.AVALIBLE; //Defaults to AVALIABLE now
         this.fileName = fileName;
-
     }
 
     public String getFileName() {
@@ -50,16 +37,23 @@ public class Listing implements RentingItemEntry {
 
     //TODO Listings, bridge pattern for getting users listings
     //
-    private String generateListingId() {
-        RandomStringGenerator generator = new RandomStringGenerator.Builder().withinRange('0','z').filteredBy(CharacterPredicates.LETTERS, CharacterPredicates.DIGITS).build();
-        String id = generator.generate(12);
-        System.out.println(id);
-        return id;
-    }
 
     public long setAvailability(LocalDateTime startDate, LocalDateTime endDate) {
         availability = ChronoUnit.HOURS.between(startDate,endDate);
         return availability;
+    }
+
+    String[] toArray() {
+        String[] out = {
+            this.listingId,
+            this.product.getProdName(),
+            this.product.getCategoryName(),
+            this.product.getDescription(),
+            String.valueOf(this.price),
+            this.listingState.toString()
+        };
+        return out;
+
     }
 
     @Override

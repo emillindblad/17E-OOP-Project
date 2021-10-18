@@ -28,19 +28,6 @@ public class ListingController implements Controller {
         sceneHandler.centerOnScreen();
     }
 
-    public String createListing(String[] formData) {
-        int userId = userHandler.getUserID();
-         if (validateData(formData)) { //Return true if valid input.
-             listingHandler.createListingFromString(formData, userId);
-             switchToBrowse();
-             return "Success";
-         }
-         else {
-             System.out.println("Form input failed validation!");
-             return "Fail";
-         }
-    }
-
     public String createListing(String[] formData, File src, String destPath) {
         int userId = userHandler.getUserID();
         if (validateData(formData)) { //Return true if valid input.
@@ -53,7 +40,7 @@ public class ListingController implements Controller {
                 }
             }
             String fileName = src.getName();
-            listingHandler.createListingFromString(formData, userId, fileName);
+            listingHandler.createListingFromForm(formData, userId);
             switchToBrowse();
             return "Success";
         }

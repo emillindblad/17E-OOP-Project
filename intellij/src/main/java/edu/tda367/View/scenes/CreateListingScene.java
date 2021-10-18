@@ -30,7 +30,7 @@ public class CreateListingScene extends AbstractHyroScene {
 
     private File selectedFile;
 
-    private String[] formData = new String[4];
+    private String[] formData = new String[5];
 
     public CreateListingScene(SceneHandler handler) throws IOException {
         super("createlisting",handler);
@@ -43,7 +43,7 @@ public class CreateListingScene extends AbstractHyroScene {
     }
 
     private String[] getFormInput() { //TODO Get Availability
-        return new String[]{productName.getText(),productDesc.getText(),prodPrice.getText(),categoriesDropdown.getSelectionModel().getSelectedItem()};
+        return new String[]{productName.getText(),productDesc.getText(),prodPrice.getText(),categoriesDropdown.getSelectionModel().getSelectedItem(),selectedFile.getName()};
     }
 
     private void reset() {
@@ -66,10 +66,6 @@ public class CreateListingScene extends AbstractHyroScene {
     public void createListing() {
         this.formData = getFormInput();
         String path = "src/main/resources/edu/tda367/images/";
-        if(selectedFile == null)
-        {
-            errorMsg.setText(listingController.createListing(formData));
-        }
         errorMsg.setText(listingController.createListing(formData, this.selectedFile, path));
 
     }

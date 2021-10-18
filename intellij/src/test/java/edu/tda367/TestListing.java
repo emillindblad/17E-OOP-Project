@@ -97,7 +97,7 @@ public class TestListing {
 
     @Test
     public void testGetAvailableListings() {
-        ArrayList<Listing> availableListings = handler.getAvailableListings();
+        ArrayList<Listing> availableListings = handler.getAvailableListingKeys();
         System.out.println(availableListings);
         for (Listing listing : availableListings) {
             assertTrue(listing.getListingState().equals(ListingState.AVALIBLE));

@@ -38,6 +38,19 @@ public class Listing implements RentingItemEntry {
         return availability;
     }
 
+    String[] toArray() {
+        String[] out = {
+            this.listingId,
+            this.product.getProdName(),
+            this.product.getCategoryName(),
+            this.product.getDescription(),
+            String.valueOf(this.price),
+            this.listingState.toString()
+        };
+        return out;
+
+    }
+
     @Override
     public String toString() {
         return "Listing{" +

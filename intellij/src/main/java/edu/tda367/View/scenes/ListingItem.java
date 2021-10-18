@@ -37,8 +37,8 @@ public class ListingItem extends AnchorPane {
      * @param listingId
      */
 
-    protected ListingItem(SceneHandler handler, hyroScene scene, int price, String productName, String productCategory, String listingId) {
-        this.listingId = listingId;
+    protected ListingItem(SceneHandler handler, hyroScene scene, String[] listingData) {
+        this.listingId = listingData[0];
         System.out.println(listingId);
         FXMLLoader loader = App.loadFXML("listingitem");
         System.out.println(loader.toString());
@@ -51,19 +51,19 @@ public class ListingItem extends AnchorPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
-        initialize(price, productName, productCategory);
+        initialize(listingData);
     }
 
     public void switchToListing() throws IOException {
         controller.switchToListing(listingId);
     }
 
-    void initialize(int price, String productName, String itemCategory) {
-        this.itemProductName.setText(productName);
-        this.itemPrice.setText(String.valueOf(price + " Kr"));
-        this.itemCategory.setText(itemCategory);
+    void initialize(String[] listingData) {
+        this.itemProductName.setText(listingData[1]);
+        this.itemCategory.setText(listingData[2]);
+        //Descripion this.itemDesc.setText(listingData[3]);
+        this.itemPrice.setText(listingData[4] + " Kr");
+
         this.setStyle("-fx-border-color: black ; -fx-border-width: 1px ;");
     }
-
-
 }

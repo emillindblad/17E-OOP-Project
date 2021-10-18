@@ -82,6 +82,10 @@ public class ListingHandler {
         return listings.get(keys.contains(listingId));
     }
 
+    public String[] getListingData(String key) {
+        return listings.get(key).toArray();
+    }
+
     /**
      * Getter for category names.
      * @return An ArrayList with category names.
@@ -100,16 +104,20 @@ public class ListingHandler {
         return listings;
     }
 
+    public Listing getListingFromKey(String key) {
+        return listings.get(key);
+    }
+
     /**
      * Getter for Listings where ListingState is Avaliable
      * @return An ArrayList af all current Avaliable listings
      */
-    public ArrayList<Listing> getAvailableListings() {
-        ArrayList<Listing> availableListings = new ArrayList<Listing>();
+    public ArrayList<String> getAvailableListingKeys() {
+        ArrayList<String> availableListings = new ArrayList<>();
         listings.forEach(
             (key, listing) -> {
                 if (listing.getListingState().equals(ListingState.AVALIBLE)) {
-                    availableListings.add(listing);
+                    availableListings.add(key);
                 }
             }
         );
@@ -168,10 +176,9 @@ public class ListingHandler {
         //Hardcoded values for now
         LocalDateTime startDate = LocalDateTime.of(2021,9,10,9,0);
         LocalDateTime endDate = LocalDateTime.of(2021,9,11,10,30);
-        String listingId = generateListingId();
+        String key = createKey(generateListingId(),userId);
 
-        Listing listing = new Listing(listingId,prodName,prodCat,prodDesc,userId,price,startDate,endDate);
-        String key = createKey(listingId,userId);
+        Listing listing = new Listing(key,prodName,prodCat,prodDesc,userId,price,startDate,endDate);
 
         listings.put(key,listing);
         linker.linkListing(key);
@@ -183,14 +190,11 @@ public class ListingHandler {
     private String generateListingId() {
         String id;
         Set keys = listings.keySet();
-        System.out.println(keys);
             RandomStringGenerator generator = new RandomStringGenerator.Builder().withinRange('0','z').filteredBy(CharacterPredicates.LETTERS, CharacterPredicates.DIGITS).build();
             id = generator.generate(12);
-            System.out.println(id);
             if (keys.contains(id)) {
                 generateListingId();
             }
-        System.out.println(id);
         return id;
     }
 

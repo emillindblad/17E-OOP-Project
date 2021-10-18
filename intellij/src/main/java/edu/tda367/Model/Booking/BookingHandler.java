@@ -5,6 +5,7 @@ import edu.tda367.Model.JSON.JSONWriter;
 import edu.tda367.Model.Listing.Listing;
 import edu.tda367.Model.Listing.ListingState;
 import edu.tda367.Model.UserPackage.User;
+import edu.tda367.Model.UserPackage.UserHandler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +17,7 @@ import java.util.List;
 public class BookingHandler {
     private static BookingHandler instance;
     private final ArrayList<Booking> bookings;
+    private static UserHandler uHandler;
 
     /**
      * Private constructor, BookingHandler is a singleton
@@ -53,10 +55,20 @@ public class BookingHandler {
     }
 
     /**
-     * Getter for Booking list
-     * @return An ArrayList containing Booking(s)
+     * Gets all Bookings for logged in User
+     * @return An ArrayList containing Booking(s) of the logged in User
      */
-    public ArrayList<Booking> getBookings() { return bookings; }
+    public ArrayList<Booking> getMyBookings() {
+        ArrayList<Booking> myBookings = new ArrayList<>();
+        uHandler = UserHandler.getInstance();
+        User loggedInUser = uHandler.getLoggedInUser();
+        for (Booking booking : bookings) {
+            if (booking.getUser().equals(loggedInUser)) {
+                myBookings.add(booking);
+            }
+        }
+        return myBookings;
+    }
 
     /**
      * Getter for BookingState for a Booking specified by index in list

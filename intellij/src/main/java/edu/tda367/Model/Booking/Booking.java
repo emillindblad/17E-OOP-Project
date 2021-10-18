@@ -106,4 +106,12 @@ class Booking implements RentingItemEntry {
             bookingState = BookingState.DONE;
         }
     }
+
+    /**
+     * Getter for the User who is renting
+     * @return The User who is renting
+     */
+    User getUser() {
+        return customer;
+    }
 }

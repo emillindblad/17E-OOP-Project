@@ -170,6 +170,7 @@ public class ListingHandler {
         //Hardcoded values for now
         LocalDateTime startDate = LocalDateTime.of(2021,9,10,9,0);
         LocalDateTime endDate = LocalDateTime.of(2021,9,11,10,30);
+
         String key = createKey(generateListingId(),userId);
 
         Listing listing = new Listing(key,prodName,prodCat,prodDesc,userId,price,startDate,endDate);
@@ -177,18 +178,13 @@ public class ListingHandler {
         listings.put(key,listing);
         linker.linkListing(key);
 
-        System.out.println(listings);
         return listing;
     }
 
     private String generateListingId() {
         String id;
-        Set keys = listings.keySet();
             RandomStringGenerator generator = new RandomStringGenerator.Builder().withinRange('0','z').filteredBy(CharacterPredicates.LETTERS, CharacterPredicates.DIGITS).build();
             id = generator.generate(12);
-            if (keys.contains(id)) {
-                generateListingId();
-            }
         return id;
     }
 
@@ -227,7 +223,7 @@ public class ListingHandler {
             if (l == null) {
                 System.out.println("null object in json file");
             } else {
-                listingstmp.put(createKey(l.getListingId(),l.getUserId()),l);
+                listingstmp.put(l.getListingId(),l);
             }
         });
         return listingstmp;

@@ -39,9 +39,9 @@ public class ListingItem extends AnchorPane {
 
     protected ListingItem(SceneHandler handler, hyroScene scene, String[] listingData) {
         this.listingId = listingData[0];
+        System.out.println("-------ListingItem-----");
         System.out.println(listingId);
         FXMLLoader loader = App.loadFXML("listingitem");
-        System.out.println(loader.toString());
         loader.setRoot(this);
         loader.setController(this);
         this.scene = scene;
@@ -55,7 +55,7 @@ public class ListingItem extends AnchorPane {
     }
 
     public void switchToListing() throws IOException {
-        controller.switchToListing(listingId);
+        controller.switchToListing(this.listingId);
     }
 
     void initialize(String[] listingData) {

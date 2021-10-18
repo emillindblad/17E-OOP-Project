@@ -12,5 +12,19 @@
     "price": 123,
     "availability": 25,
     "listingState": "AVALIBLE"
+  },
+  {
+    "listingId": "186158-0PoUXj0OgcMK",
+    "product": {
+      "prodName": "fgh",
+      "prodCategory": {
+        "categoryName": "Båtar"
+      },
+      "prodDesc": "fdgh"
+    },
+    "userId": 186158,
+    "price": 234,
+    "availability": 25,
+    "listingState": "AVALIBLE"
   }
 ]

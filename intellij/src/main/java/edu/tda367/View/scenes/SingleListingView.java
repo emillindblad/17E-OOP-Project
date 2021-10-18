@@ -1,8 +1,10 @@
 package edu.tda367.View.scenes;
 
+import edu.tda367.Controllers.ImageHandler;
 import edu.tda367.View.SceneHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 
@@ -23,6 +25,9 @@ public class SingleListingView extends AbstractHyroScene {
 
     private final String listingId;
 
+    @FXML
+    private ImageView listingImage;
+
     /**
      * Super constructor for all scenes. Loads the FXML file and creates a scene with the loaded fxml file
      * @param fxmlName name of the fxml file that you want to load with the scene
@@ -30,6 +35,17 @@ public class SingleListingView extends AbstractHyroScene {
      * @param price
      * @param listingId
      */
+    public SingleListingView(SceneHandler handler, int user, String productName, int price, String category, String description, String listingId, String listingImage) throws IOException {
+        super("SingleListingView", handler);
+        this.listingId = listingId;
+        userId.setText(String.valueOf(user));
+        prodName.setText(productName);
+        this.price.setText(String.valueOf(price));
+        this.category.setText(category);
+        this.description.setText(description);
+        this.listingImage.setImage(ImageHandler.getInstance().getImage(listingImage));
+    }
+
     public SingleListingView(SceneHandler handler, int user, String productName, int price, String category, String description, String listingId) throws IOException {
         super("SingleListingView", handler);
         this.listingId = listingId;

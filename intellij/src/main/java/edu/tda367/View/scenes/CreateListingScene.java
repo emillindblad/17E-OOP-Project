@@ -66,6 +66,10 @@ public class CreateListingScene extends AbstractHyroScene {
     public void createListing() {
         this.formData = getFormInput();
         String path = "src/main/resources/edu/tda367/images/";
+        if(selectedFile == null)
+        {
+            errorMsg.setText(listingController.createListing(formData));
+        }
         errorMsg.setText(listingController.createListing(formData, this.selectedFile, path));
 
     }

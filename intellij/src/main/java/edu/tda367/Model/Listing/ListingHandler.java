@@ -77,8 +77,9 @@ public class ListingHandler {
     }
 
 
-    public Listing getListingByListingId(String listingId) {
-        return listings.get(listingId);
+    public Listing getListingFromListingId(String listingId) {
+        Set keys = listings.keySet();
+        return listings.get(keys.contains(listingId));
     }
 
     /**

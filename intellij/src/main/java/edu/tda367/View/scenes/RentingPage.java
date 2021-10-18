@@ -24,6 +24,8 @@ public class RentingPage extends AbstractHyroScene {
 
     @Override
     public void update() {
+        listingsPane.getChildren().clear();
+        bookingsPane.getChildren().clear();
         controller.update(listingsPane, bookingsPane);
     }
 

@@ -30,5 +30,37 @@
       "availability": 25,
       "listingState": "AVALIBLE"
     }
+  },
+  {
+    "bookingState": "PENDING",
+    "customer": {
+      "firstName": "Sebastian",
+      "lastName": "Kvalden",
+      "phoneNumber": "0734111337",
+      "userAdress": {
+        "streetName": "Kemivagen 7B",
+        "city": "Goteborg",
+        "zipCode": "41258",
+        "country": "Sverige"
+      },
+      "userID": 154585,
+      "userName": "def",
+      "password": "def123",
+      "bankAccount": "987654321"
+    },
+    "listing": {
+      "listingId": "JYvx6FIoMWgy",
+      "product": {
+        "prodName": "TestPRIT Bimot",
+        "prodCategory": {
+          "categoryName": "Test category"
+        },
+        "prodDesc": "Big boi"
+      },
+      "userId": 157717,
+      "price": 69,
+      "availability": 25,
+      "listingState": "BOOKING_SENT"
+    }
   }
 ]

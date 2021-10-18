@@ -46,6 +46,7 @@ public class SingleListingView extends AbstractHyroScene {
         this.category.setText(category);
         this.description.setText(description);
         this.listingImage.setImage(ImageHandler.getInstance().getImage(listingImage));
+        rentController = new RentController(handler);
     }
 
     public SingleListingView(SceneHandler handler, int user, String productName, int price, String category, String description, String listingId) throws IOException {

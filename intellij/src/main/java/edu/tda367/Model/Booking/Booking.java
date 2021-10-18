@@ -8,7 +8,7 @@ import javafx.scene.image.Image;
 
 import java.util.List;
 
-class Booking implements RentingItemEntry {
+public class Booking implements RentingItemEntry {
 
     private BookingState bookingState = BookingState.PENDING;
     private final User customer;

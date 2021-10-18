@@ -5,6 +5,7 @@ import edu.tda367.Model.JSON.JSONWriter;
 import edu.tda367.Model.Listing.Listing;
 import edu.tda367.Model.Listing.ListingHandler;
 import edu.tda367.Model.Listing.ListingState;
+import edu.tda367.Model.RentingItemEntry;
 import edu.tda367.Model.UserPackage.User;
 import edu.tda367.Model.UserPackage.UserHandler;
 
@@ -63,26 +64,12 @@ public class BookingHandler {
     public ArrayList<Booking> getMyBookings() {
         ArrayList<Booking> myBookings = new ArrayList<>();
         uHandler = UserHandler.getInstance();
-        User loggedInUser = uHandler.getLoggedInUser();
         for (Booking booking : bookings) {
-            if (booking.getUser().equals(loggedInUser)) {
+            if (booking.getUser().getUserID() == uHandler.getUserID()) {
                 myBookings.add(booking);
             }
         }
         return myBookings;
-    }
-
-    public ArrayList<Booking> getMyBookedListings() { //TODO Variable name implies Listings get returned
-        ArrayList<Booking> myBookedListings = new ArrayList<>();
-        uHandler = UserHandler.getInstance();
-        lHandler = ListingHandler.getInstance();
-        int UserID = uHandler.getUserID();
-        for (Booking booking : bookings) {
-            if (booking.getListing().getUserId() == UserID) {
-                myBookedListings.add(booking);
-            }
-        }
-        return myBookedListings;
     }
 
     /**

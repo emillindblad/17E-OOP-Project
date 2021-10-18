@@ -1,8 +1,11 @@
 package edu.tda367.Controllers;
 
-//import edu.tda367.Model.Booking.Booking; //can we avoid making Booking a public class?
+
+import edu.tda367.Model.Booking.Booking;
 import edu.tda367.Model.Booking.BookingHandler;
 import edu.tda367.Model.Listing.Listing;
+import edu.tda367.Model.Listing.ListingHandler;
+import edu.tda367.Model.RentingItemEntry;
 import edu.tda367.Model.UserPackage.UserHandler;
 import edu.tda367.View.SceneHandler;
 import edu.tda367.View.scenes.RentingItem;
@@ -14,6 +17,8 @@ public class MyListingsController {
 
     private final SceneHandler sHandler;
     private final UserHandler uHandler = UserHandler.getInstance();
+    private final ListingHandler lHandler = ListingHandler.getInstance();
+    private final BookingHandler bHandler = BookingHandler.getInstance();
 
     public MyListingsController(SceneHandler handler) {
         this.sHandler = handler;
@@ -29,20 +34,17 @@ public class MyListingsController {
     }
 
     private void updateListings(FlowPane listingsPane) {
-        /*
-        ArrayList<Listing> listings = uHandler.getLoggedInUser().getListings();
+        ArrayList<Listing> listings = lHandler.getMyListings(uHandler.getUserID());
         for (Listing l : listings) {
             listingsPane.getChildren().add(new RentingItem(new RentingItemController(), l));
         }
-        */
     }
 
     private void updateBookings(FlowPane bookingsPane) {
-        /*
-        ArrayList<Booking> bookings = uHandler.getLoggedInUser().getBookings();
+        ArrayList<Booking> bookings = bHandler.getMyBookings();
         for (Booking b : bookings) {
             bookingsPane.getChildren().add(new RentingItem(new RentingItemController(), b));
         }
-        */
+
     }
 }

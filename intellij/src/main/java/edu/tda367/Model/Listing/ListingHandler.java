@@ -198,6 +198,13 @@ public class ListingHandler {
         writer.write(listings, "listings");
     }
 
+    public ArrayList<Listing> getMyListings(int UserID) {
+        ArrayList<Listing> myListings = new ArrayList<>();
+        for (Listing listing : listings) {
+            if (listing.getUserId() == UserID) { myListings.add(listing);}
+        }
+        return myListings;
+    }
 }
 
 

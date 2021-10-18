@@ -12,6 +12,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 public class TestBooking {
     static BookingHandler bookingHandler;
@@ -53,8 +54,8 @@ public class TestBooking {
         secondListing = listingHandler.createListing("TestPRIT Bimot",testCat,"Big boi",userID,69,startDate,endDate);
 
         // Create booking - "Sebastian" books "Emil's" Listing
-        bookingHandler = new BookingHandler();
-        initSize = bookingHandler.getBookings().size();
+        bookingHandler = BookingHandler.getInstance();
+        initSize = bookingHandler.getMyBookings().size();
         bookingHandler.createBooking(user, userID, listing);
     }
 
@@ -62,18 +63,19 @@ public class TestBooking {
     public static void clean() {
         userHandler.logOut();
         listingHandler.removeListing(listing);
+        listingHandler.removeListing(secondListing);
         userHandler.removeUser("password", "test");
         userHandler.writeUsers();
     }
 
     @Test
     public void testBooking() {
-        int size = bookingHandler.getBookings().size();
+        int size = bookingHandler.getMyBookings().size();
         assertEquals(size, initSize + 1); // One new booking should have been created at this point
 
         // Create booking - "Sebastian" tries books his own Listing
         bookingHandler.createBooking(user, userID, secondListing);
-        assertEquals(bookingHandler.getBookings().size(), size); // No new booking, size remains same
+        assertEquals(bookingHandler.getMyBookings().size(), size); // No new booking, size remains same
     }
 
     @Test
@@ -90,13 +92,12 @@ public class TestBooking {
         assertEquals(bookingHandler.getBookingState(initSize), BookingState.PAYED);
         // Advance booking state last time, should be unchanged
         bookingHandler.advanceBookingState(initSize);
-        assertEquals(bookingHandler.getBookingState(initSize), BookingState.PAYED);
+        assertEquals(bookingHandler.getBookingState(initSize), BookingState.RETURNED);
+        bookingHandler.advanceBookingState(initSize);
+        assertEquals(bookingHandler.getBookingState(initSize), BookingState.DONE);
+        bookingHandler.advanceBookingState(initSize);
+        assertEquals(bookingHandler.getBookingState(initSize), BookingState.DONE);
 
     }
-
-
-
-
-
 
 }

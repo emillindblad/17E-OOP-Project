@@ -77,13 +77,6 @@ public class TestListing {
     }
 
     @Test
-    public void testGetListingById() {
-        String id = testListing.getListingId();
-        Listing foundListing = handler.getListingByListingId(id);
-        assertTrue(testListing == foundListing);
-    }
-
-    @Test
     public void testDatabaseWrite() {
         handler.writeListings();
         ListingHandler secondHandler = ListingHandler.getInstance(); // Second handler to simulate startup. Gets saved Listings from database

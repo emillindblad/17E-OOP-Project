@@ -1,0 +1,34 @@
+[
+  {
+    "bookingState": "PENDING",
+    "customer": {
+      "firstName": "Sebastian",
+      "lastName": "Kvalden",
+      "phoneNumber": "0734111337",
+      "userAdress": {
+        "streetName": "Kemivagen 7B",
+        "city": "Goteborg",
+        "zipCode": "41258",
+        "country": "Sverige"
+      },
+      "userID": 154585,
+      "userName": "def",
+      "password": "def123",
+      "bankAccount": "987654321"
+    },
+    "listing": {
+      "listingId": "62646",
+      "product": {
+        "prodName": "Bajs",
+        "prodCategory": {
+          "categoryName": "NÃƒÂ¥got annat"
+        },
+        "prodDesc": "En bajskorv"
+      },
+      "userId": 0,
+      "price": 1112,
+      "availability": 25,
+      "listingState": "AVALIBLE"
+    }
+  }
+]

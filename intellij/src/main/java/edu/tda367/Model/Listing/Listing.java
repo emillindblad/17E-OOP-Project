@@ -1,5 +1,8 @@
 package edu.tda367.Model.Listing;
 
+import edu.tda367.Model.RentingItemEntry;
+import javafx.scene.image.Image;
+
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.Random;
@@ -10,7 +13,7 @@ import org.apache.commons.text.RandomStringGenerator;
 * A class representing a Listing of a product
 * @author Emil Lindblad
 */
-public class Listing {
+public class Listing implements RentingItemEntry {
     private final String listingId;
     private Product product;
     private int userId;
@@ -93,8 +96,55 @@ public class Listing {
         this.userId = userId;
     }
 
+    @Override
+    public String getProductName() {
+        return getProduct().getProdName();
+    }
+
     public int getPrice() {
         return price;
+    }
+
+    @Override
+    public String getCategoryName() {
+        return getListingCategory().getCategoryName();
+    }
+
+    // TODO images
+    @Override
+    public Image getImage() {
+        return null;
+    }
+
+    @Override
+    public String getStatusText() {
+        return switch (listingState) {
+            case BOOKING_SENT -> "Förfrågan mottagen";
+            case BOOKING_ACCEPTED -> "inväntar betalning";
+            case UNAVALIBLE -> "betalad och uthyrd";
+            case RETURNED -> "Återlämnad";
+            default -> "Tillgänglig";
+        };
+    }
+
+    @Override
+    public String getButtonText() {
+        return switch (listingState) {
+            case BOOKING_SENT -> "Acceptera";
+            case RETURNED -> "Ja, jag har fått den";
+            default -> "";
+        };
+    }
+
+    @Override
+    public void advanceState() {
+        switch (listingState) {
+            case BOOKING_SENT -> listingState = ListingState.BOOKING_ACCEPTED;
+            case BOOKING_ACCEPTED -> listingState = ListingState.UNAVALIBLE;
+            case UNAVALIBLE -> listingState = ListingState.RETURNED;
+            case RETURNED -> listingState = ListingState.AVALIBLE;
+            default -> listingState = ListingState.BOOKING_SENT;
+        }
     }
 
     public void setPrice(int price) {

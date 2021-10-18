@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <SplitPane dividerPositions="0.5" prefHeight="400.0" prefWidth="600.0">
+         <items>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="106.0" layoutY="21.0" text="Dina annonser" />
+                  <FlowPane fx:id="listingsPane" layoutY="52.0" prefHeight="357.0" prefWidth="296.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="75.0" layoutY="21.0" text="Dina bokningsförfrågningar" />
+                  <FlowPane fx:id="bookingsPane" layoutX="-7.0" layoutY="52.0" prefHeight="357.0" prefWidth="296.0" />
+               </children>
+            </AnchorPane>
+         </items>
+      </SplitPane>
+      <ImageView fx:id="backButton" fitHeight="26.0" fitWidth="58.0" layoutX="12.0" layoutY="14.0" onMouseClicked="#goBack" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="12.0" AnchorPane.topAnchor="14.0">
+         <image>
+            <Image url="@backArrow.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+   </children>
+</AnchorPane>

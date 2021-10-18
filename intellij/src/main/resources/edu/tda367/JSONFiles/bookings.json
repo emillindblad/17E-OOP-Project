@@ -1,0 +1,38 @@
+[
+  {
+    "bookingState": "PENDING",
+    "customer": {
+      "firstName": "a",
+      "lastName": "a",
+      "phoneNumber": "1",
+      "userAdress": {
+        "streetName": "a",
+        "city": "a",
+        "zipCode": "12345",
+        "country": "a"
+      },
+      "userID": 173440,
+      "userName": "a",
+      "password": "a",
+      "bankAccount": "1",
+      "listings": [
+        "173440-6phSkuoHRbCi"
+      ]
+    },
+    "listing": {
+      "listingId": "158872-3KIp0jGAsEaa",
+      "product": {
+        "prodName": "Foo",
+        "prodCategory": {
+          "categoryName": "Bilar"
+        },
+        "prodDesc": "bar"
+      },
+      "userId": 158872,
+      "price": 123,
+      "availability": 25,
+      "listingState": "BOOKING_SENT",
+      "fileName": "listings.png"
+    }
+  }
+]

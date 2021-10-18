@@ -1,33 +1,5 @@
 [
   {
-    "listingId": "JYvx6FIoMWgy",
-    "product": {
-      "prodName": "TestPRIT Bimot",
-      "prodCategory": {
-        "categoryName": "Test category"
-      },
-      "prodDesc": "Big boi"
-    },
-    "userId": 157717,
-    "price": 69,
-    "availability": 25,
-    "listingState": "AVALIBLE"
-  },
-  {
-    "listingId": "iloGqHLKyrgR",
-    "product": {
-      "prodName": "asd",
-      "prodCategory": {
-        "categoryName": "Bilar"
-      },
-      "prodDesc": "1"
-    },
-    "userId": 186158,
-    "price": 1,
-    "availability": 25,
-    "listingState": "AVALIBLE"
-  },
-  {
     "listingId": "rhZEboRfuUPB",
     "product": {
       "prodName": "You\u0027ve got a fast car",
@@ -56,16 +28,30 @@
     "listingState": "AVALIBLE"
   },
   {
-    "listingId": "kmEEPgO9st1s",
+    "listingId": "JYvx6FIoMWgy",
     "product": {
-      "prodName": "Testprodukt med låååång beskrivning",
+      "prodName": "TestPRIT Bimot",
       "prodCategory": {
-        "categoryName": "Släpkärror"
+        "categoryName": "Test category"
       },
-      "prodDesc": "testar om det är möjligt att ha en lång beskrivning i detaljvyn för att se hur det kan fungera så det är därför det finns så många ord här. Och härkommer några ord till. Och några till."
+      "prodDesc": "Big boi"
     },
-    "userId": 154585,
-    "price": 800,
+    "userId": 157717,
+    "price": 69,
+    "availability": 25,
+    "listingState": "AVALIBLE"
+  },
+  {
+    "listingId": "iloGqHLKyrgR",
+    "product": {
+      "prodName": "asd",
+      "prodCategory": {
+        "categoryName": "Bilar"
+      },
+      "prodDesc": "1"
+    },
+    "userId": 186158,
+    "price": 1,
     "availability": 25,
     "listingState": "AVALIBLE"
   },
@@ -80,6 +66,34 @@
     },
     "userId": 0,
     "price": 123,
+    "availability": 25,
+    "listingState": "AVALIBLE"
+  },
+  {
+    "listingId": "8TZV3CbqXBWr",
+    "product": {
+      "prodName": "Ok",
+      "prodCategory": {
+        "categoryName": "Bilar"
+      },
+      "prodDesc": "Nice"
+    },
+    "userId": 186158,
+    "price": 123,
+    "availability": 25,
+    "listingState": "AVALIBLE"
+  },
+  {
+    "listingId": "kmEEPgO9st1s",
+    "product": {
+      "prodName": "Testprodukt med låååång beskrivning",
+      "prodCategory": {
+        "categoryName": "Släpkärror"
+      },
+      "prodDesc": "testar om det är möjligt att ha en lång beskrivning i detaljvyn för att se hur det kan fungera så det är därför det finns så många ord här. Och härkommer några ord till. Och några till."
+    },
+    "userId": 154585,
+    "price": 800,
     "availability": 25,
     "listingState": "AVALIBLE"
   }

@@ -39,6 +39,7 @@ public class ListingItem extends AnchorPane {
 
     protected ListingItem(SceneHandler handler, hyroScene scene, int price, String productName, String productCategory, String listingId) {
         this.listingId = listingId;
+        System.out.println(listingId);
         FXMLLoader loader = App.loadFXML("listingitem");
         System.out.println(loader.toString());
         loader.setRoot(this);

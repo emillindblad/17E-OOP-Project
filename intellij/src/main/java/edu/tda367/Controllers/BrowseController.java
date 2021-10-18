@@ -15,6 +15,7 @@ public class BrowseController implements Controller {
 
     public void switchToListing(String listingId) throws IOException {
         Listing listing = listingHandler.getListingByListingId(listingId);
+        System.out.println(listing);
         sceneHandler.switchToListingView(listing);
     }
 

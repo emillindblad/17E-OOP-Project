@@ -40,5 +40,19 @@
     "price": 800,
     "availability": 25,
     "listingState": "AVALIBLE"
+  },
+  {
+    "listingId": "GaCxotN4UeMN",
+    "product": {
+      "prodName": "ny",
+      "prodCategory": {
+        "categoryName": "Släpkärror"
+      },
+      "prodDesc": "prod"
+    },
+    "userId": 154585,
+    "price": 12,
+    "availability": 25,
+    "listingState": "AVALIBLE"
   }
 ]

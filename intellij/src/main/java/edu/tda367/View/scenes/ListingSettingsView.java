@@ -4,6 +4,7 @@ import edu.tda367.Controllers.CreateListingController;
 import edu.tda367.Controllers.ListingViewController;
 import edu.tda367.View.SceneHandler;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -14,7 +15,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class CreateListingScene extends AbstractHyroScene {
+public class ListingSettingsView extends AbstractHyroScene {
     private final ListingViewController controller;
 
     @FXML private TextField productName;
@@ -24,14 +25,15 @@ public class CreateListingScene extends AbstractHyroScene {
     //@FXML private DatePicker prodAvail;
     @FXML private ComboBox<String> categoriesDropdown;
     @FXML private Label selectedFileName;
+    @FXML private Button primaryButton;
 
     private File selectedFile;
 
     private String[] formData = new String[4];
 
-    public CreateListingScene(SceneHandler handler) throws IOException {
-        super("createlisting",handler);
-        this.controller = new CreateListingController(handler);
+    public ListingSettingsView(SceneHandler handler, ListingViewController controller) throws IOException {
+        super(controller.getFXMLName(),handler);
+        this.controller = controller;
         this.categoriesDropdown.getItems().setAll(loadCategories());
     }
 
@@ -68,11 +70,12 @@ public class CreateListingScene extends AbstractHyroScene {
 
     @FXML
     public void goBack() {
-        controller.switchToBrowse();
+        controller.goBack();
     }
 
     @Override
     public void update() {
+        controller.update(); //TODO refactor update method
         reset();
         Arrays.fill(this.formData,"");
     }

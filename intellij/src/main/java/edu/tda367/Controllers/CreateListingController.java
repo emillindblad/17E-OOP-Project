@@ -26,13 +26,28 @@ public class CreateListingController extends ListingViewController {
                 }
             }
             listingHandler.createListingFromString(formData, userId);
-            switchToBrowse();
+            goBack();
             return "Success";
         }
         else {
             System.out.println("Form input failed validation!");
             return "Fail";
         }
+    }
+
+    @Override
+    public void goBack() {
+        sceneHandler.switchTo("browse");
+    }
+
+    @Override
+    public String getFXMLName() {
+        return "createlisting";
+    }
+
+    @Override
+    public void update() {
+
     }
 
 }

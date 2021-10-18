@@ -23,11 +23,6 @@ public abstract class ListingViewController implements Controller {
         //listingHandler.createListing("P.R.I.T. Grill", new Category("test"), "testing stuff", 4, 160, LocalDateTime.of(2021,9,10,9,0), LocalDateTime.of(2021,9,10,9,1));
     }
 
-    public void switchToBrowse() {
-        sceneHandler.switchTo("browse");
-        sceneHandler.centerOnScreen();
-    }
-
     public ArrayList<String> getCategoryNames() {
         return listingHandler.getCategoryNames();
     }
@@ -49,4 +44,10 @@ public abstract class ListingViewController implements Controller {
     }
 
     public abstract String doneButton(String[] formData, File src, String destPath);
+
+    public abstract void goBack();
+
+    public abstract String getFXMLName();
+
+    public abstract void update();
 }

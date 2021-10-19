@@ -32,5 +32,39 @@
       "listingState": "RETURNED",
       "fileName": "argnotis.png"
     }
+  },
+  {
+    "bookingState": "PENDING",
+    "customer": {
+      "firstName": "a",
+      "lastName": "a",
+      "phoneNumber": "1",
+      "userAdress": {
+        "streetName": "a",
+        "city": "a",
+        "zipCode": "12345",
+        "country": "a"
+      },
+      "userID": 173440,
+      "userName": "a",
+      "password": "a",
+      "bankAccount": "1",
+      "listings": []
+    },
+    "listing": {
+      "listingId": "158872-xl1EJG11dPdG",
+      "product": {
+        "prodName": "eeee",
+        "prodCategory": {
+          "categoryName": "Släpkärror"
+        },
+        "prodDesc": "eee"
+      },
+      "userId": 158872,
+      "price": 12,
+      "availability": 25,
+      "listingState": "BOOKING_SENT",
+      "fileName": "argnotis.png"
+    }
   }
 ]

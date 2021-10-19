@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "listingId": "158872-xl1EJG11dPdG",
+    "product": {
+      "prodName": "eeee",
+      "prodCategory": {
+        "categoryName": "Släpkärror"
+      },
+      "prodDesc": "eee"
+    },
+    "userId": 158872,
+    "price": 12,
+    "availability": 25,
+    "listingState": "BOOKING_ACCEPTED",
+    "fileName": "argnotis.png"
+  }
+]

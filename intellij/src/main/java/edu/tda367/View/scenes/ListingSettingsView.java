@@ -66,7 +66,7 @@ public class ListingSettingsView extends AbstractHyroScene {
         String path = "src/main/resources/edu/tda367/images/";
         System.out.println(Arrays.toString(formData));
         System.out.println(this.selectedFile);
-        errorMsg.setText(listingController.createListing(formData, this.selectedFile, path));
+        errorMsg.setText(controller.doneButton(formData, this.selectedFile, path));
     }
 
     @FXML

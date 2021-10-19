@@ -16,11 +16,14 @@ public class ListingSettingsController extends ListingViewController {
     }
 
     @Override
-    protected void updateListings(String[] formData, int userID) {
+    protected String updateListings(String[] formData, int userID) {
         if (listing.getListingState() == ListingState.AVAILABLE) {
             listing.setDesc(formData[1]);
             listing.setPrice(Integer.parseInt(formData[2]));
+            listing.setFileName(formData[4]);
+            return "Success";
         }
+        return "Kan inte ändra när varan är bokad!";
     }
 
     @Override

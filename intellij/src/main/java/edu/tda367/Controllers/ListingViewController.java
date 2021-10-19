@@ -56,9 +56,9 @@ public abstract class ListingViewController implements Controller {
                     ex.printStackTrace();
                 }
             }
-            updateListings(formData, userId);
+            String msg = updateListings(formData, userId);
             goBack();
-            return "Success";
+            return msg;
         }
         else {
             System.out.println("Form input failed validation!");
@@ -66,7 +66,7 @@ public abstract class ListingViewController implements Controller {
         }
     }
 
-    protected abstract void updateListings(String[] formData, int userID);
+    protected abstract String updateListings(String[] formData, int userID);
 
     public abstract void goBack();
 

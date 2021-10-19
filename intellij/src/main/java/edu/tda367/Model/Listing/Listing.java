@@ -34,6 +34,10 @@ public class Listing implements RentingItemEntry {
         return this.fileName;
     }
 
+    public void setFileName(String file) {
+        this.fileName = file;
+    }
+
     //TODO Listings, bridge pattern for getting users listings
     //
 

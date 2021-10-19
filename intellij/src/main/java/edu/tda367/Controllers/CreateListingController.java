@@ -11,8 +11,9 @@ public class CreateListingController extends ListingViewController {
     }
 
     @Override
-    protected void updateListings(String[] formData, int userID) {
+    protected String updateListings(String[] formData, int userID) {
         listingHandler.createListing(formData, userID);
+        return "Success";
     }
 
 

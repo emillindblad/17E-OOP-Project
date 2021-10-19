@@ -42,7 +42,11 @@ public class ListingSettingsView extends AbstractHyroScene {
     }
 
     private String[] getFormInput() { //TODO Get Availability
-        return new String[]{productName.getText(),productDesc.getText(),prodPrice.getText(),categoriesDropdown.getSelectionModel().getSelectedItem(),selectedFile.getName()};
+        String file = "No image supplied";
+        if (this.selectedFile!=null) {
+            file = selectedFile.getName();
+        }
+        return new String[]{productName.getText(),productDesc.getText(),prodPrice.getText(),categoriesDropdown.getSelectionModel().getSelectedItem(),file};
     }
 
 
@@ -50,15 +54,19 @@ public class ListingSettingsView extends AbstractHyroScene {
     public void uploadFile() {
        FileChooser fileChooser = new FileChooser();
        File selectedFile = fileChooser.showOpenDialog(this.getHyroScene().getWindow());
-       this.selectedFile = selectedFile;
-       selectedFileName.setText(selectedFile.getName());
+        if (selectedFile!=null) {
+            this.selectedFile = selectedFile;
+            this.selectedFileName.setText(selectedFile.getName());
+        }
     }
 
     @FXML
     public void doneButtonAction() {
         this.formData = getFormInput();
         String path = "src/main/resources/edu/tda367/images/";
-        errorMsg.setText(controller.doneButton(formData, this.selectedFile, path));
+        System.out.println(Arrays.toString(formData));
+        System.out.println(this.selectedFile);
+        errorMsg.setText(listingController.createListing(formData, this.selectedFile, path));
     }
 
     @FXML

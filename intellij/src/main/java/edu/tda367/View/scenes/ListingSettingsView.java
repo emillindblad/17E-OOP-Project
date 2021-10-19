@@ -49,9 +49,12 @@ public class ListingSettingsView extends AbstractHyroScene {
         return new String[]{productName.getText(),productDesc.getText(),prodPrice.getText(),categoriesDropdown.getSelectionModel().getSelectedItem(),file};
     }
 
-
+    /**
+     * Uploads file from computer.
+     * sets selectedFile to file uploaded
+     */
     @FXML
-    public void uploadFile() {
+    private void uploadFile() {
        FileChooser fileChooser = new FileChooser();
        File selectedFile = fileChooser.showOpenDialog(this.getHyroScene().getWindow());
         if (selectedFile!=null) {
@@ -60,12 +63,13 @@ public class ListingSettingsView extends AbstractHyroScene {
         }
     }
 
+    /**
+     * Will either attempt to create or edit listing depending on controller
+     */
     @FXML
-    public void doneButtonAction() {
+    private void doneButtonAction() {
         this.formData = getFormInput();
         String path = "src/main/resources/edu/tda367/images/";
-        System.out.println(Arrays.toString(formData));
-        System.out.println(this.selectedFile);
         errorMsg.setText(controller.doneButton(formData, this.selectedFile, path));
     }
 

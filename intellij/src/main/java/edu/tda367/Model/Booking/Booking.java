@@ -72,12 +72,6 @@ public class Booking implements RentingItemEntry {
         return listing.getListingCategory().getCategoryName();
     }
 
-    // TODO images
-    @Override
-    public Image getImage() {
-        return null;
-    }
-
     @Override
     public String getStatusText() {
         updateStateFromListing();

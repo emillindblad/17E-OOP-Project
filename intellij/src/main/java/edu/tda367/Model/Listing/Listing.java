@@ -107,11 +107,6 @@ public class Listing implements RentingItemEntry {
         return getListingCategory().getCategoryName();
     }
 
-    // TODO images
-    @Override
-    public Image getImage() {
-        return null;
-    }
 
     @Override
     public String getStatusText() {

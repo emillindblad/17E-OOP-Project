@@ -43,5 +43,20 @@
     "availability": 25,
     "listingState": "AVALIBLE",
     "fileName": "listings.png"
+  },
+  {
+    "listingId": "158872-uBJsObzXvjFP",
+    "product": {
+      "prodName": "Bildtest",
+      "prodCategory": {
+        "categoryName": "Bilar"
+      },
+      "prodDesc": "asd"
+    },
+    "userId": 158872,
+    "price": 123,
+    "availability": 25,
+    "listingState": "AVALIBLE",
+    "fileName": "listings.png"
   }
 ]

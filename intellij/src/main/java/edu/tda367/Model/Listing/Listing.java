@@ -44,7 +44,7 @@ public class Listing implements RentingItemEntry {
     }
 
     String[] toArray() {
-        String[] out = {
+        return new String[]{
             this.listingId,
             this.product.getProdName(),
             this.product.getCategoryName(),
@@ -52,7 +52,6 @@ public class Listing implements RentingItemEntry {
             String.valueOf(this.price),
             this.listingState.toString()
         };
-        return out;
 
     }
 

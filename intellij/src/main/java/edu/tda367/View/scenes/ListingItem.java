@@ -46,6 +46,7 @@ public class ListingItem extends AnchorPane {
         this.listingId = listingData[0];
         System.out.println("-------ListingItem-----");
         System.out.println(listingId);
+        System.out.println(listingData[6] + listingData[5]);
         FXMLLoader loader = App.loadFXML("listingitem");
         loader.setRoot(this);
         loader.setController(this);
@@ -85,8 +86,8 @@ public class ListingItem extends AnchorPane {
         this.itemCategory.setText(listingData[2]);
         //Descripion this.itemDesc.setText(listingData[3]);
         this.itemPrice.setText(listingData[4] + " Kr");
-        this.listingImage.setImage(ImageHandler.getInstance().getImage(listingData[5]));
-
+        this.listingImage.setImage(ImageHandler.getInstance().getImage(listingData[6]));
+        System.out.println("code gets here");
         this.setStyle("-fx-border-color: black ; -fx-border-width: 1px ;");
     }
 }

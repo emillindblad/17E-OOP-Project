@@ -1,107 +1,17 @@
 [
   {
-    "listingId": "158872-3KIp0jGAsEaa",
+    "listingId": "158872-xl1EJG11dPdG",
     "product": {
-      "prodName": "Foo",
-      "prodCategory": {
-        "categoryName": "Bilar"
-      },
-      "prodDesc": "bar"
-    },
-    "userId": 158872,
-    "price": 123,
-    "availability": 25,
-    "listingState": "BOOKING_ACCEPTED",
-    "fileName": "listings.png"
-  },
-  {
-    "listingId": "158872-fybkN5oesZvb",
-    "product": {
-      "prodName": "wohoo",
-      "prodCategory": {
-        "categoryName": "Elektronik"
-      },
-      "prodDesc": "jk"
-    },
-    "userId": 158872,
-    "price": 13,
-    "availability": 25,
-    "listingState": "AVAILABLE",
-    "fileName": "user-icon.png"
-  },
-  {
-    "listingId": "158872-POFI7ur1igL3",
-    "product": {
-      "prodName": "sdf",
-      "prodCategory": {
-        "categoryName": "Båtar"
-      },
-      "prodDesc": "gg"
-    },
-    "userId": 158872,
-    "price": 435,
-    "availability": 25,
-    "listingState": "AVAILABLE",
-    "fileName": "backArrow.png"
-  },
-  {
-    "listingId": "158872-iW7Clzrg2pxu",
-    "product": {
-      "prodName": "Nice",
+      "prodName": "eeee",
       "prodCategory": {
         "categoryName": "Släpkärror"
       },
-      "prodDesc": "ghj"
+      "prodDesc": "eee"
     },
     "userId": 158872,
-    "price": 345,
+    "price": 12,
     "availability": 25,
-    "listingState": "AVAILABLE",
-    "fileName": "listings.png"
-  },
-  {
-    "listingId": "158872-WKiR413SmN2v",
-    "product": {
-      "prodName": "e",
-      "prodCategory": {
-        "categoryName": "Bilar"
-      },
-      "prodDesc": "e"
-    },
-    "userId": 158872,
-    "price": 1,
-    "availability": 25,
-    "listingState": "AVAILABLE",
-    "fileName": "No image supplied"
-  },
-  {
-    "listingId": "173440-6phSkuoHRbCi",
-    "product": {
-      "prodName": "a\u0027s grej",
-      "prodCategory": {
-        "categoryName": "Möbler"
-      },
-      "prodDesc": "Väldigt cool"
-    },
-    "userId": 173440,
-    "price": 213,
-    "availability": 25,
-    "listingState": "AVAILABLE",
-    "fileName": "listings.png"
-  },
-  {
-    "listingId": "158872-uBJsObzXvjFP",
-    "product": {
-      "prodName": "Bildtest",
-      "prodCategory": {
-        "categoryName": "Bilar"
-      },
-      "prodDesc": "asd"
-    },
-    "userId": 158872,
-    "price": 123,
-    "availability": 25,
-    "listingState": "AVAILABLE",
-    "fileName": "listings.png"
+    "listingState": "BOOKING_ACCEPTED",
+    "fileName": "argnotis.png"
   }
 ]

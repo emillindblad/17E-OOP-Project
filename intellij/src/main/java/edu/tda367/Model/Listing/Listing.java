@@ -34,6 +34,10 @@ public class Listing implements RentingItemEntry {
         return this.fileName;
     }
 
+    public void setFileName(String file) {
+        this.fileName = file;
+    }
+
     //TODO Listings, bridge pattern for getting users listings
     //
 
@@ -140,8 +144,27 @@ public class Listing implements RentingItemEntry {
         }
     }
 
+    @Override
+    public boolean getClickable() {
+        return true;
+    }
+
+    @Override
+    public Listing getListing() {
+        return this;
+    }
+
+    @Override
+    public String getImageName() {
+        return getFileName();
+    }
+
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public void setDesc(String desc) {
+        this.product.setDescription(desc);
     }
 
     public ListingState getListingState() {

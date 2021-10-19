@@ -1,6 +1,7 @@
 package edu.tda367.View.scenes;
 
 import edu.tda367.App;
+import edu.tda367.Controllers.ImageHandler;
 import edu.tda367.Controllers.RentingItemController;
 import edu.tda367.Model.RentingItemEntry;
 import javafx.fxml.FXML;
@@ -26,6 +27,7 @@ public class RentingItem extends AnchorPane {
 
     private final RentingItemController controller;
     private final RentingItemEntry entry;
+    private final boolean clickable;
 
     /**
      * Contructor. Sets up necessary JavaFX parameters
@@ -46,6 +48,9 @@ public class RentingItem extends AnchorPane {
 
         this.entry = entry;
         initialize(entry);
+        clickable = entry.getClickable();
+
+        image.setImage(ImageHandler.getInstance().getImage(entry.getImageName()));
     }
 
     /**
@@ -56,6 +61,13 @@ public class RentingItem extends AnchorPane {
     private void buttonAction() {
         controller.buttonAction(entry);
         initialize(entry);
+    }
+
+    @FXML
+    private void goToSettings() throws IOException {
+        if (clickable) {
+            controller.goToSettings(entry);
+        }
     }
 
     /**
@@ -71,6 +83,22 @@ public class RentingItem extends AnchorPane {
         
         button.setVisible(!button.getText().equals(""));
         //image.setImage(entry.getImage());
+    }
+
+    public ImageView getImage() {
+        return image;
+    }
+
+    @FXML
+    private void mouseEnter() {
+        image.setScaleX(1.1);
+        image.setScaleY(1.1);
+    }
+
+    @FXML
+    private void mouseExit() {
+        image.setScaleX(1);
+        image.setScaleY(1);
     }
 
 

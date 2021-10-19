@@ -53,6 +53,11 @@ public class Booking implements RentingItemEntry {
     }
 
     @Override
+    public boolean getClickable() {
+        return false;
+    }
+
+    @Override
     public String getProductName() {
         return listing.getProduct().getProdName();
     }
@@ -95,6 +100,11 @@ public class Booking implements RentingItemEntry {
         };
     }
 
+    @Override
+    public String getImageName() {
+        return listing.getImageName();
+    }
+
     private void updateStateFromListing() {
         ListingState lState = listing.getListingState();
 
@@ -119,7 +129,8 @@ public class Booking implements RentingItemEntry {
      * Getter for the rented Listing
      * @return The rented Listing
      */
-    Listing getListing() {
+    @Override
+    public Listing getListing() {
         return listing;
     }
 }

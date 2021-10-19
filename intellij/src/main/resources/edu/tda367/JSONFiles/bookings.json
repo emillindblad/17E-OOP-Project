@@ -1,5 +1,39 @@
 [
   {
+    "bookingState": "RETURNED",
+    "customer": {
+      "firstName": "a",
+      "lastName": "a",
+      "phoneNumber": "1",
+      "userAdress": {
+        "streetName": "a",
+        "city": "a",
+        "zipCode": "12345",
+        "country": "a"
+      },
+      "userID": 173440,
+      "userName": "a",
+      "password": "a",
+      "bankAccount": "1",
+      "listings": []
+    },
+    "listing": {
+      "listingId": "158872-G7wK7x0hYfni",
+      "product": {
+        "prodName": "e är arg",
+        "prodCategory": {
+          "categoryName": "Båtar"
+        },
+        "prodDesc": "som bara den"
+      },
+      "userId": 158872,
+      "price": 12,
+      "availability": 25,
+      "listingState": "RETURNED",
+      "fileName": "argnotis.png"
+    }
+  },
+  {
     "bookingState": "PENDING",
     "customer": {
       "firstName": "a",
@@ -15,24 +49,22 @@
       "userName": "a",
       "password": "a",
       "bankAccount": "1",
-      "listings": [
-        "173440-6phSkuoHRbCi"
-      ]
+      "listings": []
     },
     "listing": {
-      "listingId": "158872-3KIp0jGAsEaa",
+      "listingId": "158872-xl1EJG11dPdG",
       "product": {
-        "prodName": "Foo",
+        "prodName": "eeee",
         "prodCategory": {
-          "categoryName": "Bilar"
+          "categoryName": "Släpkärror"
         },
-        "prodDesc": "bar"
+        "prodDesc": "eee"
       },
       "userId": 158872,
-      "price": 123,
+      "price": 12,
       "availability": 25,
       "listingState": "BOOKING_SENT",
-      "fileName": "listings.png"
+      "fileName": "argnotis.png"
     }
   }
 ]

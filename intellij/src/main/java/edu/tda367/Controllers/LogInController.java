@@ -22,7 +22,6 @@ public class LogInController implements Controller {
      */
     public void switchToBrowse() {
         handler.switchTo("browse");
-        handler.centerOnScreen();
     }
 
     /**
@@ -47,6 +46,5 @@ public class LogInController implements Controller {
      */
     public void switchToCreateAccount() {
         handler.switchTo("createaccount");
-        handler.centerOnScreen();
     }
 }

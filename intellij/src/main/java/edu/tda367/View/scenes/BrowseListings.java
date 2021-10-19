@@ -69,19 +69,16 @@ public class BrowseListings extends AbstractHyroScene {
     @FXML
     private void switchToCreate() {
         handler.switchTo("createlisting");
-        handler.centerOnScreen();
     }
 
     @FXML
     private void switchToUserSettings() {
         handler.switchTo("myaccount");
-        handler.centerOnScreen();
     }
 
     @FXML
     private void goToListings() {
         handler.switchTo("rentingpage");
-        handler.centerOnScreen();
     }
 
 

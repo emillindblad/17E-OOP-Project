@@ -40,6 +40,7 @@ public class SceneHandler {
     public void switchScenes(hyroScene newScene) {
         root.setScene(newScene.getHyroScene());
         newScene.update();
+        centerOnScreen();
         root.show();
     }
 
@@ -47,12 +48,7 @@ public class SceneHandler {
         this.scenes.put(name.toLowerCase(), scene);
     }
 
-    public void setLocationOnScreen(double x, double y) {
-        root.setX(x);
-        root.setY(y);
-    }
-
-    public void centerOnScreen() {
+    private void centerOnScreen() {
         root.centerOnScreen();
     }
 

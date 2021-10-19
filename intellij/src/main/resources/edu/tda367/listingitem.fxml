@@ -5,7 +5,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<fx:root accessibleRole="NODE" onMouseClicked="#switchToListing" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root accessibleRole="NODE" onMouseClicked="#switchToListing" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -13,6 +13,7 @@
             <Label fx:id="itemCategory" layoutX="191.0" layoutY="40.0" text="Category" />
             <Label fx:id="itemPrice" layoutX="191.0" layoutY="82.0" text="Price" />
             <ImageView fx:id="listingImage" fitHeight="121.0" fitWidth="179.0" layoutX="3.0" layoutY="7.0" onMouseClicked="#switchToListing" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="defaultImgText" layoutX="14.0" layoutY="60.0" textAlignment="CENTER" />
          </children>
          <cursor>
             <Cursor fx:constant="HAND" />

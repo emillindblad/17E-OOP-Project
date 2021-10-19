@@ -2,10 +2,13 @@ package edu.tda367.Controllers;
 
 import edu.tda367.Model.UserPackage.UserHandler;
 import edu.tda367.View.SceneHandler;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class CreateAccController extends AccountViewController{
 
@@ -34,8 +37,23 @@ public class CreateAccController extends AccountViewController{
                                                 fields.get(2).getText(),
                                                 fields.get(4).getText(),
                                                 fields.get(5).getText());
+            backToLogInDialog();
         } else {
             info.setText("Alla fält är inte korrekt ifyllda");
+        }
+    }
+
+    public void backToLogInDialog() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Kontot är skapat");
+        alert.setHeaderText("Kontot är skapat");
+        String s = "Återvänd till hemskärmen?";
+        alert.setContentText(s);
+
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if ((result.isPresent()) && (result.get() == ButtonType.OK)) {
+            goBack();
         }
     }
 
@@ -45,7 +63,6 @@ public class CreateAccController extends AccountViewController{
     @Override
     public void goBack() {
         handler.switchTo("login");
-        handler.centerOnScreen();
     }
 
     /**

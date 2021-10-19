@@ -53,15 +53,6 @@ public class TestListing {
         dbSize = handler.getListings().size();
     }
 
-    @AfterClass
-    public static void clean() {
-        //---- Remove test listings from database ------//
-        System.out.println("Cleaning up...");
-        handler.removeListing(secondTestListing);
-        handler.removeListing(testListing);
-        handler.removeListing(stringListing);
-        uHandler.removeUser("test","test");
-    }
 
     @Test
     public void testHandlerCreate() {
@@ -100,7 +91,7 @@ public class TestListing {
     public void testGetAvailableListingIds() {
         ArrayList<String> availableListingKeys = handler.getAvailableListingKeys();
         for (String key : availableListingKeys) {
-            assertTrue(handler.getListingFromKey(key).getListingState().equals(ListingState.AVALIBLE));
+            assertTrue(handler.getListingFromKey(key).getListingState().equals(ListingState.AVAILABLE));
         }
     }
 
@@ -109,7 +100,7 @@ public class TestListing {
         String[] data = {"Test Name","Test Desc","69","Övrigt","DummyImgPath"};
         Listing listing = handler.createListing(data,dummyId);
         String[] getData = handler.getListingData(listing.getListingId());
-        assertTrue(Arrays.equals(getData,new String[] {listing.getListingId(),"Test Name","Övrigt","Test Desc","69","AVALIBLE","DummyImgPath"}));
+        assertTrue(Arrays.equals(getData,new String[] {listing.getListingId(),"Test Name","Övrigt","Test Desc","69","AVAILABLE","DummyImgPath"}));
     }
 
     @Test

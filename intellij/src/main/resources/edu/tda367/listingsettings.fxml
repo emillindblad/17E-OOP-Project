@@ -10,7 +10,7 @@
     <children>
         <AnchorPane layoutX="160.0" layoutY="90.0" maxHeight="540.0" maxWidth="960.0" minHeight="540.0" minWidth="960.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 3;">
             <children>
-                <Button fx:id="primaryButton" layoutX="705.0" layoutY="464.0" mnemonicParsing="false" onAction="#doneButtonAction" prefHeight="55.0" prefWidth="224.0" style="-fx-background-color: #00BABE; -fx-border-color: #000000; -fx-border-width: 2;" text="Skapa annons" textAlignment="CENTER" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="702.0" AnchorPane.rightAnchor="34.0" AnchorPane.topAnchor="461.0">
+                <Button fx:id="primaryButton" layoutX="705.0" layoutY="464.0" mnemonicParsing="false" onAction="#doneButtonAction" prefHeight="55.0" prefWidth="224.0" style="-fx-background-color: #00BABE; -fx-border-color: #000000; -fx-border-width: 2;" text="Spara ändringar" textAlignment="CENTER" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="702.0" AnchorPane.rightAnchor="34.0" AnchorPane.topAnchor="461.0">
                     <font>
                         <Font size="24.0" />
                     </font>
@@ -18,7 +18,7 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </Button>
-            <TextField fx:id="productName" layoutX="190.0" layoutY="125.0" prefHeight="26.0" prefWidth="300.0" />
+            <TextField fx:id="productName" editable="false" layoutX="190.0" layoutY="125.0" prefHeight="26.0" prefWidth="300.0" />
             <Label layoutX="100.0" layoutY="130.0" text="Produktnamn:" />
 
             <TextField fx:id="productDesc" layoutX="190.0" layoutY="165.0" prefHeight="26.0" prefWidth="300.0" />

@@ -6,8 +6,6 @@ import edu.tda367.Model.RentingItemEntry;
 import edu.tda367.Model.UserPackage.User;
 import javafx.scene.image.Image;
 
-import java.util.List;
-
 public class Booking implements RentingItemEntry {
 
     private BookingState bookingState = BookingState.PENDING;
@@ -20,7 +18,7 @@ public class Booking implements RentingItemEntry {
         listing.advanceState();
     }
 
-    BookingState getBookingState() {
+    public BookingState getBookingState() {
         return bookingState;
     }
 
@@ -55,6 +53,11 @@ public class Booking implements RentingItemEntry {
     }
 
     @Override
+    public boolean getClickable() {
+        return false;
+    }
+
+    @Override
     public String getProductName() {
         return listing.getProduct().getProdName();
     }
@@ -67,12 +70,6 @@ public class Booking implements RentingItemEntry {
     @Override
     public String getCategoryName() {
         return listing.getListingCategory().getCategoryName();
-    }
-
-    // TODO images
-    @Override
-    public Image getImage() {
-        return null;
     }
 
     @Override
@@ -97,6 +94,11 @@ public class Booking implements RentingItemEntry {
         };
     }
 
+    @Override
+    public String getImageName() {
+        return listing.getImageName();
+    }
+
     private void updateStateFromListing() {
         ListingState lState = listing.getListingState();
 
@@ -104,7 +106,7 @@ public class Booking implements RentingItemEntry {
             bookingState = BookingState.ACCEPTED;
         }
 
-        if (lState == ListingState.AVALIBLE && bookingState != BookingState.DONE) {
+        if (lState == ListingState.AVAILABLE && bookingState != BookingState.DONE) {
             bookingState = BookingState.DONE;
         }
     }
@@ -121,7 +123,8 @@ public class Booking implements RentingItemEntry {
      * Getter for the rented Listing
      * @return The rented Listing
      */
-    Listing getListing() {
+    @Override
+    public Listing getListing() {
         return listing;
     }
 }

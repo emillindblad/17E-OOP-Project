@@ -1,7 +1,8 @@
 package edu.tda367;
 
-import edu.tda367.Controllers.AccountViewController;
 import edu.tda367.Controllers.CreateAccController;
+import edu.tda367.Controllers.CreateListingController;
+import edu.tda367.Controllers.ListingSettingsController;
 import edu.tda367.Controllers.MyAccController;
 import edu.tda367.Model.Booking.BookingHandler;
 import edu.tda367.Model.Listing.ListingHandler;
@@ -10,11 +11,8 @@ import edu.tda367.View.HyroSceneFactory;
 import edu.tda367.View.SceneHandler;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
-import java.util.ArrayList;
 
 /**
  * JavaFX App
@@ -29,11 +27,10 @@ public class App extends Application {
         lHandler = ListingHandler.getInstance();
         bHandler = BookingHandler.getInstance();
         sceneHandler = new SceneHandler(stage);
-        sceneHandler.addScene(HyroSceneFactory.homeScene(sceneHandler), "home");
-        sceneHandler.addScene(HyroSceneFactory.secondaryScene(sceneHandler), "secondary");
         sceneHandler.addScene(HyroSceneFactory.browseScene(sceneHandler), "browse");
         sceneHandler.addScene(HyroSceneFactory.loginScene(sceneHandler), "login");
-        sceneHandler.addScene(HyroSceneFactory.createListingScene(sceneHandler),"createlisting");
+        CreateListingController lcCtrl = new CreateListingController(sceneHandler);
+        sceneHandler.addScene(HyroSceneFactory.createListingSettingsScene(sceneHandler, lcCtrl),"createlisting");
         CreateAccController caCtrl = new CreateAccController(sceneHandler);
         MyAccController myAccCtrl = new MyAccController(sceneHandler);
         sceneHandler.addScene(HyroSceneFactory.accountViewScene(sceneHandler, myAccCtrl), "myaccount");

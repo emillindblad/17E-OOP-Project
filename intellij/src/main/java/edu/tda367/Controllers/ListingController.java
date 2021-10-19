@@ -39,7 +39,6 @@ public class ListingController implements Controller {
                     ex.printStackTrace();
                 }
             }
-            String fileName = src.getName();
             listingHandler.createListing(formData, userId); //File name should be in formData array
             switchToBrowse();
             return "Success";

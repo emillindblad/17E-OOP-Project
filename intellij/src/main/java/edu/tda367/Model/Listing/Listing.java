@@ -5,9 +5,6 @@ import javafx.scene.image.Image;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
-import java.util.Random;
-import org.apache.commons.text.CharacterPredicates;
-import org.apache.commons.text.RandomStringGenerator;
 
 /**
 * A class representing a Listing of a product
@@ -23,43 +20,43 @@ public class Listing implements RentingItemEntry {
     private ListingState listingState;
     private String fileName;
 
-    Listing(String prodName, Category prodCat, String prodDesc, int userId, int price, LocalDateTime startDate, LocalDateTime endDate) {
-        this.listingId = generateListingId();
+    Listing(String listingId, String prodName, Category prodCat, String prodDesc, int userId, int price, LocalDateTime startDate, LocalDateTime endDate, String fileName) {
+        this.listingId = listingId;
         this.product = new Product(prodName, prodCat, prodDesc);
         this.userId = userId;
         this.price = price;
         this.availability = setAvailability(startDate, endDate);
-        this.listingState = ListingState.AVALIBLE; //Defaults to AVALIABLE now
-
-    }
-
-    Listing(String prodName, Category prodCat, String prodDesc, int userId, int price, LocalDateTime startDate, LocalDateTime endDate, String fileName) {
-        this.listingId = generateListingId();
-        this.product = new Product(prodName, prodCat, prodDesc);
-        this.userId = userId;
-        this.price = price;
-        this.availability = setAvailability(startDate, endDate);
-        this.listingState = ListingState.AVALIBLE; //Defaults to AVALIABLE now
+        this.listingState = ListingState.AVAILABLE; //Defaults to AVAILABLE now
         this.fileName = fileName;
-
     }
 
     public String getFileName() {
         return this.fileName;
     }
 
+    public void setFileName(String file) {
+        this.fileName = file;
+    }
+
     //TODO Listings, bridge pattern for getting users listings
     //
-    private String generateListingId() {
-        RandomStringGenerator generator = new RandomStringGenerator.Builder().withinRange('0','z').filteredBy(CharacterPredicates.LETTERS, CharacterPredicates.DIGITS).build();
-        String id = generator.generate(12);
-        System.out.println(id);
-        return id;
-    }
 
     public long setAvailability(LocalDateTime startDate, LocalDateTime endDate) {
         availability = ChronoUnit.HOURS.between(startDate,endDate);
         return availability;
+    }
+
+    String[] toArray() {
+        return new String[]{
+            this.listingId,
+            this.product.getProdName(),
+            this.product.getCategoryName(),
+            this.product.getDescription(),
+            String.valueOf(this.price),
+            this.listingState.toString(),
+            this.fileName
+        };
+
     }
 
     @Override
@@ -110,18 +107,13 @@ public class Listing implements RentingItemEntry {
         return getListingCategory().getCategoryName();
     }
 
-    // TODO images
-    @Override
-    public Image getImage() {
-        return null;
-    }
 
     @Override
     public String getStatusText() {
         return switch (listingState) {
             case BOOKING_SENT -> "Förfrågan mottagen";
             case BOOKING_ACCEPTED -> "inväntar betalning";
-            case UNAVALIBLE -> "betalad och uthyrd";
+            case UNAVAILABLE -> "betalad och uthyrd";
             case RETURNED -> "Återlämnad";
             default -> "Tillgänglig";
         };
@@ -140,15 +132,34 @@ public class Listing implements RentingItemEntry {
     public void advanceState() {
         switch (listingState) {
             case BOOKING_SENT -> listingState = ListingState.BOOKING_ACCEPTED;
-            case BOOKING_ACCEPTED -> listingState = ListingState.UNAVALIBLE;
-            case UNAVALIBLE -> listingState = ListingState.RETURNED;
-            case RETURNED -> listingState = ListingState.AVALIBLE;
+            case BOOKING_ACCEPTED -> listingState = ListingState.UNAVAILABLE;
+            case UNAVAILABLE -> listingState = ListingState.RETURNED;
+            case RETURNED -> listingState = ListingState.AVAILABLE;
             default -> listingState = ListingState.BOOKING_SENT;
         }
     }
 
+    @Override
+    public boolean getClickable() {
+        return true;
+    }
+
+    @Override
+    public Listing getListing() {
+        return this;
+    }
+
+    @Override
+    public String getImageName() {
+        return getFileName();
+    }
+
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public void setDesc(String desc) {
+        this.product.setDescription(desc);
     }
 
     public ListingState getListingState() {

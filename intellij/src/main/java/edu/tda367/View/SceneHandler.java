@@ -1,6 +1,9 @@
 package edu.tda367.View;
 
+import edu.tda367.Controllers.ListingSettingsController;
 import edu.tda367.Model.Listing.Listing;
+import edu.tda367.Model.RentingItemEntry;
+import edu.tda367.View.scenes.ListingSettingsView;
 import edu.tda367.View.scenes.SingleListingView;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -33,13 +36,22 @@ public class SceneHandler {
     public void switchToListingView(Listing listing) throws IOException {
         SingleListingView view = new SingleListingView(this, listing.getUserId(), listing.getProduct().getProdName(), listing.getPrice(), listing.getCategoryName(), listing.getProduct().getDescription(), listing.getListingId(), listing.getFileName());
         root.setScene(view.getHyroScene());
+        centerOnScreen();
         root.show();
+    }
 
+    public void switchToListingSettings(RentingItemEntry entry) throws IOException {
+        ListingSettingsView view = new ListingSettingsView(this, new ListingSettingsController(this, entry.getListing()));
+        root.setScene(view.getHyroScene());
+        view.update();
+        centerOnScreen();
+        root.show();
     }
 
     public void switchScenes(hyroScene newScene) {
         root.setScene(newScene.getHyroScene());
         newScene.update();
+        centerOnScreen();
         root.show();
     }
 
@@ -47,12 +59,7 @@ public class SceneHandler {
         this.scenes.put(name.toLowerCase(), scene);
     }
 
-    public void setLocationOnScreen(double x, double y) {
-        root.setX(x);
-        root.setY(y);
-    }
-
-    public void centerOnScreen() {
+    private void centerOnScreen() {
         root.centerOnScreen();
     }
 

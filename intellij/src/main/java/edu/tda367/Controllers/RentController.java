@@ -21,7 +21,7 @@ public class RentController implements Controller {
     public void rentListing(String listingID) {
         bookingHandler.createBooking(userHandler.getLoggedInUser(),
                                     userHandler.getUserID(),
-                                    listingHandler.getListingByListingId(listingID));
+                                    listingHandler.getListingFromKey(listingID));
     }
 
 }

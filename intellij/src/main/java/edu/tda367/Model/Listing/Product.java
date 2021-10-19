@@ -7,7 +7,7 @@ package edu.tda367.Model.Listing;
 public class Product {
     private final String prodName;
     private final Category prodCategory;
-    private final String prodDesc;
+    private String prodDesc;
     //private final Image prodImg;
     //TODO do the bild
 
@@ -40,4 +40,8 @@ public class Product {
     }
 
     public String getDescription(){ return this.prodDesc;}
+
+    public void setDescription(String desc) {
+        prodDesc = desc;
+    }
 }

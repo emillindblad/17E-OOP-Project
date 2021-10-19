@@ -14,7 +14,7 @@ public class BrowseController implements Controller {
     UserHandler uHandler;
 
     public void switchToListing(String listingId) throws IOException {
-        Listing listing = listingHandler.getListingByListingId(listingId);
+        Listing listing = listingHandler.getListingFromKey(listingId);
         sceneHandler.switchToListingView(listing);
     }
 
@@ -25,8 +25,16 @@ public class BrowseController implements Controller {
         this.uHandler = UserHandler.getInstance();
     }
 
-    public ArrayList<Listing>  getAvailableListings() {
-        return listingHandler.getAvailableListings();
+    public ArrayList<String> getAvailableListingKeys() {
+        return listingHandler.getAvailableListingKeys();
+    }
+
+    public Listing getListingFromKey(String key) {
+        return listingHandler.getListingFromKey(key);
+    }
+
+    public String[] getListingData(String key) {
+        return listingHandler.getListingData(key);
     }
 
     public void logOut() {

@@ -1,35 +1,3 @@
 [
-  {
-    "bookingState": "PENDING",
-    "customer": {
-      "firstName": "flor",
-      "lastName": "flor",
-      "phoneNumber": "1234567",
-      "userAdress": {
-        "streetName": "florgatan",
-        "city": "florstaden",
-        "zipCode": "14522",
-        "country": "florlandet"
-      },
-      "userID": 115856,
-      "userName": "flor",
-      "password": "flor",
-      "bankAccount": "123547896"
-    },
-    "listing": {
-      "listingId": "195526-ZdohEe9bcdX8",
-      "product": {
-        "prodName": "hittepåobjektsomkantestas",
-        "prodCategory": {
-          "categoryName": "Övrigt"
-        },
-        "prodDesc": "testestest, noter att det saknas ett t i slutet på varje orc förutom det sista"
-      },
-      "userId": 195526,
-      "price": 1,
-      "availability": 25,
-      "listingState": "BOOKING_SENT",
-      "fileName": "No image supplied"
-    }
-  }
+
 ]

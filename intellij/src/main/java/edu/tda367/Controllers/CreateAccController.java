@@ -63,7 +63,6 @@ public class CreateAccController extends AccountViewController{
     @Override
     public void goBack() {
         handler.switchTo("login");
-        handler.centerOnScreen();
     }
 
     /**

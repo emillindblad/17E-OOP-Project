@@ -12,13 +12,21 @@
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
                <children>
                   <Label layoutX="106.0" layoutY="21.0" text="Dina annonser" />
-                  <FlowPane fx:id="listingsPane" layoutY="52.0" prefHeight="357.0" prefWidth="296.0" />
+                  <ScrollPane layoutX="-2.0" layoutY="48.0" prefHeight="351.0" prefWidth="298.0">
+                     <content>
+                        <FlowPane fx:id="listingsPane" prefHeight="348.0" prefWidth="292.0" />
+                     </content>
+                  </ScrollPane>
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
                <children>
                   <Label layoutX="75.0" layoutY="21.0" text="Dina bokningsförfrågningar" />
-                  <FlowPane fx:id="bookingsPane" layoutX="-7.0" layoutY="52.0" prefHeight="357.0" prefWidth="296.0" />
+                  <ScrollPane layoutX="-1.0" layoutY="48.0" prefHeight="351.0" prefWidth="298.0">
+                     <content>
+                        <FlowPane fx:id="bookingsPane" prefHeight="347.0" prefWidth="295.0" />
+                     </content>
+                  </ScrollPane>
                </children>
             </AnchorPane>
          </items>

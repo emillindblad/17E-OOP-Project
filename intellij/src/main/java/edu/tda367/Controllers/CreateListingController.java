@@ -31,6 +31,7 @@ public class CreateListingController extends ListingViewController {
         nameField.clear();
         descField.clear();
         priceField.clear();
+        categoriesDropdown.setValue(null);
     }
 
 }

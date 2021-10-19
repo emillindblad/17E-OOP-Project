@@ -1,6 +1,7 @@
 package edu.tda367.Controllers;
 
 import edu.tda367.Model.Listing.Listing;
+import edu.tda367.Model.Listing.ListingState;
 import edu.tda367.View.SceneHandler;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -16,7 +17,10 @@ public class ListingSettingsController extends ListingViewController {
 
     @Override
     protected void updateListings(String[] formData, int userID) {
-
+        if (listing.getListingState() == ListingState.AVALIBLE) {
+            listing.setDesc(formData[1]);
+            listing.setPrice(Integer.parseInt(formData[2]));
+        }
     }
 
     @Override
@@ -34,6 +38,8 @@ public class ListingSettingsController extends ListingViewController {
         nameField.setText(listing.getProductName());
         descField.setText(listing.getProduct().getDescription());
         priceField.setText(listing.getPrice() + " kr");
-        categoriesDropdown.
+        categoriesDropdown.setValue(listing.getCategoryName());
+        categoriesDropdown.setDisable(true);
+        nameField.setDisable(true);
     }
 }

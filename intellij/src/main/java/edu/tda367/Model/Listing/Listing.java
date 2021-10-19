@@ -155,6 +155,10 @@ public class Listing implements RentingItemEntry {
         this.price = price;
     }
 
+    public void setDesc(String desc) {
+        this.product.setDescription(desc);
+    }
+
     public ListingState getListingState() {
         return listingState;
     }

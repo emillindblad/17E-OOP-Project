@@ -2,8 +2,8 @@ package edu.tda367.Controllers;
 
 import edu.tda367.Model.Listing.Listing;
 import edu.tda367.Model.Listing.ListingHandler;
-import edu.tda367.View.SceneHandler;
 import edu.tda367.Model.UserPackage.UserHandler;
+import edu.tda367.View.SceneHandler;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -41,7 +41,9 @@ public class BrowseController implements Controller {
         uHandler.logOut();
     }
 
-    public void search (String searchWord) {
-        listingHandler.sortListings(searchWord);
+    public ArrayList<String> search (String searchWord) {
+        System.out.println("Controller");
+        return listingHandler.getSortedKeys(searchWord);  //returnerar en lista med sorterade keys
+
     }
 }

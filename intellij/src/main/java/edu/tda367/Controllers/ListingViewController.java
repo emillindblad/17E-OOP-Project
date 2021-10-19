@@ -4,6 +4,7 @@ import edu.tda367.Model.InputChecker;
 import edu.tda367.Model.Listing.ListingHandler;
 import edu.tda367.Model.UserPackage.UserHandler;
 import edu.tda367.View.SceneHandler;
+import javafx.scene.control.TextField;
 
 import java.io.File;
 import java.io.IOException;
@@ -43,11 +44,32 @@ public abstract class ListingViewController implements Controller {
         return true;// Should return true if valid input
     }
 
-    public abstract String doneButton(String[] formData, File src, String destPath);
+    public String doneButton(String[] formData, File src, String destPath) {
+        int userId = userHandler.getUserID();
+        if (validateData(formData)) { //Return true if valid input.
+            if(src != null) {
+                try {
+                    Files.copy(src.toPath(), new File(destPath + src.getName()).toPath(), StandardCopyOption.REPLACE_EXISTING);
+                    System.out.println("did save");
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            }
+            updateListings(formData, userId);
+            goBack();
+            return "Success";
+        }
+        else {
+            System.out.println("Form input failed validation!");
+            return "Fail";
+        }
+    }
+
+    protected abstract void updateListings(String[] formData, int userID);
 
     public abstract void goBack();
 
     public abstract String getFXMLName();
 
-    public abstract void update();
+    public abstract void update(TextField nameField, TextField descField, TextField priceField);
 }

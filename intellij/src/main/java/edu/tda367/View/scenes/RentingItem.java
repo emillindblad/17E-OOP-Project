@@ -58,6 +58,11 @@ public class RentingItem extends AnchorPane {
         initialize(entry);
     }
 
+    @FXML
+    private void goToSettings() {
+        controller.goToSettings(entry);
+    }
+
     /**
      * Updates texts on labels and button
      * @param entry the RentingItemEntry containing information for label/button text

@@ -55,14 +55,14 @@ public class MyListingsController {
         }
         System.out.println(listings);
         for (Listing l : listings) {
-            listingsPane.getChildren().add(new RentingItem(new RentingItemController(), l));
+            listingsPane.getChildren().add(new RentingItem(new RentingItemController(sHandler), l));
         }
     }
 
     private void updateBookings(FlowPane bookingsPane) {
         ArrayList<Booking> bookings = bHandler.getMyBookings();
         for (Booking b : bookings) {
-            bookingsPane.getChildren().add(new RentingItem(new RentingItemController(), b));
+            bookingsPane.getChildren().add(new RentingItem(new RentingItemController(sHandler), b));
         }
 
     }

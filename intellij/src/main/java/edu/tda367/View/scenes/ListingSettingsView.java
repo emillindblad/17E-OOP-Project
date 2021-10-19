@@ -46,9 +46,6 @@ public class ListingSettingsView extends AbstractHyroScene {
     }
 
     private void reset() {
-        this.productName.clear();
-        this.productDesc.clear();
-        this.prodPrice.clear();
         this.errorMsg.setText("");
         this.categoriesDropdown.setValue(null);
     }
@@ -75,7 +72,7 @@ public class ListingSettingsView extends AbstractHyroScene {
 
     @Override
     public void update() {
-        controller.update(); //TODO refactor update method
+        controller.update(productName, productDesc, prodPrice);
         reset();
         Arrays.fill(this.formData,"");
     }

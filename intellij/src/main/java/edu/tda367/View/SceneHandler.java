@@ -33,8 +33,8 @@ public class SceneHandler {
     public void switchToListingView(Listing listing) throws IOException {
         SingleListingView view = new SingleListingView(this, listing.getUserId(), listing.getProduct().getProdName(), listing.getPrice(), listing.getCategoryName(), listing.getProduct().getDescription(), listing.getListingId(), listing.getFileName());
         root.setScene(view.getHyroScene());
+        centerOnScreen();
         root.show();
-
     }
 
     public void switchScenes(hyroScene newScene) {

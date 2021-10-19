@@ -53,17 +53,6 @@ public class TestListing {
         dbSize = handler.getListings().size();
     }
 
-    @AfterClass
-    public static void clean() {
-        //---- Remove test listings from database ------//
-        System.out.println("Cleaning up...");
-        handler.removeListing(secondTestListing);
-        handler.removeListing(testListing);
-        handler.removeListing(stringListing);
-        handler.writeListings();
-        uHandler.removeUser("test","test");
-    }
-
     @Test
     public void testHandlerCreate() {
         secondTestListing = handler.createListing("Another one",testCat,"lil grill",123,420,startDate,endDate);
@@ -81,13 +70,6 @@ public class TestListing {
     public void testDuration() {
         long duration = ChronoUnit.HOURS.between(startDate,endDate);
         assertTrue(duration==25);
-    }
-
-    @Test
-    public void testDatabaseWrite() {
-        handler.writeListings();
-        ListingHandler secondHandler = ListingHandler.getInstance(); // Second handler to simulate startup. Gets saved Listings from database
-        assertTrue(secondHandler.getListings().size() == dbSize);
     }
 
     //@Test TODO

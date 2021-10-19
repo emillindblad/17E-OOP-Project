@@ -60,15 +60,6 @@ public class TestBooking {
         bookingHandler.createBooking(user, userID, listing);
     }
 
-    @AfterClass
-    public static void clean() {
-        listingHandler.removeListing(listing);
-        listingHandler.removeListing(secondListing);
-        userHandler.logOut();
-        userHandler.removeUser("password", "test");
-        userHandler.writeUsers();
-    }
-
     @Test
     public void testBooking() {
         int size = bookingHandler.getMyBookings().size();

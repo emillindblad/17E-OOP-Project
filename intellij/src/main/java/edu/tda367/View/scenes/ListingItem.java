@@ -39,19 +39,15 @@ public class ListingItem extends AnchorPane {
     @FXML
     private Label defaultImgText;
     /**
-     * Constructor for the ListingItem which is a component that gets loaded in the BrowseListings Scenes flowpoane
-     * @param price price for the product that is listed
-     * @param productName name of the product that is listed
-     * @param productCategory category name for the product that is listed
-     * @param listingId
+     * Contructs a simple FXML component for a listing used as an item in the browsing view
+     * @param handler handler used to switch scenes
+     * @param listingData listing containing necessary data about a listing index 0 is listingId, index 1 is productName, index 2 is categoryName, index 3 is itemDescription, index 4 is price, index 5 is listingState, index 6 is fileName
      */
-
-    protected ListingItem(SceneHandler handler, hyroScene scene, String[] listingData) {
+    protected ListingItem(SceneHandler handler, String[] listingData) {
         this.listingId = listingData[0];
         FXMLLoader loader = App.loadFXML("listingitem");
         loader.setRoot(this);
         loader.setController(this);
-        this.scene = scene;
         controller = new BrowseController(handler);
         try {
             loader.load();
@@ -65,6 +61,21 @@ public class ListingItem extends AnchorPane {
         controller.switchToListing(this.listingId);
     }
 
+    /**
+     * Gets the image from fileName using the ImageHandler
+     * @param fileName
+     * @return Image found by the ImageHandler
+     */
+    public Image getImage(String fileName)
+    {
+        return ImageHandler.getInstance().getImage(fileName);
+    }
+
+    /**
+     * Sets all the FXML mandatory FXML components that are on a listing
+     *
+     * @param listingData
+     */
     void initialize(String[] listingData) {
         this.itemProductName.setText(listingData[1]);
         this.itemCategory.setText(listingData[2]);
@@ -78,7 +89,7 @@ public class ListingItem extends AnchorPane {
             this.defaultImgText.setText("No image supplied");
         }
         else {
-            this.listingImage.setImage(ImageHandler.getInstance().getImage(listingData[6]));
+            this.listingImage.setImage(getImage(listingData[6]));
         }
         this.setStyle("-fx-border-color: black ; -fx-border-width: 1px ;");
     }

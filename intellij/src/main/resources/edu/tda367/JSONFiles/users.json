@@ -1,32 +1,36 @@
 [
   {
-    "firstName": "Erik",
-    "lastName": "Larsson",
-    "phoneNumber": "0734111337",
+    "firstName": "flor",
+    "lastName": "flor",
+    "phoneNumber": "1234567",
     "userAdress": {
-      "streetName": "Kemivagen 7B",
-      "city": "Goteborg",
-      "zipCode": "41258",
-      "country": "Sverige"
+      "streetName": "florgatan",
+      "city": "florstaden",
+      "zipCode": "14522",
+      "country": "florlandet"
     },
-    "userID": 0,
-    "userName": "eblad",
-    "password": "eblad123",
-    "bankAccount": "123456789"
+    "userID": 115856,
+    "userName": "flor",
+    "password": "flor",
+    "bankAccount": "123547896",
+    "listings": []
   },
   {
-    "firstName": "Sebastian",
-    "lastName": "Kvalden",
-    "phoneNumber": "0734111337",
+    "firstName": "kvalle",
+    "lastName": "kvalle",
+    "phoneNumber": "5896321457",
     "userAdress": {
-      "streetName": "Kemivagen 7B",
-      "city": "Goteborg",
-      "zipCode": "41258",
-      "country": "Sverige"
+      "streetName": "ab",
+      "city": "HJO",
+      "zipCode": "32919",
+      "country": "Hittepåland"
     },
-    "userID": 154585,
-    "userName": "def",
-    "password": "def123",
-    "bankAccount": "987654321"
+    "userID": 195526,
+    "userName": "kvalle",
+    "password": "kvalle",
+    "bankAccount": "123546987",
+    "listings": [
+      "195526-ZdohEe9bcdX8"
+    ]
   }
 ]

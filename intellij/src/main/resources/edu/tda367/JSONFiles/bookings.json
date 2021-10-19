@@ -1,34 +1,36 @@
 [
   {
-    "bookingState": "DONE",
+    "bookingState": "PENDING",
     "customer": {
-      "firstName": "Sebastian",
-      "lastName": "Kvalden",
-      "phoneNumber": "0734111337",
+      "firstName": "flor",
+      "lastName": "flor",
+      "phoneNumber": "1234567",
       "userAdress": {
-        "streetName": "Kemivagen 7B",
-        "city": "Goteborg",
-        "zipCode": "41258",
-        "country": "Sverige"
+        "streetName": "florgatan",
+        "city": "florstaden",
+        "zipCode": "14522",
+        "country": "florlandet"
       },
-      "userID": 154585,
-      "userName": "def",
-      "password": "def123",
-      "bankAccount": "987654321"
+      "userID": 115856,
+      "userName": "flor",
+      "password": "flor",
+      "bankAccount": "123547896",
+      "listings": []
     },
     "listing": {
-      "listingId": "62646",
+      "listingId": "195526-ZdohEe9bcdX8",
       "product": {
-        "prodName": "Bajs",
+        "prodName": "hittepåobjektsomkantestas",
         "prodCategory": {
-          "categoryName": "NÃƒÂ¥got annat"
+          "categoryName": "Övrigt"
         },
-        "prodDesc": "En bajskorv"
+        "prodDesc": "testestest, noter att det saknas ett t i slutet på varje orc förutom det sista"
       },
-      "userId": 0,
-      "price": 1112,
+      "userId": 195526,
+      "price": 1,
       "availability": 25,
-      "listingState": "AVALIBLE"
+      "listingState": "BOOKING_SENT",
+      "fileName": "No image supplied"
     }
   }
 ]

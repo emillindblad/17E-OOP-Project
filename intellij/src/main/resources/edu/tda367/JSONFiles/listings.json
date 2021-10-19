@@ -41,6 +41,7 @@
     "userId": 173440,
     "price": 213,
     "availability": 25,
+    "listingState": "AVAILABLE",
     "fileName": "listings.png"
   }
 ]

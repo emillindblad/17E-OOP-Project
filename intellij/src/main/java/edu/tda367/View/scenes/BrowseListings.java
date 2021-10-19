@@ -95,7 +95,7 @@ public class BrowseListings extends AbstractHyroScene {
         listProducts.getChildren().clear();
         for(String key: availableListingKeys) {
             String[] listingData = browseController.getListingData(key);
-            listProducts.add(new ListingItem(this.handler, this, listingData), index0,index1 );
+            listProducts.add(new ListingItem(this.handler, listingData), index0,index1 );
             index0++;
             if( index0 == 2){
                 index1++;

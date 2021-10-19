@@ -16,12 +16,6 @@ public class TestUserPackage {
         uHandler.createUser("Sebastian", "Kvalden", "0734111337","def", "test", "987654321" );
     }
 
-    @AfterClass
-    public static void removeUsers() {
-        uHandler.removeUser("password", "test");
-        uHandler.writeUsers();
-    }
-
     @Test
     public void UserLogInTest (){
         uHandler.logOut();
@@ -49,9 +43,8 @@ public class TestUserPackage {
     }
 
     @Test
-    public void addAdressAndSaveTest() {
+    public void addAdressTest() {
         uHandler.setLoggedInUserAdress("Kemivagen 7B", "Goteborg", "41258", "Sverige");
-        uHandler.writeUsers();
         assertTrue(uHandler.getLoggedInUser().getUserAdress().getStreetName().equals("Kemivagen 7B"));
     }
 

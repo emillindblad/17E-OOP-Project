@@ -53,15 +53,6 @@ public class TestListing {
         dbSize = handler.getListings().size();
     }
 
-    @AfterClass
-    public static void clean() {
-        //---- Remove test listings from database ------//
-        System.out.println("Cleaning up...");
-        handler.removeListing(secondTestListing);
-        handler.removeListing(testListing);
-        handler.removeListing(stringListing);
-        uHandler.removeUser("test","test");
-    }
 
     @Test
     public void testHandlerCreate() {
@@ -100,7 +91,7 @@ public class TestListing {
     public void testGetAvailableListingIds() {
         ArrayList<String> availableListingKeys = handler.getAvailableListingKeys();
         for (String key : availableListingKeys) {
-            assertTrue(handler.getListingFromKey(key).getListingState().equals(ListingState.AVALIBLE));
+            assertTrue(handler.getListingFromKey(key).getListingState().equals(ListingState.AVAILABLE));
         }
     }
 

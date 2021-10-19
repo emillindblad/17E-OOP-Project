@@ -3,6 +3,8 @@ package edu.tda367.Controllers;
 import edu.tda367.Model.RentingItemEntry;
 import edu.tda367.View.SceneHandler;
 
+import java.io.IOException;
+
 /**
  * MVC Controller for RentingItems
  */
@@ -22,7 +24,7 @@ public class RentingItemController {
         entry.advanceState();
     }
 
-    public void goToSettings(RentingItemEntry entry) {
-        sceneHandler.switchTo("listingsettings");
+    public void goToSettings(RentingItemEntry entry) throws IOException {
+        sceneHandler.switchToListingSettings(entry);
     }
 }

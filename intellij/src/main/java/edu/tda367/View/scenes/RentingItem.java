@@ -59,7 +59,7 @@ public class RentingItem extends AnchorPane {
     }
 
     @FXML
-    private void goToSettings() {
+    private void goToSettings() throws IOException {
         controller.goToSettings(entry);
     }
 

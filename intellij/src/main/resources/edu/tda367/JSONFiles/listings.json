@@ -41,7 +41,7 @@
     "userId": 173440,
     "price": 213,
     "availability": 25,
-    "listingState": "AVALIBLE",
+    "listingState": "BOOKING_SENT",
     "fileName": "listings.png"
   }
 ]

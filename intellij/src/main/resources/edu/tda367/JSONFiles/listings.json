@@ -15,6 +15,36 @@
     "fileName": "listings.png"
   },
   {
+    "listingId": "158872-fybkN5oesZvb",
+    "product": {
+      "prodName": "wohoo",
+      "prodCategory": {
+        "categoryName": "Elektronik"
+      },
+      "prodDesc": "jk"
+    },
+    "userId": 158872,
+    "price": 13,
+    "availability": 25,
+    "listingState": "AVAILABLE",
+    "fileName": "user-icon.png"
+  },
+  {
+    "listingId": "158872-POFI7ur1igL3",
+    "product": {
+      "prodName": "sdf",
+      "prodCategory": {
+        "categoryName": "Båtar"
+      },
+      "prodDesc": "gg"
+    },
+    "userId": 158872,
+    "price": 435,
+    "availability": 25,
+    "listingState": "AVAILABLE",
+    "fileName": "backArrow.png"
+  },
+  {
     "listingId": "158872-iW7Clzrg2pxu",
     "product": {
       "prodName": "Nice",
@@ -28,6 +58,21 @@
     "availability": 25,
     "listingState": "AVAILABLE",
     "fileName": "listings.png"
+  },
+  {
+    "listingId": "158872-WKiR413SmN2v",
+    "product": {
+      "prodName": "e",
+      "prodCategory": {
+        "categoryName": "Bilar"
+      },
+      "prodDesc": "e"
+    },
+    "userId": 158872,
+    "price": 1,
+    "availability": 25,
+    "listingState": "AVAILABLE",
+    "fileName": "No image supplied"
   },
   {
     "listingId": "173440-6phSkuoHRbCi",

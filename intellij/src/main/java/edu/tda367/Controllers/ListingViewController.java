@@ -4,6 +4,7 @@ import edu.tda367.Model.InputChecker;
 import edu.tda367.Model.Listing.ListingHandler;
 import edu.tda367.Model.UserPackage.UserHandler;
 import edu.tda367.View.SceneHandler;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
 import java.io.File;
@@ -71,5 +72,5 @@ public abstract class ListingViewController implements Controller {
 
     public abstract String getFXMLName();
 
-    public abstract void update(TextField nameField, TextField descField, TextField priceField);
+    public abstract void update(TextField nameField, TextField descField, TextField priceField, ComboBox<String> categoriesDropdown);
 }

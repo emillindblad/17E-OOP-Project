@@ -1,12 +1,8 @@
 package edu.tda367.Controllers;
 
 import edu.tda367.View.SceneHandler;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
-
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.StandardCopyOption;
 
 public class CreateListingController extends ListingViewController {
 
@@ -31,7 +27,7 @@ public class CreateListingController extends ListingViewController {
     }
 
     @Override
-    public void update(TextField nameField, TextField descField, TextField priceField) {
+    public void update(TextField nameField, TextField descField, TextField priceField, ComboBox<String> categoriesDropdown) {
         nameField.clear();
         descField.clear();
         priceField.clear();

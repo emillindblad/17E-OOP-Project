@@ -41,7 +41,7 @@ public class SceneHandler {
     }
 
     public void switchToListingSettings(RentingItemEntry entry) throws IOException {
-        ListingSettingsView view = new ListingSettingsView(this, new ListingSettingsController(this, entry));
+        ListingSettingsView view = new ListingSettingsView(this, new ListingSettingsController(this, entry.getListing()));
         root.setScene(view.getHyroScene());
         centerOnScreen();
         root.show();

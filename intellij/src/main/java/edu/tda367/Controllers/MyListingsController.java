@@ -64,6 +64,5 @@ public class MyListingsController {
         for (Booking b : bookings) {
             bookingsPane.getChildren().add(new RentingItem(new RentingItemController(sHandler), b));
         }
-
     }
 }

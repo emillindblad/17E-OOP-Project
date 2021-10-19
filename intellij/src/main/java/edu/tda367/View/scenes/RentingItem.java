@@ -26,6 +26,7 @@ public class RentingItem extends AnchorPane {
 
     private final RentingItemController controller;
     private final RentingItemEntry entry;
+    private final boolean clickable;
 
     /**
      * Contructor. Sets up necessary JavaFX parameters
@@ -46,6 +47,7 @@ public class RentingItem extends AnchorPane {
 
         this.entry = entry;
         initialize(entry);
+        clickable = entry.getClickable();
     }
 
     /**
@@ -60,7 +62,9 @@ public class RentingItem extends AnchorPane {
 
     @FXML
     private void goToSettings() throws IOException {
-        controller.goToSettings(entry);
+        if (clickable) {
+            controller.goToSettings(entry);
+        }
     }
 
     /**
@@ -76,6 +80,10 @@ public class RentingItem extends AnchorPane {
         
         button.setVisible(!button.getText().equals(""));
         //image.setImage(entry.getImage());
+    }
+
+    public ImageView getImage() {
+        return image;
     }
 
 

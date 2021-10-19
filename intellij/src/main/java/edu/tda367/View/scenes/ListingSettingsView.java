@@ -45,10 +45,6 @@ public class ListingSettingsView extends AbstractHyroScene {
         return new String[]{productName.getText(),productDesc.getText(),prodPrice.getText(),categoriesDropdown.getSelectionModel().getSelectedItem(),selectedFile.getName()};
     }
 
-    private void reset() {
-        this.errorMsg.setText("");
-        this.categoriesDropdown.setValue(null);
-    }
 
     @FXML
     public void uploadFile() {
@@ -72,8 +68,8 @@ public class ListingSettingsView extends AbstractHyroScene {
 
     @Override
     public void update() {
-        controller.update(productName, productDesc, prodPrice);
-        reset();
+        controller.update(productName, productDesc, prodPrice, categoriesDropdown);
+        this.errorMsg.setText("");
         Arrays.fill(this.formData,"");
     }
 }

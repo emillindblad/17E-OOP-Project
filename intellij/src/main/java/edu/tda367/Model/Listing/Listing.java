@@ -141,6 +141,16 @@ public class Listing implements RentingItemEntry {
         }
     }
 
+    @Override
+    public boolean getClickable() {
+        return true;
+    }
+
+    @Override
+    public Listing getListing() {
+        return this;
+    }
+
     public void setPrice(int price) {
         this.price = price;
     }

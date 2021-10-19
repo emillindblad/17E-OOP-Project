@@ -12,7 +12,7 @@ public class CreateListingController extends ListingViewController {
 
     @Override
     protected void updateListings(String[] formData, int userID) {
-        listingHandler.createListingFromForm(formData, userID);
+        listingHandler.createListing(formData, userID);
     }
 
 

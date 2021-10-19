@@ -1,46 +1,32 @@
 [
   {
-    "listingId": "158872-3KIp0jGAsEaa",
+    "listingId": "158872-2woRX8UC6klp",
     "product": {
-      "prodName": "Foo",
-      "prodCategory": {
-        "categoryName": "Bilar"
-      },
-      "prodDesc": "bar"
-    },
-    "userId": 158872,
-    "price": 123,
-    "availability": 25,
-    "listingState": "BOOKING_ACCEPTED",
-    "fileName": "listings.png"
-  },
-  {
-    "listingId": "158872-iW7Clzrg2pxu",
-    "product": {
-      "prodName": "Nice",
+      "prodName": "asd",
       "prodCategory": {
         "categoryName": "Släpkärror"
       },
-      "prodDesc": "en fin en"
+      "prodDesc": "asd"
     },
     "userId": 158872,
-    "price": 1111,
+    "price": 12,
     "availability": 25,
     "listingState": "AVAILABLE",
-    "fileName": "listings.png"
+    "fileName": "aChange.png"
   },
   {
-    "listingId": "173440-6phSkuoHRbCi",
+    "listingId": "158872-G7wK7x0hYfni",
     "product": {
-      "prodName": "a\u0027s grej",
+      "prodName": "e är arg",
       "prodCategory": {
-        "categoryName": "Möbler"
+        "categoryName": "Båtar"
       },
-      "prodDesc": "Väldigt cool"
+      "prodDesc": "som bara den"
     },
-    "userId": 173440,
-    "price": 213,
+    "userId": 158872,
+    "price": 12,
     "availability": 25,
-    "fileName": "listings.png"
+    "listingState": "AVAILABLE",
+    "fileName": "argnotis.png"
   }
 ]

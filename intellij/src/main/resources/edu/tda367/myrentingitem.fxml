@@ -11,7 +11,7 @@
       <Label layoutX="39.0" layoutY="68.0" text="Pris:" />
       <Label fx:id="categoryLabel" layoutX="72.0" layoutY="42.0" text="Övrigt" />
       <Label fx:id="priceLabel" layoutX="72.0" layoutY="68.0" text="kronor" />
-      <ImageView fx:id="image" fitHeight="70.0" fitWidth="89.0" layoutX="197.0" layoutY="15.0" onMouseClicked="#goToSettings" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="image" fitHeight="70.0" fitWidth="89.0" layoutX="197.0" layoutY="15.0" onMouseClicked="#goToSettings" onMouseEntered="#mouseEnter" onMouseExited="#mouseExit" pickOnBounds="true" preserveRatio="true" />
       <Label fx:id="statusLabel" layoutX="133.0" layoutY="23.0" text="Status" />
       <Button fx:id="button" layoutX="124.0" layoutY="56.0" mnemonicParsing="false" onAction="#buttonAction" text="Knapp" />
    </children>

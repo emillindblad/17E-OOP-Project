@@ -150,6 +150,11 @@ public class Listing implements RentingItemEntry {
         return this;
     }
 
+    @Override
+    public String getImageName() {
+        return getFileName();
+    }
+
     public void setPrice(int price) {
         this.price = price;
     }

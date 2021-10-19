@@ -17,7 +17,7 @@ public class ListingSettingsController extends ListingViewController {
 
     @Override
     protected void updateListings(String[] formData, int userID) {
-        if (listing.getListingState() == ListingState.AVALIBLE) {
+        if (listing.getListingState() == ListingState.AVAILABLE) {
             listing.setDesc(formData[1]);
             listing.setPrice(Integer.parseInt(formData[2]));
         }
@@ -37,7 +37,7 @@ public class ListingSettingsController extends ListingViewController {
     public void update(TextField nameField, TextField descField, TextField priceField, ComboBox<String> categoriesDropdown) {
         nameField.setText(listing.getProductName());
         descField.setText(listing.getProduct().getDescription());
-        priceField.setText(listing.getPrice() + " kr");
+        priceField.setText(String.valueOf(listing.getPrice()));
         categoriesDropdown.setValue(listing.getCategoryName());
         categoriesDropdown.setDisable(true);
         nameField.setDisable(true);

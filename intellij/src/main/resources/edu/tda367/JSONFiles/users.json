@@ -13,9 +13,7 @@
     "userName": "a",
     "password": "a",
     "bankAccount": "1",
-    "listings": [
-      "173440-6phSkuoHRbCi"
-    ]
+    "listings": []
   },
   {
     "firstName": "e",
@@ -32,9 +30,8 @@
     "password": "e",
     "bankAccount": "1",
     "listings": [
-      "158872-3KIp0jGAsEaa",
-      "158872-iW7Clzrg2pxu",
-      "158872-uBJsObzXvjFP"
+      "158872-G7wK7x0hYfni",
+      "158872-2woRX8UC6klp"
     ]
   }
 ]

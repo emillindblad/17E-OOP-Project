@@ -100,6 +100,11 @@ public class Booking implements RentingItemEntry {
         };
     }
 
+    @Override
+    public String getImageName() {
+        return listing.getImageName();
+    }
+
     private void updateStateFromListing() {
         ListingState lState = listing.getListingState();
 

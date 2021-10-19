@@ -1,6 +1,6 @@
 [
   {
-    "bookingState": "PENDING",
+    "bookingState": "RETURNED",
     "customer": {
       "firstName": "a",
       "lastName": "a",
@@ -15,61 +15,22 @@
       "userName": "a",
       "password": "a",
       "bankAccount": "1",
-      "listings": [
-        "173440-6phSkuoHRbCi"
-      ]
+      "listings": []
     },
     "listing": {
-      "listingId": "158872-3KIp0jGAsEaa",
+      "listingId": "158872-G7wK7x0hYfni",
       "product": {
-        "prodName": "Foo",
+        "prodName": "e är arg",
         "prodCategory": {
-          "categoryName": "Bilar"
+          "categoryName": "Båtar"
         },
-        "prodDesc": "bar"
+        "prodDesc": "som bara den"
       },
       "userId": 158872,
-      "price": 123,
+      "price": 12,
       "availability": 25,
-      "listingState": "BOOKING_SENT",
-      "fileName": "listings.png"
-    }
-  },
-  {
-    "bookingState": "PENDING",
-    "customer": {
-      "firstName": "e",
-      "lastName": "e",
-      "phoneNumber": "1",
-      "userAdress": {
-        "streetName": "e",
-        "city": "e",
-        "zipCode": "12345",
-        "country": "e"
-      },
-      "userID": 158872,
-      "userName": "e",
-      "password": "e",
-      "bankAccount": "1",
-      "listings": [
-        "158872-3KIp0jGAsEaa",
-        "158872-iW7Clzrg2pxu"
-      ]
-    },
-    "listing": {
-      "listingId": "173440-6phSkuoHRbCi",
-      "product": {
-        "prodName": "a\u0027s grej",
-        "prodCategory": {
-          "categoryName": "Möbler"
-        },
-        "prodDesc": "Väldigt cool"
-      },
-      "userId": 173440,
-      "price": 213,
-      "availability": 25,
-      "listingState": "BOOKING_SENT",
-      "fileName": "listings.png"
+      "listingState": "RETURNED",
+      "fileName": "argnotis.png"
     }
   }
 ]

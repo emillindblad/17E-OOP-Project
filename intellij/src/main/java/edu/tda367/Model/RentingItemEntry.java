@@ -13,4 +13,5 @@ public interface RentingItemEntry {
     void advanceState();
     boolean getClickable();
     Listing getListing();
+    String getImageName();
 }

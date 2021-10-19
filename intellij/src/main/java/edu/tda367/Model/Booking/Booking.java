@@ -6,8 +6,6 @@ import edu.tda367.Model.RentingItemEntry;
 import edu.tda367.Model.UserPackage.User;
 import javafx.scene.image.Image;
 
-import java.util.List;
-
 public class Booking implements RentingItemEntry {
 
     private BookingState bookingState = BookingState.PENDING;
@@ -20,7 +18,7 @@ public class Booking implements RentingItemEntry {
         listing.advanceState();
     }
 
-    BookingState getBookingState() {
+    public BookingState getBookingState() {
         return bookingState;
     }
 
@@ -104,7 +102,7 @@ public class Booking implements RentingItemEntry {
             bookingState = BookingState.ACCEPTED;
         }
 
-        if (lState == ListingState.AVALIBLE && bookingState != BookingState.DONE) {
+        if (lState == ListingState.AVAILABLE && bookingState != BookingState.DONE) {
             bookingState = BookingState.DONE;
         }
     }

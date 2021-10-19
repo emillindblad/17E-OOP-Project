@@ -5,7 +5,6 @@ import javafx.scene.image.Image;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
-import java.util.Random;
 
 /**
 * A class representing a Listing of a product
@@ -27,7 +26,7 @@ public class Listing implements RentingItemEntry {
         this.userId = userId;
         this.price = price;
         this.availability = setAvailability(startDate, endDate);
-        this.listingState = ListingState.AVALIBLE; //Defaults to AVALIABLE now
+        this.listingState = ListingState.AVAILABLE; //Defaults to AVAILABLE now
         this.fileName = fileName;
     }
 
@@ -114,7 +113,7 @@ public class Listing implements RentingItemEntry {
         return switch (listingState) {
             case BOOKING_SENT -> "Förfrågan mottagen";
             case BOOKING_ACCEPTED -> "inväntar betalning";
-            case UNAVALIBLE -> "betalad och uthyrd";
+            case UNAVAILABLE -> "betalad och uthyrd";
             case RETURNED -> "Återlämnad";
             default -> "Tillgänglig";
         };
@@ -133,9 +132,9 @@ public class Listing implements RentingItemEntry {
     public void advanceState() {
         switch (listingState) {
             case BOOKING_SENT -> listingState = ListingState.BOOKING_ACCEPTED;
-            case BOOKING_ACCEPTED -> listingState = ListingState.UNAVALIBLE;
-            case UNAVALIBLE -> listingState = ListingState.RETURNED;
-            case RETURNED -> listingState = ListingState.AVALIBLE;
+            case BOOKING_ACCEPTED -> listingState = ListingState.UNAVAILABLE;
+            case UNAVAILABLE -> listingState = ListingState.RETURNED;
+            case RETURNED -> listingState = ListingState.AVAILABLE;
             default -> listingState = ListingState.BOOKING_SENT;
         }
     }

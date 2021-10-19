@@ -25,7 +25,7 @@ public class CreateListingController extends ListingViewController {
                     ex.printStackTrace();
                 }
             }
-            listingHandler.createListingFromString(formData, userId);
+            listingHandler.createListingFromForm(formData, userId);
             goBack();
             return "Success";
         }

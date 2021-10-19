@@ -49,7 +49,8 @@ public class Listing implements RentingItemEntry {
             this.product.getCategoryName(),
             this.product.getDescription(),
             String.valueOf(this.price),
-            this.listingState.toString()
+            this.listingState.toString(),
+            this.fileName
         };
 
     }

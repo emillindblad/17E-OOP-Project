@@ -40,7 +40,7 @@ public class ListingController implements Controller {
                 }
             }
             String fileName = src.getName();
-            listingHandler.createListingFromForm(formData, userId); //File name should be in formData array
+            listingHandler.createListing(formData, userId); //File name should be in formData array
             switchToBrowse();
             return "Success";
         }

@@ -130,9 +130,9 @@ public class ListingHandler {
 
     public void sortListings (String sortBy) {
         System.out.println("handler started");
-        System.out.println("Befor sorted:" + listings.get(0).getProduct().getProdName());
+        //System.out.println("Befor sorted:" + listings.get(0).getProduct().getProdName());
         ListingSorter.sortBySearchWord(sortBy, getListingsAsList());
-        System.out.println("after sorted:" + listings.get(0).getProduct().getProdName());
+        //System.out.println("after sorted:" + listings.get(0).getProduct().getProdName());
         System.out.println("handler done");
     }
 
@@ -150,7 +150,7 @@ public class ListingHandler {
      */
     public Listing createListing(String prodName, Category prodCat, String prodDesc, int userId, int price, LocalDateTime startDate, LocalDateTime endDate) {
         String[] formData = {prodName,prodDesc,String.valueOf(price),prodCat.getCategoryName(),""};
-        return createListingFromForm(formData,userId);
+        return createListing(formData,userId);
     }
 
     /**
@@ -158,7 +158,7 @@ public class ListingHandler {
      * @param formData - An Array of listing data, all in strings.
      * @return listing - The newly created listing
      */
-    public Listing createListingFromForm(String[] formData, int userId) {
+    public Listing createListing(String[] formData, int userId) {
         //Parse data in different method?
         String prodName = formData[0];
         String prodDesc = formData[1];

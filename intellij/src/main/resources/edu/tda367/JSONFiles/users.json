@@ -12,8 +12,37 @@
     "userID": 115856,
     "userName": "flor",
     "password": "flor",
-    "bankAccount": "123547896",
-    "listings": []
+    "bankAccount": "123547896"
+  },
+  {
+    "firstName": "a",
+    "lastName": "a",
+    "phoneNumber": "123186",
+    "userAdress": {
+      "streetName": "a",
+      "city": "stad",
+      "zipCode": "12345",
+      "country": "land"
+    },
+    "userID": 197730,
+    "userName": "a",
+    "password": "a",
+    "bankAccount": "21354"
+  },
+  {
+    "firstName": "a",
+    "lastName": "a",
+    "phoneNumber": "123186",
+    "userAdress": {
+      "streetName": "a",
+      "city": "stad",
+      "zipCode": "12345",
+      "country": "land"
+    },
+    "userID": 144144,
+    "userName": "a",
+    "password": "a",
+    "bankAccount": "21354"
   },
   {
     "firstName": "kvalle",
@@ -28,9 +57,36 @@
     "userID": 195526,
     "userName": "kvalle",
     "password": "kvalle",
-    "bankAccount": "123546987",
-    "listings": [
-      "195526-ZdohEe9bcdX8"
-    ]
+    "bankAccount": "123546987"
+  },
+  {
+    "firstName": "b",
+    "lastName": "b",
+    "phoneNumber": "12365479",
+    "userAdress": {
+      "streetName": "b",
+      "city": "b",
+      "zipCode": "11122",
+      "country": "b"
+    },
+    "userID": 162844,
+    "userName": "b",
+    "password": "b",
+    "bankAccount": "1266348"
+  },
+  {
+    "firstName": "a",
+    "lastName": "a",
+    "phoneNumber": "6719203",
+    "userAdress": {
+      "streetName": "a",
+      "city": "a",
+      "zipCode": "11122",
+      "country": "a"
+    },
+    "userID": 110879,
+    "userName": "a",
+    "password": "a",
+    "bankAccount": "123654897"
   }
 ]

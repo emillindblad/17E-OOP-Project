@@ -13,5 +13,20 @@
     "availability": 25,
     "listingState": "BOOKING_SENT",
     "fileName": "No image supplied"
+  },
+  {
+    "listingId": "TqTs5sx8Icpf",
+    "product": {
+      "prodName": "test",
+      "prodCategory": {
+        "categoryName": "Släpkärror"
+      },
+      "prodDesc": "bababab"
+    },
+    "userId": 195526,
+    "price": 50,
+    "availability": 25,
+    "listingState": "AVALIBLE",
+    "fileName": "Knuten-AspningFinal.png"
   }
 ]

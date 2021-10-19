@@ -1,36 +1,3 @@
 [
-  {
-    "firstName": "a",
-    "lastName": "a",
-    "phoneNumber": "1",
-    "userAdress": {
-      "streetName": "a",
-      "city": "a",
-      "zipCode": "12345",
-      "country": "a"
-    },
-    "userID": 173440,
-    "userName": "a",
-    "password": "a",
-    "bankAccount": "1",
-    "listings": []
-  },
-  {
-    "firstName": "e",
-    "lastName": "e",
-    "phoneNumber": "1",
-    "userAdress": {
-      "streetName": "e",
-      "city": "e",
-      "zipCode": "12345",
-      "country": "e"
-    },
-    "userID": 158872,
-    "userName": "e",
-    "password": "e",
-    "bankAccount": "1",
-    "listings": [
-      "158872-xl1EJG11dPdG"
-    ]
-  }
+  
 ]

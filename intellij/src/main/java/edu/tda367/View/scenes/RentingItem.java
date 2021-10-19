@@ -91,14 +91,18 @@ public class RentingItem extends AnchorPane {
 
     @FXML
     private void mouseEnter() {
-        image.setScaleX(1.1);
-        image.setScaleY(1.1);
+        if (clickable) {
+            image.setScaleX(1.1);
+            image.setScaleY(1.1);
+        }
     }
 
     @FXML
     private void mouseExit() {
-        image.setScaleX(1);
-        image.setScaleY(1);
+        if (clickable) {
+            image.setScaleX(1);
+            image.setScaleY(1);
+        }
     }
 
 

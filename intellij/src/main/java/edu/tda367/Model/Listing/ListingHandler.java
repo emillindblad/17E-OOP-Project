@@ -111,7 +111,7 @@ public class ListingHandler {
         ArrayList<String> availableListings = new ArrayList<>();
         listings.forEach(
             (key, listing) -> {
-                if (listing.getListingState().equals(ListingState.AVALIBLE)) {
+                if (listing.getListingState().equals(ListingState.AVAILABLE)) {
                     availableListings.add(key);
                 }
             }
@@ -119,20 +119,11 @@ public class ListingHandler {
         return availableListings;
     }
 
-    public ArrayList<Integer> getMyListingIds(int userId) {
-        ArrayList<Integer> ids = new ArrayList<>();
-        //for (Listing listing : listings) {
-
-        //}
-        return ids;
-    }
-
-
     public void sortListings (String sortBy) {
         System.out.println("handler started");
-        System.out.println("Befor sorted:" + listings.get(0).getProduct().getProdName());
+        //System.out.println("Befor sorted:" + listings.get(0).getProduct().getProdName());
         ListingSorter.sortBySearchWord(sortBy, getListingsAsList());
-        System.out.println("after sorted:" + listings.get(0).getProduct().getProdName());
+        //System.out.println("after sorted:" + listings.get(0).getProduct().getProdName());
         System.out.println("handler done");
     }
 
@@ -150,7 +141,7 @@ public class ListingHandler {
      */
     public Listing createListing(String prodName, Category prodCat, String prodDesc, int userId, int price, LocalDateTime startDate, LocalDateTime endDate) {
         String[] formData = {prodName,prodDesc,String.valueOf(price),prodCat.getCategoryName(),""};
-        return createListingFromForm(formData,userId);
+        return createListing(formData,userId);
     }
 
     /**
@@ -158,7 +149,7 @@ public class ListingHandler {
      * @param formData - An Array of listing data, all in strings.
      * @return listing - The newly created listing
      */
-    public Listing createListingFromForm(String[] formData, int userId) {
+    public Listing createListing(String[] formData, int userId) {
         //Parse data in different method?
         String prodName = formData[0];
         String prodDesc = formData[1];
@@ -191,24 +182,16 @@ public class ListingHandler {
         return userId+"-"+listingId;
     }
 
-    private String extractKey(Listing listing) {
-        return listing.getListingId() + listing.getUserId();
-    }
-
     /**
      * Removes the specified listing form the ArrayList and returns it
      * @param listing
      * @return The removed listing
      */
-    public Listing removeListing(Listing listing) {//TODO Maybe not necessary to return removed listing, breaks CQS.
-       //TODO Also remove from relevant users list of ids,
-        linker.removeLink(extractKey(listing));
-        listings.remove(listing.getListingId());
-        return listing;
+    public void removeListing(Listing listing) {
+        removeListing(listing.getListingId());
     }
 
-    public void removeListing(String listingId) {//TODO Maybe not necessary to return removed listing, breaks CQS.
-        //TODO Also remove from relevant users list of ids,
+    public void removeListing(String listingId) {
         linker.removeLink(listingId);
         listings.remove(listingId);
     }

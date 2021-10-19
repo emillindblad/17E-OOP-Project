@@ -1,9 +1,9 @@
 package edu.tda367.Model.Listing;
 
 public enum ListingState {
-    AVALIBLE,
+    AVAILABLE,
     BOOKING_SENT,
     BOOKING_ACCEPTED,
-    UNAVALIBLE,
+    UNAVAILABLE,
     RETURNED;
 }

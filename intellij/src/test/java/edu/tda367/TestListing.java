@@ -1,7 +1,6 @@
 package edu.tda367;
 
 import edu.tda367.Model.Listing.*;
-import edu.tda367.Model.UserPackage.User;
 import edu.tda367.Model.UserPackage.UserHandler;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -11,6 +10,7 @@ import org.junit.Test;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -44,7 +44,7 @@ public class TestListing {
         endDate = LocalDateTime.of(2021,9,11,10,30);
 
         handler = ListingHandler.getInstance();
-        testListing = handler.createListingFromForm(dummyData,dummyId);
+        testListing = handler.createListing(dummyData,dummyId);
         testCat = new Category("Övrigt");
     }
 
@@ -60,7 +60,6 @@ public class TestListing {
         handler.removeListing(secondTestListing);
         handler.removeListing(testListing);
         handler.removeListing(stringListing);
-        handler.writeListings();
         uHandler.removeUser("test","test");
     }
 
@@ -72,9 +71,11 @@ public class TestListing {
 
     @Test
     public void testHandlerDelete() {
-        Listing removedListing = handler.removeListing(testListing);
-        assertEquals(removedListing, testListing);
-        assertTrue(handler.getListings().size()==dbSize-1);
+        int initSize = handler.getListingsAsList().size();
+        String[] data = {"Foobar","Test Desc","69","Övrigt","DummyImgPath"};
+        Listing listing = handler.createListing(data, dummyId);
+        handler.removeListing(listing);
+        assertTrue(handler.getListings().size()==initSize);
     }
 
     @Test
@@ -84,15 +85,9 @@ public class TestListing {
     }
 
     @Test
-    public void testDatabaseWrite() {
-        handler.writeListings();
-        ListingHandler secondHandler = ListingHandler.getInstance(); // Second handler to simulate startup. Gets saved Listings from database
-        assertTrue(secondHandler.getListings().size() == dbSize);
-    }
-
-    //@Test TODO
     public void testGetCategories() {
-        assertTrue(handler.getCategories().contains(testCat));
+       ArrayList<Category> categories = handler.getCategories();
+       assertTrue(categories.size()!=0);
     }
 
     @Test
@@ -101,32 +96,42 @@ public class TestListing {
         assertTrue(names.contains(testCat.getCategoryName()));
     }
 
-    //@Test
-    public void testGetAvailableListings() {
-        ArrayList<String> availableListings = handler.getAvailableListingKeys();
-        System.out.println(availableListings);
-        for (String listing : availableListings) {
-            //assertTrue(listing.getListingState().equals(ListingState.AVALIBLE));
+    @Test
+    public void testGetAvailableListingIds() {
+        ArrayList<String> availableListingKeys = handler.getAvailableListingKeys();
+        for (String key : availableListingKeys) {
+            assertTrue(handler.getListingFromKey(key).getListingState().equals(ListingState.AVALIBLE));
         }
     }
 
     @Test
-    public void testCreateListingFromString() {
+    public void testGetListingData() {
+        String[] data = {"Test Name","Test Desc","69","Övrigt","DummyImgPath"};
+        Listing listing = handler.createListing(data,dummyId);
+        String[] getData = handler.getListingData(listing.getListingId());
+        assertTrue(Arrays.equals(getData,new String[] {listing.getListingId(),"Test Name","Övrigt","Test Desc","69","AVALIBLE"}));
+    }
+
+    @Test
+    public void testCreateListingFromString() { //Also tests getListingsAsList()
         String[] formData = {"Test Name","Test Desc","69","Övrigt","DummyImgPath"};
-        stringListing = handler.createListingFromForm(formData,69);
-        //assertTrue(handler.getListings().contains(stringListing));
+        stringListing = handler.createListing(formData,69);
+        assertTrue(handler.getListingsAsList().contains(stringListing));
+    }
+
+    @Test public void testRemoveListingWithId() {
+
     }
 
     //@Test
     public void testSortingBySearch() {
-        //List <Listing> listToTest = createProductList();
-        System.out.println(handler.getListings().toString());
-        thirdTestListing = handler.createListing("SortingTest",testCat,"hitta grill",127,420,startDate,endDate);
+        System.out.println(handler.getListingsAsList().toString());
+        Listing sortListing = handler.createListing("SortingTest",testCat,"hitta grill",127,420,startDate,endDate);
         String search = "hitta grill";
         ListingSorter.sortBySearchWord(search, handler.getListingsAsList());
         System.out.println("AHA");
-        System.out.println(handler.getListings().get(0).getProduct().getProdName());
-        assertTrue(handler.getListings().get(0).getProduct().getProdName().equals("SortingTest"));
+        System.out.println(handler.getListingsAsList().get(0).getProduct().getProdName());
+        assertTrue(handler.getListingsAsList().get(0).equals(sortListing));
     }
 
 }

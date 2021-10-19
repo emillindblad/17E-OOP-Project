@@ -119,15 +119,6 @@ public class ListingHandler {
         return availableListings;
     }
 
-    public ArrayList<Integer> getMyListingIds(int userId) {
-        ArrayList<Integer> ids = new ArrayList<>();
-        //for (Listing listing : listings) {
-
-        //}
-        return ids;
-    }
-
-
     public void sortListings (String sortBy) {
         System.out.println("handler started");
         //System.out.println("Befor sorted:" + listings.get(0).getProduct().getProdName());
@@ -191,24 +182,16 @@ public class ListingHandler {
         return userId+"-"+listingId;
     }
 
-    private String extractKey(Listing listing) {
-        return listing.getListingId() + listing.getUserId();
-    }
-
     /**
      * Removes the specified listing form the ArrayList and returns it
      * @param listing
      * @return The removed listing
      */
-    public Listing removeListing(Listing listing) {//TODO Maybe not necessary to return removed listing, breaks CQS.
-       //TODO Also remove from relevant users list of ids,
-        linker.removeLink(extractKey(listing));
-        listings.remove(listing.getListingId());
-        return listing;
+    public void removeListing(Listing listing) {
+        removeListing(listing.getListingId());
     }
 
-    public void removeListing(String listingId) {//TODO Maybe not necessary to return removed listing, breaks CQS.
-        //TODO Also remove from relevant users list of ids,
+    public void removeListing(String listingId) {
         linker.removeLink(listingId);
         listings.remove(listingId);
     }

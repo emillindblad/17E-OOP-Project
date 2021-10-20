@@ -13,19 +13,25 @@ import java.util.*;
 public class ListingSorter {
     private static int matchRate; //set to 1 to search for categories
     /**
-     * Sort a list of Listings based on the "searchWord", doesnt
+     * Sort a HashMap of Listings based on the "searchWord", doesnt
      * @param searchWord Word to sort by
-     * @param toSort List ofListings to sort
+     * @param toSort HashMap of Listings to sort
+     * @return List of sorted keys to the map
      */
     public static ArrayList<String> sortBySearchWord(String searchWord, HashMap<String,Listing> toSort) {
         matchRate = 15;
-        HashMap<Double,String> map1= matchingListToSearch(searchWord, toSort);
+        HashMap<Double,String> map1= matchingMapToSearch(searchWord, toSort);
         ArrayList<String> sortedKeys = sortAndFilterKeys(map1);
         return sortedKeys;
     }
 
-    //returns mathcing value (double, and listing) can return key instead?
-    static private HashMap<Double, String> matchingListToSearch (String searchWord, HashMap<String, Listing> toSort) {
+    /**
+     * Compares a search word to values in a map and matches them by a "double" value
+     * @param searchWord Word too compare to
+     * @param toSort map of Listings to compare
+     * @return Map with similarity as keys, and  sorted Keys to the original list as Values
+     */
+    static private HashMap<Double, String> matchingMapToSearch (String searchWord, HashMap<String, Listing> toSort) {
         ArrayList <String> sequencesToTest; //array with listing name, description, category
         HashMap<Double, String> map = new HashMap<>();
         double similiarity;
@@ -41,7 +47,26 @@ public class ListingSorter {
         }
         return map;
     }
-    //method to find the best match with regards to name, category and description
+
+    /**
+     * Makes an array of all searchable information in a Listing
+     * @param makeToString Listing to form a string from
+     * @return Array of searchable strings
+     */
+    static private ArrayList<String> getSearchableStrings (Listing makeToString) {
+        ArrayList words = new ArrayList();
+        words.add(makeToString.getProduct().getProdName());
+        words.add(makeToString.getProduct().getCategoryName());
+        words.add( makeToString.getProduct().getDescription());
+        return words;
+    }
+
+    /**
+     * Compares a search word and finds the most relevant String in a array.
+     * @param words Array of strings to compare
+     * @param searchWord String to compare them with
+     * @return Similarity value for the best matching string in the Array.
+     */
     static private double findBestMatch (ArrayList <String> words, String searchWord) {
         LevenshteinDistance levDist = new LevenshteinDistance();
         int temp;
@@ -54,14 +79,11 @@ public class ListingSorter {
         return lowest;
     }
 
-    static private ArrayList<String> getSearchableStrings (Listing makeToString) {
-        ArrayList words = new ArrayList();
-        words.add(makeToString.getProduct().getProdName());
-        words.add(makeToString.getProduct().getCategoryName());
-        words.add( makeToString.getProduct().getDescription());
-        return words;
-    }
-
+    /**
+     * Filter out bad matching objects and sort the remaining keys in order. Best to worst.
+     * @param sort Map<Double, String> to sort. Map should come from "MatchingMapToSearchWord"-method.
+     * @return Sorted and filtered keys to original Map
+     */
     static private ArrayList<String> sortAndFilterKeys (HashMap<Double, String> sort) {
         ArrayList<String> keys = new ArrayList<>();
         ArrayList <Double> compareValues = new ArrayList<>(sort.keySet());

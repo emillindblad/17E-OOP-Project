@@ -77,20 +77,33 @@ public class BrowseListings extends AbstractHyroScene {
     }
 
 
+    /**
+     * Update list with an previously created set of Keys.
+     * Also checks so all Keys the method gets are connected to a available listing.
+     * @param keys set of keys to Listings
+     */
     void updateList(ArrayList<String> keys){
-        //TODO cross reference keys that are searched for and those who are available
+        ArrayList<String> availableListingKeys = browseController.getAvailableListingKeys();
+        for(String k: keys){
+            if(!availableListingKeys.contains(k));
+            keys.remove(k);
+        }
         populateGrid(keys);
     }
 
     /**
-     * Fetches a list of available listings from the controller and adds them all to the FXML flowpane so that it gets displayed in the GUI
+     * Fetches a list of available listings from the controller and adds them all to the FXML flowpane with populateGrid()
      */
     void updateList() {
         ArrayList<String> availableListingKeys = browseController.getAvailableListingKeys();
         populateGrid(availableListingKeys);
     }
 
-    void populateGrid (ArrayList<String> availableListingKeys){
+    /**
+     * Populates the grid och Listings to show the user
+     * @param availableListingKeys Keys for listings to show
+     */
+    private void populateGrid (ArrayList<String> availableListingKeys){
         int index0 = 0;
         int index1 =0;
         listProducts.getChildren().clear();
@@ -105,17 +118,18 @@ public class BrowseListings extends AbstractHyroScene {
         }
     }
 
-
+    /**
+     * Get called when a user search for something in application
+     */
     @FXML
     public void search() {
         System.out.println("Searching..");
-        System.out.println("view");
         updateList(browseController.search(searchField.getText()));
         System.out.println("updated list");
     }
 
     /**
-     * Method runs everytime scene is switched to so flowpane gets updated on scene switch.
+     * Method runs when scene is switched to so flowpane gets updated on scene switch.
      */
     @Override
     public void update() {

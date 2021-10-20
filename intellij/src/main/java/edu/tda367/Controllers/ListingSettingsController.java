@@ -52,17 +52,28 @@ public class ListingSettingsController extends ListingViewController {
 
     @Override
     public void secondAction() {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Ta bort annons?");
-        alert.setHeaderText("Ta bort annons?");
-        String s = "Är du säker?";
-        alert.setContentText(s);
+        if (listing.getListingState() == ListingState.AVAILABLE) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Ta bort annons?");
+            alert.setHeaderText("Ta bort annons?");
+            String s = "Är du säker?";
+            alert.setContentText(s);
 
-        Optional<ButtonType> result = alert.showAndWait();
+            Optional<ButtonType> result = alert.showAndWait();
 
-        if ((result.isPresent()) && (result.get() == ButtonType.OK)) {
-            listingHandler.removeListing(listing);
-            goBack();
+            if ((result.isPresent()) && (result.get() == ButtonType.OK)) {
+                listingHandler.removeListing(listing);
+                goBack();
+            }
+        } else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Ta bort annons?");
+            alert.setHeaderText("Ta bort annons?");
+            String s = "Kan inte ta bort annons just nu";
+            alert.setContentText(s);
+
+            alert.showAndWait();
         }
+
     }
 }

@@ -15,7 +15,7 @@ import java.util.List;
  * BookingHandler is a handler for interacting with Bookings and their state
  * @author Erik Larsson
  */
-public class BookingHandler {
+public class BookingHandler implements DeleteBookingListener {
     private static BookingHandler instance;
     private final ArrayList<Booking> bookings;
     private static UserHandler uHandler;
@@ -124,6 +124,7 @@ public class BookingHandler {
         }
     }
 
+    @Override
     public void deleteCompletedBookings() {
         ArrayList<Booking> toRemove = new ArrayList<>();
         for (Booking b: bookings) {

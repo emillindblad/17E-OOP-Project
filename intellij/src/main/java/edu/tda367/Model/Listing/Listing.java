@@ -1,7 +1,6 @@
 package edu.tda367.Model.Listing;
 
 import edu.tda367.Model.RentingItemEntry;
-import javafx.scene.image.Image;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;

@@ -87,8 +87,18 @@ public abstract class ListingViewController implements Controller {
         }
     }
 
+    /**
+     * Secondary button action.
+     * Deletes listing or cancel listing creation.
+     */
     public abstract void secondAction();
 
+    /**
+     * Either creates or updates listing with form data
+     * @param formData Data used for listing
+     * @param userID UserID related to listing
+     * @return Status message
+     */
     protected abstract String updateListings(String[] formData, int userID);
 
     /**

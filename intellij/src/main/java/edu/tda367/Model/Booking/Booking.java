@@ -17,10 +17,17 @@ public class Booking implements RentingItemEntry {
         listing.advanceState();
     }
 
+    /**
+     * Getter for bookingState
+     * @return bookingState
+     */
     public BookingState getBookingState() {
         return bookingState;
     }
 
+    /**
+     * Advances state of booking. Will update corresponding listing if necessary
+     */
     @Override
     public void advanceState() {
 
@@ -75,6 +82,11 @@ public class Booking implements RentingItemEntry {
         return listing.getListingCategory().getCategoryName();
     }
 
+    /**
+     * Getter for status text of RentingItemEntry
+     * Will check if bookingState needs to updated for text to be correct
+     * @return text depending on bookingState
+     */
     @Override
     public String getStatusText() {
         updateStateFromListing();
@@ -88,6 +100,11 @@ public class Booking implements RentingItemEntry {
         };
     }
 
+    /**
+     * Getter for button text of RentingItemEntry
+     * Will check if bookingState needs to updated for text to be correct
+     * @return text depending on bookingState
+     */
     @Override
     public String getButtonText() {
         updateStateFromListing();

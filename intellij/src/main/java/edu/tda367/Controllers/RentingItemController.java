@@ -29,6 +29,11 @@ public class RentingItemController {
         listener.deleteCompletedBookings();
     }
 
+    /**
+     * Switches to setting view for clicked listing
+     * @param entry RentingItemEntry containing listing to bw switched to
+     * @throws IOException
+     */
     public void goToSettings(RentingItemEntry entry) throws IOException {
         sceneHandler.switchToListingSettings(entry);
     }

@@ -87,6 +87,8 @@ public abstract class ListingViewController implements Controller {
         }
     }
 
+    public abstract void secondAction();
+
     protected abstract String updateListings(String[] formData, int userID);
 
     /**

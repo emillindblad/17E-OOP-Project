@@ -35,4 +35,9 @@ public class CreateListingController extends ListingViewController {
         categoriesDropdown.setValue(null);
     }
 
+    @Override
+    public void secondAction() {
+        goBack();
+    }
+
 }

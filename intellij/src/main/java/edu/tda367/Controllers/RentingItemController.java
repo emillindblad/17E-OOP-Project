@@ -1,5 +1,6 @@
 package edu.tda367.Controllers;
 
+import edu.tda367.Model.Booking.BookingHandler;
 import edu.tda367.Model.RentingItemEntry;
 import edu.tda367.View.SceneHandler;
 
@@ -22,6 +23,7 @@ public class RentingItemController {
      */
     public void buttonAction(RentingItemEntry entry) {
         entry.advanceState();
+        BookingHandler.getInstance().deleteCompletedBookings();
     }
 
     public void goToSettings(RentingItemEntry entry) throws IOException {

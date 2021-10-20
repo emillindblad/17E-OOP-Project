@@ -4,7 +4,6 @@ import edu.tda367.Model.Listing.Listing;
 import edu.tda367.Model.Listing.ListingState;
 import edu.tda367.Model.RentingItemEntry;
 import edu.tda367.Model.UserPackage.User;
-import javafx.scene.image.Image;
 
 public class Booking implements RentingItemEntry {
 
@@ -47,6 +46,10 @@ public class Booking implements RentingItemEntry {
                 bookingState = BookingState.DONE;
                 break;
 
+            case DONE:
+                bookingState = BookingState.REMOVEME;
+                break;
+
             default:
                 break;
         }
@@ -80,7 +83,8 @@ public class Booking implements RentingItemEntry {
             case ACCEPTED -> "Förfrågan godkänd";
             case PAYED -> "Bokning betalad";
             case RETURNED -> "Vara tillbakalämnad";
-            default -> "Tillbakalämnande godkänt";
+            case DONE -> "Tillbakalämnande godkänt";
+            default -> "Borttaggen!";
         };
     }
 
@@ -90,6 +94,7 @@ public class Booking implements RentingItemEntry {
         return switch (bookingState) {
             case ACCEPTED -> "Betala";
             case PAYED -> "Återlämna";
+            case DONE -> "Ta bort";
             default -> "";
         };
     }
@@ -106,7 +111,7 @@ public class Booking implements RentingItemEntry {
             bookingState = BookingState.ACCEPTED;
         }
 
-        if (lState == ListingState.AVAILABLE && bookingState != BookingState.DONE) {
+        if (lState == ListingState.AVAILABLE && bookingState != BookingState.DONE && bookingState != BookingState.REMOVEME) {
             bookingState = BookingState.DONE;
         }
     }

@@ -26,7 +26,6 @@ public class TestListing {
     static Listing stringListing;
     static int dbSize;
 
-    static Listing thirdTestListing;
 
     static int dummyId;
     static UserHandler uHandler;
@@ -109,10 +108,6 @@ public class TestListing {
         assertTrue(handler.getListingsAsList().contains(stringListing));
     }
 
-    @Test public void testRemoveListingWithId() {
-
-    }
-
     @Test
     public void testSortingBySearch() {
         Listing sortListing = handler.createListing(dummyData2, dummyId);
@@ -120,5 +115,43 @@ public class TestListing {
         ArrayList<String> keys = ListingSorter.sortBySearchWord(search, handler.getListings());
         assertTrue(handler.getListingFromKey(keys.get(0)).equals(sortListing));
     }
+
+    @Test
+    public void testSortKeys() {
+        String[] formData = {"Test Name","Testing-sorting","69","Övrigt","DummyImgPath"};
+        Listing sortListing = handler.createListing(formData, dummyId);
+        ArrayList<String> keys = handler.getSortedKeys("Testing-sorting");
+        Listing listing = handler.getListingFromKey(keys.get(0));
+        assertTrue(listing.getProduct().getDescription().equals("Testing-sorting"));
+    }
+
+    @Test
+    public void testGettersAndSetters() {
+        String[] formData = {"Test Name","Test Desc","69","Övrigt","DummyImgPath"};
+        Listing listing = handler.createListing(formData,69);
+        listing.setFileName("Foobar");
+        assertTrue(listing.getFileName().equals("Foobar"));
+        assertTrue(listing.getImageName().equals("Foobar"));
+        assertTrue(listing.getListingCategory().getCategoryName().equals("Övrigt"));
+        assertTrue(listing.getProductName().equals("Test Name"));
+        assertTrue(listing.getCategoryName().equals("Övrigt"));
+
+        listing.setPrice(420);
+        assertTrue(listing.getPrice()==420);
+
+        listing.setDesc("Foobar");
+        assertTrue(listing.getProduct().getDescription().equals("Foobar"));
+        assertTrue(listing.getStatusText().equals("Tillgänglig"));
+        assertTrue(listing.getButtonText().equals(""));
+        assertTrue(listing.getClickable());
+        assertTrue(listing.getListing().equals(listing));
+        assertTrue(listing.toString().equals("Listing{" +
+                "product=" + listing.getProduct() +
+                ", price=" + listing.getPrice() +
+                ", availability=" + listing.getAvailability() +
+                ", listingState=" + listing.getListingState() +
+                '}'));
+    }
+
 
 }

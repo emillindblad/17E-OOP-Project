@@ -3,7 +3,6 @@ package edu.tda367.Model.Booking;
 import edu.tda367.Model.JSON.JSONReader;
 import edu.tda367.Model.JSON.JSONWriter;
 import edu.tda367.Model.Listing.Listing;
-import edu.tda367.Model.Listing.ListingHandler;
 import edu.tda367.Model.Listing.ListingState;
 import edu.tda367.Model.UserPackage.User;
 import edu.tda367.Model.UserPackage.UserHandler;
@@ -19,7 +18,6 @@ public class BookingHandler implements DeleteBookingListener {
     private static BookingHandler instance;
     private final ArrayList<Booking> bookings;
     private static UserHandler uHandler;
-    private static ListingHandler lHandler;
 
     /**
      * Private constructor, BookingHandler is a singleton
@@ -70,22 +68,7 @@ public class BookingHandler implements DeleteBookingListener {
         }
         return myBookings;
     }
-    /*
-        /**
-         * Getter for BookingState for a Booking specified by index in list
-         * @param bookingIndex Index of Booking in bookings list
-         * @return The BookingState of specified Booking
-         /
-        public BookingState getBookingState(int bookingIndex) {
-            return bookings.get(bookingIndex).getBookingState();
-        }
 
-        /**
-         * Advances the BookingState of a Booking specified by index in list
-         * @param bookingIndex Index of Booking in bookings list
-         /
-        public void advanceBookingState(int bookingIndex) { bookings.get(bookingIndex).advanceState();}
-    */
     /**
      * Gets saved Bookings from database
      * @return An ArrayList containing Booking objects

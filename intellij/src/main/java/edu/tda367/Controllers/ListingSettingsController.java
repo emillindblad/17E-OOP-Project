@@ -3,8 +3,12 @@ package edu.tda367.Controllers;
 import edu.tda367.Model.Listing.Listing;
 import edu.tda367.Model.Listing.ListingState;
 import edu.tda367.View.SceneHandler;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+
+import java.util.Optional;
 
 public class ListingSettingsController extends ListingViewController {
 
@@ -44,5 +48,21 @@ public class ListingSettingsController extends ListingViewController {
         categoriesDropdown.setValue(listing.getCategoryName());
         categoriesDropdown.setDisable(true);
         nameField.setDisable(true);
+    }
+
+    @Override
+    public void secondAction() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Ta bort annons?");
+        alert.setHeaderText("Ta bort annons?");
+        String s = "Är du säker?";
+        alert.setContentText(s);
+
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if ((result.isPresent()) && (result.get() == ButtonType.OK)) {
+            listingHandler.removeListing(listing);
+            goBack();
+        }
     }
 }

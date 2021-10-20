@@ -74,6 +74,11 @@ public class ListingSettingsView extends AbstractHyroScene {
     }
 
     @FXML
+    private void secondButtonAction() {
+        controller.secondAction();
+    }
+
+    @FXML
     public void goBack() {
         controller.goBack();
     }

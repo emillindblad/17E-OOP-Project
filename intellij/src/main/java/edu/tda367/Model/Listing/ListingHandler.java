@@ -3,14 +3,13 @@ package edu.tda367.Model.Listing;
 import edu.tda367.Model.JSON.JSONReader;
 import edu.tda367.Model.JSON.JSONWriter;
 import edu.tda367.Model.ListingLinker;
+import org.apache.commons.text.CharacterPredicates;
+import org.apache.commons.text.RandomStringGenerator;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
-import org.apache.commons.text.CharacterPredicates;
-import org.apache.commons.text.RandomStringGenerator;
 
 /**
  * ListingHandler is a class designed for interacting with Listings and their associated products and categories.
@@ -119,12 +118,8 @@ public class ListingHandler {
         return availableListings;
     }
 
-    public void sortListings (String sortBy) {
-        System.out.println("handler started");
-        //System.out.println("Befor sorted:" + listings.get(0).getProduct().getProdName());
-        ListingSorter.sortBySearchWord(sortBy, getListingsAsList());
-        //System.out.println("after sorted:" + listings.get(0).getProduct().getProdName());
-        System.out.println("handler done");
+    public ArrayList<String> getSortedKeys (String sortBy) {
+        return ListingSorter.sortBySearchWord(sortBy, listings);
     }
 
 

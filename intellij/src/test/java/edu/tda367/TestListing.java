@@ -2,7 +2,6 @@ package edu.tda367;
 
 import edu.tda367.Model.Listing.*;
 import edu.tda367.Model.UserPackage.UserHandler;
-import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -12,7 +11,6 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class TestListing {
@@ -119,8 +117,7 @@ public class TestListing {
         System.out.println(handler.getListingsAsList().toString());
         Listing sortListing = handler.createListing("SortingTest",testCat,"hitta grill",127,420,startDate,endDate);
         String search = "hitta grill";
-        ListingSorter.sortBySearchWord(search, handler.getListingsAsList());
-        System.out.println("AHA");
+        ListingSorter.sortBySearchWord(search, handler.getListings());
         System.out.println(handler.getListingsAsList().get(0).getProduct().getProdName());
         assertTrue(handler.getListingsAsList().get(0).equals(sortListing));
     }

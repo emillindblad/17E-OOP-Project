@@ -1,3 +1,22 @@
 [
-  
+  {
+    "firstName": "a",
+    "lastName": "a",
+    "phoneNumber": "145236987",
+    "userAdress": {
+      "streetName": "a",
+      "city": "a",
+      "zipCode": "11122",
+      "country": "a"
+    },
+    "userID": 187324,
+    "userName": "a",
+    "password": "a",
+    "bankAccount": "123321232",
+    "listings": [
+      "187324-pBhyEukORVQB",
+      "187324-dw4IS1egvI7j",
+      "187324-V7Fxc7m0FFp2"
+    ]
+  }
 ]

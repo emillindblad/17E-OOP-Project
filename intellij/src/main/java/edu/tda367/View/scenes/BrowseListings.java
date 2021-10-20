@@ -2,21 +2,16 @@ package edu.tda367.View.scenes;
 
 import edu.tda367.Controllers.BrowseController;
 import edu.tda367.View.SceneHandler;
-import java.util.ArrayList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
-import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Optional;
 
 public class BrowseListings extends AbstractHyroScene {
@@ -82,11 +77,20 @@ public class BrowseListings extends AbstractHyroScene {
     }
 
 
+    void updateList(ArrayList<String> keys){
+        //TODO cross reference keys that are searched for and those who are available
+        populateGrid(keys);
+    }
+
     /**
      * Fetches a list of available listings from the controller and adds them all to the FXML flowpane so that it gets displayed in the GUI
      */
     void updateList() {
         ArrayList<String> availableListingKeys = browseController.getAvailableListingKeys();
+        populateGrid(availableListingKeys);
+    }
+
+    void populateGrid (ArrayList<String> availableListingKeys){
         int index0 = 0;
         int index1 =0;
         listProducts.getChildren().clear();
@@ -99,15 +103,14 @@ public class BrowseListings extends AbstractHyroScene {
                 index0 = 0;
             }
         }
-
     }
 
 
     @FXML
     public void search() {
-        browseController.search(searchField.getText());
-        System.out.println("Searched");
-        update();
+        System.out.println("Searching..");
+        System.out.println("view");
+        updateList(browseController.search(searchField.getText()));
         System.out.println("updated list");
     }
 

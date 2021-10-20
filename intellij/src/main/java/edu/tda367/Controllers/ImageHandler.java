@@ -50,7 +50,13 @@ public class ImageHandler {
             image = loadImage(name);
             images.put(name, image);
         }
-        return image;
+
+        if (image.isError()) {
+            return getImage("missing.png");
+        }
+        else {
+            return image;
+        }
     }
 
  }

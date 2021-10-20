@@ -51,13 +51,7 @@ public class RentingItem extends AnchorPane {
         initialize(entry);
         clickable = entry.getClickable();
 
-        Image image = ImageHandler.getInstance().getImage(entry.getImageName());
-        if (image.isError()) {
-            this.image.setImage(ImageHandler.getInstance().getImage("missing.png"));
-        }
-        else {
-            this.image.setImage(image);
-        }
+        image.setImage(ImageHandler.getInstance().getImage(entry.getImageName()));
     }
 
     /**

@@ -43,5 +43,20 @@
     "availability": 25,
     "listingState": "AVAILABLE",
     "fileName": "No image supplied"
+  },
+  {
+    "listingId": "125595-pUTe1PioLs2O",
+    "product": {
+      "prodName": "as",
+      "prodCategory": {
+        "categoryName": "Båtar"
+      },
+      "prodDesc": "a"
+    },
+    "userId": 125595,
+    "price": 12,
+    "availability": 25,
+    "listingState": "AVAILABLE",
+    "fileName": "1 ETlpX2scicqyaLBFPRB-8w.jpeg"
   }
 ]

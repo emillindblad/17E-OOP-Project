@@ -14,10 +14,9 @@ import org.junit.Test;
 
 import java.time.LocalDateTime;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
-public class TestBooking {
+public class TestBookingHandler {
     static BookingHandler bookingHandler;
     static User user;
     static int userID;
@@ -69,6 +68,14 @@ public class TestBooking {
         // Create booking - "Sebastian" tries books his own Listing
         bookingHandler.createBooking(userHandler.getLoggedInUser(), userHandler.getUserID(), secondListing);
         assertEquals(bookingHandler.getMyBookings().size(), size); // No new booking, size remains same
+
+        Booking booking = bookingHandler.getMyBookings().get(0);
+        assertFalse(booking.getClickable());
+        assertEquals("TestPRIT Grill", booking.getProductName());
+        assertEquals(1337, booking.getPrice());
+        assertEquals("Övrigt", booking.getCategoryName());
+        assertEquals("", booking.getImageName());
+        assertEquals(listing, booking.getListing());
     }
 
     @Test
@@ -76,16 +83,26 @@ public class TestBooking {
 
         Booking myBooking = bookingHandler.getMyBookings().get(1);
         // Get BookingState from last booking in list (test booking)
+        assertEquals("Förfrågan skickad", myBooking.getStatusText());
+        assertEquals("", myBooking.getButtonText());
         assertEquals(myBooking.getBookingState(), BookingState.PENDING);
         myBooking.advanceState();
+        assertEquals("Förfrågan godkänd", myBooking.getStatusText());
+        assertEquals("Betala", myBooking.getButtonText());
         assertEquals(myBooking.getBookingState(), BookingState.ACCEPTED);
         myBooking.advanceState();
         assertEquals(myBooking.getBookingState(), BookingState.PAYED);
         myBooking.advanceState();
+        assertEquals("Vara tillbakalämnad", myBooking.getStatusText());
+        assertEquals("", myBooking.getButtonText());
         assertEquals(myBooking.getBookingState(), BookingState.RETURNED);
         myBooking.advanceState();
+        assertEquals("Tillbakalämnande godkänt", myBooking.getStatusText());
+        assertEquals("Ta bort", myBooking.getButtonText());
         assertEquals(myBooking.getBookingState(), BookingState.DONE);
         myBooking.advanceState();
+        assertEquals("Borttagen!", myBooking.getStatusText());
+        assertEquals("", myBooking.getButtonText());
         assertEquals(myBooking.getBookingState(), BookingState.REMOVEME);
         myBooking.advanceState();
         assertEquals(myBooking.getBookingState(), BookingState.REMOVEME);
@@ -121,6 +138,4 @@ public class TestBooking {
         userHandler.logOut();
         userHandler.logIn("def", "test");
     }
-
-
 }

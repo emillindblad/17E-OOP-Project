@@ -85,8 +85,9 @@ public class BrowseListings extends AbstractHyroScene {
     void updateList(ArrayList<String> keys){
         ArrayList<String> availableListingKeys = browseController.getAvailableListingKeys();
         for(String k: keys){
-            if(!availableListingKeys.contains(k));
-            keys.remove(k);
+            if(!availableListingKeys.contains(k)) {
+                keys.remove(k);
+            }
         }
         populateGrid(keys);
     }
@@ -140,42 +141,42 @@ public class BrowseListings extends AbstractHyroScene {
 
     @FXML
     public void CatButton1Pressed() {
-        browseController.search(catButton1.getText());
-        update();
+        updateList(browseController.getListingsByCategory(catButton1.getText()));
+
     }
     @FXML
     public void CatButton2Pressed() {
-        browseController.search(catButton2.getText());
-        update();
+        updateList(browseController.getListingsByCategory(catButton2.getText()));
+
     }
     @FXML
     public void CatButton3Pressed() {
-        browseController.search(catButton3.getText());
-        update();
+        updateList(browseController.getListingsByCategory(catButton3.getText()));
+
     }
     @FXML
     public void CatButton4Pressed() {
-        browseController.search(catButton4.getText());
-        update();
+        updateList(browseController.getListingsByCategory(catButton4.getText()));
+
     }
     @FXML
     public void CatButton5Pressed() {
-        browseController.search(catButton5.getText());
-        update();
+        updateList(browseController.getListingsByCategory(catButton5.getText()));
+
     }
     @FXML
     public void CatButton6Pressed() {
-        browseController.search(catButton6.getText());
-        update();
+        updateList(browseController.getListingsByCategory(catButton6.getText()));
+
     }
     @FXML
     public void CatButton7Pressed() {
-        browseController.search(catButton7.getText());
-        update();
+        updateList(browseController.getListingsByCategory(catButton7.getText()));
+
     }
     @FXML
     public void CatButton8Pressed() {
-        browseController.search(catButton8.getText());
-        update();
+        updateList(browseController.getListingsByCategory(catButton8.getText()));
+
     }
 }

@@ -12,8 +12,9 @@ import java.util.*;
  */
 public class ListingSorter {
     private static int matchRate; //set to 1 to search for categories
+
     /**
-     * Sort a HashMap of Listings based on the "searchWord", doesnt
+     * Sort a HashMap of Listings based on the "searchWord"
      * @param searchWord Word to sort by
      * @param toSort HashMap of Listings to sort
      * @return List of sorted keys to the map

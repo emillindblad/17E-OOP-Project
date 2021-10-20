@@ -83,10 +83,7 @@ public class ListingItem extends AnchorPane {
         this.itemPrice.setText(listingData[4] + " Kr");
         Image image = ImageHandler.getInstance().getImage(listingData[6]);
         if (image.isError()) {
-            this.defaultImgText.setText("Image not found \n"+"("+listingData[6]+")");
-        }
-        if (listingData[6].equals("No image supplied")) {
-            this.defaultImgText.setText("No image supplied");
+            this.listingImage.setImage(getImage("missing.png"));
         }
         else {
             this.listingImage.setImage(getImage(listingData[6]));

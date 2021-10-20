@@ -128,6 +128,24 @@ public class ListingHandler {
     }
 
     /**
+     * Getter for Listings where ListingState is Avaliable
+     * @param category Category to find listings in
+     * @return An ArrayList af all current Avaliable listings
+     */
+    public ArrayList<String> getAvailableListingKeys(String category) {
+        ArrayList<String> availableListings = new ArrayList<>();
+        listings.forEach(
+                (key, listing) -> {
+
+                    if (listing.getListingState().equals(ListingState.AVAILABLE) && listing.getCategoryName().equals(category)) {
+                        availableListings.add(key);
+                    }
+                }
+        );
+        return availableListings;
+    }
+
+    /**
      * Sorts keys based on a search word
      * @param sortBy search word
      * @return List of sorted keys, best match at index 0.

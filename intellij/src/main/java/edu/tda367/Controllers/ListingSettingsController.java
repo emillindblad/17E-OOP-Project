@@ -19,6 +19,12 @@ public class ListingSettingsController extends ListingViewController {
         this.listing = listing;
     }
 
+    /**
+     * If listing is available, updates listing with form data
+     * @param formData Data used for listing
+     * @param userID UserID related to listing
+     * @return Status message
+     */
     @Override
     protected String updateListings(String[] formData, int userID) {
         if (listing.getListingState() == ListingState.AVAILABLE) {
@@ -30,16 +36,30 @@ public class ListingSettingsController extends ListingViewController {
         return "Kan inte ändra när varan är bokad!";
     }
 
+    /**
+     * Returns to rentingPage
+     */
     @Override
     public void goBack() {
         sceneHandler.switchTo("rentingpage");
     }
 
+    /**
+     * Getter for FXML name to be controlled
+     * @return FXML name
+     */
     @Override
     public String getFXMLName() {
         return "listingsettings";
     }
 
+    /**
+     * Called when scene is switched to. Enters correct info in fields
+     * @param nameField Field for product name
+     * @param descField Field for product description
+     * @param priceField Field for listing price
+     * @param categoriesDropdown Dropdown menu for categories
+     */
     @Override
     public void update(TextField nameField, TextField descField, TextField priceField, ComboBox<String> categoriesDropdown) {
         nameField.setText(listing.getProductName());
@@ -50,30 +70,41 @@ public class ListingSettingsController extends ListingViewController {
         nameField.setDisable(true);
     }
 
+    /**
+     * Asks if user is sure they want to delete listing.
+     * If yes, deletes listing.
+     */
     @Override
     public void secondAction() {
         if (listing.getListingState() == ListingState.AVAILABLE) {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Ta bort annons?");
-            alert.setHeaderText("Ta bort annons?");
-            String s = "Är du säker?";
-            alert.setContentText(s);
-
-            Optional<ButtonType> result = alert.showAndWait();
-
-            if ((result.isPresent()) && (result.get() == ButtonType.OK)) {
-                listingHandler.removeListing(listing);
-                goBack();
-            }
+            showDeleteListingConfirmation();
         } else {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Ta bort annons?");
-            alert.setHeaderText("Ta bort annons?");
-            String s = "Kan inte ta bort annons just nu";
-            alert.setContentText(s);
-
-            alert.showAndWait();
+            showCantDeleteListinInfo();
         }
+    }
 
+    private void showDeleteListingConfirmation() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Ta bort annons?");
+        alert.setHeaderText("Ta bort annons?");
+        String s = "Är du säker?";
+        alert.setContentText(s);
+
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if ((result.isPresent()) && (result.get() == ButtonType.OK)) {
+            listingHandler.removeListing(listing);
+            goBack();
+        }
+    }
+
+    private void showCantDeleteListinInfo() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Ta bort annons?");
+        alert.setHeaderText("Ta bort annons?");
+        String s = "Kan inte ta bort annons just nu";
+        alert.setContentText(s);
+
+        alert.showAndWait();
     }
 }

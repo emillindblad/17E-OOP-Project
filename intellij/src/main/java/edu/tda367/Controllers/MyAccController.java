@@ -32,7 +32,6 @@ public class MyAccController extends AccountViewController{
         }
     }
 
-    //TODO fix this shitty solution
     private void saveUserInfo(ArrayList<TextField> fields) {
         uHandler.setLoggedInUserFirstName(fields.get(0).getText());
         uHandler.setLoggedInUserLastName(fields.get(1).getText());

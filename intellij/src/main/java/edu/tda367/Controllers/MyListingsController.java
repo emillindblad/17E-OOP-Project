@@ -4,7 +4,6 @@ import edu.tda367.Model.Booking.Booking;
 import edu.tda367.Model.Booking.BookingHandler;
 import edu.tda367.Model.Listing.Listing;
 import edu.tda367.Model.Listing.ListingHandler;
-import edu.tda367.Model.Booking.Booking; //can we avoid making Booking a public class?
 import edu.tda367.Model.UserPackage.UserHandler;
 import edu.tda367.View.SceneHandler;
 import edu.tda367.View.scenes.RentingItem;

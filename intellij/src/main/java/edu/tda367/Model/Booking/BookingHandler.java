@@ -97,16 +97,6 @@ public class BookingHandler implements DeleteBookingListener {
         writer.write(bookings, "bookings");
     }
 
-    public void removeBooking(Booking booking) {
-        BookingState state = booking.getBookingState();
-        if (state == BookingState.PENDING || state == BookingState.REMOVEME) {
-            bookings.remove(booking);
-            booking.getListing().setListingState(ListingState.AVAILABLE);
-        } else {
-            System.out.println("Cannot remove Booking in state: " + state.name());
-        }
-    }
-
     @Override
     public void deleteCompletedBookings() {
         ArrayList<Booking> toRemove = new ArrayList<>();

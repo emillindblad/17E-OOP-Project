@@ -1,9 +1,10 @@
 package edu.tda367.View.scenes;
 
 import edu.tda367.Controllers.ImageHandler;
-import edu.tda367.Controllers.RentController;
+import edu.tda367.Controllers.SingleListingController;
 import edu.tda367.View.SceneHandler;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 
@@ -11,7 +12,7 @@ import java.io.IOException;
 
 public class SingleListingView extends AbstractHyroScene {
 
-    RentController rentController;
+    SingleListingController singleListingController;
 
     @FXML
     private Label userId;
@@ -31,6 +32,9 @@ public class SingleListingView extends AbstractHyroScene {
     @FXML
     private ImageView listingImage;
 
+    @FXML
+    private Button rentButton;
+
     /**
      * Super constructor for all scenes. Loads the FXML file and creates a scene with the loaded fxml file
      * @param handler  sceneHandler that is in charge of switching between scenes
@@ -46,7 +50,8 @@ public class SingleListingView extends AbstractHyroScene {
         this.category.setText(category);
         this.description.setText(description);
         this.listingImage.setImage(ImageHandler.getInstance().getImage(listingImage));
-        rentController = new RentController(handler);
+        singleListingController = new SingleListingController(handler);
+        rentButton.setVisible(!singleListingController.isMyListing(user));
     }
 
     public SingleListingView(SceneHandler handler, int user, String productName, int price, String category, String description, String listingId) throws IOException {
@@ -57,15 +62,13 @@ public class SingleListingView extends AbstractHyroScene {
         this.price.setText(price + " Kr");
         this.category.setText(category);
         this.description.setText(description);
-        rentController = new RentController(handler);
+        singleListingController = new SingleListingController(handler);
     }
 
     @FXML
     public void rentListing()
     {
-        rentController.rentListing(listingId);
-        System.out.println("renting...");
-        //TODO Controller
+        singleListingController.rentListing(listingId);
     }
 
     @FXML

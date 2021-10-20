@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
@@ -50,7 +51,13 @@ public class RentingItem extends AnchorPane {
         initialize(entry);
         clickable = entry.getClickable();
 
-        image.setImage(ImageHandler.getInstance().getImage(entry.getImageName()));
+        Image image = ImageHandler.getInstance().getImage(entry.getImageName());
+        if (image.isError()) {
+            this.image.setImage(ImageHandler.getInstance().getImage("missing.png"));
+        }
+        else {
+            this.image.setImage(image);
+        }
     }
 
     /**

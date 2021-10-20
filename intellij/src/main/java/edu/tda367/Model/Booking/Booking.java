@@ -96,7 +96,7 @@ public class Booking implements RentingItemEntry {
             case PAYED -> "Bokning betalad";
             case RETURNED -> "Vara tillbakalämnad";
             case DONE -> "Tillbakalämnande godkänt";
-            default -> "Borttaggen!";
+            default -> "Borttagen!";
         };
     }
 

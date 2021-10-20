@@ -119,7 +119,6 @@ public class ListingHandler {
     }
 
     public ArrayList<String> getSortedKeys (String sortBy) {
-        System.out.println("handler");
         return ListingSorter.sortBySearchWord(sortBy, listings);
     }
 

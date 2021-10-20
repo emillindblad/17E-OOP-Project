@@ -18,11 +18,9 @@ public class ListingSorter {
      * @param toSort List ofListings to sort
      */
     public static ArrayList<String> sortBySearchWord(String searchWord, HashMap<String,Listing> toSort) {
-        matchRate = 25;
+        matchRate = 15;
         HashMap<Double,String> map1= matchingListToSearch(searchWord, toSort);
         ArrayList<String> sortedKeys = sortAndFilterKeys(map1);
-        System.out.println("HHH");
-        System.out.println(sortedKeys.toString());
         return sortedKeys;
     }
 
@@ -65,13 +63,17 @@ public class ListingSorter {
     }
 
     static private ArrayList<String> sortAndFilterKeys (HashMap<Double, String> sort) {
-        ArrayList<String> sortedKeys = new ArrayList<>();
-        for (double d : sort.keySet()) {
+        ArrayList<String> keys = new ArrayList<>();
+        ArrayList <Double> compareValues = new ArrayList<>(sort.keySet());
+        Collections.sort(compareValues);
+        for (double d : compareValues) {
+            System.out.println("matched by:" + d);
             if (d < matchRate) {
-                sortedKeys.add(sort.get(d));
+                System.out.println("Adding this key to list");
+                keys.add(sort.get(d));
             }
-            Collections.sort(sortedKeys);
         }
-        return sortedKeys;
+        System.out.println(keys.toString());
+        return keys;
     }
 }

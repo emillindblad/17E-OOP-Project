@@ -42,7 +42,6 @@ public class BrowseController implements Controller {
     }
 
     public ArrayList<String> search (String searchWord) {
-        System.out.println("Controller");
         return listingHandler.getSortedKeys(searchWord);  //returnerar en lista med sorterade keys
 
     }

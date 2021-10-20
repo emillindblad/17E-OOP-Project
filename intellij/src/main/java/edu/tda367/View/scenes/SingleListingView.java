@@ -57,17 +57,6 @@ public class SingleListingView extends AbstractHyroScene {
         rentButton.setVisible(!singleListingController.isMyListing(user));
     }
 
-    public SingleListingView(SceneHandler handler, int user, String productName, int price, String category, String description, String listingId) throws IOException {
-        super("SingleListingView", handler);
-        this.listingId = listingId;
-        userId.setText(Integer.toString(user));
-        prodName.setText(productName);
-        this.price.setText(price + " Kr");
-        this.category.setText(category);
-        this.description.setText(description);
-        singleListingController = new SingleListingController(handler);
-    }
-
     @FXML
     public void rentListing()
     {

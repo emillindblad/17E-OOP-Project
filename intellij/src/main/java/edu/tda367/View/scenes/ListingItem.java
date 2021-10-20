@@ -81,13 +81,7 @@ public class ListingItem extends AnchorPane {
         this.itemCategory.setText(listingData[2]);
         //Descripion this.itemDesc.setText(listingData[3]);
         this.itemPrice.setText(listingData[4] + " Kr");
-        Image image = ImageHandler.getInstance().getImage(listingData[6]);
-        if (image.isError()) {
-            this.listingImage.setImage(getImage("missing.png"));
-        }
-        else {
-            this.listingImage.setImage(getImage(listingData[6]));
-        }
+        this.listingImage.setImage(getImage(listingData[6]));
         this.setStyle("-fx-border-color: black ; -fx-border-width: 1px ;");
     }
 }

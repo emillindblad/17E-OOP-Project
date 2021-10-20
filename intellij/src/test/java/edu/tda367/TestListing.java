@@ -15,6 +15,7 @@ import static org.junit.Assert.assertTrue;
 
 public class TestListing {
     static String[] dummyData = {"Test-Name","Test-Desc","100","Övrigt","DummyPath"};
+    static String[] dummyData2 = {"sortingTest","hitta grill","100","Elektronik","DummyPath"};
     static Category testCat;
     static LocalDateTime startDate;
     static LocalDateTime endDate;
@@ -112,14 +113,12 @@ public class TestListing {
 
     }
 
-    //@Test
+    @Test
     public void testSortingBySearch() {
-        System.out.println(handler.getListingsAsList().toString());
-        Listing sortListing = handler.createListing("SortingTest",testCat,"hitta grill",127,420,startDate,endDate);
+        Listing sortListing = handler.createListing(dummyData2, dummyId);
         String search = "hitta grill";
-        ListingSorter.sortBySearchWord(search, handler.getListings());
-        System.out.println(handler.getListingsAsList().get(0).getProduct().getProdName());
-        assertTrue(handler.getListingsAsList().get(0).equals(sortListing));
+        ArrayList<String> keys = ListingSorter.sortBySearchWord(search, handler.getListings());
+        assertTrue(handler.getListingFromKey(keys.get(0)).equals(sortListing));
     }
 
 }

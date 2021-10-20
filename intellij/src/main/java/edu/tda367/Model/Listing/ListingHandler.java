@@ -94,10 +94,19 @@ public class ListingHandler {
         return listings;
     }
 
+    /**
+     * Makes a list of all Listings in the handler
+     * @return ArrayList<Listing>
+     */
     public ArrayList<Listing> getListingsAsList() {
         return new ArrayList<>(listings.values());
     }
 
+    /**
+     * get specifik listing from handler
+     * @param key Key to the Hashmap of Listings, (Listing ID)
+     * @return A Listing connected to the key
+     */
     public Listing getListingFromKey(String key) {
         return listings.get(key);
     }
@@ -118,6 +127,11 @@ public class ListingHandler {
         return availableListings;
     }
 
+    /**
+     * Sorts keys based on a search word
+     * @param sortBy search word
+     * @return List of sorted keys, best match at index 0.
+     */
     public ArrayList<String> getSortedKeys (String sortBy) {
         return ListingSorter.sortBySearchWord(sortBy, listings);
     }

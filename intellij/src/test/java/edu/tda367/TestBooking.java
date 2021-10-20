@@ -8,12 +8,13 @@ import edu.tda367.Model.Listing.Listing;
 import edu.tda367.Model.Listing.ListingHandler;
 import edu.tda367.Model.UserPackage.User;
 import edu.tda367.Model.UserPackage.UserHandler;
-import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
+
 import java.time.LocalDateTime;
-import java.util.ArrayList;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class TestBooking {
     static BookingHandler bookingHandler;
@@ -40,7 +41,7 @@ public class TestBooking {
         userHandler.logIn("abc", "test");
         //Setup Listing
         listingHandler = ListingHandler.getInstance();
-        testCat = new Category("Test category");
+        testCat = new Category("Övrigt");
         startDate = LocalDateTime.of(2021,9,10,9,0);
         endDate = LocalDateTime.of(2021,9,11,10,30);
         //Create first Listing - Belongs to "Emil"

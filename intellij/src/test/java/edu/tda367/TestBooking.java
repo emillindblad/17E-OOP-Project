@@ -3,6 +3,7 @@ package edu.tda367;
 import edu.tda367.Model.Booking.Booking;
 import edu.tda367.Model.Booking.BookingHandler;
 import edu.tda367.Model.Booking.BookingState;
+import edu.tda367.Model.Booking.DeleteBookingListener;
 import edu.tda367.Model.Listing.Category;
 import edu.tda367.Model.Listing.Listing;
 import edu.tda367.Model.Listing.ListingHandler;
@@ -85,7 +86,9 @@ public class TestBooking {
         myBooking.advanceState();
         assertEquals(myBooking.getBookingState(), BookingState.DONE);
         myBooking.advanceState();
-        assertEquals(myBooking.getBookingState(), BookingState.DONE);
+        assertEquals(myBooking.getBookingState(), BookingState.REMOVEME);
+        myBooking.advanceState();
+        assertEquals(myBooking.getBookingState(), BookingState.REMOVEME);
 
     }
 
@@ -115,11 +118,51 @@ public class TestBooking {
         assertEquals(bookingHandler.getMyBookings().size(), 1);
         myBooking.advanceState();               // Can now be removed since state is DONE
         bookingHandler.removeBooking(myBooking);
+        assertEquals(bookingHandler.getMyBookings().size(), 1);
+        myBooking.advanceState();
+        bookingHandler.removeBooking(myBooking);
         assertEquals(bookingHandler.getMyBookings().size(), 0);
 
         //cleanup
         userHandler.logOut();
         userHandler.logIn("def", "test");
     }
+
+    @Test
+    public void testDeleteRemovableBookings() {
+        userHandler.logOut();
+        userHandler.logIn("abc", "test");
+
+        bookingHandler.createBooking(userHandler.getLoggedInUser(), userHandler.getUserID(), secondListing);
+        // "Emil" has one booking
+        int before = bookingHandler.getMyBookings().size();
+        bookingHandler.removeBooking(bookingHandler.getMyBookings().get(0));
+        assertTrue(before - 1 == bookingHandler.getMyBookings().size());
+
+        // State checker test
+        bookingHandler.createBooking(userHandler.getLoggedInUser(), userHandler.getUserID(), secondListing);
+        Booking myBooking = bookingHandler.getMyBookings().get(0);
+
+        myBooking.advanceState();
+        bookingHandler.deleteCompletedBookings();
+        assertEquals(bookingHandler.getMyBookings().size(), 1); // Should remain, cannot delete ongoing Booking
+        myBooking.advanceState();
+        bookingHandler.deleteCompletedBookings();
+        assertEquals(bookingHandler.getMyBookings().size(), 1);
+        myBooking.advanceState();
+        bookingHandler.deleteCompletedBookings();
+        assertEquals(bookingHandler.getMyBookings().size(), 1);
+        myBooking.advanceState();               // Can now be removed since state is DONE
+        bookingHandler.deleteCompletedBookings();
+        assertEquals(bookingHandler.getMyBookings().size(), 1);
+        myBooking.advanceState();
+        bookingHandler.deleteCompletedBookings();
+        assertEquals(bookingHandler.getMyBookings().size(), 0);
+
+        //cleanup
+        userHandler.logOut();
+        userHandler.logIn("def", "test");
+    }
+
 
 }

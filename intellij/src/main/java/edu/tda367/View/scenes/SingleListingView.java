@@ -35,6 +35,9 @@ public class SingleListingView extends AbstractHyroScene {
     @FXML
     private Button rentButton;
 
+    @FXML
+    private Label confirmation;
+
     /**
      * Super constructor for all scenes. Loads the FXML file and creates a scene with the loaded fxml file
      * @param handler  sceneHandler that is in charge of switching between scenes
@@ -69,6 +72,8 @@ public class SingleListingView extends AbstractHyroScene {
     public void rentListing()
     {
         singleListingController.rentListing(listingId);
+        rentButton.setVisible(false);
+        confirmation.setVisible(true);
     }
 
     @FXML

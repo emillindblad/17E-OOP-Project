@@ -68,6 +68,7 @@ public class User {
         this.listings = new ArrayList<String>();
     }
 
+
     public String getFirstName() {
         return firstName;
     }
@@ -110,14 +111,26 @@ public class User {
 
     void setUserName(String userName) { this.userName = userName; }
 
+    /**
+     * Connects a listing to a user (the owner of the listing)
+     * @param key Key to the listing
+     */
     void addListingId(String key) {
         listings.add(key);
     }
 
+    /**
+     * Removes a connected listing from the users listings
+     * @param key Key to the listing
+     */
     void removeListingId(String key) {
         listings.remove(key);
     }
 
+    /**
+     * Returns a list of keys to this users listings
+     * @return List of Keys
+     */
     public ArrayList<String> getMyListingIds() {
         return this.listings;
     }

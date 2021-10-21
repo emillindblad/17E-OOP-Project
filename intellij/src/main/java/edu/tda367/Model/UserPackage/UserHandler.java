@@ -1,15 +1,13 @@
 package edu.tda367.Model.UserPackage;
 
-import java.util.HashMap;
-import java.util.Random;
-
 import edu.tda367.Model.InputChecker;
 import edu.tda367.Model.JSON.JSONReader;
 import edu.tda367.Model.JSON.JSONWriter;
-import javafx.scene.control.TextField;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Random;
 
 /**
  *UserHandler is a handler to manage Users and functions connected to them. Such as log in/out and getting user data.
@@ -78,23 +76,30 @@ public final class UserHandler {
         }
     }
 
+    /**
+     * Connect a listing to the user.
+     * @param key Key connected to listing.
+     */
     public void addListingId(String key) {
         loggedInUser.addListingId(key);
     }
 
+    /**
+     * Remove from a users listing
+     * @param key Key connected to listing
+     */
     public void removeListingId(String key) {
         loggedInUser.removeListingId(key);
     }
     /**
      *
      * @return Reference to the logged in user
+     * @exception throws exceptin if user is not logged in when method is called
      */
-    public User getLoggedInUser() { //could be changed so all user-calls are chained through this class instead of giving away the user.
-        if(isAuthenticated) {
+    public User getLoggedInUser() throws NullPointerException {
             return loggedInUser;
-        }
-        return null; //very dangerous, check for other implementations in the future
     }
+
 
     /**
      * Set the adress of current user

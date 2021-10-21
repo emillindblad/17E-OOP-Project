@@ -1,6 +1,5 @@
 package edu.tda367.Controllers;
 
-import edu.tda367.View.SceneHandler;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
@@ -28,7 +27,7 @@ public class CreateListingController extends ListingViewController {
      */
     @Override
     public void goBack() {
-        sceneHandler.switchTo("browse");
+        handler.switchTo("browse");
     }
 
     /**
@@ -63,4 +62,8 @@ public class CreateListingController extends ListingViewController {
         goBack();
     }
 
+    @Override
+    public void switchTo(String name) {
+        handler.switchTo(name);
+    }
 }

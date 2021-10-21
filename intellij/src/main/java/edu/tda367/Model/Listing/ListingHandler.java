@@ -31,6 +31,9 @@ public class ListingHandler {
         linker = new ListingLinker();
     }
 
+    /**
+     * Initializes the list of categories with hard coded values
+     */
     private void populateCategoryList (){
         categories.add(new Category("Bilar"));
         categories.add(new Category("Båtar"));
@@ -62,6 +65,11 @@ public class ListingHandler {
         return categories;
     }
 
+    /**
+     * Getter for a specific category
+     * @param categoryName The name of the category you want.
+     * @return The category object.
+     */
     private Category getCategory(String categoryName) {
         Category category = null;
         for (Category value : categories) {
@@ -72,6 +80,11 @@ public class ListingHandler {
         return category;
     }
 
+    /**
+     * Gets a specific listing and returns it as an array of strings.
+     * @param key The key in the hashmap that corresponds to the listing you want.
+     * @return An Array of strings with a listings properties.
+     */
     public String[] getListingData(String key) {
         return listings.get(key).toArray();
     }
@@ -87,8 +100,8 @@ public class ListingHandler {
     }
 
     /**
-     * Getter for Listings
-     * @return An ArrayList af all current listings
+     * Getter for all Listings
+     * @return A Hashmap af all current listings
      */
     public HashMap<String, Listing> getListings() {
         return listings;
@@ -103,8 +116,8 @@ public class ListingHandler {
     }
 
     /**
-     * get specifik listing from handler
-     * @param key Key to the Hashmap of Listings, (Listing ID)
+     * Get a specific listing from the hashmap key (ListingID)
+     * @param key Key to the Hashmap of Listings, (ListingID)
      * @return A Listing connected to the key
      */
     public Listing getListingFromKey(String key) {
@@ -112,8 +125,8 @@ public class ListingHandler {
     }
 
     /**
-     * Getter for Listings where ListingState is Avaliable
-     * @return An ArrayList af all current Avaliable listings
+     * Getter for Listing Keys where ListingState is Available
+     * @return An ArrayList af all keys which corresponds to a Listing with ListingState as AVAILABLE
      */
     public ArrayList<String> getAvailableListingKeys() {
         ArrayList<String> availableListings = new ArrayList<>();
@@ -128,19 +141,19 @@ public class ListingHandler {
     }
 
     /**
-     * Getter for Listings where ListingState is Avaliable
-     * @param category Category to find listings in
-     * @return An ArrayList af all current Avaliable listings
+     * Getter for Listing Keys where ListingState is Available and belongs to a specific category.
+     * @param category Category to find listings in.
+     * @return An ArrayList af all keys which corresponds to a Listing with ListingState as AVAILABLE and the specified category
      */
     public ArrayList<String> getAvailableListingKeys(String category) {
         ArrayList<String> availableListings = new ArrayList<>();
         listings.forEach(
                 (key, listing) -> {
-
                     if (listing.getIsAvailable() && listing.getCategoryName().equals(category)) {
                         availableListings.add(key);
                     }
                 }
+            }
         );
         return availableListings;
     }
@@ -148,7 +161,7 @@ public class ListingHandler {
     /**
      * Sorts keys based on a search word
      * @param sortBy search word
-     * @return List of sorted keys, best match at index 0.
+     * @return ArrayList of sorted keys, best match at index 0.
      */
     public ArrayList<String> getSortedKeys (String sortBy) {
         return ListingSorter.sortBySearchWord(sortBy, listings);
@@ -156,7 +169,7 @@ public class ListingHandler {
 
 
     /**
-     * Creates a listing from supplied parameters, adds it to the ArrayList of listings, and returns the newly created listing.
+     * Creates a listing from supplied parameters, adds it to the HashMap of listings, and returns the newly created listing.
      * @param prodName - The name of the product
      * @param prodCat - The product category, in form of an object
      * @param prodDesc - A description of the product
@@ -172,7 +185,7 @@ public class ListingHandler {
     }
 
     /**
-     * Creates a listing from an array with desired data, adds the created listing to the ArrayList of listings, and returns the newly created listing.
+     * Creates a listing from an array with desired data, adds the created listing to the HashMap of listings, and returns the newly created listing.
      * @param formData - An Array of listing data, all in strings.
      * @return listing - The newly created listing
      */
@@ -187,37 +200,41 @@ public class ListingHandler {
         LocalDateTime startDate = LocalDateTime.of(2021,9,10,9,0);
         LocalDateTime endDate = LocalDateTime.of(2021,9,11,10,30);
 
-        String key = createKey(generateListingId(),userId);
+        String listingId = generateListingId(userId);
         String fileName = formData[4];
 
-        Listing listing = new Listing(key,prodName,prodCat,prodDesc,userId,price,startDate,endDate,fileName);
+        Listing listing = new Listing(listingId,prodName,prodCat,prodDesc,userId,price,startDate,endDate,fileName);
 
-        listings.put(key,listing);
-        linker.linkListing(key);
+        listings.put(listingId,listing);
+        linker.linkListing(listingId);
 
         return listing;
     }
 
-    private String generateListingId() {
+    /**
+     * Generates an alpha-numeric id used for ListingID and as a Key in the HashMap of listings
+     * @param userId The userId of the creator of the listing. Used as the first part of the ListingID.
+     * @return An id in form of a string
+     */
+    private String generateListingId(int userId) {
         String id;
             RandomStringGenerator generator = new RandomStringGenerator.Builder().withinRange('0','z').filteredBy(CharacterPredicates.LETTERS, CharacterPredicates.DIGITS).build();
             id = generator.generate(12);
-        return id;
-    }
-
-    private String createKey(String listingId, int userId) {
-        return userId+"-"+listingId;
+        return userId+"-"+id;
     }
 
     /**
-     * Removes the specified listing form the ArrayList and returns it
-     * @param listing
-     * @return The removed listing
+     * Removes the specified listing form the HashMap
+     * @param listing The listing object to be removed
      */
     public void removeListing(Listing listing) {
         removeListing(listing.getListingId());
     }
 
+    /**
+     * Removes a listing via its Key/ListingID from the HashMap and also removes it from the users list of Keys
+     * @param listingId The Key/ListingID of the listing to be removed.
+     */
     public void removeListing(String listingId) {
         linker.removeLink(listingId);
         listings.remove(listingId);
@@ -225,7 +242,7 @@ public class ListingHandler {
     /**
      * Gets saved Listings from database
      * @author Erik Larsson
-     * @return An ArrayList containing Listing objects
+     * @return A HashMap containing Listing objects
      *
      */
     private HashMap<String, Listing> getSavedListings() {

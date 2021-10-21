@@ -47,5 +47,4 @@ class ListingState {
     boolean getIsAvailable() {
         return false;
     }
-
 }

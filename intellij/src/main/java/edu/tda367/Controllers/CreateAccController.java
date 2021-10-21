@@ -1,7 +1,6 @@
 package edu.tda367.Controllers;
 
 import edu.tda367.Model.UserPackage.UserHandler;
-import edu.tda367.View.SceneHandler;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
@@ -83,5 +82,10 @@ public class CreateAccController extends AccountViewController{
     @Override
     public String getFXMLname() {
         return "createaccount";
+    }
+
+    @Override
+    public void switchTo(String name) {
+        handler.switchTo(name);
     }
 }

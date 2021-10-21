@@ -40,7 +40,7 @@ public class ListingSettingsController extends ListingViewController {
      */
     @Override
     public void goBack() {
-        sceneHandler.switchTo("rentingpage");
+        handler.switchTo("rentingpage");
     }
 
     /**

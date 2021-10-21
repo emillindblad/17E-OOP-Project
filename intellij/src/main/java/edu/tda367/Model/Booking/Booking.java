@@ -4,7 +4,9 @@ import edu.tda367.Model.Listing.Listing;
 import edu.tda367.Model.RentingItemEntry;
 
 /**
- * Class containing state and logic related to one booking
+ * A class representing the contract between a User and a Listing they are renting
+ * @author Eimer Ahlstedt
+ * @author Erik Larsson
  */
 public class Booking implements RentingItemEntry {
 

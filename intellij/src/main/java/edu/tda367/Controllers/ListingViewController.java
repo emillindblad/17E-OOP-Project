@@ -3,7 +3,6 @@ package edu.tda367.Controllers;
 import edu.tda367.Model.InputChecker;
 import edu.tda367.Model.Listing.ListingHandler;
 import edu.tda367.Model.UserPackage.UserHandler;
-import edu.tda367.View.SceneHandler;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
@@ -13,17 +12,16 @@ import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 
-public abstract class ListingViewController implements Controller {
+public abstract class ListingViewController extends AbstractController {
     protected final ListingHandler listingHandler;
     protected final UserHandler userHandler;
-    protected final SceneHandler sceneHandler;
 
     /**
      * Constructor
      * @param sceneHandler SceneHandler for switching scenes
      */
     public ListingViewController(SceneHandler sceneHandler) {
-        this.sceneHandler = sceneHandler;
+        super(sceneHandler);
         this.listingHandler = ListingHandler.getInstance();
         this.userHandler = UserHandler.getInstance();
         //listingHandler.createListing("P.R.I.T. Grill", new Category("test"), "testing stuff", 4, 160, LocalDateTime.of(2021,9,10,9,0), LocalDateTime.of(2021,9,10,9,1));

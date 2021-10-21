@@ -5,7 +5,6 @@ import edu.tda367.Model.Booking.BookingHandler;
 import edu.tda367.Model.Listing.Listing;
 import edu.tda367.Model.Listing.ListingHandler;
 import edu.tda367.Model.UserPackage.UserHandler;
-import edu.tda367.View.SceneHandler;
 import edu.tda367.View.scenes.RentingItem;
 import javafx.scene.layout.FlowPane;
 import java.util.ArrayList;
@@ -13,9 +12,8 @@ import java.util.ArrayList;
 /**
  * MVC Controller for RentingPage
  */
-public class MyListingsController {
+public class MyListingsController extends AbstractController {
 
-    private final SceneHandler sHandler;
     private final UserHandler uHandler = UserHandler.getInstance();
     private final ListingHandler lHandler = ListingHandler.getInstance();
     private final BookingHandler bHandler = BookingHandler.getInstance();
@@ -25,14 +23,7 @@ public class MyListingsController {
      * @param handler SceneHandler used to switch scenes
      */
     public MyListingsController(SceneHandler handler) {
-        this.sHandler = handler;
-    }
-
-    /**
-     * Switches scene to browse
-     */
-    public void goBack() {
-        sHandler.switchTo("browse");
+        super(handler);
     }
 
     /**
@@ -54,14 +45,14 @@ public class MyListingsController {
         }
         System.out.println(listings);
         for (Listing l : listings) {
-            listingsPane.getChildren().add(new RentingItem(new RentingItemController(sHandler, bHandler), l));
+            listingsPane.getChildren().add(new RentingItem(new RentingItemController(handler, bHandler), l));
         }
     }
 
     private void updateBookings(FlowPane bookingsPane) {
         ArrayList<Booking> bookings = bHandler.getMyBookings();
         for (Booking b : bookings) {
-            bookingsPane.getChildren().add(new RentingItem(new RentingItemController(sHandler, bHandler), b));
+            bookingsPane.getChildren().add(new RentingItem(new RentingItemController(handler, bHandler), b));
         }
     }
 }

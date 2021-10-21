@@ -46,6 +46,9 @@ public class BrowseListings extends AbstractHyroScene {
         logOutDialog();
     }
 
+    /**
+     * Shows a dialog pane when the users presses log out, to confirm the action
+     */
     public void logOutDialog() {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Bekräfta Utloggning");

@@ -6,6 +6,9 @@ import edu.tda367.Model.ListingStateListener;
 import edu.tda367.Model.RentingItemEntry;
 import edu.tda367.Model.Booking.BookingStates.BookingState;
 
+/**
+ * Class containing state and logic related to one booking
+ */
 public class Booking implements RentingItemEntry, ListingStateListener {
 
     private BookingState bookingState = new Pending();
@@ -24,7 +27,7 @@ public class Booking implements RentingItemEntry, ListingStateListener {
      * @return bookingState
      */
     public boolean getIsToBeRemoved() {
-        return bookingState.getRemoveAble();
+        return bookingState.getIsToBeRemoved();
     }
 
     /**
@@ -100,6 +103,9 @@ public class Booking implements RentingItemEntry, ListingStateListener {
         return userID;
     }
 
+    /**
+     * Listener method. Advances state of booking
+     */
     @Override
     public void listingStateChangedAction() {
         advanceState();

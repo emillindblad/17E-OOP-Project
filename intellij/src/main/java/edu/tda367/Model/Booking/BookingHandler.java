@@ -94,6 +94,9 @@ public class BookingHandler implements DeleteBookingListener {
         writer.write(bookings, "bookings");
     }
 
+    /**
+     * Removes all bookings that users wish to be removed
+     */
     @Override
     public void deleteCompletedBookings() {
         ArrayList<Booking> toRemove = new ArrayList<>();

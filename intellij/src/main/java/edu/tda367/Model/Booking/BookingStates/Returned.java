@@ -17,7 +17,7 @@ public class Returned implements BookingState {
     }
 
     @Override
-    public boolean getRemoveAble() {
+    public boolean getIsToBeRemoved() {
         return false;
     }
 

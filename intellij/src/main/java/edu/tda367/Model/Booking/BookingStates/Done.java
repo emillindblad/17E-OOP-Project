@@ -17,7 +17,7 @@ public class Done implements BookingState {
     }
 
     @Override
-    public boolean getRemoveAble() {
+    public boolean getIsToBeRemoved() {
         return false;
     }
 

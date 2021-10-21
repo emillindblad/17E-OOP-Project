@@ -17,7 +17,7 @@ public class RemoveMe implements BookingState {
     }
 
     @Override
-    public boolean getRemoveAble() {
+    public boolean getIsToBeRemoved() {
         return true;
     }
 

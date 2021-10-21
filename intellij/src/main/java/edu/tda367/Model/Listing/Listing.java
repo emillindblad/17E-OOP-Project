@@ -109,6 +109,10 @@ public class Listing implements RentingItemEntry {
         return listingState.getButtonText();
     }
 
+    /**
+     * Advances state of Listing, according to state pattern.
+     * Will notify booking related booking through observer pattern if booking state is to be advanced
+     */
     @Override
     public void advanceState() {
         listingState = listingState.advanceListingState();

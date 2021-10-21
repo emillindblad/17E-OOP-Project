@@ -153,7 +153,6 @@ public class ListingHandler {
                         availableListings.add(key);
                     }
                 }
-            }
         );
         return availableListings;
     }

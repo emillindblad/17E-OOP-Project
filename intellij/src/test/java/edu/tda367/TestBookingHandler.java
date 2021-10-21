@@ -56,8 +56,8 @@ public class TestBookingHandler {
         // Create booking - "Sebastian" books "Emil's" Listing
         bookingHandler = BookingHandler.getInstance();
         initSize = bookingHandler.getMyBookings().size();
-        bookingHandler.createBooking(userHandler.getLoggedInUser(), userHandler.getUserID(), listing);
-        bookingHandler.createBooking(userHandler.getLoggedInUser(), userHandler.getUserID(), thirdlisting);
+        bookingHandler.createBooking(userHandler.getUserID(), listing);
+        bookingHandler.createBooking(userHandler.getUserID(), thirdlisting);
     }
 
     @Test
@@ -66,7 +66,7 @@ public class TestBookingHandler {
         assertEquals(size, initSize + 2); // Two new bookings should have been created at this point
 
         // Create booking - "Sebastian" tries books his own Listing
-        bookingHandler.createBooking(userHandler.getLoggedInUser(), userHandler.getUserID(), secondListing);
+        bookingHandler.createBooking(userHandler.getUserID(), secondListing);
         assertEquals(bookingHandler.getMyBookings().size(), size); // No new booking, size remains same
 
         Booking booking = bookingHandler.getMyBookings().get(0);
@@ -115,7 +115,7 @@ public class TestBookingHandler {
         userHandler.logIn("abc", "test");
 
         // State checker test
-        bookingHandler.createBooking(userHandler.getLoggedInUser(), userHandler.getUserID(), secondListing);
+        bookingHandler.createBooking(userHandler.getUserID(), secondListing);
         Booking myBooking = bookingHandler.getMyBookings().get(0);
 
         myBooking.advanceState();

@@ -19,9 +19,7 @@ public class SingleListingController implements Controller {
     }
 
     public void rentListing(String listingID) {
-        bookingHandler.createBooking(userHandler.getLoggedInUser(),
-                                    userHandler.getUserID(),
-                                    listingHandler.getListingFromKey(listingID));
+        bookingHandler.createBooking(userHandler.getUserID(), listingHandler.getListingFromKey(listingID));
     }
 
     public boolean isMyListing(int listingUserID) {

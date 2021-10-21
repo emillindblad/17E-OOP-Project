@@ -3,8 +3,12 @@ package edu.tda367.Model.Booking;
 import edu.tda367.Model.Listing.Listing;
 import edu.tda367.Model.Listing.ListingState;
 import edu.tda367.Model.RentingItemEntry;
-import edu.tda367.Model.UserPackage.User;
 
+/**
+ * A class representing the contract between a User and a Listing they are renting
+ * @author Eimer Ahlstedt
+ * @author Erik Larsson
+ */
 public class Booking implements RentingItemEntry {
 
     private BookingState bookingState = BookingState.PENDING;

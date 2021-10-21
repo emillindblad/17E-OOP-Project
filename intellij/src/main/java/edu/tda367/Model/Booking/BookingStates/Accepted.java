@@ -20,4 +20,9 @@ public class Accepted implements BookingState {
     public boolean getRemoveAble() {
         return false;
     }
+
+    @Override
+    public boolean getAdvanceListingState() {
+        return true;
+    }
 }

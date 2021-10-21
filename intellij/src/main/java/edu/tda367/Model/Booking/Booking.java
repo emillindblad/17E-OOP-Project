@@ -3,10 +3,11 @@ package edu.tda367.Model.Booking;
 import edu.tda367.Model.Booking.BookingStates.Pending;
 import edu.tda367.Model.Listing.Listing;
 import edu.tda367.Model.Listing.ListingState;
+import edu.tda367.Model.ListingStateListener;
 import edu.tda367.Model.RentingItemEntry;
 import edu.tda367.Model.Booking.BookingStates.BookingState;
 
-public class Booking implements RentingItemEntry {
+public class Booking implements RentingItemEntry, ListingStateListener {
 
     private BookingState bookingState = new Pending();
     private final int userID;
@@ -31,6 +32,9 @@ public class Booking implements RentingItemEntry {
      */
     @Override
     public void advanceState() {
+        if (bookingState.getAdvanceListingState()) {
+            listing.advanceState();
+        }
         bookingState = bookingState.advanceBookingState();
     }
 
@@ -61,7 +65,6 @@ public class Booking implements RentingItemEntry {
      */
     @Override
     public String getStatusText() {
-        updateStateFromListing();
         return bookingState.getStatusText();
     }
 
@@ -72,7 +75,6 @@ public class Booking implements RentingItemEntry {
      */
     @Override
     public String getButtonText() {
-        updateStateFromListing();
         return bookingState.getButtonText();
     }
 
@@ -80,7 +82,7 @@ public class Booking implements RentingItemEntry {
     public String getImageName() {
         return listing.getImageName();
     }
-
+/*
     private void updateStateFromListing() {
         ListingState lState = listing.getListingState();
 
@@ -91,7 +93,7 @@ public class Booking implements RentingItemEntry {
         if (lState == ListingState.AVAILABLE && bookingState != BookingState.DONE && bookingState != BookingState.REMOVEME) {
             bookingState = BookingState.DONE;
         }
-    }
+    }*/
 
     /**
      * Getter for the rented Listing
@@ -108,5 +110,10 @@ public class Booking implements RentingItemEntry {
      */
     public int getUserID() {
         return userID;
+    }
+
+    @Override
+    public void listingStateChangedAction() {
+        advanceState();
     }
 }

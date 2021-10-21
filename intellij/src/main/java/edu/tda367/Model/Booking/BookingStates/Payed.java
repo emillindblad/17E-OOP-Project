@@ -20,4 +20,9 @@ public class Payed implements BookingState {
     public boolean getRemoveAble() {
         return false;
     }
+
+    @Override
+    public boolean getAdvanceListingState() {
+        return true;
+    }
 }

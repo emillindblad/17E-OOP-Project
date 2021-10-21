@@ -20,4 +20,9 @@ public class Done implements BookingState {
     public boolean getRemoveAble() {
         return false;
     }
+
+    @Override
+    public boolean getAdvanceListingState() {
+        return false;
+    }
 }

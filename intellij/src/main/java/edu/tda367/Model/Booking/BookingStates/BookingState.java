@@ -5,4 +5,5 @@ public interface BookingState {
     String getButtonText();
     BookingState advanceBookingState();
     boolean getRemoveAble();
+    boolean getAdvanceListingState();
 }

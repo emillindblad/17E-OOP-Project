@@ -20,4 +20,9 @@ public class RemoveMe implements BookingState {
     public boolean getRemoveAble() {
         return true;
     }
+
+    @Override
+    public boolean getAdvanceListingState() {
+        return false;
+    }
 }

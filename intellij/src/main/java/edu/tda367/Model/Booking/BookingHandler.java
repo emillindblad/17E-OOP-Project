@@ -50,6 +50,7 @@ public class BookingHandler implements DeleteBookingListener {
         } else {
             Booking booking = new Booking(userID, listing);
             bookings.add(booking);
+            listing.setBooking(booking);
         }
     }
 

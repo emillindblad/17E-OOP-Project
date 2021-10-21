@@ -1,5 +1,6 @@
 package edu.tda367.Model.Listing;
 
+import edu.tda367.Model.ListingStateListener;
 import edu.tda367.Model.RentingItemEntry;
 
 import java.time.LocalDateTime;
@@ -18,6 +19,7 @@ public class Listing implements RentingItemEntry {
     private long availability;
     private ListingState listingState;
     private String fileName;
+    private ListingStateListener booking;
 
     Listing(String listingId, String prodName, Category prodCat, String prodDesc, int userId, int price, LocalDateTime startDate, LocalDateTime endDate, String fileName) {
         this.listingId = listingId;
@@ -43,6 +45,10 @@ public class Listing implements RentingItemEntry {
     public long setAvailability(LocalDateTime startDate, LocalDateTime endDate) {
         availability = ChronoUnit.HOURS.between(startDate,endDate);
         return availability;
+    }
+
+    public void setBooking(ListingStateListener booking) {
+        this.booking = booking;
     }
 
     public long getAvailability() {
@@ -126,10 +132,16 @@ public class Listing implements RentingItemEntry {
     @Override
     public void advanceState() {
         switch (listingState) {
-            case BOOKING_SENT -> listingState = ListingState.BOOKING_ACCEPTED;
+            case BOOKING_SENT -> {
+                listingState = ListingState.BOOKING_ACCEPTED;
+                booking.listingStateChangedAction();
+            }
             case BOOKING_ACCEPTED -> listingState = ListingState.UNAVAILABLE;
             case UNAVAILABLE -> listingState = ListingState.RETURNED;
-            case RETURNED -> listingState = ListingState.AVAILABLE;
+            case RETURNED -> {
+                listingState = ListingState.AVAILABLE;
+                booking.listingStateChangedAction();
+            }
             default -> listingState = ListingState.BOOKING_SENT;
         }
     }

@@ -13,12 +13,11 @@ public class Available implements ListingState {
 
     @Override
     public boolean getAdvanceBookingState() {
-        return false;
+        return true;
     }
 
     @Override
     public ListingState advanceListingState() {
-        System.out.println("Listing: Available");
         return new BookingSent();
     }
 

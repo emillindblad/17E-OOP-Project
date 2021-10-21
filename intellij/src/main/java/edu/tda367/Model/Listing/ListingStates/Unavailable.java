@@ -18,7 +18,6 @@ public class Unavailable implements ListingState {
 
     @Override
     public ListingState advanceListingState() {
-        System.out.println("Listing: Unavailable");
         return new Returned();
     }
 

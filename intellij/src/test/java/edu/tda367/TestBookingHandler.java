@@ -80,54 +80,47 @@ public class TestBookingHandler {
     public void testAdvanceBookingState(){
 
         Booking myBooking = bookingHandler.getMyBookings().get(1);
-        System.out.println(myBooking.getListing().getListingState().toString());
+
         // Get BookingState from last booking in list (test booking)
         assertEquals("Förfrågan skickad", myBooking.getStatusText());
         assertEquals("", myBooking.getButtonText());
-        System.out.println("1");
         myBooking.advanceState();
         assertEquals("Förfrågan godkänd", myBooking.getStatusText());
         assertEquals("Betala", myBooking.getButtonText());
-        System.out.println("2");
         myBooking.advanceState();
         assertEquals("Vara tillbakalämnad", myBooking.getStatusText());
         assertEquals("", myBooking.getButtonText());
-        System.out.println("3");
         myBooking.advanceState();
         assertEquals("Tillbakalämnande godkänt", myBooking.getStatusText());
         assertEquals("Ta bort", myBooking.getButtonText());
-        System.out.println("4");
         myBooking.advanceState();
         assertEquals("Borttagen!", myBooking.getStatusText());
         assertEquals("", myBooking.getButtonText());
-        System.out.println("5");
         myBooking.advanceState();
         assertEquals("Borttagen!", myBooking.getStatusText());
         assertEquals("", myBooking.getButtonText());
-        System.out.println("6");
     }
 
     @Test
     public void testDeleteRemovableBookings() {
         userHandler.logOut();
         userHandler.logIn("abc", "test");
-
         // State checker test
         bookingHandler.createBooking(userHandler.getUserID(), secondListing);
         Booking myBooking = bookingHandler.getMyBookings().get(0);
-
+        System.out.println(myBooking.getStatusText());
         myBooking.advanceState();
         bookingHandler.deleteCompletedBookings();
         assertEquals(bookingHandler.getMyBookings().size(), 1); // Should remain, cannot delete ongoing Booking
+        System.out.println(myBooking.getStatusText());
         myBooking.advanceState();
         bookingHandler.deleteCompletedBookings();
         assertEquals(bookingHandler.getMyBookings().size(), 1);
+        System.out.println(myBooking.getStatusText());
         myBooking.advanceState();
         bookingHandler.deleteCompletedBookings();
         assertEquals(bookingHandler.getMyBookings().size(), 1);
-        myBooking.advanceState();               // Can now be removed since state is DONE
-        bookingHandler.deleteCompletedBookings();
-        assertEquals(bookingHandler.getMyBookings().size(), 1);
+        System.out.println(myBooking.getStatusText());
         myBooking.advanceState();
         bookingHandler.deleteCompletedBookings();
         assertEquals(bookingHandler.getMyBookings().size(), 0);

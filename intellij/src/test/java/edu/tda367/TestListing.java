@@ -89,7 +89,7 @@ public class TestListing {
     public void testGetAvailableListingIds() {
         ArrayList<String> availableListingKeys = handler.getAvailableListingKeys();
         for (String key : availableListingKeys) {
-            assertTrue(handler.getListingFromKey(key).getListingState().equals(ListingState.AVAILABLE));
+            assertTrue(handler.getListingFromKey(key).getIsAvailable());
         }
     }
 

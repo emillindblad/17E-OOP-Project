@@ -13,7 +13,6 @@ public class RemoveMe implements BookingState {
 
     @Override
     public BookingState advanceBookingState() {
-        System.out.println("Booking: RemoveMe");
         return this;
     }
 

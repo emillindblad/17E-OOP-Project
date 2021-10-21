@@ -13,12 +13,11 @@ public class BookingSent implements ListingState {
 
     @Override
     public boolean getAdvanceBookingState() {
-        return true;
+        return false;
     }
 
     @Override
     public ListingState advanceListingState() {
-        System.out.println("Listing: Booking sent");
         return new BookingAccepted();
     }
 

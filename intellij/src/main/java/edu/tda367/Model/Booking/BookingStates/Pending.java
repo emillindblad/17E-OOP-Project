@@ -13,7 +13,6 @@ public class Pending implements BookingState {
 
     @Override
     public BookingState advanceBookingState() {
-        System.out.println("Booking: Pending");
         return new Accepted();
     }
 

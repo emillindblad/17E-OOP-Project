@@ -13,7 +13,6 @@ public class Returned implements BookingState {
 
     @Override
     public BookingState advanceBookingState() {
-        System.out.println("Booking: Returned");
         return new Done();
     }
 

@@ -121,11 +121,11 @@ public class Listing implements RentingItemEntry {
 
     @Override
     public void advanceState() {
+        listingState = listingState.advanceListingState();
+
         if (listingState.getAdvanceBookingState()) {
             listener.listingStateChangedAction();
         }
-
-        listingState = listingState.advanceListingState();
     }
 
     public boolean getIsAvailable() {

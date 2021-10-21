@@ -13,12 +13,11 @@ public class Returned implements ListingState {
 
     @Override
     public boolean getAdvanceBookingState() {
-        return true;
+        return false;
     }
 
     @Override
     public ListingState advanceListingState() {
-        System.out.println("Listing: Returned");
         return new Available();
     }
 

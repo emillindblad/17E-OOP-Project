@@ -1,13 +1,14 @@
 package edu.tda367.Model.Booking;
 
+import edu.tda367.Model.Booking.BookingStates.Pending;
 import edu.tda367.Model.Listing.Listing;
 import edu.tda367.Model.Listing.ListingState;
 import edu.tda367.Model.RentingItemEntry;
-import edu.tda367.Model.UserPackage.User;
+import edu.tda367.Model.Booking.BookingStates.BookingState;
 
 public class Booking implements RentingItemEntry {
 
-    private BookingState bookingState = BookingState.PENDING;
+    private BookingState bookingState = new Pending();
     private final int userID;
     private final Listing listing;
 
@@ -21,8 +22,8 @@ public class Booking implements RentingItemEntry {
      * Getter for bookingState
      * @return bookingState
      */
-    public BookingState getBookingState() {
-        return bookingState;
+    public boolean getIsToBeRemoved() {
+        return bookingState.getRemoveAble();
     }
 
     /**
@@ -30,36 +31,7 @@ public class Booking implements RentingItemEntry {
      */
     @Override
     public void advanceState() {
-
-        BookingState currentState = bookingState;
-
-        switch (currentState) {
-
-            case PENDING:
-                bookingState = BookingState.ACCEPTED;
-                break;
-
-            case ACCEPTED:
-                bookingState = BookingState.PAYED;
-                listing.advanceState();
-                break;
-
-            case PAYED:
-                bookingState = BookingState.RETURNED;
-                listing.advanceState();
-                break;
-
-            case RETURNED:
-                bookingState = BookingState.DONE;
-                break;
-
-            case DONE:
-                bookingState = BookingState.REMOVEME;
-                break;
-
-            default:
-                break;
-        }
+        bookingState = bookingState.advanceBookingState();
     }
 
     @Override
@@ -90,14 +62,7 @@ public class Booking implements RentingItemEntry {
     @Override
     public String getStatusText() {
         updateStateFromListing();
-        return switch (bookingState) {
-            case PENDING -> "Förfrågan skickad";
-            case ACCEPTED -> "Förfrågan godkänd";
-            case PAYED -> "Bokning betalad";
-            case RETURNED -> "Vara tillbakalämnad";
-            case DONE -> "Tillbakalämnande godkänt";
-            default -> "Borttagen!";
-        };
+        return bookingState.getStatusText();
     }
 
     /**
@@ -108,12 +73,7 @@ public class Booking implements RentingItemEntry {
     @Override
     public String getButtonText() {
         updateStateFromListing();
-        return switch (bookingState) {
-            case ACCEPTED -> "Betala";
-            case PAYED -> "Återlämna";
-            case DONE -> "Ta bort";
-            default -> "";
-        };
+        return bookingState.getButtonText();
     }
 
     @Override

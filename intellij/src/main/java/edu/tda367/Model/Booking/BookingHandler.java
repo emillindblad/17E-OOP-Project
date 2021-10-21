@@ -100,7 +100,7 @@ public class BookingHandler implements DeleteBookingListener {
     public void deleteCompletedBookings() {
         ArrayList<Booking> toRemove = new ArrayList<>();
         for (Booking b: bookings) {
-            if (b.getBookingState() == BookingState.REMOVEME) {
+            if (b.getIsToBeRemoved()) {
                 toRemove.add(b);
             }
         }

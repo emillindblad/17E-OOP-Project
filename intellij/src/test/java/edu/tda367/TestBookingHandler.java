@@ -2,8 +2,6 @@ package edu.tda367;
 
 import edu.tda367.Model.Booking.Booking;
 import edu.tda367.Model.Booking.BookingHandler;
-import edu.tda367.Model.Booking.BookingState;
-import edu.tda367.Model.Booking.DeleteBookingListener;
 import edu.tda367.Model.Listing.Category;
 import edu.tda367.Model.Listing.Listing;
 import edu.tda367.Model.Listing.ListingHandler;
@@ -85,28 +83,22 @@ public class TestBookingHandler {
         // Get BookingState from last booking in list (test booking)
         assertEquals("Förfrågan skickad", myBooking.getStatusText());
         assertEquals("", myBooking.getButtonText());
-        assertEquals(myBooking.getBookingState(), BookingState.PENDING);
         myBooking.advanceState();
         assertEquals("Förfrågan godkänd", myBooking.getStatusText());
         assertEquals("Betala", myBooking.getButtonText());
-        assertEquals(myBooking.getBookingState(), BookingState.ACCEPTED);
         myBooking.advanceState();
-        assertEquals(myBooking.getBookingState(), BookingState.PAYED);
         myBooking.advanceState();
         assertEquals("Vara tillbakalämnad", myBooking.getStatusText());
         assertEquals("", myBooking.getButtonText());
-        assertEquals(myBooking.getBookingState(), BookingState.RETURNED);
         myBooking.advanceState();
         assertEquals("Tillbakalämnande godkänt", myBooking.getStatusText());
         assertEquals("Ta bort", myBooking.getButtonText());
-        assertEquals(myBooking.getBookingState(), BookingState.DONE);
         myBooking.advanceState();
         assertEquals("Borttagen!", myBooking.getStatusText());
         assertEquals("", myBooking.getButtonText());
-        assertEquals(myBooking.getBookingState(), BookingState.REMOVEME);
         myBooking.advanceState();
-        assertEquals(myBooking.getBookingState(), BookingState.REMOVEME);
-
+        assertEquals("Borttagen!", myBooking.getStatusText());
+        assertEquals("", myBooking.getButtonText());
     }
 
     @Test

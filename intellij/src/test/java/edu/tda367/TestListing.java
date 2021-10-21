@@ -145,12 +145,6 @@ public class TestListing {
         assertTrue(listing.getButtonText().equals(""));
         assertTrue(listing.getClickable());
         assertTrue(listing.getListing().equals(listing));
-        assertTrue(listing.toString().equals("Listing{" +
-                "product=" + listing.getProduct() +
-                ", price=" + listing.getPrice() +
-                ", availability=" + listing.getAvailability() +
-                ", listingState=" + listing.getListingState() +
-                '}'));
     }
 
 

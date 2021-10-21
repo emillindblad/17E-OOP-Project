@@ -137,7 +137,7 @@ public class ListingHandler {
         listings.forEach(
                 (key, listing) -> {
 
-                    if (listing.getListingState().equals(ListingState.AVAILABLE) && listing.getCategoryName().equals(category)) {
+                    if (listing.getIsAvailable() && listing.getCategoryName().equals(category)) {
                         availableListings.add(key);
                     }
                 }

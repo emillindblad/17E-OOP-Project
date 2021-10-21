@@ -68,16 +68,6 @@ public class Listing implements RentingItemEntry {
 
     }
 
-    @Override
-    public String toString() {
-        return "Listing{" +
-                "product=" + product +
-                ", price=" + price +
-                ", availability=" + availability +
-                ", listingState=" + listingState +
-                '}';
-    }
-
     public String getListingId() {
         return this.listingId;
     }
@@ -153,13 +143,5 @@ public class Listing implements RentingItemEntry {
 
     public void setDesc(String desc) {
         this.product.setDescription(desc);
-    }
-
-    public ListingState getListingState() {
-        return listingState;
-    }
-
-    public void setListingState(ListingState listingState) {
-        this.listingState = listingState;
     }
 }

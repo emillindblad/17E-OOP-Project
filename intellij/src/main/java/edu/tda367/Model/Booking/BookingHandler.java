@@ -39,17 +39,16 @@ public class BookingHandler implements DeleteBookingListener {
 
     /**
      * Creates a Booking with supplied parameters and adds it to Booking list
-     * @param customer The User who wants to rent a product
      * @param userID The ID of the User who wants to rent a product
      * @param listing The Listing of the product that the User wants to rent
      */
-    public void createBooking(User customer, int userID, Listing listing) {
+    public void createBooking(int userID, Listing listing) {
         if (userID == listing.getUserId()) {
             System.out.println("Can't book your own listing!");
         } else if (listing.getListingState() != ListingState.AVAILABLE) {
             System.out.println("Listing not available");
         } else {
-            Booking booking = new Booking(customer, listing);
+            Booking booking = new Booking(userID, listing);
             bookings.add(booking);
         }
     }
@@ -62,7 +61,7 @@ public class BookingHandler implements DeleteBookingListener {
         ArrayList<Booking> myBookings = new ArrayList<>();
         uHandler = UserHandler.getInstance();
         for (Booking booking : bookings) {
-            if (booking.getUser().getUserID() == uHandler.getUserID()) {
+            if (booking.getUserID() == uHandler.getUserID()) {
                 myBookings.add(booking);
             }
         }

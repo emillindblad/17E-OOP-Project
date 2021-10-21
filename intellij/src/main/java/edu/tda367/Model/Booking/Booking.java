@@ -8,11 +8,11 @@ import edu.tda367.Model.UserPackage.User;
 public class Booking implements RentingItemEntry {
 
     private BookingState bookingState = BookingState.PENDING;
-    private final User customer;
+    private final int userID;
     private final Listing listing;
 
-    Booking(User customer, Listing listing) {
-        this.customer = customer;
+    Booking(int userID, Listing listing) {
+        this.userID = userID;
         this.listing = listing;
         listing.advanceState();
     }
@@ -134,19 +134,19 @@ public class Booking implements RentingItemEntry {
     }
 
     /**
-     * Getter for the User who is renting
-     * @return The User who is renting
-     */
-    User getUser() {
-        return customer;
-    }
-
-    /**
      * Getter for the rented Listing
      * @return The rented Listing
      */
     @Override
     public Listing getListing() {
         return listing;
+    }
+
+    /**
+     * Getter for userID of user making booking
+     * @return userID
+     */
+    public int getUserID() {
+        return userID;
     }
 }

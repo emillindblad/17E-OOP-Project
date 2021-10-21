@@ -8,10 +8,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="320.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="320.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
 
    <children>
-      <Label fx:id="price" layoutX="409.0" layoutY="79.0" text="Price">
+      <Label fx:id="price" layoutX="234.0" layoutY="107.0" text="Price">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>

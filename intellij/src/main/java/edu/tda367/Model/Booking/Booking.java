@@ -1,13 +1,12 @@
 package edu.tda367.Model.Booking;
 
 import edu.tda367.Model.Listing.Listing;
-import edu.tda367.Model.ListingStateListener;
 import edu.tda367.Model.RentingItemEntry;
 
 /**
  * Class containing state and logic related to one booking
  */
-public class Booking implements RentingItemEntry, ListingStateListener {
+public class Booking implements RentingItemEntry {
 
     private BookingState bookingState = new Pending();
     private final int userID;
@@ -16,7 +15,6 @@ public class Booking implements RentingItemEntry, ListingStateListener {
     Booking(int userID, Listing listing) {
         this.userID = userID;
         this.listing = listing;
-        listing.setListener(this);
         listing.advanceState();
     }
 
@@ -66,17 +64,23 @@ public class Booking implements RentingItemEntry, ListingStateListener {
      */
     @Override
     public String getStatusText() {
+        updateStateFromListing();
         return bookingState.getStatusText();
     }
 
     /**
      * Getter for button text of RentingItemEntry
-     * Will check if bookingState needs to updated for text to be correct
      * @return text depending on bookingState
      */
     @Override
     public String getButtonText() {
         return bookingState.getButtonText();
+    }
+
+    private void updateStateFromListing() {
+        if (listing.getUpdateBookingState()) {
+            advanceState();
+        }
     }
 
     @Override
@@ -101,11 +105,4 @@ public class Booking implements RentingItemEntry, ListingStateListener {
         return userID;
     }
 
-    /**
-     * Listener method. Advances state of booking
-     */
-    @Override
-    public void listingStateChangedAction() {
-        advanceState();
-    }
 }

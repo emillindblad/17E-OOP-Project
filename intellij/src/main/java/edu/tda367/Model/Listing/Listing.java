@@ -1,6 +1,5 @@
 package edu.tda367.Model.Listing;
 
-import edu.tda367.Model.ListingStateListener;
 import edu.tda367.Model.RentingItemEntry;
 
 import java.time.LocalDateTime;
@@ -18,7 +17,6 @@ public class Listing implements RentingItemEntry {
     private long availability;
     private ListingState listingState = new Available();
     private String fileName;
-    private ListingStateListener listener;
 
     Listing(String listingId, String prodName, Category prodCat, String prodDesc, int userId, int price, LocalDateTime startDate, LocalDateTime endDate, String fileName) {
         this.listingId = listingId;
@@ -43,10 +41,6 @@ public class Listing implements RentingItemEntry {
     public long setAvailability(LocalDateTime startDate, LocalDateTime endDate) {
         availability = ChronoUnit.HOURS.between(startDate,endDate);
         return availability;
-    }
-
-    public void setListener(ListingStateListener listener) {
-        this.listener = listener;
     }
 
     public long getAvailability() {
@@ -109,15 +103,10 @@ public class Listing implements RentingItemEntry {
 
     /**
      * Advances state of Listing, according to state pattern.
-     * Will notify booking related booking through observer pattern if booking state is to be advanced
      */
     @Override
     public void advanceState() {
         listingState = listingState.advanceListingState();
-
-        if (listingState.getAdvanceBookingState()) {
-            listener.listingStateChangedAction();
-        }
     }
 
     public boolean getIsAvailable() {
@@ -145,5 +134,13 @@ public class Listing implements RentingItemEntry {
 
     public void setDesc(String desc) {
         this.product.setDescription(desc);
+    }
+
+    /**
+     * Returns whether booking should be advancing state based on listing state
+     * @return boolean if booking should advance state
+     */
+    public boolean getUpdateBookingState() {
+        return listingState.getAdvanceBookingState();
     }
 }

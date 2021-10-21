@@ -42,21 +42,10 @@ public class SingleListingView extends AbstractHyroScene {
         this.listingId = listingId;
         userId.setText(String.valueOf(user));
         prodName.setText(productName);
-        this.price.setText(String.valueOf(price));
-        this.category.setText(category);
-        this.description.setText(description);
-        this.listingImage.setImage(ImageHandler.getInstance().getImage(listingImage));
-        rentController = new RentController(handler);
-    }
-
-    public SingleListingView(SceneHandler handler, int user, String productName, int price, String category, String description, String listingId) throws IOException {
-        super("SingleListingView", handler);
-        this.listingId = listingId;
-        userId.setText(Integer.toString(user));
-        prodName.setText(productName);
         this.price.setText(price + " Kr");
         this.category.setText(category);
         this.description.setText(description);
+        this.listingImage.setImage(ImageHandler.getInstance().getImage(listingImage));
         rentController = new RentController(handler);
     }
 

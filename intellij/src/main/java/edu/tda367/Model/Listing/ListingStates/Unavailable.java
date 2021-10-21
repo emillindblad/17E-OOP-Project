@@ -18,11 +18,17 @@ public class Unavailable implements ListingState {
 
     @Override
     public ListingState advanceListingState() {
+        System.out.println("Listing: Unavailable");
         return new Returned();
     }
 
     @Override
     public boolean getIsAvailable() {
         return false;
+    }
+
+    @Override
+    public String toString() {
+        return "UNAVAILABLE";
     }
 }

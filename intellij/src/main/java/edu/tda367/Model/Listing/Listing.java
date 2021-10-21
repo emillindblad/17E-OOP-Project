@@ -17,11 +17,10 @@ public class Listing implements RentingItemEntry {
     private Product product;
     private int userId;
     private int price;
-    //private Booking booking;
     private long availability;
     private ListingState listingState = new Available();
     private String fileName;
-    private ListingStateListener booking;
+    private ListingStateListener listener;
 
     Listing(String listingId, String prodName, Category prodCat, String prodDesc, int userId, int price, LocalDateTime startDate, LocalDateTime endDate, String fileName) {
         this.listingId = listingId;
@@ -48,8 +47,8 @@ public class Listing implements RentingItemEntry {
         return availability;
     }
 
-    public void setBooking(ListingStateListener booking) {
-        this.booking = booking;
+    public void setListener(ListingStateListener listener) {
+        this.listener = listener;
     }
 
     public long getAvailability() {
@@ -123,7 +122,7 @@ public class Listing implements RentingItemEntry {
     @Override
     public void advanceState() {
         if (listingState.getAdvanceBookingState()) {
-            booking.listingStateChangedAction();
+            listener.listingStateChangedAction();
         }
 
         listingState = listingState.advanceListingState();

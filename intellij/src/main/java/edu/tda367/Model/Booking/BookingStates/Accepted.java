@@ -13,6 +13,7 @@ public class Accepted implements BookingState {
 
     @Override
     public BookingState advanceBookingState() {
+        System.out.println("Booking: Accepted");
         return new Payed();
     }
 

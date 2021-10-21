@@ -18,11 +18,17 @@ public class Returned implements ListingState {
 
     @Override
     public ListingState advanceListingState() {
+        System.out.println("Listing: Returned");
         return new Available();
     }
 
     @Override
     public boolean getIsAvailable() {
         return false;
+    }
+
+    @Override
+    public String toString() {
+        return "RETURNED";
     }
 }

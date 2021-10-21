@@ -13,6 +13,7 @@ public class Done implements BookingState {
 
     @Override
     public BookingState advanceBookingState() {
+        System.out.println("Booking: Done");
         return new RemoveMe();
     }
 

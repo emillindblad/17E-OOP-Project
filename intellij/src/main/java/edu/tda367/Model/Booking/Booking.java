@@ -2,7 +2,6 @@ package edu.tda367.Model.Booking;
 
 import edu.tda367.Model.Booking.BookingStates.Pending;
 import edu.tda367.Model.Listing.Listing;
-import edu.tda367.Model.Listing.ListingState;
 import edu.tda367.Model.ListingStateListener;
 import edu.tda367.Model.RentingItemEntry;
 import edu.tda367.Model.Booking.BookingStates.BookingState;
@@ -16,6 +15,7 @@ public class Booking implements RentingItemEntry, ListingStateListener {
     Booking(int userID, Listing listing) {
         this.userID = userID;
         this.listing = listing;
+        listing.setListener(this);
         listing.advanceState();
     }
 

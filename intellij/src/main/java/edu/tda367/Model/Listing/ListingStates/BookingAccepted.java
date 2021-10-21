@@ -18,11 +18,17 @@ public class BookingAccepted implements ListingState {
 
     @Override
     public ListingState advanceListingState() {
+        System.out.println("Listing: Accepted");
         return new Unavailable();
     }
 
     @Override
     public boolean getIsAvailable() {
         return false;
+    }
+
+    @Override
+    public String toString() {
+        return "BOOKING_ACCEPTED";
     }
 }

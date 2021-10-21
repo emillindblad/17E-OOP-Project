@@ -132,7 +132,7 @@ public class ListingHandler {
         ArrayList<String> availableListings = new ArrayList<>();
         listings.forEach(
             (key, listing) -> {
-                if (listing.getListingState().equals(ListingState.AVAILABLE)) {
+                if (listing.getIsAvailable()) {
                     availableListings.add(key);
                 }
             }
@@ -148,11 +148,11 @@ public class ListingHandler {
     public ArrayList<String> getAvailableListingKeys(String category) {
         ArrayList<String> availableListings = new ArrayList<>();
         listings.forEach(
-            (key, listing) -> {
-                if (listing.getListingState().equals(ListingState.AVAILABLE) && listing.getCategoryName().equals(category)) {
-                    availableListings.add(key);
+                (key, listing) -> {
+                    if (listing.getIsAvailable() && listing.getCategoryName().equals(category)) {
+                        availableListings.add(key);
+                    }
                 }
-            }
         );
         return availableListings;
     }

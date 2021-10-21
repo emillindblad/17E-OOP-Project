@@ -1,7 +1,9 @@
 package edu.tda367.Model.Listing;
 
+import edu.tda367.Model.Listing.ListingStates.Available;
 import edu.tda367.Model.ListingStateListener;
 import edu.tda367.Model.RentingItemEntry;
+import edu.tda367.Model.Listing.ListingStates.ListingState;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
@@ -17,7 +19,7 @@ public class Listing implements RentingItemEntry {
     private int price;
     //private Booking booking;
     private long availability;
-    private ListingState listingState;
+    private ListingState listingState = new Available();
     private String fileName;
     private ListingStateListener booking;
 
@@ -27,7 +29,6 @@ public class Listing implements RentingItemEntry {
         this.userId = userId;
         this.price = price;
         this.availability = setAvailability(startDate, endDate);
-        this.listingState = ListingState.AVAILABLE; //Defaults to AVAILABLE now
         this.fileName = fileName;
     }
 
@@ -111,39 +112,25 @@ public class Listing implements RentingItemEntry {
 
     @Override
     public String getStatusText() {
-        return switch (listingState) {
-            case BOOKING_SENT -> "Förfrågan mottagen";
-            case BOOKING_ACCEPTED -> "inväntar betalning";
-            case UNAVAILABLE -> "betalad och uthyrd";
-            case RETURNED -> "Återlämnad";
-            default -> "Tillgänglig";
-        };
+        return listingState.getStatusText();
     }
 
     @Override
     public String getButtonText() {
-        return switch (listingState) {
-            case BOOKING_SENT -> "Acceptera";
-            case RETURNED -> "Ja, jag har fått den";
-            default -> "";
-        };
+        return listingState.getButtonText();
     }
 
     @Override
     public void advanceState() {
-        switch (listingState) {
-            case BOOKING_SENT -> {
-                listingState = ListingState.BOOKING_ACCEPTED;
-                booking.listingStateChangedAction();
-            }
-            case BOOKING_ACCEPTED -> listingState = ListingState.UNAVAILABLE;
-            case UNAVAILABLE -> listingState = ListingState.RETURNED;
-            case RETURNED -> {
-                listingState = ListingState.AVAILABLE;
-                booking.listingStateChangedAction();
-            }
-            default -> listingState = ListingState.BOOKING_SENT;
+        if (listingState.getAdvanceBookingState()) {
+            booking.listingStateChangedAction();
         }
+
+        listingState = listingState.advanceListingState();
+    }
+
+    public boolean getIsAvailable() {
+        return listingState.getIsAvailable();
     }
 
     @Override

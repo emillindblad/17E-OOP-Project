@@ -27,7 +27,7 @@ public class ListingSettingsController extends ListingViewController {
      */
     @Override
     protected String updateListings(String[] formData, int userID) {
-        if (listing.getListingState() == ListingState.AVAILABLE) {
+        if (listing.getIsAvailable()) {
             listing.setDesc(formData[1]);
             listing.setPrice(Integer.parseInt(formData[2]));
             listing.setFileName(formData[4]);
@@ -76,7 +76,7 @@ public class ListingSettingsController extends ListingViewController {
      */
     @Override
     public void secondAction() {
-        if (listing.getListingState() == ListingState.AVAILABLE) {
+        if (listing.getIsAvailable()) {
             showDeleteListingConfirmation();
         } else {
             showCantDeleteListinInfo();

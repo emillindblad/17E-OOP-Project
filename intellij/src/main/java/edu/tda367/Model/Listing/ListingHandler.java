@@ -119,7 +119,7 @@ public class ListingHandler {
         ArrayList<String> availableListings = new ArrayList<>();
         listings.forEach(
             (key, listing) -> {
-                if (listing.getListingState().equals(ListingState.AVAILABLE)) {
+                if (listing.getIsAvailable()) {
                     availableListings.add(key);
                 }
             }

@@ -45,7 +45,7 @@ public class BookingHandler implements DeleteBookingListener {
     public void createBooking(int userID, Listing listing) {
         if (userID == listing.getUserId()) {
             System.out.println("Can't book your own listing!");
-        } else if (listing.getListingState() != ListingState.AVAILABLE) {
+        } else if (listing.getIsAvailable()) {
             System.out.println("Listing not available");
         } else {
             Booking booking = new Booking(userID, listing);

@@ -82,18 +82,6 @@ public class Booking implements RentingItemEntry, ListingStateListener {
     public String getImageName() {
         return listing.getImageName();
     }
-/*
-    private void updateStateFromListing() {
-        ListingState lState = listing.getListingState();
-
-        if (lState == ListingState.BOOKING_ACCEPTED && bookingState != BookingState.ACCEPTED) {
-            bookingState = BookingState.ACCEPTED;
-        }
-
-        if (lState == ListingState.AVAILABLE && bookingState != BookingState.DONE && bookingState != BookingState.REMOVEME) {
-            bookingState = BookingState.DONE;
-        }
-    }*/
 
     /**
      * Getter for the rented Listing

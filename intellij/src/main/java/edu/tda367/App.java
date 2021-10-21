@@ -1,13 +1,10 @@
 package edu.tda367;
 
-import edu.tda367.Controllers.CreateAccController;
-import edu.tda367.Controllers.CreateListingController;
-import edu.tda367.Controllers.MyAccController;
+import edu.tda367.Controllers.*;
 import edu.tda367.Model.Booking.BookingHandler;
 import edu.tda367.Model.Listing.ListingHandler;
 import edu.tda367.Model.UserPackage.UserHandler;
 import edu.tda367.View.HyroSceneFactory;
-import edu.tda367.View.SceneHandler;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -27,15 +24,15 @@ public class App extends Application {
         lHandler = ListingHandler.getInstance();
         bHandler = BookingHandler.getInstance();
         sceneHandler = new SceneHandler(stage);
-        sceneHandler.addScene(HyroSceneFactory.browseScene(sceneHandler), "browse");
-        sceneHandler.addScene(HyroSceneFactory.loginScene(sceneHandler), "login");
+        sceneHandler.addScene(HyroSceneFactory.browseScene(new BrowseController(sceneHandler)), "browse");
+        sceneHandler.addScene(HyroSceneFactory.loginScene(new LogInController(sceneHandler)), "login");
         CreateListingController lcCtrl = new CreateListingController(sceneHandler);
-        sceneHandler.addScene(HyroSceneFactory.createListingSettingsScene(sceneHandler, lcCtrl),"createlisting");
+        sceneHandler.addScene(HyroSceneFactory.createListingSettingsScene(lcCtrl),"createlisting");
         CreateAccController caCtrl = new CreateAccController(sceneHandler);
         MyAccController myAccCtrl = new MyAccController(sceneHandler);
-        sceneHandler.addScene(HyroSceneFactory.accountViewScene(sceneHandler, myAccCtrl), "myaccount");
-        sceneHandler.addScene(HyroSceneFactory.accountViewScene(sceneHandler, caCtrl), "createaccount");
-        sceneHandler.addScene(HyroSceneFactory.rentingPage(sceneHandler), "rentingpage");
+        sceneHandler.addScene(HyroSceneFactory.accountViewScene(myAccCtrl), "myaccount");
+        sceneHandler.addScene(HyroSceneFactory.accountViewScene(caCtrl), "createaccount");
+        sceneHandler.addScene(HyroSceneFactory.rentingPage(new MyListingsController(sceneHandler)), "rentingpage");
         sceneHandler.switchTo("login");
     }
 

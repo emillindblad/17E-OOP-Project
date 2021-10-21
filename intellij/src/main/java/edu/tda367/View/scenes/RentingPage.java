@@ -1,7 +1,7 @@
 package edu.tda367.View.scenes;
 
 import edu.tda367.Controllers.MyListingsController;
-import edu.tda367.View.SceneHandler;
+import edu.tda367.Controllers.SceneHandler;
 import javafx.fxml.FXML;
 import javafx.scene.layout.FlowPane;
 
@@ -22,9 +22,9 @@ public class RentingPage extends AbstractHyroScene {
      * @param handler SceneHandler for controller to use for changing scenes
      * @throws IOException
      */
-    public RentingPage(SceneHandler handler) throws IOException {
-        super("rentingpage", handler);
-        controller = new MyListingsController(handler);
+    public RentingPage(MyListingsController controller) throws IOException {
+        super("rentingpage");
+        this.controller = controller;
     }
 
     /**
@@ -45,6 +45,6 @@ public class RentingPage extends AbstractHyroScene {
      */
     @FXML
     private void goBack() {
-        controller.goBack();
+        controller.switchTo("browse");
     }
 }

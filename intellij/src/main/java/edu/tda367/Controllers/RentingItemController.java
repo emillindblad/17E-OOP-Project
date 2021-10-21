@@ -2,20 +2,18 @@ package edu.tda367.Controllers;
 
 import edu.tda367.Model.Booking.DeleteBookingListener;
 import edu.tda367.Model.RentingItemEntry;
-import edu.tda367.View.SceneHandler;
 
 import java.io.IOException;
 
 /**
  * MVC Controller for RentingItems
  */
-public class RentingItemController {
+public class RentingItemController extends AbstractController {
 
-    private final SceneHandler sceneHandler;
     private final DeleteBookingListener listener;
 
     public RentingItemController(SceneHandler handler, DeleteBookingListener listener) {
-        this.sceneHandler = handler;
+        super(handler);
         this.listener = listener;
     }
 
@@ -34,6 +32,6 @@ public class RentingItemController {
      * @throws IOException
      */
     public void goToSettings(RentingItemEntry entry) throws IOException {
-        sceneHandler.switchToListingSettings(entry);
+        handler.switchToListingSettings(entry);
     }
 }

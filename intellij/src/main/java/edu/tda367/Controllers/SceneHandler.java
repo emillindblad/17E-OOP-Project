@@ -1,8 +1,9 @@
-package edu.tda367.View;
+package edu.tda367.Controllers;
 
 import edu.tda367.Controllers.ListingSettingsController;
 import edu.tda367.Model.Listing.Listing;
 import edu.tda367.Model.RentingItemEntry;
+import edu.tda367.View.hyroScene;
 import edu.tda367.View.scenes.ListingSettingsView;
 import edu.tda367.View.scenes.SingleListingView;
 import javafx.stage.Stage;
@@ -34,14 +35,14 @@ public class SceneHandler {
     }
 
     public void switchToListingView(Listing listing) throws IOException {
-        SingleListingView view = new SingleListingView(this, listing.getUserId(), listing.getProduct().getProdName(), listing.getPrice(), listing.getCategoryName(), listing.getProduct().getDescription(), listing.getListingId(), listing.getFileName());
+        SingleListingView view = new SingleListingView(new SingleListingController(this), listing.getUserId(), listing.getProduct().getProdName(), listing.getPrice(), listing.getCategoryName(), listing.getProduct().getDescription(), listing.getListingId(), listing.getFileName());
         root.setScene(view.getHyroScene());
         centerOnScreen();
         root.show();
     }
 
     public void switchToListingSettings(RentingItemEntry entry) throws IOException {
-        ListingSettingsView view = new ListingSettingsView(this, new ListingSettingsController(this, entry.getListing()));
+        ListingSettingsView view = new ListingSettingsView(new ListingSettingsController(this,entry.getListing()));
         root.setScene(view.getHyroScene());
         view.update();
         centerOnScreen();

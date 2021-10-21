@@ -4,7 +4,7 @@ package edu.tda367.View.scenes;
 import edu.tda367.App;
 import edu.tda367.Controllers.BrowseController;
 import edu.tda367.Controllers.ImageHandler;
-import edu.tda367.View.SceneHandler;
+import edu.tda367.Controllers.SceneHandler;
 import edu.tda367.View.hyroScene;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -39,15 +39,14 @@ public class ListingItem extends AnchorPane {
     private Label defaultImgText;
     /**
      * Contructs a simple FXML component for a listing used as an item in the browsing view
-     * @param handler handler used to switch scenes
      * @param listingData listing containing necessary data about a listing index 0 is listingId, index 1 is productName, index 2 is categoryName, index 3 is itemDescription, index 4 is price, index 5 is listingState, index 6 is fileName
      */
-    protected ListingItem(SceneHandler handler, String[] listingData) {
+    protected ListingItem(String[] listingData, BrowseController controller) {
         this.listingId = listingData[0];
         FXMLLoader loader = App.loadFXML("listingitem");
         loader.setRoot(this);
         loader.setController(this);
-        controller = new BrowseController(handler);
+        this.controller = controller;
         try {
             loader.load();
         } catch (IOException exception) {

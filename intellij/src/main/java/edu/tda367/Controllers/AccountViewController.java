@@ -1,18 +1,15 @@
 package edu.tda367.Controllers;
 
 import edu.tda367.Model.InputChecker;
-import edu.tda367.View.SceneHandler;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.util.ArrayList;
 
-public abstract class AccountViewController implements Controller {
-
-    protected final SceneHandler handler;
+public abstract class AccountViewController extends AbstractController {
 
     protected AccountViewController(SceneHandler handler) {
-        this.handler = handler;
+        super(handler);
     }
 
     public abstract void doneButtonAction(ArrayList<TextField> fields, Label info);

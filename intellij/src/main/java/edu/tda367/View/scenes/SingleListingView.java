@@ -39,10 +39,16 @@ public class SingleListingView extends AbstractHyroScene {
     private Label confirmation;
 
     /**
-     * Super constructor for all scenes. Loads the FXML file and creates a scene with the loaded fxml file
-     * @param handler  sceneHandler that is in charge of switching between scenes
+     * Constructor gets information about the specific Listing and changes values accordingly
+     * @param handler
+     * @param user
+     * @param productName
      * @param price
+     * @param category
+     * @param description
      * @param listingId
+     * @param listingImage
+     * @throws IOException
      */
     public SingleListingView(SceneHandler handler, int user, String productName, int price, String category, String description, String listingId, String listingImage) throws IOException {
         super("SingleListingView", handler);
@@ -57,17 +63,9 @@ public class SingleListingView extends AbstractHyroScene {
         rentButton.setVisible(!singleListingController.isMyListing(user));
     }
 
-    public SingleListingView(SceneHandler handler, int user, String productName, int price, String category, String description, String listingId) throws IOException {
-        super("SingleListingView", handler);
-        this.listingId = listingId;
-        userId.setText(Integer.toString(user));
-        prodName.setText(productName);
-        this.price.setText(price + " Kr");
-        this.category.setText(category);
-        this.description.setText(description);
-        singleListingController = new SingleListingController(handler);
-    }
-
+    /**
+     * Activates renting process and displays confirmation
+     */
     @FXML
     public void rentListing()
     {
@@ -76,6 +74,9 @@ public class SingleListingView extends AbstractHyroScene {
         confirmation.setVisible(true);
     }
 
+    /**
+     * Goes back to main view
+     */
     @FXML
     public void goBack(){
         handler.switchTo("browse");

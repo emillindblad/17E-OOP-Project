@@ -4,7 +4,6 @@ import edu.tda367.Model.JSON.JSONReader;
 import edu.tda367.Model.JSON.JSONWriter;
 import edu.tda367.Model.Listing.Listing;
 import edu.tda367.Model.Listing.ListingState;
-import edu.tda367.Model.UserPackage.User;
 import edu.tda367.Model.UserPackage.UserHandler;
 
 import java.util.ArrayList;
@@ -13,6 +12,7 @@ import java.util.List;
 /**
  * BookingHandler is a handler for interacting with Bookings and their state
  * @author Erik Larsson
+ * @author Eimer Ahlstedt
  */
 public class BookingHandler implements DeleteBookingListener {
     private static BookingHandler instance;
@@ -96,6 +96,10 @@ public class BookingHandler implements DeleteBookingListener {
         writer.write(bookings, "bookings");
     }
 
+    /**
+     * Deletes all bookings that are in the REMOVEME state
+     * @author Eimer Ahlstedt
+     */
     @Override
     public void deleteCompletedBookings() {
         ArrayList<Booking> toRemove = new ArrayList<>();

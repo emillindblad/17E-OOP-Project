@@ -1,10 +1,8 @@
 package edu.tda367.Model.Booking;
 
-import edu.tda367.Model.Booking.BookingStates.Pending;
 import edu.tda367.Model.Listing.Listing;
 import edu.tda367.Model.ListingStateListener;
 import edu.tda367.Model.RentingItemEntry;
-import edu.tda367.Model.Booking.BookingStates.BookingState;
 
 /**
  * Class containing state and logic related to one booking

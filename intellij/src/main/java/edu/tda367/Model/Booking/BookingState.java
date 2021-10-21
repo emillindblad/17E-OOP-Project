@@ -1,10 +1,10 @@
-package edu.tda367.Model.Booking.BookingStates;
+package edu.tda367.Model.Booking;
 
 
 /**
  * Interface for states of booking
  */
-public interface BookingState {
+interface BookingState {
     /**
      * Getter for status text
      * @return status text

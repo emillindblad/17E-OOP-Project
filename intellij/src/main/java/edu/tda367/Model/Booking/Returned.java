@@ -1,9 +1,9 @@
-package edu.tda367.Model.Booking.BookingStates;
+package edu.tda367.Model.Booking;
 
-public class RemoveMe implements BookingState {
+class Returned implements BookingState {
     @Override
     public String getStatusText() {
-        return "Borttagen!";
+        return "Vara tillbakalämnad";
     }
 
     @Override
@@ -13,12 +13,12 @@ public class RemoveMe implements BookingState {
 
     @Override
     public BookingState advanceBookingState() {
-        return this;
+        return new Done();
     }
 
     @Override
     public boolean getIsToBeRemoved() {
-        return true;
+        return false;
     }
 
     @Override

@@ -1,19 +1,19 @@
-package edu.tda367.Model.Booking.BookingStates;
+package edu.tda367.Model.Booking;
 
-public class Returned implements BookingState {
+class Done implements BookingState {
     @Override
     public String getStatusText() {
-        return "Vara tillbakalämnad";
+        return "Tillbakalämnande godkänt";
     }
 
     @Override
     public String getButtonText() {
-        return "";
+        return "Ta bort";
     }
 
     @Override
     public BookingState advanceBookingState() {
-        return new Done();
+        return new RemoveMe();
     }
 
     @Override

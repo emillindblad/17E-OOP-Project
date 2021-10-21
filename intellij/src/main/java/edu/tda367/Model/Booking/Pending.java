@@ -1,19 +1,19 @@
-package edu.tda367.Model.Booking.BookingStates;
+package edu.tda367.Model.Booking;
 
-public class Payed implements BookingState {
+class Pending implements BookingState {
     @Override
     public String getStatusText() {
-        return "Bokning betalad";
+        return "Förfrågan skickad";
     }
 
     @Override
     public String getButtonText() {
-        return "Återlämna";
+        return "";
     }
 
     @Override
     public BookingState advanceBookingState() {
-        return new Returned();
+        return new Accepted();
     }
 
     @Override
@@ -23,6 +23,6 @@ public class Payed implements BookingState {
 
     @Override
     public boolean getAdvanceListingState() {
-        return true;
+        return false;
     }
 }

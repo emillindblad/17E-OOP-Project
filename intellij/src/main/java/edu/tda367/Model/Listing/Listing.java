@@ -1,9 +1,7 @@
 package edu.tda367.Model.Listing;
 
-import edu.tda367.Model.Listing.ListingStates.Available;
 import edu.tda367.Model.ListingStateListener;
 import edu.tda367.Model.RentingItemEntry;
-import edu.tda367.Model.Listing.ListingStates.ListingState;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;

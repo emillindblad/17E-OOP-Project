@@ -1,28 +1,28 @@
-package edu.tda367.Model.Booking.BookingStates;
+package edu.tda367.Model.Booking;
 
-public class Accepted implements BookingState {
+class RemoveMe implements BookingState {
     @Override
     public String getStatusText() {
-        return "Förfrågan godkänd";
+        return "Borttagen!";
     }
 
     @Override
     public String getButtonText() {
-        return "Betala";
+        return "";
     }
 
     @Override
     public BookingState advanceBookingState() {
-        return new Payed();
+        return this;
     }
 
     @Override
     public boolean getIsToBeRemoved() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean getAdvanceListingState() {
-        return true;
+        return false;
     }
 }

@@ -1,6 +1,6 @@
-package edu.tda367.Model.Listing.ListingStates;
+package edu.tda367.Model.Listing;
 
-public class Returned implements ListingState {
+class Returned implements ListingState {
     @Override
     public String getStatusText() {
         return "Återlämnad";

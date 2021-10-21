@@ -1,9 +1,9 @@
-package edu.tda367.Model.Listing.ListingStates;
+package edu.tda367.Model.Listing;
 
 /**
  * Interface for listingState
  */
-public interface ListingState {
+interface ListingState {
     /**
      * Getter for status text
      * @return status text

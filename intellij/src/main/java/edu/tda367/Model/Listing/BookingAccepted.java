@@ -1,24 +1,24 @@
-package edu.tda367.Model.Listing.ListingStates;
+package edu.tda367.Model.Listing;
 
-public class BookingSent implements ListingState {
+class BookingAccepted implements ListingState {
     @Override
     public String getStatusText() {
-        return "Förfrågan mottagen";
+        return "Inväntar betalning";
     }
 
     @Override
     public String getButtonText() {
-        return "Acceptera";
+        return "";
     }
 
     @Override
     public boolean getAdvanceBookingState() {
-        return false;
+        return true;
     }
 
     @Override
     public ListingState advanceListingState() {
-        return new BookingAccepted();
+        return new Unavailable();
     }
 
     @Override
@@ -28,6 +28,6 @@ public class BookingSent implements ListingState {
 
     @Override
     public String toString() {
-        return "BOOKING_SENT";
+        return "BOOKING_ACCEPTED";
     }
 }

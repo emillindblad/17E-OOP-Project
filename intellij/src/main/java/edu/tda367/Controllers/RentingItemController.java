@@ -1,5 +1,7 @@
 package edu.tda367.Controllers;
 
+import edu.tda367.Model.Booking.BookingHandler;
+import edu.tda367.Model.Booking.DeleteBookingListener;
 import edu.tda367.Model.RentingItemEntry;
 import edu.tda367.View.SceneHandler;
 
@@ -11,9 +13,11 @@ import java.io.IOException;
 public class RentingItemController {
 
     private final SceneHandler sceneHandler;
+    private final DeleteBookingListener listener;
 
-    public RentingItemController(SceneHandler handler) {
+    public RentingItemController(SceneHandler handler, DeleteBookingListener listener) {
         this.sceneHandler = handler;
+        this.listener = listener;
     }
 
     /**
@@ -22,8 +26,14 @@ public class RentingItemController {
      */
     public void buttonAction(RentingItemEntry entry) {
         entry.advanceState();
+        listener.deleteCompletedBookings();
     }
 
+    /**
+     * Switches to setting view for clicked listing
+     * @param entry RentingItemEntry containing listing to bw switched to
+     * @throws IOException
+     */
     public void goToSettings(RentingItemEntry entry) throws IOException {
         sceneHandler.switchToListingSettings(entry);
     }

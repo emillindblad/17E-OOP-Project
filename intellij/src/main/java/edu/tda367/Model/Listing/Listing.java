@@ -1,7 +1,6 @@
 package edu.tda367.Model.Listing;
 
 import edu.tda367.Model.RentingItemEntry;
-import javafx.scene.image.Image;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
@@ -46,6 +45,10 @@ public class Listing implements RentingItemEntry {
         return availability;
     }
 
+    public long getAvailability() {
+        return availability;
+    }
+
     String[] toArray() {
         return new String[]{
             this.listingId,
@@ -81,16 +84,8 @@ public class Listing implements RentingItemEntry {
         return product;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
-    }
-
     public int getUserId() {
         return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
     }
 
     @Override

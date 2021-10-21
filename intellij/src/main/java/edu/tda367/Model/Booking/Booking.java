@@ -4,7 +4,6 @@ import edu.tda367.Model.Listing.Listing;
 import edu.tda367.Model.Listing.ListingState;
 import edu.tda367.Model.RentingItemEntry;
 import edu.tda367.Model.UserPackage.User;
-import javafx.scene.image.Image;
 
 public class Booking implements RentingItemEntry {
 
@@ -18,10 +17,17 @@ public class Booking implements RentingItemEntry {
         listing.advanceState();
     }
 
+    /**
+     * Getter for bookingState
+     * @return bookingState
+     */
     public BookingState getBookingState() {
         return bookingState;
     }
 
+    /**
+     * Advances state of booking. Will update corresponding listing if necessary
+     */
     @Override
     public void advanceState() {
 
@@ -45,6 +51,10 @@ public class Booking implements RentingItemEntry {
 
             case RETURNED:
                 bookingState = BookingState.DONE;
+                break;
+
+            case DONE:
+                bookingState = BookingState.REMOVEME;
                 break;
 
             default:
@@ -72,6 +82,11 @@ public class Booking implements RentingItemEntry {
         return listing.getListingCategory().getCategoryName();
     }
 
+    /**
+     * Getter for status text of RentingItemEntry
+     * Will check if bookingState needs to updated for text to be correct
+     * @return text depending on bookingState
+     */
     @Override
     public String getStatusText() {
         updateStateFromListing();
@@ -80,16 +95,23 @@ public class Booking implements RentingItemEntry {
             case ACCEPTED -> "Förfrågan godkänd";
             case PAYED -> "Bokning betalad";
             case RETURNED -> "Vara tillbakalämnad";
-            default -> "Tillbakalämnande godkänt";
+            case DONE -> "Tillbakalämnande godkänt";
+            default -> "Borttagen!";
         };
     }
 
+    /**
+     * Getter for button text of RentingItemEntry
+     * Will check if bookingState needs to updated for text to be correct
+     * @return text depending on bookingState
+     */
     @Override
     public String getButtonText() {
         updateStateFromListing();
         return switch (bookingState) {
             case ACCEPTED -> "Betala";
             case PAYED -> "Återlämna";
+            case DONE -> "Ta bort";
             default -> "";
         };
     }
@@ -106,7 +128,7 @@ public class Booking implements RentingItemEntry {
             bookingState = BookingState.ACCEPTED;
         }
 
-        if (lState == ListingState.AVAILABLE && bookingState != BookingState.DONE) {
+        if (lState == ListingState.AVAILABLE && bookingState != BookingState.DONE && bookingState != BookingState.REMOVEME) {
             bookingState = BookingState.DONE;
         }
     }

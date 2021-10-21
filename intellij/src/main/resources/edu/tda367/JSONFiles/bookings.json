@@ -1,1 +1,106 @@
-[]
+[
+  {
+    "bookingState": "PENDING",
+    "customer": {
+      "firstName": "e",
+      "lastName": "e",
+      "phoneNumber": "1",
+      "userAdress": {
+        "streetName": "e",
+        "city": "e",
+        "zipCode": "12345",
+        "country": "e"
+      },
+      "userID": 125595,
+      "userName": "e",
+      "password": "e",
+      "bankAccount": "1",
+      "listings": []
+    },
+    "listing": {
+      "listingId": "187324-pBhyEukORVQB",
+      "product": {
+        "prodName": "abc",
+        "prodCategory": {
+          "categoryName": "Släpkärror"
+        },
+        "prodDesc": "a"
+      },
+      "userId": 187324,
+      "price": 23,
+      "availability": 25,
+      "listingState": "UNAVAILABLE",
+      "fileName": "No image supplied"
+    }
+  },
+  {
+    "bookingState": "PENDING",
+    "customer": {
+      "firstName": "e",
+      "lastName": "e",
+      "phoneNumber": "1",
+      "userAdress": {
+        "streetName": "e",
+        "city": "e",
+        "zipCode": "12345",
+        "country": "e"
+      },
+      "userID": 125595,
+      "userName": "e",
+      "password": "e",
+      "bankAccount": "1",
+      "listings": []
+    },
+    "listing": {
+      "listingId": "187324-dw4IS1egvI7j",
+      "product": {
+        "prodName": "aaa",
+        "prodCategory": {
+          "categoryName": "Elektronik"
+        },
+        "prodDesc": "bbb"
+      },
+      "userId": 187324,
+      "price": 4,
+      "availability": 25,
+      "listingState": "BOOKING_SENT",
+      "fileName": "No image supplied"
+    }
+  },
+  {
+    "bookingState": "PENDING",
+    "customer": {
+      "firstName": "Sebastian",
+      "lastName": "Kvalden",
+      "phoneNumber": "0734111337",
+      "userAdress": {
+        "streetName": "",
+        "city": "",
+        "zipCode": "",
+        "country": "Sweden"
+      },
+      "userID": 166019,
+      "userName": "def",
+      "password": "test",
+      "bankAccount": "987654321",
+      "listings": [
+        "166019-95VV10WnJXrY"
+      ]
+    },
+    "listing": {
+      "listingId": "161014-PuB8RMxN0Ydb",
+      "product": {
+        "prodName": "TestPRIT Grill",
+        "prodCategory": {
+          "categoryName": "Övrigt"
+        },
+        "prodDesc": "Big grill"
+      },
+      "userId": 161014,
+      "price": 1337,
+      "availability": 25,
+      "listingState": "BOOKING_SENT",
+      "fileName": ""
+    }
+  }
+]

@@ -2,7 +2,6 @@ package edu.tda367.Controllers;
 
 import edu.tda367.Model.Listing.Listing;
 import edu.tda367.Model.Listing.ListingState;
-import edu.tda367.View.SceneHandler;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
@@ -41,7 +40,7 @@ public class ListingSettingsController extends ListingViewController {
      */
     @Override
     public void goBack() {
-        sceneHandler.switchTo("rentingpage");
+        handler.switchTo("rentingpage");
     }
 
     /**

@@ -1,20 +1,18 @@
 package edu.tda367.Controllers;
 
 import edu.tda367.Model.UserPackage.UserHandler;
-import edu.tda367.View.SceneHandler;
 
 /**
  * Controller class for account creation view
  */
-public class LogInController implements Controller {
-    private final SceneHandler handler;
+public class LogInController extends AbstractController {
 
     /**
      * Contructor
      * @param handler SceneHandler containing "createAccount"-scene
      */
     public LogInController(SceneHandler handler) {
-        this.handler = handler;
+        super(handler);
     }
 
     /**

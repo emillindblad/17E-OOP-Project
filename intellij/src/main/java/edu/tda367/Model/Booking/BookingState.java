@@ -2,35 +2,50 @@ package edu.tda367.Model.Booking;
 
 
 /**
- * Interface for states of booking
+ * "INTERFACE" for states of booking
+ * #######################################################################################################
+ * #                                THIS SHOULD BE AN INTERFACE                                          #
+ * #        IT WAS MADE A CONCRETE CLASS DUE TO GSON BEING THE WAY IT IS AND TIME CONSTRAINTS            #
+ * #######################################################################################################
  */
-interface BookingState {
+class BookingState {
     /**
      * Getter for status text
      * @return status text
      */
-    String getStatusText();
-    /**
-     * Getter for button text
-     * @return button text
-     */
-    String getButtonText();
+    public String getStatusText() {
+        return "ERROR";
+    }
 
     /**
      * Returns a new instance of the next booking state
      * @return next booking state
      */
-    BookingState advanceBookingState();
+    public String getButtonText() {
+        return "ERROR";
+    }
+
+    /**
+     * Returns a new instance of the next booking state
+     * @return next booking state
+     */
+    public BookingState advanceBookingState() {
+        return null;
+    }
 
     /**
      * Returns true if booking is to be removed, depending on state
-     * @retur true if to be removed, else false
+     * @return true if to be removed, else false
      */
-    boolean getIsToBeRemoved();
+    public boolean getIsToBeRemoved() {
+        return false;
+    }
 
     /**
      * Returns whether listing should advance state when booking does
      * @return boolean if listing should advance
      */
-    boolean getAdvanceListingState();
+    public boolean getAdvanceListingState() {
+        return false;
+    }
 }

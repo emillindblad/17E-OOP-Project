@@ -1,6 +1,6 @@
 package edu.tda367.Model.Booking;
 
-class Payed implements BookingState {
+class Payed extends BookingState {
     @Override
     public String getStatusText() {
         return "Bokning betalad";

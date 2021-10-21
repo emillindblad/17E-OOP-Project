@@ -1,6 +1,6 @@
 package edu.tda367.Model.Listing;
 
-class BookingAccepted implements ListingState {
+class BookingAccepted extends ListingState {
     @Override
     public String getStatusText() {
         return "Inväntar betalning";

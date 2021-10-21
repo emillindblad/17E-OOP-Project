@@ -1,6 +1,6 @@
 package edu.tda367.Model.Booking;
 
-class Pending implements BookingState {
+class Pending extends BookingState {
     @Override
     public String getStatusText() {
         return "Förfrågan skickad";

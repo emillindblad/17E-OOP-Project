@@ -1,6 +1,6 @@
 package edu.tda367.Model.Listing;
 
-class Available implements ListingState {
+class Available extends ListingState {
     @Override
     public String getStatusText() {
         return "Tillgänglig";

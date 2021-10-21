@@ -1,6 +1,6 @@
 package edu.tda367.Model.Listing;
 
-class Unavailable implements ListingState {
+class Unavailable extends ListingState {
     @Override
     public String getStatusText() {
         return "Betalad och uthyrd";

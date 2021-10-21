@@ -1,12 +1,8 @@
 package edu.tda367.Model;
 
-import edu.tda367.Model.Listing.ListingHandler;
-import edu.tda367.Model.Listing.Listing;
-import edu.tda367.Model.Listing.ListingState;
-import edu.tda367.Model.UserPackage.User;
 import edu.tda367.Model.UserPackage.UserHandler;
+
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class ListingLinker {
     //private ListingHandler listingHandler;

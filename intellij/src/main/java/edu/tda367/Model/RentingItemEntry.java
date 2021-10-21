@@ -1,7 +1,6 @@
 package edu.tda367.Model;
 
 import edu.tda367.Model.Listing.Listing;
-import javafx.scene.image.Image;
 
 public interface RentingItemEntry {
     /**

@@ -3,7 +3,6 @@ package edu.tda367;
 import edu.tda367.Model.Booking.Booking;
 import edu.tda367.Model.Booking.BookingHandler;
 import edu.tda367.Model.Booking.BookingState;
-import edu.tda367.Model.Booking.DeleteBookingListener;
 import edu.tda367.Model.Listing.Category;
 import edu.tda367.Model.Listing.Listing;
 import edu.tda367.Model.Listing.ListingHandler;
@@ -14,7 +13,8 @@ import org.junit.Test;
 
 import java.time.LocalDateTime;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 public class TestBookingHandler {
     static BookingHandler bookingHandler;

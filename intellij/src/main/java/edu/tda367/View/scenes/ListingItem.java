@@ -6,7 +6,6 @@ import edu.tda367.Controllers.BrowseController;
 import edu.tda367.Controllers.ImageHandler;
 import edu.tda367.View.SceneHandler;
 import edu.tda367.View.hyroScene;
-import java.util.Arrays;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;

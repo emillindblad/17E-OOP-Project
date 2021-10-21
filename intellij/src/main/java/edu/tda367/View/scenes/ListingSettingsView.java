@@ -1,6 +1,5 @@
 package edu.tda367.View.scenes;
 
-import edu.tda367.Controllers.CreateListingController;
 import edu.tda367.Controllers.ListingViewController;
 import edu.tda367.View.SceneHandler;
 import javafx.fxml.FXML;

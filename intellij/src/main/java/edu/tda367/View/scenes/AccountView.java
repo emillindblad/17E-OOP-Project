@@ -1,15 +1,13 @@
 package edu.tda367.View.scenes;
 
 import edu.tda367.Controllers.AccountViewController;
-import edu.tda367.Model.UserPackage.User;
-import edu.tda367.Model.UserPackage.UserHandler;
 import edu.tda367.View.SceneHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 
 import java.io.IOException;

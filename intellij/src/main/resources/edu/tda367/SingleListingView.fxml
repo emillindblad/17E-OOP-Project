@@ -27,7 +27,7 @@
          </font></Label>
       <Label fx:id="description" alignment="TOP_LEFT" layoutX="234.0" layoutY="151.0" prefHeight="123.0" prefWidth="362.0" text="Description" wrapText="true" />
       <Label fx:id="userId" layoutX="512.0" layoutY="22.0" text="userId" />
-      <Button fx:id="rentButton" layoutX="252.0" layoutY="285.0" mnemonicParsing="false" onAction="#rentListing" onMouseClicked="#rentListing" prefHeight="25.0" prefWidth="95.0" text="Hyr" />
+      <Button fx:id="rentButton" layoutX="252.0" layoutY="285.0" mnemonicParsing="false" onMouseClicked="#rentListing" prefHeight="25.0" prefWidth="95.0" text="Hyr" visible="false" />
       <ImageView fx:id="backButton" fitHeight="32.0" fitWidth="74.0" layoutX="14.0" layoutY="15.0" onMouseClicked="#goBack" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="14.0">
          <image>
             <Image url="@backArrow.png" />
@@ -36,5 +36,6 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
+      <Label fx:id="confirmation" layoutX="241.0" layoutY="281.0" prefHeight="32.0" prefWidth="157.0" text="Förfrågan skickad!" visible="false" />
    </children>
 </AnchorPane>

@@ -5,5 +5,6 @@ public enum BookingState {
     ACCEPTED,
     PAYED,
     RETURNED,
-    DONE;
+    DONE,
+    REMOVEME;
 }

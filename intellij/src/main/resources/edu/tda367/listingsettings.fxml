@@ -43,6 +43,7 @@
                 </ImageView>
             <Button layoutX="190.0" layoutY="356.0" mnemonicParsing="false" onMouseClicked="#uploadFile" text="Choose an image" />
             <Label fx:id="selectedFileName" layoutX="309.0" layoutY="360.0" prefHeight="17.0" prefWidth="198.0" />
+            <Button layoutX="590.0" layoutY="476.0" mnemonicParsing="false" onAction="#secondButtonAction" text="Ta bort annons" />
             </children>
         </AnchorPane>
     </children>

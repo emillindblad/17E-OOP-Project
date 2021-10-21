@@ -4,7 +4,6 @@ import edu.tda367.Model.Booking.Booking;
 import edu.tda367.Model.Booking.BookingHandler;
 import edu.tda367.Model.Listing.Listing;
 import edu.tda367.Model.Listing.ListingHandler;
-import edu.tda367.Model.Booking.Booking; //can we avoid making Booking a public class?
 import edu.tda367.Model.UserPackage.UserHandler;
 import edu.tda367.View.SceneHandler;
 import edu.tda367.View.scenes.RentingItem;
@@ -55,14 +54,14 @@ public class MyListingsController {
         }
         System.out.println(listings);
         for (Listing l : listings) {
-            listingsPane.getChildren().add(new RentingItem(new RentingItemController(sHandler), l));
+            listingsPane.getChildren().add(new RentingItem(new RentingItemController(sHandler, bHandler), l));
         }
     }
 
     private void updateBookings(FlowPane bookingsPane) {
         ArrayList<Booking> bookings = bHandler.getMyBookings();
         for (Booking b : bookings) {
-            bookingsPane.getChildren().add(new RentingItem(new RentingItemController(sHandler), b));
+            bookingsPane.getChildren().add(new RentingItem(new RentingItemController(sHandler, bHandler), b));
         }
     }
 }

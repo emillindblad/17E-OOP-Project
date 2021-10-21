@@ -2,7 +2,6 @@ package edu.tda367;
 
 import edu.tda367.Controllers.CreateAccController;
 import edu.tda367.Controllers.CreateListingController;
-import edu.tda367.Controllers.ListingSettingsController;
 import edu.tda367.Controllers.MyAccController;
 import edu.tda367.Model.Booking.BookingHandler;
 import edu.tda367.Model.Listing.ListingHandler;
@@ -12,6 +11,7 @@ import edu.tda367.View.SceneHandler;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 
 /**

@@ -31,6 +31,15 @@ public class ListingSettingsController extends ListingViewController {
             listing.setFileName(formData[4]);
             return "Success";
         }
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Ändra annons");
+        alert.setHeaderText("Ändra annons");
+        String s = "Kan inte ändra annons just nu";
+        alert.setContentText(s);
+
+        alert.showAndWait();
+
         return "Kan inte ändra när varan är bokad!";
     }
 

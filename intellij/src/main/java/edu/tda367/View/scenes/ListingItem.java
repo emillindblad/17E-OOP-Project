@@ -4,8 +4,7 @@ package edu.tda367.View.scenes;
 import edu.tda367.App;
 import edu.tda367.Controllers.BrowseController;
 import edu.tda367.Controllers.ImageHandler;
-import edu.tda367.Controllers.SceneHandler;
-import edu.tda367.View.hyroScene;
+import edu.tda367.View.HyroScene;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -28,7 +27,7 @@ public class ListingItem extends AnchorPane {
 
     private BrowseController controller;
 
-    private hyroScene scene;
+    private HyroScene scene;
 
     private final String listingId;
 

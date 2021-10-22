@@ -2,8 +2,7 @@ package edu.tda367.View.scenes;
 
 import edu.tda367.App;
 import edu.tda367.Controllers.LogInController;
-import edu.tda367.Controllers.SceneHandler;
-import edu.tda367.View.hyroScene;
+import edu.tda367.View.HyroScene;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,7 +16,7 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
-public class LogIn extends AnchorPane implements hyroScene {
+public class LogIn extends AnchorPane implements HyroScene {
     private final Scene scene;
     private final LogInController liController;
 

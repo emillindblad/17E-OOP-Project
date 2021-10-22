@@ -1,9 +1,8 @@
 package edu.tda367.Controllers;
 
-import edu.tda367.Controllers.ListingSettingsController;
 import edu.tda367.Model.Listing.Listing;
 import edu.tda367.Model.RentingItemEntry;
-import edu.tda367.View.hyroScene;
+import edu.tda367.View.HyroScene;
 import edu.tda367.View.scenes.ListingSettingsView;
 import edu.tda367.View.scenes.SingleListingView;
 import javafx.stage.Stage;
@@ -15,18 +14,18 @@ import java.util.*;
 public class SceneHandler {
     private final Stage root;
     private Scene scene;
-    private final Map<String, hyroScene> scenes = new HashMap<>();
+    private final Map<String, HyroScene> scenes = new HashMap<>();
     public SceneHandler(Stage root)
     {
         this.root = root;
     }
 
     public void switchTo(String newSceneName) {
-        hyroScene newScene = scenes.get(newSceneName.toLowerCase());
+        HyroScene newScene = scenes.get(newSceneName.toLowerCase());
         switchTo(newScene);
     }
 
-    public boolean switchTo(hyroScene newScene) {
+    public boolean switchTo(HyroScene newScene) {
         if(newScene == null) {
             return false;
         }
@@ -49,14 +48,14 @@ public class SceneHandler {
         root.show();
     }
 
-    public void switchScenes(hyroScene newScene) {
+    public void switchScenes(HyroScene newScene) {
         root.setScene(newScene.getHyroScene());
         newScene.update();
         centerOnScreen();
         root.show();
     }
 
-    public void addScene(hyroScene scene, String name) {
+    public void addScene(HyroScene scene, String name) {
         this.scenes.put(name.toLowerCase(), scene);
     }
 

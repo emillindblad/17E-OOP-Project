@@ -14,9 +14,8 @@ public class Listing implements RentingItemEntry {
     private Product product;
     private int userId;
     private int price;
-    //private Booking booking;
     private long availability;
-    private ListingState listingState;
+    private ListingState listingState = new Available();
     private String fileName;
 
     /**
@@ -37,7 +36,6 @@ public class Listing implements RentingItemEntry {
         this.userId = userId;
         this.price = price;
         this.availability = setAvailability(startDate, endDate);
-        this.listingState = ListingState.AVAILABLE; //Defaults to AVAILABLE now
         this.fileName = fileName;
     }
 
@@ -88,19 +86,6 @@ public class Listing implements RentingItemEntry {
 
     }
 
-    /**
-     * Allows a listing object to be represented as a String
-     * @return String
-     */
-    @Override
-    public String toString() {
-        return "Listing{" +
-                "product=" + product +
-                ", price=" + price +
-                ", availability=" + availability +
-                ", listingState=" + listingState +
-                '}';
-    }
 
     /**
      * Getter for ListingId
@@ -167,13 +152,7 @@ public class Listing implements RentingItemEntry {
      */
     @Override
     public String getStatusText() {
-        return switch (listingState) {
-            case BOOKING_SENT -> "Förfrågan mottagen";
-            case BOOKING_ACCEPTED -> "inväntar betalning";
-            case UNAVAILABLE -> "betalad och uthyrd";
-            case RETURNED -> "Återlämnad";
-            default -> "Tillgänglig";
-        };
+        return listingState.getStatusText();
     }
 
     /**
@@ -182,25 +161,19 @@ public class Listing implements RentingItemEntry {
      */
     @Override
     public String getButtonText() {
-        return switch (listingState) {
-            case BOOKING_SENT -> "Acceptera";
-            case RETURNED -> "Ja, jag har fått den";
-            default -> "";
-        };
+        return listingState.getButtonText();
     }
 
     /**
-     * Changes the state of a listing
+     * Advances state of Listing, according to state pattern.
      */
     @Override
     public void advanceState() {
-        switch (listingState) {
-            case BOOKING_SENT -> listingState = ListingState.BOOKING_ACCEPTED;
-            case BOOKING_ACCEPTED -> listingState = ListingState.UNAVAILABLE;
-            case UNAVAILABLE -> listingState = ListingState.RETURNED;
-            case RETURNED -> listingState = ListingState.AVAILABLE;
-            default -> listingState = ListingState.BOOKING_SENT;
-        }
+        listingState = listingState.advanceListingState();
+    }
+
+    public boolean getIsAvailable() {
+        return listingState.getIsAvailable();
     }
 
     /**
@@ -247,18 +220,11 @@ public class Listing implements RentingItemEntry {
     }
 
     /**
-     * Getter of the current listing state
-     * @return The current listing state
+     * Returns whether booking should be advancing state based on listing state
+     * @return boolean if booking should advance state
      */
-    public ListingState getListingState() {
-        return listingState;
-    }
+    public boolean getUpdateBookingState() {
+        return listingState.getAdvanceBookingState();
+	}
 
-    /**
-     * Setter for listingstate
-     * @param listingState The new listing sate
-     */
-    public void setListingState(ListingState listingState) {
-        this.listingState = listingState;
-    }
 }

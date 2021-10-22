@@ -3,7 +3,6 @@ package edu.tda367.Model.Booking;
 import edu.tda367.Model.JSON.JSONReader;
 import edu.tda367.Model.JSON.JSONWriter;
 import edu.tda367.Model.Listing.Listing;
-import edu.tda367.Model.Listing.ListingState;
 import edu.tda367.Model.UserPackage.UserHandler;
 
 import java.util.ArrayList;
@@ -45,7 +44,7 @@ public class BookingHandler implements DeleteBookingListener {
     public void createBooking(int userID, Listing listing) {
         if (userID == listing.getUserId()) {
             System.out.println("Can't book your own listing!");
-        } else if (listing.getListingState() != ListingState.AVAILABLE) {
+        } else if (!listing.getIsAvailable()) {
             System.out.println("Listing not available");
         } else {
             Booking booking = new Booking(userID, listing);
@@ -104,7 +103,7 @@ public class BookingHandler implements DeleteBookingListener {
     public void deleteCompletedBookings() {
         ArrayList<Booking> toRemove = new ArrayList<>();
         for (Booking b: bookings) {
-            if (b.getBookingState() == BookingState.REMOVEME) {
+            if (b.getIsToBeRemoved()) {
                 toRemove.add(b);
             }
         }

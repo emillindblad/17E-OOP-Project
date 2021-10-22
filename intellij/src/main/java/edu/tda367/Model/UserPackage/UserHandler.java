@@ -76,10 +76,18 @@ public final class UserHandler {
         }
     }
 
+    /**
+     * Connect a listing to the user.
+     * @param key Key connected to listing.
+     */
     public void addListingId(String key) {
         loggedInUser.addListingId(key);
     }
 
+    /**
+     * Remove from a users listing
+     * @param key Key connected to listing
+     */
     public void removeListingId(String key) {
         loggedInUser.removeListingId(key);
     }

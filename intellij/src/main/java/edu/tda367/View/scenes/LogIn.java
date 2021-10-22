@@ -1,23 +1,17 @@
 package edu.tda367.View.scenes;
 
-import edu.tda367.App;
 import edu.tda367.Controllers.LogInController;
-import edu.tda367.View.HyroScene;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
-import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
-public class LogIn extends AnchorPane implements HyroScene {
-    private final Scene scene;
+public class LogIn extends AbstractHyroScene {
     private final LogInController liController;
 
     @FXML private TextField userNameField;
@@ -27,10 +21,7 @@ public class LogIn extends AnchorPane implements HyroScene {
     @FXML private Button createAccountButton;
 
     public LogIn(LogInController controller) throws IOException {
-        FXMLLoader loader = App.loadFXML("login");
-        loader.setController(this);
-        Parent root = loader.load();
-        this.scene = new Scene(root);
+        super("login");
         liController = controller;
 
         scene.setOnKeyPressed(e -> {

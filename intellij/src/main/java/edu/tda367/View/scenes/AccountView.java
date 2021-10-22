@@ -87,6 +87,7 @@ public class AccountView extends AbstractHyroScene {
         for (TextField t: editableFields) {
             t.setStyle("-fx-border-color: transparent ;");
         }
+        info.setText("");
     }
 
     /**

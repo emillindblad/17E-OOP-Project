@@ -1,7 +1,6 @@
 package edu.tda367.Controllers;
 
 import edu.tda367.Model.Listing.Listing;
-import edu.tda367.Model.Listing.ListingState;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
@@ -26,12 +25,21 @@ public class ListingSettingsController extends ListingViewController {
      */
     @Override
     protected String updateListings(String[] formData, int userID) {
-        if (listing.getListingState() == ListingState.AVAILABLE) {
+        if (listing.getIsAvailable()) {
             listing.setDesc(formData[1]);
             listing.setPrice(Integer.parseInt(formData[2]));
             listing.setFileName(formData[4]);
             return "Success";
         }
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Ändra annons");
+        alert.setHeaderText("Ändra annons");
+        String s = "Kan inte ändra annons just nu";
+        alert.setContentText(s);
+
+        alert.showAndWait();
+
         return "Kan inte ändra när varan är bokad!";
     }
 
@@ -75,7 +83,7 @@ public class ListingSettingsController extends ListingViewController {
      */
     @Override
     public void secondAction() {
-        if (listing.getListingState() == ListingState.AVAILABLE) {
+        if (listing.getIsAvailable()) {
             showDeleteListingConfirmation();
         } else {
             showCantDeleteListinInfo();

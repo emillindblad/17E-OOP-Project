@@ -6,7 +6,7 @@ import javafx.scene.Scene;
 /**
  * Interface that all scenes implemented it includes methods that all scenes should have
  */
-public interface hyroScene {
+public interface HyroScene {
 
     /**
      * Gets the JavaFX scene from Class

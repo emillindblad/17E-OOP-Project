@@ -1,8 +1,7 @@
 package edu.tda367.View.scenes;
 
 import edu.tda367.App;
-import edu.tda367.Controllers.AbstractController;
-import edu.tda367.View.hyroScene;
+import edu.tda367.View.HyroScene;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -10,7 +9,7 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
-public abstract class AbstractHyroScene extends AnchorPane implements hyroScene {
+public abstract class AbstractHyroScene extends AnchorPane implements HyroScene {
 
      final Scene scene;
 

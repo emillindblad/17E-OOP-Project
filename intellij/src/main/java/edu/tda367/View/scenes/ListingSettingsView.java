@@ -1,8 +1,7 @@
 package edu.tda367.View.scenes;
 
-import edu.tda367.Controllers.CreateListingController;
 import edu.tda367.Controllers.ListingViewController;
-import edu.tda367.View.SceneHandler;
+import edu.tda367.Controllers.SceneHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -31,8 +30,8 @@ public class ListingSettingsView extends AbstractHyroScene {
 
     private String[] formData = new String[5];
 
-    public ListingSettingsView(SceneHandler handler, ListingViewController controller) throws IOException {
-        super(controller.getFXMLName(),handler);
+    public ListingSettingsView(ListingViewController controller) throws IOException {
+        super(controller.getFXMLName());
         this.controller = controller;
         this.categoriesDropdown.getItems().setAll(loadCategories());
     }

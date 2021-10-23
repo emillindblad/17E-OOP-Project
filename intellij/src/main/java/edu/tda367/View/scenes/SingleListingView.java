@@ -2,7 +2,7 @@ package edu.tda367.View.scenes;
 
 import edu.tda367.Controllers.ImageHandler;
 import edu.tda367.Controllers.SingleListingController;
-import edu.tda367.View.SceneHandler;
+import edu.tda367.Controllers.SceneHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -39,13 +39,18 @@ public class SingleListingView extends AbstractHyroScene {
     private Label confirmation;
 
     /**
-     * Super constructor for all scenes. Loads the FXML file and creates a scene with the loaded fxml file
-     * @param handler  sceneHandler that is in charge of switching between scenes
+     * Constructor gets information about the specific Listing and changes values accordingly
+     * @param user
+     * @param productName
      * @param price
+     * @param category
+     * @param description
      * @param listingId
+     * @param listingImage
+     * @throws IOException
      */
-    public SingleListingView(SceneHandler handler, int user, String productName, int price, String category, String description, String listingId, String listingImage) throws IOException {
-        super("SingleListingView", handler);
+    public SingleListingView(SingleListingController controller, int user, String productName, int price, String category, String description, String listingId, String listingImage) throws IOException {
+        super("SingleListingView");
         this.listingId = listingId;
         userId.setText(String.valueOf(user));
         prodName.setText(productName);
@@ -53,21 +58,13 @@ public class SingleListingView extends AbstractHyroScene {
         this.category.setText(category);
         this.description.setText(description);
         this.listingImage.setImage(ImageHandler.getInstance().getImage(listingImage));
-        singleListingController = new SingleListingController(handler);
+        singleListingController = controller;
         rentButton.setVisible(!singleListingController.isMyListing(user));
     }
 
-    public SingleListingView(SceneHandler handler, int user, String productName, int price, String category, String description, String listingId) throws IOException {
-        super("SingleListingView", handler);
-        this.listingId = listingId;
-        userId.setText(Integer.toString(user));
-        prodName.setText(productName);
-        this.price.setText(price + " Kr");
-        this.category.setText(category);
-        this.description.setText(description);
-        singleListingController = new SingleListingController(handler);
-    }
-
+    /**
+     * Activates renting process and displays confirmation
+     */
     @FXML
     public void rentListing()
     {
@@ -76,9 +73,12 @@ public class SingleListingView extends AbstractHyroScene {
         confirmation.setVisible(true);
     }
 
+    /**
+     * Goes back to main view
+     */
     @FXML
     public void goBack(){
-        handler.switchTo("browse");
+        singleListingController.switchTo("browse");
     }
     @Override
     public void update() {

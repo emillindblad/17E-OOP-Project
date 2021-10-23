@@ -1,7 +1,7 @@
 package edu.tda367.View.scenes;
 
 import edu.tda367.Controllers.BrowseController;
-import edu.tda367.View.SceneHandler;
+import edu.tda367.Controllers.SceneHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -27,12 +27,11 @@ public class BrowseListings extends AbstractHyroScene {
 
     /**
      * Constructs the BrowseListings Scene
-     * @param handler sends the sceneHandler to super
      * lastly it runs updateList to make sure all content is up to date when scene is created.
      */
-    public BrowseListings(SceneHandler handler) throws IOException {
-        super("browse", handler);
-        browseController = new BrowseController(handler);
+    public BrowseListings(BrowseController controller) throws IOException {
+        super("browse");
+        this.browseController = controller;
         searchField.setOnKeyPressed( event -> {
             if( event.getCode() == KeyCode.ENTER ) {
                 search();
@@ -59,24 +58,24 @@ public class BrowseListings extends AbstractHyroScene {
 
         if ((result.isPresent()) && (result.get() == ButtonType.OK)) {
             browseController.logOut();
-            handler.switchTo("LogIn");
+            browseController.switchTo("LogIn");
         }
     }
 
 
     @FXML
     private void switchToCreate() {
-        handler.switchTo("createlisting");
+        browseController.switchTo("createlisting");
     }
 
     @FXML
     private void switchToUserSettings() {
-        handler.switchTo("myaccount");
+        browseController.switchTo("myaccount");
     }
 
     @FXML
     private void goToListings() {
-        handler.switchTo("rentingpage");
+        browseController.switchTo("rentingpage");
     }
 
 
@@ -113,7 +112,7 @@ public class BrowseListings extends AbstractHyroScene {
         listProducts.getChildren().clear();
         for(String key: availableListingKeys) {
             String[] listingData = browseController.getListingData(key);
-            listProducts.add(new ListingItem(this.handler, listingData), index0,index1 );
+            listProducts.add(new ListingItem(listingData, browseController), index0,index1 );
             index0++;
             if( index0 == 2){
                 index1++;

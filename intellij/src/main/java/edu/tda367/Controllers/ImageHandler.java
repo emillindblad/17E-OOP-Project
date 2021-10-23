@@ -3,7 +3,6 @@ package edu.tda367.Controllers;
 import javafx.scene.image.Image;
 
 import java.io.File;
-import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 

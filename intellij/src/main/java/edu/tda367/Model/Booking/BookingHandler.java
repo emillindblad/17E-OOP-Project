@@ -3,8 +3,6 @@ package edu.tda367.Model.Booking;
 import edu.tda367.Model.JSON.JSONReader;
 import edu.tda367.Model.JSON.JSONWriter;
 import edu.tda367.Model.Listing.Listing;
-import edu.tda367.Model.Listing.ListingState;
-import edu.tda367.Model.UserPackage.User;
 import edu.tda367.Model.UserPackage.UserHandler;
 
 import java.util.ArrayList;
@@ -13,6 +11,7 @@ import java.util.List;
 /**
  * BookingHandler is a handler for interacting with Bookings and their state
  * @author Erik Larsson
+ * @author Eimer Ahlstedt
  */
 public class BookingHandler implements DeleteBookingListener {
     private static BookingHandler instance;
@@ -39,17 +38,16 @@ public class BookingHandler implements DeleteBookingListener {
 
     /**
      * Creates a Booking with supplied parameters and adds it to Booking list
-     * @param customer The User who wants to rent a product
      * @param userID The ID of the User who wants to rent a product
      * @param listing The Listing of the product that the User wants to rent
      */
-    public void createBooking(User customer, int userID, Listing listing) {
+    public void createBooking(int userID, Listing listing) {
         if (userID == listing.getUserId()) {
             System.out.println("Can't book your own listing!");
-        } else if (listing.getListingState() != ListingState.AVAILABLE) {
+        } else if (!listing.getIsAvailable()) {
             System.out.println("Listing not available");
         } else {
-            Booking booking = new Booking(customer, listing);
+            Booking booking = new Booking(userID, listing);
             bookings.add(booking);
         }
     }
@@ -62,7 +60,7 @@ public class BookingHandler implements DeleteBookingListener {
         ArrayList<Booking> myBookings = new ArrayList<>();
         uHandler = UserHandler.getInstance();
         for (Booking booking : bookings) {
-            if (booking.getUser().getUserID() == uHandler.getUserID()) {
+            if (booking.getUserID() == uHandler.getUserID()) {
                 myBookings.add(booking);
             }
         }
@@ -97,11 +95,15 @@ public class BookingHandler implements DeleteBookingListener {
         writer.write(bookings, "bookings");
     }
 
+    /**
+     * Deletes all bookings that are in the REMOVEME state
+     * @author Eimer Ahlstedt
+     */
     @Override
     public void deleteCompletedBookings() {
         ArrayList<Booking> toRemove = new ArrayList<>();
         for (Booking b: bookings) {
-            if (b.getBookingState() == BookingState.REMOVEME) {
+            if (b.getIsToBeRemoved()) {
                 toRemove.add(b);
             }
         }

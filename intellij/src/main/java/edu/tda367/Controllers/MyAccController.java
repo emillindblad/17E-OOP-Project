@@ -1,13 +1,12 @@
 package edu.tda367.Controllers;
 
 import edu.tda367.Model.UserPackage.UserHandler;
-import edu.tda367.View.SceneHandler;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.util.ArrayList;
 
-public class MyAccController extends AccountViewController{
+public class MyAccController extends AccountViewController {
 
     private final UserHandler uHandler = UserHandler.getInstance();
 

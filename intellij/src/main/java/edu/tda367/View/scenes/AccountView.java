@@ -1,15 +1,13 @@
 package edu.tda367.View.scenes;
 
 import edu.tda367.Controllers.AccountViewController;
-import edu.tda367.Model.UserPackage.User;
-import edu.tda367.Model.UserPackage.UserHandler;
-import edu.tda367.View.SceneHandler;
+import edu.tda367.Controllers.SceneHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 
 import java.io.IOException;
@@ -42,8 +40,8 @@ public class AccountView extends AbstractHyroScene {
      * @param controller The type of AccountViewController determines if view will be for creating accounts or adjusting account settings
      * @throws IOException
      */
-    public AccountView(SceneHandler handler, AccountViewController controller) throws IOException {
-        super(controller.getFXMLname(), handler);
+    public AccountView(AccountViewController controller) throws IOException {
+        super(controller.getFXMLname());
         this.controller = controller;
         editableFields = new ArrayList<>();
         populateFieldList();
@@ -89,6 +87,7 @@ public class AccountView extends AbstractHyroScene {
         for (TextField t: editableFields) {
             t.setStyle("-fx-border-color: transparent ;");
         }
+        info.setText("");
     }
 
     /**

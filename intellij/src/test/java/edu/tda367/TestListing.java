@@ -89,7 +89,7 @@ public class TestListing {
     public void testGetAvailableListingIds() {
         ArrayList<String> availableListingKeys = handler.getAvailableListingKeys();
         for (String key : availableListingKeys) {
-            assertTrue(handler.getListingFromKey(key).getListingState().equals(ListingState.AVAILABLE));
+            assertTrue(handler.getListingFromKey(key).getIsAvailable());
         }
     }
 
@@ -145,12 +145,6 @@ public class TestListing {
         assertTrue(listing.getButtonText().equals(""));
         assertTrue(listing.getClickable());
         assertTrue(listing.getListing().equals(listing));
-        assertTrue(listing.toString().equals("Listing{" +
-                "product=" + listing.getProduct() +
-                ", price=" + listing.getPrice() +
-                ", availability=" + listing.getAvailability() +
-                ", listingState=" + listing.getListingState() +
-                '}'));
     }
 
 

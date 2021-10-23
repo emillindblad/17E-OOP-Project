@@ -42,8 +42,8 @@ public class ListingSorter {
             sequencesToTest = getSearchableStrings(entry.getValue());//add different strings together to compare
             similiarity = findBestMatch(sequencesToTest, searchWord);
             System.out.println(similiarity);
-            similiarity+= ((double) i/10000); //if two objects are of equal similiarities we need some way of separating them
-            map.put(similiarity, entry.getKey()); //stores the similarity of lsitings/searches with their keys
+            similiarity+= ((double) i/10000); //if two objects are of equal similiarities this separates them
+            map.put(similiarity, entry.getKey()); //stores the similarity of listings/searches with their keys
             i++;
         }
         return map;

@@ -1,5 +1,23 @@
 [
   {
+    "firstName": "b",
+    "lastName": "b",
+    "phoneNumber": "1235468",
+    "userAdress": {
+      "streetName": "b",
+      "city": "b",
+      "zipCode": "12345",
+      "country": "b"
+    },
+    "userID": 158071,
+    "userName": "k",
+    "password": "k",
+    "bankAccount": "2198",
+    "listings": [
+      "158071-edsfJ2H9pnhU"
+    ]
+  },
+  {
     "firstName": "e",
     "lastName": "e",
     "phoneNumber": "1",
@@ -34,7 +52,7 @@
     "listings": [
       "187324-pBhyEukORVQB",
       "187324-dw4IS1egvI7j",
-      "187324-V7Fxc7m0FFp2"
+      "187324-K56IvvgNGSRJ"
     ]
   }
 ]

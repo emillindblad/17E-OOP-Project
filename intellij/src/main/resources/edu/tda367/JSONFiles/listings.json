@@ -11,8 +11,23 @@
     "userId": 187324,
     "price": 4,
     "availability": 25,
-    "listingState": "BOOKING_SENT",
+    "listingState": "BOOKING_ACCEPTED",
     "fileName": "No image supplied"
+  },
+  {
+    "listingId": "187324-K56IvvgNGSRJ",
+    "product": {
+      "prodName": "hej",
+      "prodCategory": {
+        "categoryName": "Maskiner"
+      },
+      "prodDesc": "jhgf"
+    },
+    "userId": 187324,
+    "price": 98,
+    "availability": 25,
+    "listingState": "AVAILABLE",
+    "fileName": "Grupp1-6.JPG"
   },
   {
     "listingId": "187324-pBhyEukORVQB",
@@ -30,16 +45,16 @@
     "fileName": "No image supplied"
   },
   {
-    "listingId": "187324-V7Fxc7m0FFp2",
+    "listingId": "158071-edsfJ2H9pnhU",
     "product": {
-      "prodName": "uuu",
+      "prodName": "k",
       "prodCategory": {
-        "categoryName": "Fritidsutrustning"
+        "categoryName": "Bilar"
       },
-      "prodDesc": "jhj"
+      "prodDesc": "test"
     },
-    "userId": 187324,
-    "price": 5,
+    "userId": 158071,
+    "price": 1,
     "availability": 25,
     "listingState": "AVAILABLE",
     "fileName": "No image supplied"
@@ -56,7 +71,7 @@
     "userId": 125595,
     "price": 12,
     "availability": 25,
-    "listingState": "AVAILABLE",
+    "listingState": "BOOKING_SENT",
     "fileName": "1 ETlpX2scicqyaLBFPRB-8w.jpeg"
   }
 ]

@@ -102,5 +102,41 @@
       "listingState": "BOOKING_SENT",
       "fileName": ""
     }
+  },
+  {
+    "bookingState": "PENDING",
+    "customer": {
+      "firstName": "b",
+      "lastName": "b",
+      "phoneNumber": "1235468",
+      "userAdress": {
+        "streetName": "b",
+        "city": "b",
+        "zipCode": "12345",
+        "country": "b"
+      },
+      "userID": 158071,
+      "userName": "k",
+      "password": "k",
+      "bankAccount": "2198",
+      "listings": [
+        "158071-edsfJ2H9pnhU"
+      ]
+    },
+    "listing": {
+      "listingId": "125595-pUTe1PioLs2O",
+      "product": {
+        "prodName": "as",
+        "prodCategory": {
+          "categoryName": "Båtar"
+        },
+        "prodDesc": "a"
+      },
+      "userId": 125595,
+      "price": 12,
+      "availability": 25,
+      "listingState": "BOOKING_SENT",
+      "fileName": "1 ETlpX2scicqyaLBFPRB-8w.jpeg"
+    }
   }
 ]

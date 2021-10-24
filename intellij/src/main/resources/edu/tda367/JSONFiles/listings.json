@@ -13,5 +13,65 @@
     "availability": 25,
     "listingState": "AVAILABLE",
     "fileName": "No image supplied"
+  },
+  {
+    "listingId": "170700-YJA7zQVuoDFE",
+    "product": {
+      "prodName": "Partytält",
+      "prodCategory": {
+        "categoryName": "Övrigt"
+      },
+      "prodDesc": "Ett partytält i gott skick"
+    },
+    "userId": 170700,
+    "price": 700,
+    "availability": 25,
+    "listingState": "AVALIABLE",
+    "fileName": "partytalt.jpg"
+  },
+  {
+    "listingId": "170700-N1WWKmQ9Nwgz",
+    "product": {
+      "prodName": "Motorsåg ",
+      "prodCategory": {
+        "categoryName": "Maskiner"
+      },
+      "prodDesc": "Såg i gott skick, funkar till det mesta"
+    },
+    "userId": 170700,
+    "price": 200,
+    "availability": 25,
+    "listingState": "AVALIABLE",
+    "fileName": "motorsåg.jpg"
+  },
+  {
+    "listingId": "170700-W5Y1mFcg8pqJ",
+    "product": {
+      "prodName": "Volvo V70 från -94",
+      "prodCategory": {
+        "categoryName": "Bilar"
+      },
+      "prodDesc": "Gammal volvo men den rullar som den ska"
+    },
+    "userId": 170700,
+    "price": 1090,
+    "availability": 25,
+    "listingState": "AVALIABLE",
+    "fileName": "bil.jpg"
+  },
+  {
+    "listingId": "170700-e2sx9sFompEa",
+    "product": {
+      "prodName": "Motorbåt",
+      "prodCategory": {
+        "categoryName": "Båtar"
+      },
+      "prodDesc": "Båt byggd helt i trä, plats för 4a personer"
+    },
+    "userId": 170700,
+    "price": 500,
+    "availability": 25,
+    "listingState": "AVALIABLE",
+    "fileName": "båt.jpg"
   }
 ]

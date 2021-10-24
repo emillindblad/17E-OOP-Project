@@ -98,7 +98,7 @@ public class TestListing {
         String[] data = {"Test Name","Test Desc","69","Övrigt","DummyImgPath"};
         Listing listing = handler.createListing(data,dummyId);
         String[] getData = handler.getListingData(listing.getListingId());
-        assertTrue(Arrays.equals(getData,new String[] {listing.getListingId(),"Test Name","Övrigt","Test Desc","69","AVAILABLE","DummyImgPath"}));
+        assertTrue(Arrays.equals(getData,new String[] {listing.getListingId(),"Test Name","Övrigt","Test Desc","69","AVALIABLE","DummyImgPath"}));
     }
 
     @Test

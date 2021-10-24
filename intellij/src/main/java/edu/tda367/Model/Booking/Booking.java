@@ -1,6 +1,6 @@
 package edu.tda367.Model.Booking;
 
-import edu.tda367.Model.Listing.Listing;
+import edu.tda367.Model.Listing.*;
 import edu.tda367.Model.RentingItemEntry;
 
 /**
@@ -10,14 +10,14 @@ import edu.tda367.Model.RentingItemEntry;
  */
 public class Booking implements RentingItemEntry {
 
-    private BookingState bookingState = new Pending();
+    private String bookingState = "PENDING";
     private final int userID;
-    private final Listing listing;
+    private final String listingID;
 
-    Booking(int userID, Listing listing) {
+    Booking(int userID, String listingID) {
         this.userID = userID;
-        this.listing = listing;
-        listing.advanceState();
+        this.listingID = listingID;
+        getListing().advanceState();
     }
 
     /**
@@ -25,7 +25,7 @@ public class Booking implements RentingItemEntry {
      * @return bookingState
      */
     public boolean getIsToBeRemoved() {
-        return bookingState.getIsToBeRemoved();
+        return evalState().getIsToBeRemoved();
     }
 
     /**
@@ -33,10 +33,12 @@ public class Booking implements RentingItemEntry {
      */
     @Override
     public void advanceState() {
-        if (bookingState.getAdvanceListingState()) {
-            listing.advanceState();
+        if (evalState().getAdvanceListingState()) {
+            getListing().advanceState();
         }
-        bookingState = bookingState.advanceBookingState();
+        BookingState state = evalState().advanceBookingState();
+        System.out.println("Advance BookingState: "+state.toString());
+        bookingState = state.toString();
     }
 
     @Override
@@ -46,17 +48,17 @@ public class Booking implements RentingItemEntry {
 
     @Override
     public String getProductName() {
-        return listing.getProduct().getProdName();
+        return getListing().getProduct().getProdName();
     }
 
     @Override
     public int getPrice() {
-        return listing.getPrice();
+        return getListing().getPrice();
     }
 
     @Override
     public String getCategoryName() {
-        return listing.getListingCategory().getCategoryName();
+        return getListing().getListingCategory().getCategoryName();
     }
 
     /**
@@ -67,7 +69,7 @@ public class Booking implements RentingItemEntry {
     @Override
     public String getStatusText() {
         updateStateFromListing();
-        return bookingState.getStatusText();
+        return evalState().getStatusText();
     }
 
     /**
@@ -76,18 +78,18 @@ public class Booking implements RentingItemEntry {
      */
     @Override
     public String getButtonText() {
-        return bookingState.getButtonText();
+        return evalState().getButtonText();
     }
 
     private void updateStateFromListing() {
-        if (listing.getUpdateBookingState()) {
+        if (getListing().getUpdateBookingState()) {
             advanceState();
         }
     }
 
     @Override
     public String getImageName() {
-        return listing.getImageName();
+        return getListing().getImageName();
     }
 
     /**
@@ -96,7 +98,7 @@ public class Booking implements RentingItemEntry {
      */
     @Override
     public Listing getListing() {
-        return listing;
+        return ListingHandler.getInstance().getListingFromKey(listingID);
     }
 
     /**
@@ -105,6 +107,30 @@ public class Booking implements RentingItemEntry {
      */
     public int getUserID() {
         return userID;
+    }
+
+    private BookingState evalState() {
+        BookingState state;
+        switch (bookingState) {
+            case "ACCEPTED":
+                state = new Accepted();
+                break;
+            case "PAYED":
+                state = new Payed();
+                break;
+            case "RETURNED":
+                state = new Returned();
+                break;
+            case "DONE":
+                state = new Done();
+                break;
+            case "REMOVEME":
+                state = new RemoveMe();
+                break;
+            default:
+                state = new Pending();
+        }
+        return state;
     }
 
 }

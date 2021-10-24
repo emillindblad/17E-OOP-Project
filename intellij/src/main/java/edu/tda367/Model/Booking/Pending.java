@@ -1,6 +1,6 @@
 package edu.tda367.Model.Booking;
 
-class Pending extends BookingState {
+class Pending implements BookingState {
     @Override
     public String getStatusText() {
         return "Förfrågan skickad";
@@ -25,4 +25,7 @@ class Pending extends BookingState {
     public boolean getAdvanceListingState() {
         return false;
     }
+
+    @Override
+    public String toString() { return "PENDING"; }
 }

@@ -1,62 +1,17 @@
 [
   {
-    "listingId": "170700-g1R4ilXyXdiy",
+    "listingId": "170700-i4gWOejJGed3",
     "product": {
-      "prodName": "Motorbåt i trä",
-      "prodCategory": {
-        "categoryName": "Båtar"
-      },
-      "prodDesc": "Motorbåt från -88, helt byggd i trä. Finns plats för 4 personer"
-    },
-    "userId": 170700,
-    "price": 800,
-    "availability": 25,
-    "listingState": {},
-    "fileName": "båt.jpg"
-  },
-  {
-    "listingId": "170700-u1hrEG9P0L3P",
-    "product": {
-      "prodName": "Motorsåg ",
-      "prodCategory": {
-        "categoryName": "Maskiner"
-      },
-      "prodDesc": "Ny-servad motorsåg, kan såga allt"
-    },
-    "userId": 170700,
-    "price": 200,
-    "availability": 25,
-    "listingState": {},
-    "fileName": "motorsåg.jpg"
-  },
-  {
-    "listingId": "170700-DfjhcyBYaUfu",
-    "product": {
-      "prodName": "Volvo från V70 -94",
+      "prodName": "e",
       "prodCategory": {
         "categoryName": "Bilar"
       },
-      "prodDesc": "En gammal bil som rullar som den ska"
+      "prodDesc": "e"
     },
     "userId": 170700,
-    "price": 449,
+    "price": 1,
     "availability": 25,
-    "listingState": {},
-    "fileName": "bil.jpg"
-  },
-  {
-    "listingId": "170700-oSnI2nTNu7bW",
-    "product": {
-      "prodName": "Partytält",
-      "prodCategory": {
-        "categoryName": "Övrigt"
-      },
-      "prodDesc": "Perfekt till födelsedagsfesten och andra tillställningar"
-    },
-    "userId": 170700,
-    "price": 500,
-    "availability": 25,
-    "listingState": {},
-    "fileName": "partytalt.jpg"
+    "listingState": "AVAILABLE",
+    "fileName": "No image supplied"
   }
 ]

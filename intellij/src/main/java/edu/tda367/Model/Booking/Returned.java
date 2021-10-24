@@ -25,4 +25,7 @@ class Returned implements BookingState {
     public boolean getAdvanceListingState() {
         return false;
     }
+
+    @Override
+    public String toString() { return "RETURNED"; }
 }

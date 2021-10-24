@@ -25,4 +25,7 @@ class Payed implements BookingState {
     public boolean getAdvanceListingState() {
         return true;
     }
+
+    @Override
+    public String toString() { return "PAYED"; }
 }

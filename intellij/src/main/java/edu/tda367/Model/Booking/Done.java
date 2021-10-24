@@ -25,4 +25,7 @@ class Done implements BookingState {
     public boolean getAdvanceListingState() {
         return false;
     }
+
+    @Override
+    public String toString() { return "DONE"; }
 }

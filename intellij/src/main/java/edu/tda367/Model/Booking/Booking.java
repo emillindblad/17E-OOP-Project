@@ -10,7 +10,7 @@ import edu.tda367.Model.RentingItemEntry;
  */
 public class Booking implements RentingItemEntry {
 
-    private String bookingState = "Pending";
+    private String bookingState = "PENDING";
     private final int userID;
     private final Listing listing;
 
@@ -112,19 +112,19 @@ public class Booking implements RentingItemEntry {
     private BookingState evalState() {
         BookingState state;
         switch (bookingState) {
-            case "Accepted":
+            case "ACCEPTED":
                 state = new Accepted();
                 break;
-            case "Payed":
+            case "PAYED":
                 state = new Payed();
                 break;
-            case "Returned":
+            case "RETURNED":
                 state = new Returned();
                 break;
-            case "Done":
+            case "DONE":
                 state = new Done();
                 break;
-            case "RemoveMe":
+            case "REMOVEME":
                 state = new RemoveMe();
                 break;
             default:

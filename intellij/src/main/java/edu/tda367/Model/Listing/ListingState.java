@@ -1,11 +1,7 @@
 package edu.tda367.Model.Listing;
 
 /**
- * "INTERFACE" for states of Listing
- * #######################################################################################################
- * #                                THIS SHOULD BE AN INTERFACE                                          #
- * #        IT WAS MADE A CONCRETE CLASS DUE TO GSON BEING THE WAY IT IS AND TIME CONSTRAINTS            #
- * #######################################################################################################
+ * Interface for states of Listing
  */
 interface ListingState {
     /**

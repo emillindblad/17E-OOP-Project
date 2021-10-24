@@ -15,7 +15,7 @@ public class Listing implements RentingItemEntry {
     private int userId;
     private int price;
     private long availability;
-    private ListingState listingState = new Available();
+    private String listingState = "AVALIABLE";
     private String fileName;
 
     /**
@@ -152,7 +152,7 @@ public class Listing implements RentingItemEntry {
      */
     @Override
     public String getStatusText() {
-        return listingState.getStatusText();
+        return evalState().getStatusText();
     }
 
     /**
@@ -161,7 +161,7 @@ public class Listing implements RentingItemEntry {
      */
     @Override
     public String getButtonText() {
-        return listingState.getButtonText();
+        return evalState().getButtonText();
     }
 
     /**
@@ -169,11 +169,12 @@ public class Listing implements RentingItemEntry {
      */
     @Override
     public void advanceState() {
-        listingState = listingState.advanceListingState();
+        ListingState state = evalState().advanceListingState();
+        listingState = state.toString();
     }
 
     public boolean getIsAvailable() {
-        return listingState.getIsAvailable();
+        return evalState().getIsAvailable();
     }
 
     /**
@@ -224,7 +225,28 @@ public class Listing implements RentingItemEntry {
      * @return boolean if booking should advance state
      */
     public boolean getUpdateBookingState() {
-        return listingState.getAdvanceBookingState();
+        return evalState().getAdvanceBookingState();
 	}
+
+    private ListingState evalState() {
+        ListingState state;
+        switch (listingState) {
+            case "BOOKING_SENT":
+                state = new BookingSent();
+                break;
+            case "BOOKING_ACCEPTED":
+                state = new BookingAccepted();
+                break;
+            case "RETURNED":
+                state = new Returned();
+                break;
+            case "UNAVAILABLE":
+                state = new Unavailable();
+                break;
+            default:
+                state = new Available();
+        }
+        return state;
+    }
 
 }

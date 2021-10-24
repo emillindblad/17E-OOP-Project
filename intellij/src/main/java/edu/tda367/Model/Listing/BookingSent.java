@@ -1,6 +1,6 @@
 package edu.tda367.Model.Listing;
 
-class BookingSent extends ListingState {
+class BookingSent implements ListingState {
     @Override
     public String getStatusText() {
         return "Förfrågan mottagen";

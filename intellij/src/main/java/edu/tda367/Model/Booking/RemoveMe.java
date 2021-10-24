@@ -1,6 +1,6 @@
 package edu.tda367.Model.Booking;
 
-class RemoveMe extends BookingState {
+class RemoveMe implements BookingState {
     @Override
     public String getStatusText() {
         return "Borttagen!";

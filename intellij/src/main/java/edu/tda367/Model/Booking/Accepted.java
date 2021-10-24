@@ -1,6 +1,6 @@
 package edu.tda367.Model.Booking;
 
-class Accepted extends BookingState {
+class Accepted implements BookingState {
     @Override
     public String getStatusText() {
         return "Förfrågan godkänd";

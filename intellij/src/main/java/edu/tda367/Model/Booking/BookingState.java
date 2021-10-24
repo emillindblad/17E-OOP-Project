@@ -1,11 +1,7 @@
 package edu.tda367.Model.Booking;
 
 /**
- * "INTERFACE" for states of booking
- * #######################################################################################################
- * #                                THIS SHOULD BE AN INTERFACE                                          #
- * #        IT WAS MADE A CONCRETE CLASS DUE TO GSON BEING THE WAY IT IS AND TIME CONSTRAINTS            #
- * #######################################################################################################
+ * Interface for states of booking
  */
 interface BookingState {
     /**

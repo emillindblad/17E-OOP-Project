@@ -171,6 +171,7 @@ public class Listing implements RentingItemEntry {
     public void advanceState() {
         ListingState state = evalState().advanceListingState();
         listingState = state.toString();
+        System.out.println("Advancing ListingState" + state);
     }
 
     public boolean getIsAvailable() {

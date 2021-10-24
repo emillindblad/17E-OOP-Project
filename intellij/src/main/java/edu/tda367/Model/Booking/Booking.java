@@ -37,7 +37,7 @@ public class Booking implements RentingItemEntry {
             listing.advanceState();
         }
         BookingState state = evalState().advanceBookingState();
-        System.out.println(state.toString());
+        System.out.println("Advance BookingState: "+state.toString());
         bookingState = state.toString();
     }
 

@@ -1,6 +1,6 @@
 package edu.tda367.Model.Booking;
 
-import edu.tda367.Model.Listing.Listing;
+import edu.tda367.Model.Listing.*;
 import edu.tda367.Model.RentingItemEntry;
 
 /**
@@ -10,7 +10,7 @@ import edu.tda367.Model.RentingItemEntry;
  */
 public class Booking implements RentingItemEntry {
 
-    private BookingState bookingState = new Pending();
+    private String bookingState = "Pending";
     private final int userID;
     private final Listing listing;
 
@@ -25,7 +25,7 @@ public class Booking implements RentingItemEntry {
      * @return bookingState
      */
     public boolean getIsToBeRemoved() {
-        return bookingState.getIsToBeRemoved();
+        return evalState().getIsToBeRemoved();
     }
 
     /**
@@ -33,10 +33,12 @@ public class Booking implements RentingItemEntry {
      */
     @Override
     public void advanceState() {
-        if (bookingState.getAdvanceListingState()) {
+        if (evalState().getAdvanceListingState()) {
             listing.advanceState();
         }
-        bookingState = bookingState.advanceBookingState();
+        BookingState state = evalState().advanceBookingState();
+        System.out.println(state.toString());
+        bookingState = state.toString();
     }
 
     @Override
@@ -67,7 +69,7 @@ public class Booking implements RentingItemEntry {
     @Override
     public String getStatusText() {
         updateStateFromListing();
-        return bookingState.getStatusText();
+        return evalState().getStatusText();
     }
 
     /**
@@ -76,7 +78,7 @@ public class Booking implements RentingItemEntry {
      */
     @Override
     public String getButtonText() {
-        return bookingState.getButtonText();
+        return evalState().getButtonText();
     }
 
     private void updateStateFromListing() {
@@ -105,6 +107,30 @@ public class Booking implements RentingItemEntry {
      */
     public int getUserID() {
         return userID;
+    }
+
+    private BookingState evalState() {
+        BookingState state;
+        switch (bookingState) {
+            case "Accepted":
+                state = new Accepted();
+                break;
+            case "Payed":
+                state = new Payed();
+                break;
+            case "Returned":
+                state = new Returned();
+                break;
+            case "Done":
+                state = new Done();
+                break;
+            case "RemoveMe":
+                state = new RemoveMe();
+                break;
+            default:
+                state = new Pending();
+        }
+        return state;
     }
 
 }

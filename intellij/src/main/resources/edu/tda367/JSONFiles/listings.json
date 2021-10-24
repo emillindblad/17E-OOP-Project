@@ -1,6 +1,6 @@
 [
   {
-    "listingId": "170700-L5nFPGSjkECx",
+    "listingId": "170700-i4gWOejJGed3",
     "product": {
       "prodName": "e",
       "prodCategory": {
@@ -11,7 +11,7 @@
     "userId": 170700,
     "price": 1,
     "availability": 25,
-    "listingState": {},
+    "listingState": "AVAILABLE",
     "fileName": "No image supplied"
   }
 ]

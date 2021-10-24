@@ -47,7 +47,7 @@ public class BookingHandler implements DeleteBookingListener {
         } else if (!listing.getIsAvailable()) {
             System.out.println("Listing not available");
         } else {
-            Booking booking = new Booking(userID, listing);
+            Booking booking = new Booking(userID, listing.getListingId());
             bookings.add(booking);
         }
     }

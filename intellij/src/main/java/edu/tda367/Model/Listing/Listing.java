@@ -15,7 +15,7 @@ public class Listing implements RentingItemEntry {
     private int userId;
     private int price;
     private long availability;
-    private ListingState listingState = new Available();
+    private ListingState listingState;
     private String fileName;
 
     /**
@@ -37,6 +37,7 @@ public class Listing implements RentingItemEntry {
         this.price = price;
         this.availability = setAvailability(startDate, endDate);
         this.fileName = fileName;
+        this.listingState = ListingState.AVAILABLE;
     }
 
     /**
@@ -58,14 +59,6 @@ public class Listing implements RentingItemEntry {
     //Currently calculates the time between two dates. Was supposed to be used for booking during a span of dates and need to check when a Listing was available
     private long setAvailability(LocalDateTime startDate, LocalDateTime endDate) {
         availability = ChronoUnit.HOURS.between(startDate,endDate);
-        return availability;
-    }
-
-    /**
-     * Getter for availability
-     * @return The current availability for the listing.
-     */
-    public long getAvailability() {
         return availability;
     }
 
@@ -152,7 +145,13 @@ public class Listing implements RentingItemEntry {
      */
     @Override
     public String getStatusText() {
-        return listingState.getStatusText();
+        return switch (listingState) {
+            case BOOKING_SENT -> "Förfrågan mottagen";
+            case BOOKING_ACCEPTED -> "inväntar betalning";
+            case UNAVAILABLE -> "betalad och uthyrd";
+            case RETURNED -> "Återlämnad";
+            default -> "Tillgänglig";
+        };
     }
 
     /**
@@ -161,7 +160,11 @@ public class Listing implements RentingItemEntry {
      */
     @Override
     public String getButtonText() {
-        return listingState.getButtonText();
+        return switch (listingState) {
+            case BOOKING_SENT -> "Acceptera";
+            case RETURNED -> "Ja, jag har fått den";
+            default -> "";
+        };
     }
 
     /**
@@ -169,11 +172,17 @@ public class Listing implements RentingItemEntry {
      */
     @Override
     public void advanceState() {
-        listingState = listingState.advanceListingState();
+        switch (listingState) {
+            case BOOKING_SENT -> listingState = ListingState.BOOKING_ACCEPTED;
+            case BOOKING_ACCEPTED -> listingState = ListingState.UNAVAILABLE;
+            case UNAVAILABLE -> listingState = ListingState.RETURNED;
+            case RETURNED -> listingState = ListingState.AVAILABLE;
+            default -> listingState = ListingState.BOOKING_SENT;
+        }
     }
 
     public boolean getIsAvailable() {
-        return listingState.getIsAvailable();
+        return listingState == ListingState.AVAILABLE;
     }
 
     /**
@@ -224,7 +233,7 @@ public class Listing implements RentingItemEntry {
      * @return boolean if booking should advance state
      */
     public boolean getUpdateBookingState() {
-        return listingState.getAdvanceBookingState();
+        return listingState == ListingState.BOOKING_ACCEPTED || listingState == ListingState.AVAILABLE;
 	}
 
 }

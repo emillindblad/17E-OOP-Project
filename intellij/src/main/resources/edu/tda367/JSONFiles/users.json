@@ -1,5 +1,23 @@
 [
   {
+    "firstName": "e",
+    "lastName": "e",
+    "phoneNumber": "1",
+    "userAdress": {
+      "streetName": "e",
+      "city": "e",
+      "zipCode": "12345",
+      "country": "e"
+    },
+    "userID": 167063,
+    "userName": "e",
+    "password": "e",
+    "bankAccount": "1",
+    "listings": [
+      "167063-8BK7oyTqTXxH"
+    ]
+  },
+  {
     "firstName": "test",
     "lastName": "test",
     "phoneNumber": "076368974",
@@ -13,11 +31,6 @@
     "userName": "test",
     "password": "test",
     "bankAccount": "123654789",
-    "listings": [
-      "170700-DfjhcyBYaUfu",
-      "170700-g1R4ilXyXdiy",
-      "170700-oSnI2nTNu7bW",
-      "170700-u1hrEG9P0L3P"
-    ]
+    "listings": []
   }
 ]

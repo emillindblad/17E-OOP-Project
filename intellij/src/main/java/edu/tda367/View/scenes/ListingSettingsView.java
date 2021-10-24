@@ -86,6 +86,8 @@ public class ListingSettingsView extends AbstractHyroScene {
     public void update() {
         controller.update(productName, productDesc, prodPrice, categoriesDropdown);
         this.errorMsg.setText("");
+        this.selectedFile = null;
+        this.selectedFileName.setText("");
         Arrays.fill(this.formData,"");
     }
 }
